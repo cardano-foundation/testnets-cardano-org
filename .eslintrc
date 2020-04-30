@@ -1,0 +1,23 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "plugins": ["react"],
+  "extends": ["standard", "standard-react"],
+  "globals": {
+    "WebSocket": true,
+    "requestAnimationFrame": true,
+    "cancelAnimationFrame": true,
+    "Image": true,
+    "fetch": true
+  },
+  "rules": {
+    "array-bracket-spacing": [ "error", "always" ],
+    "react/jsx-fragments": [ "error", "element" ],
+    "quotes": [ "error", "single", { "allowTemplateLiterals": true } ],
+    "react/jsx-curly-newline": [ "off" ],
+    "react/jsx-tag-spacing": [ "error", { "closingSlash": "never", "beforeSelfClosing": "always", "afterOpening": "never", "beforeClosing": "never" } ],
+    "react/jsx-curly-brace-presence": [ "error", "never" ]
+  }
+}
