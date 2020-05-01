@@ -142,31 +142,31 @@ export default () => (
             <h4>{content.available_testnets}</h4>
             <ul>
               <li>
-                <Link href='/shelley-haskell/about/testnet-introduction/'>
+                <Link href='/shelley-haskell/shelley-haskell-overview/'>
                   <img src='/images/shelley.png' alt='Shelley' />
                   <span>Shelley Haskell</span>
                 </Link>
               </li>
               <li>
-                <Link href='/shelley-itn/about/testnet-introduction/'>
+                <Link href='/shelley-itn/shelley-itn-overview/'>
                   <img src='/images/shelley.png' alt='Shelley' />
                   <span>Shelley ITN</span>
                 </Link>
               </li>
               <li>
-                <Link href='/byron/about/testnet-introduction/'>
+                <Link href='/byron/byron-overview/'>
                   <img src='/images/byron.png' alt='Byron' />
                   <span>Byron</span>
                 </Link>
               </li>
               <li>
-                <Link href='/plutus/about/skills-and-requirements/'>
+                <Link href='/plutus/plutus-overview/'>
                   <img src='/images/plutus.svg' alt='Plutus' />
                   <span>Plutus</span>
                 </Link>
               </li>
               <li>
-                <Link href='/marlowe/about/skills-and-requirements/'>
+                <Link href='/marlowe/marlowe-overview/'>
                   <img src='/images/marlowe.png' alt='Marlowe' />
                   <span>Marlowe</span>
                 </Link>
