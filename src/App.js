@@ -3,12 +3,15 @@ import PropTypes from 'prop-types'
 import { Location, Router } from '@reach/router'
 import Language from '@input-output-hk/front-end-core-components/components/Language'
 import Theme from '@input-output-hk/front-end-core-components/components/Theme'
-import { Provider as LinkProvider } from '@input-output-hk/front-end-core-components/components/Link'
+import IOHKLink, { Provider as LinkProvider } from '@input-output-hk/front-end-core-components/components/Link'
+import { Provider as MarkdownProvider } from '@input-output-hk/front-end-core-components/components/Markdown'
 import Styles from '@input-output-hk/front-end-site-components/components/Styles'
 import { ThemeProvider as MaterialUIThemeProvider } from '@material-ui/core/styles'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import { analytics, theme } from '@input-output-hk/front-end-core-libraries'
 import { navigate, Link as GatsbyLink } from 'gatsby'
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import { atomOneDark, atomOneLight } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import config from './config'
 import { getThemes } from './themes'
 import Search from './state/Search'
@@ -63,6 +66,28 @@ Link.propTypes = {
   onClick: PropTypes.func
 }
 
+const LightCodeRenderer = ({ value = '', language }) => (
+  <SyntaxHighlighter language={language} style={atomOneLight}>
+    {value}
+  </SyntaxHighlighter>
+)
+
+LightCodeRenderer.propTypes = {
+  value: PropTypes.string,
+  language: PropTypes.string
+}
+
+const DarkCodeRenderer = ({ value = '', language }) => (
+  <SyntaxHighlighter language={language} style={atomOneDark}>
+    {value}
+  </SyntaxHighlighter>
+)
+
+DarkCodeRenderer.propTypes = {
+  value: PropTypes.string,
+  language: PropTypes.string
+}
+
 const App = ({ element }) => {
   function languageOnUpdate ({ lang, prevLang, url, prevURL }) {
     if (prevLang && lang !== prevLang) {
@@ -114,12 +139,21 @@ const App = ({ element }) => {
                       <Language.Consumer>
                         {({ key: lang }) => (
                           <LinkProvider lang={lang} component={Link}>
-                            <Styles theme={originalTheme.config} />
-                            <Header />
-                            <Router>
-                              {getRoutes(lang)}
-                              <DefaultRoute default element={element} />
-                            </Router>
+                            <MarkdownProvider
+                              markdownProps={{
+                                renderers: {
+                                  code: theme.type === 'dark' ? DarkCodeRenderer : LightCodeRenderer,
+                                  link: IOHKLink
+                                }
+                              }}
+                            >
+                              <Styles theme={originalTheme.config} />
+                              <Header />
+                              <Router>
+                                {getRoutes(lang)}
+                                <DefaultRoute default element={element} />
+                              </Router>
+                            </MarkdownProvider>
                           </LinkProvider>
                         )}
                       </Language.Consumer>

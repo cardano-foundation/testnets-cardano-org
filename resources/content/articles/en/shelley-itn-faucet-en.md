@@ -1,0 +1,29 @@
+---
+title: Faucet
+order: 1
+parent: shelley-itn-tools
+last_updated: "2020-05-01T09:00:00+01:00"
+redirects:
+  - from: /en/cardano/shelley/tools/
+    type: 301
+  - from: /en/cardano/shelley/tools/faucet/
+    type: 301
+---
+## Faucet
+
+The faucet is a web-based service that provides free tokens to users of the testnet who are running the beta release of Jörmungandr. Note that this faucet is not used by the Incentivized testnet itself. The tokens enable users to experiment with Cardano features without spending ada cryptocurrency on the mainnet.
+
+You will need some initial funds to start testing stake pools and delegating stake on the testnet network. The faucet component provides you with a sufficient amount of test ada, and the associated stake, to get started.
+
+### How to access the testnet faucet?
+
+You access the testnet faucet using a form below, where you need to enter an address to receive the funds.
+
+### To access the faucet, perform the following steps:
+
+1. Enter the address you want to top up in the field below.
+2. Click 'Request'.
+3. Funds will be accessible in 5-10 minutes.
+4. When you have finished using your test tokens, please return them to the faucet so that other members of the community can use them. Please return your test tokens to this address&#58; **ca1s44h5hytev8d9wty220ckglvj7ewm3yetyug8a29pu2lj5dff28sy2yf8yj**
+
+<!-- include components/ShelleyITNFaucet -->

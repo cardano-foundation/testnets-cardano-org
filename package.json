@@ -24,6 +24,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-ga": "^2.7.0",
+    "react-syntax-highlighter": "^12.2.1",
     "react-transition-group": "^4.3.0",
     "showdown": "^1.9.1",
     "styled-components": "^5.1.0",

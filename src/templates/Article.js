@@ -53,6 +53,7 @@ const SideNavigationContainer = styled(Box)`
 
 const MainContent = styled(Box)`
   padding-left: 4rem;
+  width: 100%;
 
   &.no-nav {
     padding-left: 0;
@@ -141,6 +142,9 @@ const AccordionToggle = styled(Link)`
 const MarkdownContent = styled.article`
   word-break: break-word;
   max-width: 80rem;
+  width: 100%;
+  display: block;
+  overflow: hidden;
 `
 
 const MobileInlineNavigation = styled.div`

@@ -6,7 +6,7 @@ redirects:
     type: 301
   - from: /en/cardano/
     type: 301
-  - from: /en/cardano/shelley-haskell/
+  - from: /en/cardano/shelley/
     type: 301
 parent: shelley-haskell
 last_updated: "2020-05-01T09:00:00+01:00"
