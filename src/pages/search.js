@@ -96,7 +96,7 @@ const LoadingContainer = styled.div`
 
 export const query = graphql`
   query($lang:String) {
-    allDocumentationArticle(filter: {lang: {eq: $lang}}) {
+    allDocumentationArticle(filter: {lang: {eq: $lang}, content: {ne: ""}}) {
       edges {
         node {
           title
