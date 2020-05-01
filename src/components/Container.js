@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import MuiContainer from '@material-ui/core/Container'
 
@@ -13,14 +12,8 @@ const StyledContainer = styled(MuiContainer)`
   }
 `
 
-const Container = ({ children }) => (
-  <StyledContainer maxWidth='lg'>
-    {children}
-  </StyledContainer>
+const Container = (props) => (
+  <StyledContainer {...props} maxWidth='lg' />
 )
-
-Container.propTypes = {
-  children: PropTypes.node
-}
 
 export default Container

@@ -93,7 +93,7 @@
     ],
     "alternativeLanguages": [],
     "themes": [
-      "iohk"
+      "cardano"
     ],
     "ga": {
       "trackingID": null
@@ -107,6 +107,6 @@
       "persistLang": true
     },
     "routes": [],
-    "gitHubRepository": "input-output-hk/gatsby-starter-iohk-docs"
+    "gitHubRepository": null
   }
 }

@@ -69,6 +69,7 @@ const Column = styled(Box)`
 const Logo = styled(Column)`
   img {
     width: 4rem;
+    max-height: 4rem;
   }
 
   a {

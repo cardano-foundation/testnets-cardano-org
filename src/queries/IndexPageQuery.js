@@ -15,7 +15,14 @@ const IndexPageQuery = ({ render }) => (
                 childMarkdownRemark{
                   frontmatter {
                     content {
-                      title
+                      hero_content
+                      hero_cta_label
+                      hero_cta_href
+                      available_testnets
+                      tecnhical_support_content
+                      technical_support_cta_label
+                      technical_support_cta_href
+                      more_label
                     }
                   }
                 }

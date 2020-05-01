@@ -1,74 +1,201 @@
 import React from 'react'
 import styled from 'styled-components'
-import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
+import Markdown from '@input-output-hk/front-end-core-components/components/Markdown'
 import Link from '@input-output-hk/front-end-core-components/components/Link'
 import Layout from '../components/Layout'
 import Container from '../components/Container'
 import IndexPageQuery from '../queries/IndexPageQuery'
+import ShelleyBackground from '../../resources/images/shelley-background.jpg'
+import { TinyColor } from '@ctrl/tinycolor'
 
-const CTAGroup = styled.div`
-  display: flex;
-  margin-top: 5rem;
-  margin-bottom: 10rem;
+const HeroContainer = styled(Container)`
+  position: relative;
+`
 
-  > div {
-    padding: 2rem;
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
+const Hero = styled.div`
+  background-image: url(${ShelleyBackground});
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+`
 
-    &:last-of-type {
-      justify-content: flex-start;
-    }
+const HeroBackground = styled.div`
+  position: absolute;
+  overflow: hidden;
+  opacity: 0.7;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
-    > div {
-      display: flex;
+  svg {
+    width: 100%;
+    max-width: 120rem;
+    min-width: 105rem;
+    fill: ${({ theme }) => theme.palette.background.default};
+  }
+`
+
+const HeroContent = styled.div`
+  max-width: 60rem;
+  position: relative;
+  padding: 8rem 0 12rem;
+`
+
+const HeroCTA = styled.div`
+  max-width: 60rem;
+  padding-top: 4rem;
+`
+
+const AvailableTestnets = styled.div`
+  display: block;
+  max-width: 100rem;
+  margin: 0 auto;
+  text-transform: uppercase;
+  padding: 4rem 0;
+
+  ul {
+    list-style: none;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    text-align: center;
+
+    li {
+      flex: 1;
+      padding: 2rem;
+      display: inline-block;
+      width: 20%;
+      min-width: 20rem;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-end;
+
+      img {
+        display: block;
+        max-width: 5rem;
+        margin: 0 auto;
+      }
+
+      a {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        span {
+          padding-top: 1rem;
+        }
+      }
     }
   }
 
-  ${({ theme }) => theme.breakpoints.down('xs')} {
-    flex-direction: column;
+  > h4,
+  > div {
+    text-align: center;
   }
+`
+
+const TechnicalSupportContainer = styled.div`
+  background-color: ${({ theme }) => new TinyColor(theme.palette.background.default).lighten(4).toString()};
+`
+
+const TechnicalSupport = styled.div`
+  padding: 8rem 0;
+  text-align: center;
+  max-width: 100rem;
+  margin: 0 auto;
+  display: block;
+`
+
+const TechnicalSupportCTA = styled.div`
+  padding-top: 4rem;
 `
 
 export default () => (
   <IndexPageQuery
     render={(content) => (
       <Layout>
-        <Container>
-          <Box textAlign='center'>
-            <h1>{content.title}</h1>
-          </Box>
-          <CTAGroup>
-            <div>
-              <div>
+        <Hero>
+          <HeroContainer>
+            <HeroBackground>
+              <svg viewBox='0,0,100,100'>
+                <polygon points='0,0 0,100 100,0' />
+              </svg>
+            </HeroBackground>
+            <HeroContent>
+              <Markdown source={content.hero_content} />
+              <HeroCTA>
                 <Button
-                  href='/introduction/welcome/'
-                  component={Link}
                   color='primary'
                   variant='contained'
-                >
-                  CTA (A)
-                </Button>
-              </div>
-            </div>
-            <div>
-              <div>
-                <Button
-                  href='/resources/commodo-ipsum/lobortis/'
                   component={Link}
-                  color='primary'
-                  variant='outlined'
+                  href={content.hero_cta_href}
+                  tracking={{ category: 'home_page_hero_cta', label: content.hero_cta_href }}
                 >
-                  CTA (B)
+                  {content.hero_cta_label}
                 </Button>
-              </div>
+              </HeroCTA>
+            </HeroContent>
+          </HeroContainer>
+        </Hero>
+        <Container>
+          <AvailableTestnets>
+            <h4>{content.available_testnets}</h4>
+            <ul>
+              <li>
+                <Link href='/shelley-haskell/about/testnet-introduction/'>
+                  <img src='/images/shelley.png' alt='Shelley' />
+                  <span>Shelley Haskell</span>
+                </Link>
+              </li>
+              <li>
+                <Link href='/shelley-itn/about/testnet-introduction/'>
+                  <img src='/images/shelley.png' alt='Shelley' />
+                  <span>Shelley ITN</span>
+                </Link>
+              </li>
+              <li>
+                <Link href='/byron/about/testnet-introduction/'>
+                  <img src='/images/byron.png' alt='Byron' />
+                  <span>Byron</span>
+                </Link>
+              </li>
+              <li>
+                <Link href='/marlowe/about/skills-and-requirements/'>
+                  <img src='/images/marlowe.png' alt='Marlowe' />
+                  <span>Marlowe</span>
+                </Link>
+              </li>
+              <li>
+                <Link href='/plutus/about/skills-and-requirements/'>
+                  <img src='/images/plutus.svg' alt='Plutus' />
+                  <span>Plutus</span>
+                </Link>
+              </li>
+            </ul>
+            <div>
+              <Link href='/more/'>
+                {content.more_label}
+              </Link>
             </div>
-          </CTAGroup>
+          </AvailableTestnets>
         </Container>
+        <TechnicalSupportContainer>
+          <Container>
+            <TechnicalSupport>
+              <Markdown source={content.tecnhical_support_content} />
+              <TechnicalSupportCTA>
+                <Button
+                  component={Link}
+                  href={content.technical_support_cta_href}
+                  variant='contained'
+                  color='primary'
+                >
+                  {content.technical_support_cta_label}
+                </Button>
+              </TechnicalSupportCTA>
+            </TechnicalSupport>
+          </Container>
+        </TechnicalSupportContainer>
       </Layout>
     )}
   />
