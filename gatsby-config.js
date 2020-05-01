@@ -8,13 +8,6 @@ module.exports = {
         path: `${__dirname}/resources`
       }
     },
-    {
-      resolve: `gatsby-plugin-styled-components`,
-      options: {
-        // Remove dead code
-        pure: true
-      }
-    },
     'gatsby-transformer-remark',
     {
       resolve: `gatsby-plugin-manifest`,
@@ -37,6 +30,13 @@ module.exports = {
         stylesProvider: {
           injectFirst: true
         }
+      }
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Remove dead code
+        pure: true
       }
     },
     'gatsby-plugin-offline'
