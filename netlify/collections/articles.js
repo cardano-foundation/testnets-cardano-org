@@ -46,6 +46,26 @@ const buildCollection = language => {
         format: 'YYYY-MM-DDTHH:mm:ssZ'
       },
       {
+        label: 'Redirects from',
+        name: 'redirects',
+        widget: 'list',
+        fields: [
+          {
+            name: 'from',
+            label: 'From',
+            widget: 'string'
+          },
+          {
+            name: 'type',
+            label: 'Type',
+            widget: 'select',
+            multiple: false,
+            options: [ 301, 302 ],
+            default: 301
+          }
+        ]
+      },
+      {
         label: 'Body',
         name: 'body',
         widget: 'markdown',

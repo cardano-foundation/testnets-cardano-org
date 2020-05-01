@@ -84,6 +84,16 @@ export default {
           name: 'logo_alt',
           label: 'Main logo alt image tag',
           widget: 'string'
+        },
+        {
+          name: 'kevm_description',
+          label: 'KEVM description',
+          widget: 'markdown'
+        },
+        {
+          name: 'iele_description',
+          label: 'IELE description',
+          widget: 'markdown'
         }
       ]
     }

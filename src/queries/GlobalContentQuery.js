@@ -30,6 +30,8 @@ const GlobalContentQuery = ({ render }) => (
                       close_main_navigation
                       open_main_navigation
                       logo_alt
+                      kevm_description
+                      iele_description
                     }
                   }
                 }

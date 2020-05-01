@@ -1,0 +1,11 @@
+---
+title: Overview
+order: 1
+parent: marlowe
+last_updated: "2020-05-01T09:00:00+01:00"
+---
+## Overview
+
+[Marlowe](https://iohk.io/research/papers/#2WHKDRA8) is a new language for modeling financial instruments as smart contracts on a blockchain. It has been designed for people who are business engineers or subject experts rather than experienced developers. It is a simple domain-specific language (DSL) which comprises a small number of powerful building blocks that can be assembled into expressive financial contracts. It is embedded in the Haskell language, which has its own established ecosystem and testing framework. You do not need programming expertise to use Marlowe and you can explore your Marlowe financial constructions with a browser-based contract editor and simulator. 
+
+Marlowe interacts with real-world data and enables the expression of smart contacts. It is aimed at fixed-duration financial products, such as hedging, fixed-term deposits, credit swaps, and crowdfunding. Marlowe is ideal for financial start-ups, analysts, or those in the fintech community as well as universities who could use it for testing within their financial courses. With Marlowe you can write smart contracts for financial instruments that are easy to read, write, and understand without programming experience.

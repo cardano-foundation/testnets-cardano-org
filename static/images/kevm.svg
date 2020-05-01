@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>E3F2F608-5ACB-4727-9276-0112E0511CA7</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <linearGradient x1="37.4253583%" y1="-12.5746417%" x2="37.4253583%" y2="112.574642%" id="linearGradient-1">
+            <stop stop-color="#709CF0" offset="0%"></stop>
+            <stop stop-color="#832DC4" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="testnet-web-page-simple" transform="translate(-1674.000000, -3407.000000)">
+            <g id="content" transform="translate(0.000000, 835.000000)">
+                <g id="part" transform="translate(494.000000, 2174.000000)">
+                    <g id="KEVM" transform="translate(1180.000000, 398.000000)">
+                        <rect id="Rectangle-16" fill="#FFFFFF" opacity="0.049999997" x="0" y="0" width="256" height="256"></rect>
+                        <path d="M10,10 L10,246 L246,246 L246,10 L10,10 Z M0,0 L256,0 L256,256 L0,256 L0,0 Z" id="Rectangle-21" fill="url(#linearGradient-1)" fill-rule="nonzero"></path>
+                        <path d="M30,30 L30,226 L226,226 L226,30 L30,30 Z M20,20 L236,20 L236,236 L20,236 L20,20 Z" id="Rectangle-21-Copy" fill="url(#linearGradient-1)" fill-rule="nonzero"></path>
+                        <path d="M154.619556,193.999996 L143.385046,193.999996 L107.434615,132.148569 L107.434615,193.999996 L98.072524,193.999996 L98.072524,62 L107.434615,62 L107.434615,124.039998 L143.572288,62 L154.806798,62 L115.860498,127.999998 L154.619556,193.999996 Z M175.216157,193.999996 L163.981647,193.999996 L125.222589,127.999998 L164.168889,62 L175.403399,62 L136.457099,127.999998 L175.216157,193.999996 Z M195.812758,193.999996 L184.578249,193.999996 L145.81919,127.999998 L184.76549,62 L196,62 L157.0537,127.999998 L195.812758,193.999996 Z M79.0362715,62 L89.4385953,62 L89.4385953,194 L79.0362715,194 L79.0362715,62 Z M60,62 L70.4023238,62 L70.4023238,194 L60,194 L60,62 Z" id="Combined-Shape" fill="url(#linearGradient-1)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

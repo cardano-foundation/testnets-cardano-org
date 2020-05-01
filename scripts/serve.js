@@ -1,5 +1,6 @@
 const express = require('express')
 const portfinder = require('portfinder')
+const toml = require('toml')
 const fs = require('fs')
 const path = require('path')
 const config = require('../node/config')
@@ -35,6 +36,25 @@ async function serve () {
   app.use(express.static(path.join(__dirname, '..', 'public')))
 
   config.routes.forEach(({ path: routePath }) => bindRoute(app, routePath))
+
+  const netlifyTomlPath = path.join(__dirname, '..', 'netlify.toml')
+  if (fs.existsSync(netlifyTomlPath)) {
+    const netlifyToml = fs.readFileSync(netlifyTomlPath, { encoding: 'utf8' })
+    try {
+      const parsedNetlifyToml = toml.parse(netlifyToml)
+      parsedNetlifyToml.redirects && parsedNetlifyToml.redirects.forEach(({ from, to, status }) => {
+        if (status > 300 && status < 400) {
+          app.get(from, (_, res) => {
+            console.log('request taken!')
+            res.redirect(status, to)
+          })
+        }
+      })
+    } catch (error) {
+      console.error('Error parsing netlify.toml', error)
+      process.exit(1)
+    }
+  }
 
   config.availableLanguages.forEach(({ key: lang }) => {
     app.get(`/${lang}/*`, (_, response) => {

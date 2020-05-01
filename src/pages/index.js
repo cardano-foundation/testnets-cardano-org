@@ -160,15 +160,15 @@ export default () => (
                 </Link>
               </li>
               <li>
-                <Link href='/marlowe/about/skills-and-requirements/'>
-                  <img src='/images/marlowe.png' alt='Marlowe' />
-                  <span>Marlowe</span>
-                </Link>
-              </li>
-              <li>
                 <Link href='/plutus/about/skills-and-requirements/'>
                   <img src='/images/plutus.svg' alt='Plutus' />
                   <span>Plutus</span>
+                </Link>
+              </li>
+              <li>
+                <Link href='/marlowe/about/skills-and-requirements/'>
+                  <img src='/images/marlowe.png' alt='Marlowe' />
+                  <span>Marlowe</span>
                 </Link>
               </li>
             </ul>

@@ -1,5 +1,5 @@
-import ExampleComponent from './ExampleComponent'
+import OtherAvailableTestnets from './OtherAvailableTestnets'
 
 export default {
-  ExampleComponent
+  OtherAvailableTestnets
 }
