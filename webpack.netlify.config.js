@@ -25,7 +25,7 @@ config.availableLanguages.forEach(({ key: language }) => {
       const slug = filename.replace(new RegExp(`^(.*?)-${language}.md$`), '$1')
 
       return {
-        label: `${content.attributes.title} (${slug})`,
+        label: `${content.attributes.title} - ${content.attributes.description}`,
         value: slug
       }
     })
