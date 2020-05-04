@@ -64,6 +64,7 @@ module.exports = ({ actions }) => {
         id: `document-id-${article.path}-${lang}`,
         content: article.content,
         title: article.title,
+        fullTitle: article.fullTitle,
         lastUpdatedFormatted: article.lastUpdatedFormatted,
         lang,
         parent: null,

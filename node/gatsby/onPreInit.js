@@ -25,7 +25,7 @@ const setupEnvironment = ({ program }) => {
   if (!process.env.GATSBY_IOHK_STARTER_CONFIG) process.env.GATSBY_IOHK_STARTER_CONFIG = JSON.stringify(config)
 }
 
-const buildArticles = (markdownArticles, { key, baseURL = '/' } = {}) => {
+const buildArticles = (markdownArticles, { key, baseURL = '/', baseTitle = '' } = {}) => {
   const articles = []
   let filteredArticles
   if (!key) {
@@ -40,6 +40,7 @@ const buildArticles = (markdownArticles, { key, baseURL = '/' } = {}) => {
 
     articles.push({
       title: content.attributes.title,
+      fullTitle: `${baseTitle}${content.attributes.title}`,
       content: content.body,
       lastUpdatedFormatted: lastUpdated.format('MMMM D, YYYY HH:mm [UTC]'),
       lastUpdated: content.attributes.last_updated,
@@ -48,7 +49,7 @@ const buildArticles = (markdownArticles, { key, baseURL = '/' } = {}) => {
       order: content.attributes.order || 1,
       redirects: content.attributes.redirects,
       externalHref: content.attributes.external_href || '',
-      children: buildArticles(markdownArticles, { key, baseURL: `${baseURL}${key}/` })
+      children: buildArticles(markdownArticles, { key, baseURL: `${baseURL}${key}/`, baseTitle: `${baseTitle}${content.attributes.title} ` })
     })
   })
 

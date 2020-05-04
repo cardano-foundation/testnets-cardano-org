@@ -100,6 +100,7 @@ export const query = graphql`
       edges {
         node {
           title
+          fullTitle
           path
           lang
           content
@@ -137,8 +138,9 @@ const SearchPageInner = ({ data, pageContext, location }) => {
 
   const loadResults = () => {
     try {
-      const posts = data.allDocumentationArticle.edges.map(({ node: { title, path, content, lastUpdatedFormatted } }) => ({
+      const posts = data.allDocumentationArticle.edges.map(({ node: { title, fullTitle, path, content, lastUpdatedFormatted } }) => ({
         title,
+        fullTitle,
         path: `/${pageContext.lang}${path}`,
         content,
         lastUpdatedFormatted
@@ -153,7 +155,8 @@ const SearchPageInner = ({ data, pageContext, location }) => {
           id: 'path',
           field: [
             'content',
-            'title'
+            'title',
+            'fullTitle'
           ]
         }
       })
@@ -213,7 +216,6 @@ const SearchPageInner = ({ data, pageContext, location }) => {
       query: `_${query}_`
     }
 
-    console.log('no', renderTemplate(template, templateData))
     return renderTemplate(template, templateData)
   }
 
