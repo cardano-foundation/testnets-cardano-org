@@ -8,6 +8,7 @@ const buildCollection = language => {
     slug: `{{year}}{{month}}-{{day}}_{{hour}}-{{minute}}-{{second}}_{{slug}}-${language}`,
     create: true,
     delete: true,
+    summary: `{{fields.title}}, ({{filename}}) - {{fields.description}}`,
     fields: [
       getAllArticlesWidget(language, {
         required: false,
@@ -19,6 +20,13 @@ const buildCollection = language => {
       {
         label: 'Title',
         name: 'title',
+        widget: 'string',
+        required: true
+      },
+      {
+        label: 'Description',
+        name: 'description',
+        hint: 'Used to help identify the article on Netlify CMS',
         widget: 'string',
         required: true
       },
