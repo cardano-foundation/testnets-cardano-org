@@ -5,7 +5,7 @@ import pages from './pages'
 
 export default [
   metaData,
-  articles,
+  ...articles,
   globalContent,
   ...pages
 ]

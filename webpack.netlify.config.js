@@ -30,7 +30,7 @@ config.availableLanguages.forEach(({ key: language }) => {
       }
     })
 })
-process.env.IOHK_AVAILABLE_ARTICLES = JSON.stringify(articles)
+process.env.AVAILABLE_ARTICLES = JSON.stringify(articles)
 
 const getRandomString = () => {
   let s = ''
@@ -80,7 +80,8 @@ module.exports = {
       // Branch exposed by netlify build https://www.netlify.com/docs/continuous-deployment/#environment-variables
       HEAD: 'staging',
       UPLOADCARE_PUBLIC_KEY: 'demopublickey',
-      GATSBY_IOHK_STARTER_CONFIG: JSON.stringify(config)
+      GATSBY_IOHK_STARTER_CONFIG: JSON.stringify(config),
+      AVAILABLE_ARTICLES: ''
     })
   ]
 }

@@ -48,6 +48,7 @@ const buildCollection = language => {
       {
         label: 'Redirects from',
         name: 'redirects',
+        required: false,
         widget: 'list',
         fields: [
           {

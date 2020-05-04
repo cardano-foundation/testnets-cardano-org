@@ -27,7 +27,7 @@ export const getAllArticlesWidget = (
   multiple,
   hint,
   widget: 'select',
-  options: JSON.parse(process.env.IOHK_AVAILABLE_ARTICLES)[language].map(
+  options: JSON.parse(process.env.AVAILABLE_ARTICLES)[language].map(
     article => ({
       label: article.label,
       value: article.value
