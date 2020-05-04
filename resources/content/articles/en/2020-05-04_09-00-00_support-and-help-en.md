@@ -1,7 +1,7 @@
 ---
 title: Support and help
 order: 2
-parent: byron-resources
+parent: 2020-05-04_09-00-00_resources
 last_updated: "2020-05-01T09:00:00+01:00"
 redirects:
   - from: /en/cardano/byron/resources/support/

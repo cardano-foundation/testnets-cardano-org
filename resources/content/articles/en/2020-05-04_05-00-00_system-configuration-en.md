@@ -1,6 +1,6 @@
 ---
 title: Changing the stake pool system configuration
-parent: shelley-haskell-configuration
+parent: 2020-05-04_05-00-00_configuration
 order: 1
 last_updated: "2020-05-01T09:00:00+01:00"
 ---
