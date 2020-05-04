@@ -41,12 +41,12 @@ module.exports = ({ actions }) => {
       lang,
       items: getHeaderLinks(articles[lang], lang)
     })),
-    id: `iohk-main-navigation-links`,
+    id: `main-navigation-links`,
     parent: null,
     children: [],
     internal: {
-      type: 'IOHKMainNavigationLinks',
-      description: 'IOHK main navigation links taken from documentation',
+      type: 'MainNavigationLinks',
+      description: 'Main navigation links taken from articles',
       contentDigest: crypto
         .createHash(`md5`)
         .update(JSON.stringify(articles))
