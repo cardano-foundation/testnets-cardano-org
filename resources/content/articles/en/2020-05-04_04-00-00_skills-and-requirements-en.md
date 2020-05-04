@@ -1,7 +1,7 @@
 ---
 title: Skills and requirements for stake pool operators
 order: 3
-parent: shelley-itn-about
+parent: 2020-05-04_04-00-00_about
 last_updated: "2020-05-01T09:00:00+01:00"
 redirects:
   - from: /en/cardano/shelley/about/skills-and-requirements/

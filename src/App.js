@@ -7,7 +7,7 @@ import IOHKLink, { Provider as LinkProvider } from '@input-output-hk/front-end-c
 import { Provider as MarkdownProvider } from '@input-output-hk/front-end-core-components/components/Markdown'
 import Styles from '@input-output-hk/front-end-site-components/components/Styles'
 import { ThemeProvider as MaterialUIThemeProvider } from '@material-ui/core/styles'
-import { ThemeProvider as StyledThemeProvider } from 'styled-components'
+import styled, { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import { analytics, theme } from '@input-output-hk/front-end-core-libraries'
 import { navigate, Link as GatsbyLink } from 'gatsby'
 import SyntaxHighlighter from 'react-syntax-highlighter'
@@ -66,10 +66,16 @@ Link.propTypes = {
   onClick: PropTypes.func
 }
 
+const PreWrap = styled.div`
+  display: grid;
+`
+
 const LightCodeRenderer = ({ value = '', language }) => (
-  <SyntaxHighlighter language={language} style={atomOneLight}>
-    {value}
-  </SyntaxHighlighter>
+  <PreWrap>
+    <SyntaxHighlighter language={language} style={atomOneLight}>
+      {value}
+    </SyntaxHighlighter>
+  </PreWrap>
 )
 
 LightCodeRenderer.propTypes = {
@@ -78,9 +84,11 @@ LightCodeRenderer.propTypes = {
 }
 
 const DarkCodeRenderer = ({ value = '', language }) => (
-  <SyntaxHighlighter language={language} style={atomOneDark}>
-    {value}
-  </SyntaxHighlighter>
+  <PreWrap>
+    <SyntaxHighlighter language={language} style={atomOneDark}>
+      {value}
+    </SyntaxHighlighter>
+  </PreWrap>
 )
 
 DarkCodeRenderer.propTypes = {

@@ -5,15 +5,15 @@ module.exports = ({ actions }) => {
   const { createNode } = actions
   const articles = data.get('articles')
 
-  function findNextLink (children, basePath) {
+  function findNextLink (children) {
     let path
     const childrenValues = [ ...children ]
     while (!path && childrenValues.length > 0) {
       const next = childrenValues.shift()
       if (next.content) {
-        path = `${basePath}/${next.key}/`
+        path = next.path
       } else {
-        path = findNextLink(next.children, `${basePath}/${next.key}`)
+        path = findNextLink(next.children)
       }
     }
 
@@ -23,17 +23,14 @@ module.exports = ({ actions }) => {
   function getHeaderLinks (articles, lang) {
     const headerLinks = []
     articles.forEach(article => {
-      let path = `/${lang}`
-      if (article.content) {
-        path += `/${article.key}/`
-      } else {
-        path += findNextLink(article.children, `/${article.key}`)
-      }
+      const path = article.content ? article.path : findNextLink(article.children)
 
-      headerLinks.push({
-        path,
-        label: article.title
-      })
+      if (path) {
+        headerLinks.push({
+          path: `/${lang}${path}`,
+          label: article.title
+        })
+      }
     })
 
     return headerLinks
