@@ -1,6 +1,6 @@
 ---
 title: Setting up a stake pool with Nix
-description: Shelley ITN getting started
+description: Shelley getting started
 order: 7
 parent: 2020-05-04_04-00-00_getting-started
 last_updated: "2020-05-01T09:00:00+01:00"
@@ -110,7 +110,7 @@ cp state-jormungandr/steak_owner_wallet.prv /some/where/safe/wallet-creds.txt
 
 It is important that you copy the prv file to an encrypted password database or other safe location.
 
-At this point, your wallet needs funds. To access funds, go to the [faucet](/en/shelley-itn/tools/faucet/) website and request funds for the address output as listed above.
+At this point, your wallet needs funds. To access funds, go to the [faucet](/en/itn/tools/faucet/) website and request funds for the address output as listed above.
 
 You can also use the key on that page with the send-funds command:
 

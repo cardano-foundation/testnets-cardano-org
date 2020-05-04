@@ -1,6 +1,6 @@
 ---
 title: Setting up the networking node
-description: Shelley ITN getting started
+description: Shelley getting started
 order: 3
 parent: 2020-05-04_04-00-00_getting-started
 last_updated: "2020-05-01T09:00:00+01:00"

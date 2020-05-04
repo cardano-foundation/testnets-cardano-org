@@ -9,7 +9,7 @@ content:
 
     Whether you want to run a stake pool, develop on the Cardano platform or simply build your understanding, here’s where to find the resources you need.
   hero_cta_label: Get started
-  hero_cta_href: /shelley-itn/about/testnet-introduction/
+  hero_cta_href: /itn/about/testnet-introduction/
   available_testnets: Available testnets
   tecnhical_support_content: |
     #### Need technical support?

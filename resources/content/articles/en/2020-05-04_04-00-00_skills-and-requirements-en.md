@@ -1,6 +1,6 @@
 ---
 title: Skills and requirements for stake pool operators
-description: Shelley ITN about
+description: Shelley about
 order: 3
 parent: 2020-05-04_04-00-00_about
 last_updated: "2020-05-01T09:00:00+01:00"
