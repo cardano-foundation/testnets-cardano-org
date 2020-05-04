@@ -59,7 +59,7 @@ const buildArticles = (markdownArticles, { key, baseURL = '/', baseTitle = '' } 
       key,
       path: articlePath,
       order: content.attributes.order || 1,
-      redirects: content.attributes.redirects,
+      redirects: (content.attributes.redirects || []).map(({ type, from }) => ({ from, type: parseInt(type) })),
       externalHref: content.attributes.external_href || '',
       children: buildArticles(markdownArticles, { key, baseURL: articlePath, baseTitle: `${baseTitle}${content.attributes.title} ` })
     })
