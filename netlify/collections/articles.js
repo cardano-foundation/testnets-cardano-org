@@ -8,7 +8,7 @@ const buildCollection = language => {
     slug: `{{year}}{{month}}-{{day}}_{{hour}}-{{minute}}-{{second}}_{{slug}}-${language}`,
     create: true,
     delete: true,
-    summary: `{{fields.title}}, ({{filename}}) - {{fields.description}}`,
+    summary: `{{fields.title}} - {{fields.description}}`,
     fields: [
       getAllArticlesWidget(language, {
         required: false,
