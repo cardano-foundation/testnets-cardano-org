@@ -8,6 +8,7 @@ import { Provider as MarkdownProvider } from '@input-output-hk/front-end-core-co
 import Styles from '@input-output-hk/front-end-site-components/components/Styles'
 import { ThemeProvider as MaterialUIThemeProvider } from '@material-ui/core/styles'
 import styled, { ThemeProvider as StyledThemeProvider } from 'styled-components'
+import TinyColor from '@ctrl/tinycolor'
 import { analytics, theme } from '@input-output-hk/front-end-core-libraries'
 import { navigate, Link as GatsbyLink } from 'gatsby'
 import SyntaxHighlighter from 'react-syntax-highlighter'
@@ -68,6 +69,24 @@ Link.propTypes = {
 
 const PreWrap = styled.div`
   display: grid;
+
+  pre {
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+      width: 0.7rem;
+      height: 0.7rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: ${({ theme }) => new TinyColor(theme.palette.text.primary).setAlpha(0.2).toString()};
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: ${({ theme }) => new TinyColor(theme.palette.text.primary).setAlpha(0.5).toString()};
+      border-radius: 0.35rem;
+    }
+  }
 `
 
 const LightCodeRenderer = ({ value = '', language }) => (
