@@ -1,7 +1,7 @@
 const path = require('path')
 const config = require('../../config')
 
-module.exports = async ({ graphql, createPage }) => {
+module.exports = async ({ createPage }) => {
   const fallbackRoute = path.join(__dirname, '..', '..', '..', 'src', 'routes', 'Fallback.js')
   config.routes.forEach(({ path: routePath }) => {
     const staticPath = routePath.split(':').shift()

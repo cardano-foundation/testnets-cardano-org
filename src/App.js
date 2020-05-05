@@ -116,7 +116,7 @@ DarkCodeRenderer.propTypes = {
 }
 
 const App = ({ element }) => {
-  function languageOnUpdate ({ lang, prevLang, url, prevURL }) {
+  function languageOnUpdate ({ lang, prevLang }) {
     if (prevLang && lang !== prevLang) {
       navigate(`/${lang}/`)
       analytics.autoCapture({ category: analytics.constants.LANGUAGE, action: 'language_updated', label: lang })
