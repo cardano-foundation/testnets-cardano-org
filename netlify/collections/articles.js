@@ -70,7 +70,16 @@ const buildCollection = language => {
             hint: 'Redirect status. 301 is permanent. 302 is temporary.',
             widget: 'select',
             multiple: false,
-            options: [ '301', '302' ],
+            options: [
+              {
+                label: '301',
+                value: 301
+              },
+              {
+                label: '302',
+                value: 302
+              }
+            ],
             default: null
           }
         ]
