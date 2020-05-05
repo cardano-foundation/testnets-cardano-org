@@ -85,6 +85,7 @@ const MainContent = styled.div`
 
   &.no-nav {
     padding-left: 0;
+    flex-basis: 100%;
   }
 
   ${({ theme }) => theme.breakpoints.down('md')} {
@@ -93,6 +94,7 @@ const MainContent = styled.div`
 
   ${({ theme }) => theme.breakpoints.down('sm')} {
     padding-left: 0;
+    flex-basis: 100%;
   }
 `
 
@@ -179,6 +181,10 @@ const MarkdownContent = styled.article`
       margin-left: 1rem;
       padding-left: 1rem;
     }
+  }
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    max-width: none;
   }
 `
 
