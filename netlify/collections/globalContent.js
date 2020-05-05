@@ -94,6 +94,80 @@ export default {
           name: 'iele_description',
           label: 'IELE description',
           widget: 'markdown'
+        },
+        {
+          name: 'faucet_content',
+          label: 'Faucet content',
+          widget: 'object',
+          fields: [
+            {
+              name: 'funds',
+              label: 'Funds',
+              widget: 'string'
+            },
+            {
+              name: 'invalid_address',
+              label: 'Invalid address',
+              widget: 'string'
+            },
+            {
+              name: 'server_error',
+              label: 'Server error',
+              widget: 'string'
+            },
+            {
+              name: 'endpoint_not_found',
+              label: 'Endpoint not found',
+              widget: 'string'
+            },
+            {
+              name: 'too_many_attempts',
+              label: 'Too many requests',
+              widget: 'string'
+            },
+            {
+              name: 'too_many_attempts_retry',
+              label: 'Too many requests with retry after',
+              widget: 'string',
+              hint: '{{ time }} is replaced with a localised date time for the user to retry after'
+            },
+            {
+              name: 'address_helper_text',
+              label: 'Address helper text',
+              widget: 'string'
+            },
+            {
+              name: 'api_key_helper_text',
+              label: 'API key helper text',
+              widget: 'string'
+            },
+            {
+              name: 'request_funds',
+              label: 'Request funds',
+              widget: 'string'
+            },
+            {
+              name: 'request_more_funds',
+              label: 'Request more funds',
+              widget: 'string'
+            },
+            {
+              name: 'success_heading',
+              label: 'Success title',
+              widget: 'string'
+            },
+            {
+              name: 'verify_transaction_hash',
+              label: 'Verify transaction hash',
+              widget: 'string'
+            },
+            {
+              name: 'transaction_successful',
+              label: 'Transaction successful',
+              widget: 'string',
+              hint: '{{ amount }} will be replaced with the amount of ADA transferred. {{ address }} will be replaced with the address the ADA was sent to.'
+            }
+          ]
         }
       ]
     }

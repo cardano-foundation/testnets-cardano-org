@@ -32,6 +32,21 @@ const GlobalContentQuery = ({ render }) => (
                       logo_alt
                       kevm_description
                       iele_description
+                      faucet_content {
+                        funds
+                        invalid_address
+                        server_error
+                        endpoint_not_found
+                        too_many_attempts
+                        too_many_attempts_retry
+                        address_helper_text
+                        api_key_helper_text
+                        request_funds
+                        request_more_funds
+                        success_heading
+                        verify_transaction_hash
+                        transaction_successful
+                      }
                     }
                   }
                 }
