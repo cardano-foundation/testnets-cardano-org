@@ -55,6 +55,10 @@ const AvailableTestnets = styled.div`
   text-transform: uppercase;
   padding: 4rem 0;
 
+  a {
+    font-weight: 600;
+  }
+
   ul {
     list-style: none;
     padding-top: 2rem;

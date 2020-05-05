@@ -17,6 +17,7 @@ import config from './config'
 import { getThemes } from './themes'
 import Search from './state/Search'
 import Header from './components/Header'
+import Style from './components/Style'
 
 // Default route uses SSR from "pages"
 const DefaultRoute = ({ element }) => element
@@ -175,6 +176,7 @@ const App = ({ element }) => {
                               }}
                             >
                               <Styles theme={originalTheme.config} />
+                              <Style />
                               <Header />
                               <Router>
                                 {getRoutes(lang)}
