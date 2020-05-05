@@ -33,7 +33,7 @@ Enable the Windows Subsystem for Linux option:
 1. Click the [Start] button.
 1. Type ‘powershell’.
 1. Right-click it and select ‘Run as administrator’.
-1. Type: `PS C:/&gt; Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
+1. Type: `PS C:/> Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
 1. Restart when prompted.
 1. Go to [https://aka.ms/wslstore](https://aka.ms/wslstore)
 1. Select Ubuntu 18.04 distribution 

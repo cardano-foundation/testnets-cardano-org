@@ -12,7 +12,7 @@ redirects:
 
 The network consists of a collection of nodes, devices that participate in a decentralized network and help to maintain the blockchain. These nodes interact with each other in a number of ways. Nodes operate within a neighbourhood, or ring topology, where information is communicated freely and regularly between the nodes. Nodes connect with other nodes in their vicinity that share similar interests and fragments. Nodes that are outside of the immediate vicinity can be reached using a cyclon typology, which adds a randomness to the protocol, but ensures faster sharing of information.
 
-To help you get started, we are providing test networks that consist of several nodes and stake pools. These also connect to trusted peers, those nodes in the network that your node will initially trust when building out the network. To learn more about these different types of release testnets, please visit [About &gt; Testnet introduction](/en/itn/about/testnet-introduction/) where the beta and nightly releases are explained. 
+To help you get started, we are providing test networks that consist of several nodes and stake pools. These also connect to trusted peers, those nodes in the network that your node will initially trust when building out the network. To learn more about these different types of release testnets, please visit [About > Testnet introduction](/en/itn/about/testnet-introduction/) where the beta and nightly releases are explained. 
 
 ### Connecting to the beta release testnet
 

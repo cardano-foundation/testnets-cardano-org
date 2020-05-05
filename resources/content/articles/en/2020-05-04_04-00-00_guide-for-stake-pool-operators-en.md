@@ -12,7 +12,7 @@ redirects:
 
 In this section we provide helpful information for those of you who are acting as stake pool operators. A complete [How to guide for stake pool operators](https://github.com/input-output-hk/shelley-testnet/blob/master/docs/stake_pool_operator_how_to.md) is also available to help you set up and configure your stake pool. 
 
-PDF versions of this guide are available in English, Japanese, Korean, and Chinese in our [Resources &gt; Links](/en/itn/resources/links/) section.
+PDF versions of this guide are available in English, Japanese, Korean, and Chinese in our [Resources > Links](/en/itn/resources/links/) section.
 
 ### The role of a stake pool operator
 
