@@ -111,6 +111,6 @@
       "persistLang": true
     },
     "routes": [],
-    "gitHubRepository": null
+    "gitHubRepository": "cardano-foundation/testnets-cardano-org"
   }
 }
