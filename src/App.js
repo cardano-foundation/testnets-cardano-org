@@ -10,6 +10,7 @@ import { ThemeProvider as MaterialUIThemeProvider } from '@material-ui/core/styl
 import styled, { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import TinyColor from '@ctrl/tinycolor'
 import { analytics, theme } from '@input-output-hk/front-end-core-libraries'
+import Zendesk from 'react-zendesk'
 import { navigate, Link as GatsbyLink } from 'gatsby'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { atomOneDark, atomOneLight } from 'react-syntax-highlighter/dist/esm/styles/hljs'
@@ -182,6 +183,7 @@ const App = ({ element }) => {
                                 {getRoutes(lang)}
                                 <DefaultRoute default element={element} />
                               </Router>
+                              <Zendesk zendeskKey={config.zendeskKey} color={{ theme: theme.colors.primary.main }} />
                             </MarkdownProvider>
                           </LinkProvider>
                         )}
