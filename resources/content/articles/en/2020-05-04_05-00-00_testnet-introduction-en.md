@@ -1,20 +1,26 @@
 ---
+parent: 2020-05-04_05-00-00_about
 title: Shelley Haskell testnet introduction
 description: Shelley Haskell about
-parent: 2020-05-04_05-00-00_about
 order: 1
-last_updated: "2020-05-01T09:00:00+01:00"
+last_updated: 2020-05-01T08:00:00.000Z
 ---
 ## Shelley Haskell testnet introduction
 
-The Incentivized Testnet marks the third and last key phase of our Shelley testnet roll out program. We will soon reach the point where the Cardano community can start testing stake delegation, operate stake pools, and earn real rewards for their participation. We encourage those community members with the technical skills to operate stake pools to try setting them up, and for all community members to try out delegating their ada stake to pools. To learn more about the process of delegating your stake, visit the [Incentivized Testnet website](https://staking.cardano.org/). 
+### Three phases
+The Shelley Haskell testnet will be delivered in three phases, the first of which is a small, invitation-only beta involving a Shelley-only test network.
 
-We hope the community will practice various stake delegation scenarios and test both our delegation and incentives processes to make them robust enough for open experimentation and adoption. This community-driven feedback is invaluable and will ensure that we can make improvements along the path to a fully decentralized blockchain. 
+The second phase of the testnet will be public and will include stake pool configuration and operation on a Shelley-only network, as well as testing of the wallet backend, explorer, and dashboard.
 
-We are currently delivering two different types of release; our beta releases (currently [Jörmungandr 0.7.0](https://github.com/input-output-hk/jormungandr/releases/tag/v0.7.0)), and our nightly releases. We recommend that you always use the most recent nightly release as published on our [nightly releases](https://github.com/input-output-hk/jormungandr/releases/) page. The reason we are doing this is to provide continuity with our established code base while also giving our community the opportunity to connect to a more rapidly evolving code base which includes new features and changes as we develop a feature-rich network. 
+The final phase of the testnet will be the most complex, including everything from the first two phases, plus stake delegation on a hybrid Byron/Shelley network designed to replicate the network conditions of the Cardano mainnet during the transition to Shelley.
 
-Our beta release testnet is balanced and well established and will allow us to monitor node behavior over time, thereby delivering continuity. If you are relatively new to this area, we recommend that you work with this more established code base.
+The Shelley Haskell testnet is designed to prove new Shelley technologies in a controlled environment, and the experience, data, and feedback gathered from all three phases will contribute directly to the mainnet release of Shelley.
 
-On the other hand, our nightly release testnet is where we will  regularly deploy and test new features as well as implement bug fixes and improvements. Therefore, if you choose to work with this code base please note that you will experience network outages and resets. 
+### Getting involved
 
-As each test network requires a specific genesis block hash and set of trusted peers please ensure that you are using the correct details. 
+To maximize the value of this testnet, all you have to do is get involved. Running a node, delegating stake, or setting up and maintaining a stake pool - all of these activities will test the network and add to the quality of the final Shelley implementation. Most importantly, whatever your experience with the testnet, we want your feedback. Let us know about bugs, usability issues, and potential improvements by raising an issue in the [Cardano node GitHub repository](https://github.com/input-output-hk/cardano-node). 
+
+This community-driven feedback is invaluable and will ensure that the mainnet Shelley era is the best it can be. We will also be highlighting the best community-created resources and information about the testnet on our community content page.
+
+
+
