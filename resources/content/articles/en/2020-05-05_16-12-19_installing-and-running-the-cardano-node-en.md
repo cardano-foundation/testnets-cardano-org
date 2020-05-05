@@ -4,7 +4,7 @@ title: Installing and running the Cardano node
 description: Installing the Cardano node - Shelley Haskell testnet
 order: 2
 external_href: ""
-last_updated: 2020-05-05T16:50:01+01:00
+last_updated: 2020-05-05T15:50:01.000Z
 ---
 ## Installing and running the Cardano node
 
@@ -12,7 +12,7 @@ There are a number of ways to install and run a Cardano node on your machine, al
 
 Building the node using Nix is the recommended method, as this is what IOHK's internal development teams use and is considered the most reliable. Any of the instructions below will work, however.
 
-- [Building and installing using Nix]()
+- [Building the node using Nix]()
 - [Building the node from source]()
 - [Running the node using Docker]()
 - [Running the node on an AWS instance]()
