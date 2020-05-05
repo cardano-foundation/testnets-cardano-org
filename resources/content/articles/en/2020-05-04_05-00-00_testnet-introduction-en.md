@@ -3,7 +3,7 @@ parent: 2020-05-04_05-00-00_about
 title: Shelley Haskell testnet introduction
 description: Shelley Haskell about
 order: 1
-last_updated: 2020-05-01T09:00:00+01:00
+last_updated: 2020-05-01T08:00:00.000Z
 ---
 ## Shelley Haskell testnet introduction
 
@@ -16,7 +16,7 @@ The final phase of the testnet will be the most complex, including everything fr
 
 The Shelley Haskell testnet is designed to prove new Shelley technologies in a controlled environment, and the experience, data, and feedback gathered from all three phases will contribute directly to the mainnet release of Shelley.
 
-##Getting involved
+## Getting involved
 
 To maximize the value of this testnet, all you have to do is get involved. Running a node, delegating stake, or setting up and maintaining a stake pool - all of these activities will test the network and add to the quality of the final Shelley implementation. Most importantly, whatever your experience with the testnet, we want your feedback. Let us know about bugs, usability issues, and potential improvements by raising an issue in the [Cardano node GitHub repository](https://github.com/input-output-hk/cardano-node). 
 
