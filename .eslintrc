@@ -18,6 +18,7 @@
     "quotes": [ "error", "single", { "allowTemplateLiterals": true } ],
     "react/jsx-curly-newline": [ "off" ],
     "react/jsx-tag-spacing": [ "error", { "closingSlash": "never", "beforeSelfClosing": "always", "afterOpening": "never", "beforeClosing": "never" } ],
-    "react/jsx-curly-brace-presence": [ "error", "never" ]
+    "react/jsx-curly-brace-presence": [ "error", "never" ],
+    "no-unused-vars": [ "error", { "varsIgnorePattern": "^_$" } ]
   }
 }

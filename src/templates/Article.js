@@ -7,6 +7,7 @@ import Footer from '@input-output-hk/front-end-site-components/components/Footer
 import Theme from '@input-output-hk/front-end-core-components/components/Theme'
 import Box from '@material-ui/core/Box'
 import TinyColor from '@ctrl/tinycolor'
+import YouTube from 'react-youtube'
 import { FaChevronRight, FaChevronDown, FaEllipsisH, FaChevronUp, FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 import Link from '@input-output-hk/front-end-core-components/components/Link'
 import Layout from '../components/Layout'
@@ -168,6 +169,17 @@ const MarkdownContent = styled.article`
   max-width: 80rem;
   display: block;
   overflow: hidden;
+
+  blockquote {
+    margin: 1rem 1rem 1rem 2rem;
+    padding: 0 0 0 2rem;
+    border-left: 0.1rem solid ${({ theme }) => new TinyColor(theme.palette.text.primary).setAlpha(0.4).toString()};
+
+    ${({ theme }) => theme.breakpoints.down('xs')} {
+      margin-left: 1rem;
+      padding-left: 1rem;
+    }
+  }
 `
 
 const MobileInlineNavigation = styled.div`
@@ -398,27 +410,42 @@ const Article = ({ pageContext }) => {
   /**
    * Replaces references to custom components with rendered component
    * e.g. <!-- include components/OtherComponent --> -> renders components/MarkdownComponents/OtherComponent if it exists
+   * e.g. <!-- embed youtube/123 --> -> Renders embedded youtube video with id 123
    */
   function renderArticleContent () {
     let remainingContent = pageContext.content
     const contentParts = []
     // Matches <!-- include components/<MyComponent> --> - where <MyComponent> is Alpha string reference to component
+    // Or <!-- embed youtube/id --> - where id is the YouTube video id to embed
     // in src/components/MarkdownComponent/index.js
-    const pattern = /<!--\sinclude\scomponents\/([a-zA-Z]+)\s-->/
+    const pattern = /<!--\s(include|embed)\s(components|youtube)\/([^\s]+)\s-->/
     let match = remainingContent.match(pattern)
-    let customComponentIndex = match ? match.index : -1
+    let matchIndex = match ? match.index : -1
 
-    while (remainingContent.length > 0 && customComponentIndex >= 0) {
-      if (customComponentIndex > 0) {
-        contentParts.push(<Markdown source={remainingContent.substring(0, customComponentIndex)} />)
+    while (remainingContent.length > 0 && matchIndex >= 0) {
+      if (matchIndex > 0) {
+        contentParts.push(<Markdown source={remainingContent.substring(0, matchIndex)} />)
       }
 
-      const Component = MarkdownComponents[match[1]]
-      if (Component) contentParts.push(<Component />)
+      const [ _, type, category, value ] = match
+      if (type === 'include' && category === 'components') {
+        const Component = MarkdownComponents[value]
+        if (Component) contentParts.push(<Component />)
+      } else if (type === 'embed' && category === 'youtube' && value) {
+        contentParts.push(
+          <YouTube
+            videoId={value}
+            opts={{
+              width: '100%',
+              height: '350px'
+            }}
+          />
+        )
+      }
 
-      remainingContent = remainingContent.substring(customComponentIndex + match[0].length)
+      remainingContent = remainingContent.substring(matchIndex + match[0].length)
       match = remainingContent.match(pattern)
-      customComponentIndex = match ? match.index : -1
+      matchIndex = match ? match.index : -1
     }
 
     if (remainingContent) contentParts.push(<Markdown source={remainingContent} />)
