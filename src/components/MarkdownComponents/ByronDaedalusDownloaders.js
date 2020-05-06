@@ -226,7 +226,7 @@ export default () => {
         <Box marginTop={4} marginBottom={4}>
           {platformsData && !error && !loading &&
             <Container>
-              {getOrderedPlatforms(content.downloaders_content.platforms_order).map(({ key, signature, hash, URL, version, SHA256 }) => (
+              {getOrderedPlatforms(content.downloaders_content.platforms_order.map(platform => platform.platform_name)).map(({ key, signature, hash, URL, version, SHA256 }) => (
                 <Box flex={1} key={key} display='flex' flexDirection='column' justifyContent='flex-end' textAlign='center'>
                   <span><strong>{content.downloaders_content[key].full_label}</strong></span>
                   <span>{content.downloaders_content.version}: {version}</span>
@@ -247,7 +247,6 @@ export default () => {
                       title={content.downloaders_content.copy_to_clipboard}
                       onClick={checksumOnClick(SHA256, key)}
                       aria-label={content.downloaders_content.copy_to_clipboard}
-                      aria-role='link'
                       value={SHA256}
                       readOnly
                       rows={3}

@@ -49,7 +49,9 @@ const GlobalContentQuery = ({ render }) => (
                       }
                       downloaders_content {
                         version
-                        platforms_order
+                        platforms_order {
+                          platform_name
+                        }
                         sha_checksum
                         verify_signature
                         pgp_signature

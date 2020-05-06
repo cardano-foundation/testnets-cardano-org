@@ -209,7 +209,11 @@ export default {
               label: 'Platforms order',
               widget: 'list',
               allow_add: false,
-              field: 'string'
+              field: {
+                label: 'Platform',
+                name: 'platform_name',
+                widget: 'string'
+              }
             },
             {
               name: 'windows',

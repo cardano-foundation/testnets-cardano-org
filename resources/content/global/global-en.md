@@ -42,9 +42,9 @@ content:
     verify_checksum: Verify checksum
     copy_to_clipboard: Copy to clipboard
     platforms_order:
-      - darwin
-      - linux
-      - windows
+      - platform_name: darwin
+      - platform_name: linux
+      - platform_name: windows
     windows:
       short_label: Windows
       full_label: Windows 8.1 and 10, 64 bit
