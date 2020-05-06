@@ -146,31 +146,31 @@ export default () => (
             <h4>{content.available_testnets}</h4>
             <ul>
               <li>
-                <Link href='/shelley-haskell/overview/'>
+                <Link href='/shelley-haskell/overview/' tracking={{ category: 'home_page', label: 'shelley_haskell_cta' }}>
                   <img src='/images/shelley.png' alt='Shelley' />
                   <span>Shelley Haskell</span>
                 </Link>
               </li>
               <li>
-                <Link href='/itn/overview/'>
+                <Link href='/itn/overview/' tracking={{ category: 'home_page', label: 'itn_cta' }}>
                   <img src='/images/shelley.png' alt='Shelley' />
                   <span>ITN</span>
                 </Link>
               </li>
               <li>
-                <Link href='/byron/overview/'>
+                <Link href='/byron/overview/' tracking={{ category: 'home_page', label: 'byron_cta' }}>
                   <img src='/images/byron.png' alt='Byron' />
                   <span>Byron</span>
                 </Link>
               </li>
               <li>
-                <Link href='/plutus/overview/'>
+                <Link href='/plutus/overview/' tracking={{ category: 'home_page', label: 'plutus_cta' }}>
                   <img src='/images/plutus.svg' alt='Plutus' />
                   <span>Plutus</span>
                 </Link>
               </li>
               <li>
-                <Link href='/marlowe/overview/'>
+                <Link href='/marlowe/overview/' tracking={{ category: 'home_page', label: 'marlowe_cta' }}>
                   <img src='/images/marlowe.png' alt='Marlowe' />
                   <span>Marlowe</span>
                 </Link>
@@ -193,6 +193,7 @@ export default () => (
                   href={content.technical_support_cta_href}
                   variant='contained'
                   color='primary'
+                  tracking={{ category: 'home_page', label: 'technical_support_cta' }}
                 >
                   {content.technical_support_cta_label}
                 </Button>
