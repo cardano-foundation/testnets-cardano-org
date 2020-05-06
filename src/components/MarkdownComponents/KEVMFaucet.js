@@ -1,5 +1,10 @@
 import React from 'react'
+import Faucet from '../Faucet'
 
 export default () => (
-  <p><strong>KEVM Faucet - TODO</strong></p>
+  <Faucet
+    getEndpoint={({ address }) => `https://kevm-testnet.iohkdev.io:8099/faucet?address=${address}`}
+    hasApiKey={false}
+    getTransactionURL={({ txid }) => `https://kevm-testnet.iohkdev.io/tx/${txid}`}
+  />
 )

@@ -1,5 +1,10 @@
 import React from 'react'
+import Faucet from '../Faucet'
 
 export default () => (
-  <p><strong>IELE Faucet - TODO</strong></p>
+  <Faucet
+    getEndpoint={({ address }) => `https://iele-testnet.iohkdev.io:8099/faucet?address=${address}`}
+    hasApiKey={false}
+    getTransactionURL={({ txid }) => `https://iele-testnet.iohkdev.io/tx/${txid}`}
+  />
 )
