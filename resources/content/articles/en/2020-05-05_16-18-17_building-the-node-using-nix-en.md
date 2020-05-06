@@ -20,7 +20,7 @@ curl https://nixos.org/nix/install > install-nix.sh
 2. Follow the instructions presented as part of the Nix installation process.
 1. Once Nix is installed, open a new `nix-shell` session and enter the following commands, which will clone the Cardano node GitHub repository, open the node file directory, build the node itself, and then run it:
 ```shell
- git clone https://github.com/input-output-hk/cardano-node
+git clone https://github.com/input-output-hk/cardano-node
 cd cardano-node
 nix-build -A scripts.mainnet.node -o mainnet-node-local
 ./mainnet-node-local
