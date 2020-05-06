@@ -1,7 +1,7 @@
 export default {
   name: 'global_content',
   label: 'Global content',
-  folder: 'resources/content/meta',
+  folder: 'resources/content/global',
   create: false,
   delete: false,
   fields: [
