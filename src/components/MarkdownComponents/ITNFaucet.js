@@ -1,5 +1,10 @@
 import React from 'react'
+import Faucet from '../Faucet'
 
 export default () => (
-  <p><strong>ITN Faucet - TODO</strong></p>
+  <Faucet
+    getEndpoint={({ address }) => `https://faucet.beta.jormungandr-testnet.iohkdev.io/send-money/${address}`}
+    hasApiKey={false}
+    getTransactionURL={({ txid }) => `https://shelleyexplorer.cardano.org/transaction/${txid}/`}
+  />
 )
