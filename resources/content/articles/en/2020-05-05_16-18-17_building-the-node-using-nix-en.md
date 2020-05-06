@@ -26,4 +26,6 @@ nix-build -A scripts.mainnet.node -o mainnet-node-local
 ./mainnet-node-local
 ```
 
+Please be aware that the process of building the node may take some time, possibly several hours.
+
 You should now have a Cardano node running on your machine, connected to the Shelley Haskell testnet.
