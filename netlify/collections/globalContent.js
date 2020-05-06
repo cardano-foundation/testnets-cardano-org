@@ -1,6 +1,6 @@
 export default {
-  name: 'meta_data',
-  label: 'Meta data',
+  name: 'global_content',
+  label: 'Global content',
   folder: 'resources/content/meta',
   create: false,
   delete: false,
