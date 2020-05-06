@@ -1,6 +1,7 @@
 import backend from './backend'
 import collections from './collections'
 import { getBranch } from './helpers'
+import editorComponents from './editorComponents'
 
 const init = window.initCMS
 const config = {
@@ -19,5 +20,7 @@ const config = {
 if (getBranch() === 'staging') config.publish_mode = 'editorial_workflow'
 
 console.log('CMS config', config)
+
+editorComponents.forEach(editorComponent => window.CMS.registerEditorComponent(editorComponent))
 
 init({ config })
