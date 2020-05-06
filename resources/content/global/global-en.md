@@ -41,6 +41,7 @@ content:
     pgp_signature: PGP signature
     verify_checksum: Verify checksum
     copy_to_clipboard: Copy to clipboard
+    error_fetching_data: Error fetching data
     platforms_order:
       - platform_name: darwin
       - platform_name: linux

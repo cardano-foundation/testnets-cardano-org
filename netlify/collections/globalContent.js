@@ -205,6 +205,11 @@ export default {
               widget: 'string'
             },
             {
+              name: 'error_fetching_data',
+              label: 'Generic server error',
+              widget: 'string'
+            },
+            {
               name: 'platforms_order',
               label: 'Platforms order',
               widget: 'list',

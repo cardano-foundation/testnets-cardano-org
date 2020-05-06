@@ -8,9 +8,12 @@ import styled from 'styled-components'
 import TinyColor from '@ctrl/tinycolor'
 import Link from '@input-output-hk/front-end-core-components/components/Link'
 import Markdown from '@input-output-hk/front-end-core-components/components/Markdown'
+import { analytics } from '@input-output-hk/front-end-core-libraries'
 import { FaDownload } from 'react-icons/fa'
 import { MdClose } from 'react-icons/md'
 import GlobalContentQuery from '../../queries/GlobalContentQuery'
+
+const GA_CATEGORY = 'byron_daedalus_downloaders'
 
 const LoadingContainer = styled.div`
   position: relative;
@@ -119,7 +122,7 @@ const CloseModal = styled(Link)`
 export default () => {
   const [ platformsData, setPlatformsData ] = useState(null)
   const [ loading, setLoading ] = useState(true)
-  const [ error, setError ] = useState('')
+  const [ hasError, setHasError ] = useState(false)
   const [ activeModal, setActiveModal ] = useState('')
   const checksumRefs = {
     windows: useRef(null),
@@ -151,16 +154,18 @@ export default () => {
   }
 
   const loadDaedalusData = async () => {
+    const url = 'https://updates-cardano-testnet.s3.amazonaws.com/daedalus-latest-version.json'
     try {
       setLoading(true)
-      const result = await fetch('https://updates-cardano-testnet.s3.amazonaws.com/daedalus-latest-version.json')
+      const result = await fetch(url)
       const jsonResult = await result.json()
       if (!validateData(jsonResult)) throw new Error('Invalid data')
       setPlatformsData(Object.keys(jsonResult.platforms).map(platform => ({ ...jsonResult.platforms[platform], key: platform })))
       setLoading(false)
     } catch (error) {
       console.error(error.message, error)
-      setError('Error loading data')
+      analytics.exception({ description: error.message, fatal: false, args: [ url ], error })
+      setHasError(true)
       setLoading(false)
     }
   }
@@ -178,8 +183,9 @@ export default () => {
     return platforms.filter(platform => Boolean(platform))
   }
 
-  const checksumOnClick = (SHA256, platform) => (e) => {
+  const checksumOnClick = (SHA256, platform, version) => (e) => {
     e.preventDefault()
+    analytics.click({ category: GA_CATEGORY, label: `checksum_copy_${platform}_${version}`, event: e })
     const el = checksumRefs[platform].current
     if (!el) return
     el.select()
@@ -224,7 +230,7 @@ export default () => {
     <GlobalContentQuery
       render={content => (
         <Box marginTop={4} marginBottom={4}>
-          {platformsData && !error && !loading &&
+          {platformsData && !hasError && !loading &&
             <Container>
               {getOrderedPlatforms(content.downloaders_content.platforms_order.map(platform => platform.platform_name)).map(({ key, signature, hash, URL, version, SHA256 }) => (
                 <Box flex={1} key={key} display='flex' flexDirection='column' justifyContent='flex-end' textAlign='center'>
@@ -236,6 +242,7 @@ export default () => {
                       href={URL}
                       variant='contained'
                       color='primary'
+                      tracking={{ category: GA_CATEGORY, label: `download_${key}_${version}` }}
                     >
                       {content.downloaders_content[key].short_label}<Box component='span' marginLeft={1}><FaDownload /></Box>
                     </Button>
@@ -245,13 +252,19 @@ export default () => {
                     <ChecksumArea
                       ref={checksumRefs[key]}
                       title={content.downloaders_content.copy_to_clipboard}
-                      onClick={checksumOnClick(SHA256, key)}
+                      onClick={checksumOnClick(SHA256, key, version)}
                       aria-label={content.downloaders_content.copy_to_clipboard}
                       value={SHA256}
                       readOnly
                       rows={3}
                     />
-                    <Link href='#' onClick={openModal(`${key}_checksum`)}>{content.downloaders_content.verify_checksum}</Link>
+                    <Link
+                      href='#'
+                      onClick={openModal(`${key}_checksum`)}
+                      tracking={{ category: GA_CATEGORY, label: `view_checksum_instructions_${key}_${version}` }}
+                    >
+                      {content.downloaders_content.verify_checksum}
+                    </Link>
                     <Modal
                       open={activeModal === `${key}_checksum`}
                       onClose={openModal('')}
@@ -275,6 +288,7 @@ export default () => {
                   <Box marginTop={1}>
                     <Link
                       onClick={onDownloadPGPSignature(signature, URL)}
+                      tracking={{ category: GA_CATEGORY, label: `download_pgp_signature_${key}_${version}` }}
                       href={getPGPSignatureHref(signature)}
                       download={getPGPFilename(URL)}
                     >
@@ -284,6 +298,7 @@ export default () => {
                       <Link
                         href='#'
                         onClick={openModal(`${key}_pgp`)}
+                        tracking={{ category: GA_CATEGORY, label: `view_pgp_instructions_${key}_${version}` }}
                       >
                         {content.downloaders_content.verify_signature}
                       </Link>
@@ -319,9 +334,9 @@ export default () => {
               </div>
             </LoadingContainer>
           }
-          {error &&
+          {hasError &&
             <ErrorContainer>
-              <Typography variant='h3' color='error'>{error}</Typography>
+              <Typography variant='h3' color='error'>{content.downloaders_content.error_fetching_data}</Typography>
             </ErrorContainer>
           }
         </Box>
