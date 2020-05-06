@@ -12,6 +12,10 @@ redirects:
 ---
 ## Daedalus wallet for the Cardano testnets
 
+Download any of the special testnet-only versions of the wallet for developers and install it by following the on-screen instructions.
+
+__NOTE: this wallet is for developer use on the Byron testnet only. To take part in the Shelley Incentivized Testnet, please download wallets from the [Incentivized Testnet website](https://staking.cardano.org/en/).__
+
 <!-- include components/ByronDaedalusDownloaders -->
 
 1. Open the Daedalus wallet.

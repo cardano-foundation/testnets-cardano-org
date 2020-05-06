@@ -167,7 +167,14 @@ const App = ({ element }) => {
                     <StyledThemeProvider theme={theme}>
                       <Language.Consumer>
                         {({ key: lang }) => (
-                          <LinkProvider lang={lang} component={Link}>
+                          <LinkProvider
+                            lang={lang}
+                            component={Link}
+                            isStatic={href => {
+                              if (href.match(/^blob:/)) return true
+                              return false
+                            }}
+                          >
                             <MarkdownProvider
                               markdownProps={{
                                 renderers: {

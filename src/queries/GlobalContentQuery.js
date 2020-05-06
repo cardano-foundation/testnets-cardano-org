@@ -47,6 +47,33 @@ const GlobalContentQuery = ({ render }) => (
                         verify_transaction_hash
                         transaction_successful
                       }
+                      downloaders_content {
+                        version
+                        platforms_order
+                        sha_checksum
+                        verify_signature
+                        pgp_signature
+                        verify_checksum
+                        copy_to_clipboard
+                        windows {
+                          short_label
+                          full_label
+                          checksum_instructions
+                          signature_instructions
+                        }
+                        darwin {
+                          short_label
+                          full_label
+                          checksum_instructions
+                          signature_instructions
+                        }
+                        linux {
+                          short_label
+                          full_label
+                          checksum_instructions
+                          signature_instructions
+                        }
+                      }
                     }
                   }
                 }

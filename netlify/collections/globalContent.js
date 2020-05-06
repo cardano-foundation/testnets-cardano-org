@@ -168,6 +168,131 @@ export default {
               hint: '{{ amount }} will be replaced with the amount of ADA transferred. {{ address }} will be replaced with the address the ADA was sent to.'
             }
           ]
+        },
+        {
+          name: 'downloaders_content',
+          label: 'Downloaders content',
+          widget: 'object',
+          fields: [
+            {
+              name: 'version',
+              label: 'Version label',
+              widget: 'string'
+            },
+            {
+              name: 'sha_checksum',
+              label: 'SHA256 checksum label',
+              widget: 'string'
+            },
+            {
+              name: 'verify_signature',
+              label: 'Verify signature label',
+              widget: 'string'
+            },
+            {
+              name: 'pgp_signature',
+              label: 'PGP signature label',
+              widget: 'string'
+            },
+            {
+              name: 'verify_checksum',
+              label: 'Verify checksum label',
+              widget: 'string'
+            },
+            {
+              name: 'copy_to_clipboard',
+              label: 'Copy to clipboard label',
+              widget: 'string'
+            },
+            {
+              name: 'platforms_order',
+              label: 'Platforms order',
+              widget: 'list',
+              allow_add: false,
+              field: 'string'
+            },
+            {
+              name: 'windows',
+              label: 'Windows platform',
+              widget: 'object',
+              fields: [
+                {
+                  name: 'short_label',
+                  label: 'Shorthand label',
+                  widget: 'string'
+                },
+                {
+                  name: 'full_label',
+                  label: 'Full label',
+                  widget: 'string'
+                },
+                {
+                  name: 'checksum_instructions',
+                  label: 'Checksum instructions',
+                  widget: 'markdown'
+                },
+                {
+                  name: 'signature_instructions',
+                  label: 'PGP signature instructions',
+                  widget: 'markdown'
+                }
+              ]
+            },
+            {
+              name: 'darwin',
+              label: 'Mac OS platform',
+              widget: 'object',
+              fields: [
+                {
+                  name: 'short_label',
+                  label: 'Shorthand label',
+                  widget: 'string'
+                },
+                {
+                  name: 'full_label',
+                  label: 'Full label',
+                  widget: 'string'
+                },
+                {
+                  name: 'checksum_instructions',
+                  label: 'Checksum instructions',
+                  widget: 'markdown'
+                },
+                {
+                  name: 'signature_instructions',
+                  label: 'PGP signature instructions',
+                  widget: 'markdown'
+                }
+              ]
+            },
+            {
+              name: 'linux',
+              label: 'Linux platform',
+              widget: 'object',
+              fields: [
+                {
+                  name: 'short_label',
+                  label: 'Shorthand label',
+                  widget: 'string'
+                },
+                {
+                  name: 'full_label',
+                  label: 'Full label',
+                  widget: 'string'
+                },
+                {
+                  name: 'checksum_instructions',
+                  label: 'Checksum instructions',
+                  widget: 'markdown'
+                },
+                {
+                  name: 'signature_instructions',
+                  label: 'PGP signature instructions',
+                  widget: 'markdown'
+                }
+              ]
+            }
+          ]
         }
       ]
     }
