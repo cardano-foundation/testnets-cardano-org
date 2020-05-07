@@ -4,6 +4,7 @@ import IELEFaucet from './IELEFaucet'
 import ITNFaucet from './ITNFaucet'
 import KEVMFaucet from './KEVMFaucet'
 import OtherAvailableTestnets from './OtherAvailableTestnets'
+import ShelleyHaskellFaucet from './ShelleyHaskellFaucet'
 
 export default {
   ByronDaedalusDownloaders,
@@ -11,5 +12,6 @@ export default {
   IELEFaucet,
   ITNFaucet,
   KEVMFaucet,
-  OtherAvailableTestnets
+  OtherAvailableTestnets,
+  ShelleyHaskellFaucet
 }
