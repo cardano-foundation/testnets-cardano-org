@@ -20,7 +20,7 @@ const Layout = ({ children, headData = {}, template = Main }) => {
                   <StaticQuery
                     query={graphql`
                       query {
-                        siteHeadData: allFile(filter:{relativePath:{glob:"content/meta/__site.*.md"}}) {
+                        siteHeadData: allFile(filter:{relativePath:{glob:"content/meta/__site-*.md"}}) {
                           nodes{
                             relativePath,
                             childMarkdownRemark{
