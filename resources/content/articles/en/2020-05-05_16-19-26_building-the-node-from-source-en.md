@@ -45,6 +45,5 @@ How to build and run the node from source:
 5. Build the source code using Cabal by running the following command:\
    `build all` \
    Please note that building the node may take some time, possibly several hours. If you prefer you can also [build the source code using stack] (https://github.com/input-output-hk/cardano-tutorials/blob/brunjlar/node-setup/node-setup/build.md). 
-
 6. Run the following command to initialize the node:\
    `./scripts/shelley-testnet-live.sh`
