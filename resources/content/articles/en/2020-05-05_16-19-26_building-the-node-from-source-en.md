@@ -35,8 +35,8 @@ How to build and run the node from source:
 1. In the terminal, run the following git command to clone the Cardano node repository and download the source code:
 `git clone https://github.com/input-output-hk/cardano-node.git`
 This should create a `cardano node` folder.
-2. Download the latest source code from the releases page to this folder. \
-   After the download has finished, you can check the contents using the following command: `ls cardano-node`
+2. Download the latest source code from the [releases page] (https://github.com/input-output-hk/cardano-node/releases) to this folder. \
+After the download has finished, you can check the contents using the following command: `ls cardano-node`
 3. Change your working directory to the folder in which the source code was downloaded using the following command:\
    `cd cardano-node`
 4. You should check out the latest release, for example tag 1.10.0 using the following command:\
@@ -44,6 +44,6 @@ This should create a `cardano node` folder.
    `git checkout tags/1.10.0`
 5. Build the source code using Cabal by running the following command:\
    `build all` \
-   Please note that building the node may take some time, possibly several hours.  
+Please note that building the node may take some time, possibly several hours.  
 6. Run the following command to initialize the node:\
    `./scripts/shelley-testnet-live.sh`
