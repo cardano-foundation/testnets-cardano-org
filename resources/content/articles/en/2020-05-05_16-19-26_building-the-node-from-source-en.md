@@ -6,7 +6,7 @@ order: 2
 external_href: ""
 last_updated: 2020-05-05T16:19:01.000Z
 ---
-# Building the node from source
+## Building the node from source
 By building and running the node directly from the source code, you can ensure that you get all the latest code updates.
 
 The following instructions presume that you will be running your node on a Linux system and are using cabal. For more information, see the supported platforms page. You can run a node on any platform by using a virtual machine, although instructions on how to set up a virtual machine to do so are not provided here. See the [community content](https://staging-updated-testnets-cardano.netlify.app/admin/#/collections/articles-en/entries/2020-05-04_05-00-00_community-en) section for additional information about virtual machines.
