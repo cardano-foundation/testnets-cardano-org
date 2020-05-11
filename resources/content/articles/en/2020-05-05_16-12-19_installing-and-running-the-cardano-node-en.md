@@ -13,6 +13,6 @@ There are a number of ways to install and run a Cardano node on your machine, al
 Building the node using Nix is the recommended method, as this is what IOHK's internal development teams use and is considered the most reliable.
 
 - [Building a node using Nix](https://staging-updated-testnets-cardano.netlify.app/en/shelley-haskell/get-started/installing-and-running-the-cardano-node/building-the-node-using-nix/)
-- [Building a node from source]()
+- [Building a node from source](https://staging-updated-testnets-cardano.netlify.app/admin/#/collections/articles-en/entries/2020-05-05_16-19-26_building-the-node-from-source-en)
 - [Running a node using Docker]()
 - [Running a node on an AWS instance]()
