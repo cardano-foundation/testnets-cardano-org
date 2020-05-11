@@ -6,6 +6,7 @@ order: 2
 external_href: ""
 last_updated: 2020-05-05T16:19:01.000Z
 ---
+# Building the node from source
 By building and running the node directly from the source code, you can ensure that you get all the latest code updates.
 
 The following instructions presume that you will be running your node on a Linux system and are using cabal. For more information, see the supported platforms page. You can run a node on any platform by using a virtual machine, although instructions on how to set up a virtual machine to do so are not provided here. See the [community content](https://staging-updated-testnets-cardano.netlify.app/admin/#/collections/articles-en/entries/2020-05-04_05-00-00_community-en) section for additional information about virtual machines.
@@ -44,6 +45,5 @@ How to build and run the node from source:
 5. Build the source code using Cabal by running the following command:\
    `build all` \
    Please note that building the node may take some time, possibly several hours. If you prefer you can also [build the source code using stack] (https://github.com/input-output-hk/cardano-tutorials/blob/brunjlar/node-setup/node-setup/build.md). 
-
 6. Run the following command to initialize the node:\
    `./scripts/shelley-testnet-live.sh`
