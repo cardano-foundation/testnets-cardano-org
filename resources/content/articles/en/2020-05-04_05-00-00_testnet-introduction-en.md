@@ -7,7 +7,7 @@ last_updated: 2020-05-01T08:00:00.000Z
 ---
 ## Shelley Haskell testnet introduction
 
-The rollout of the Shelley Haskell testnet with involve controlled phases.
+The rollout of the Shelley Haskell testnet will involve controlled phases.
 
 ### Three phases
 The testnets will be delivered in three phases, the first of which is a small, invitation-only beta involving a Shelley-only test network.
