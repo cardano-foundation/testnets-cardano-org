@@ -1,14 +1,10 @@
 ---
+parent: 2020-05-04_05-00-00_monitor
 title: Monitoring the stake pool
 description: Shelley Haskell monitor
-parent: 2020-05-04_05-00-00_monitor
 order: 1
-last_updated: "2020-05-01T09:00:00+01:00"
+last_updated: 2020-05-01T09:00:00+01:00
 ---
 ## Monitoring the stake pool
 
-* (Block production, performance)
-* Obtaining the tip of the blockchain
-* Using the Cardano blockchain explorer
-
-__TODO__
+We are currently working on this documentation and it will be coming soon. If you want to contribute, please raise an issue or submit a pull request in the [testnet repository] (https://github.com/cardano-foundation/testnets-cardano-org)
