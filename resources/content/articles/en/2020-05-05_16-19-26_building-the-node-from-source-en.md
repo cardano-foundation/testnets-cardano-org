@@ -46,10 +46,10 @@ How to build and run the node from source:
    ```shell
    cd cardano-node
    ```
-1. You should check out the latest release, for example tag 1.10.0 using the following command:
+1. You should check out the latest release, for example tag 1.11.0 using the following command:
    ```shell
    git fetch --all --tags
-   git checkout tags/1.10.0
+   git checkout tags/1.11.0
    ```
 5. Build the source code using Cabal by running the following command:
    ```shell
