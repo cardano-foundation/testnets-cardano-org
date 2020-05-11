@@ -26,18 +26,6 @@ async function buildNetlifyToml () {
     content = fs.readFileSync(path.join(__dirname, '..', '.netlify.toml'), { encoding: 'utf-8' })
   }
 
-  config.routes.forEach(({ path: routePath }) => {
-    const staticPath = routePath.split(':').shift()
-    config.availableLanguages.forEach(({ key: lang }, index) => {
-      if (config.localization.createDefaultPages && index === 0) content = addRedirect(staticPath, content)
-      if (config.localization.createLocalizedPages) content = addRedirect(`/${lang}${staticPath}`, content)
-    })
-  })
-
-  config.availableLanguages.forEach(({ key: lang }) => {
-    if (config.localization.createLocalizedPages) content = addRedirect(`/${lang}/`, content, 404, `/${lang}/404/index.html`)
-  })
-
   await onPreInit({ store: { getState: () => ({ program: { host: 'localhost', port: '8000' } }) } })
   const articles = data.get('articles')
 
@@ -58,6 +46,18 @@ async function buildNetlifyToml () {
 
   Object.keys(articles).forEach((lang) => {
     createArticleRedirects(lang, articles[lang])
+  })
+
+  config.routes.forEach(({ path: routePath }) => {
+    const staticPath = routePath.split(':').shift()
+    config.availableLanguages.forEach(({ key: lang }, index) => {
+      if (config.localization.createDefaultPages && index === 0) content = addRedirect(staticPath, content)
+      if (config.localization.createLocalizedPages) content = addRedirect(`/${lang}${staticPath}`, content)
+    })
+  })
+
+  config.availableLanguages.forEach(({ key: lang }) => {
+    if (config.localization.createLocalizedPages) content = addRedirect(`/${lang}/`, content, 404, `/${lang}/404/index.html`)
   })
 
   fs.writeFileSync(path.join(__dirname, '..', 'netlify.toml'), content, { encoding: 'utf-8' })
