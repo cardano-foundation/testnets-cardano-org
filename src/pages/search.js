@@ -168,6 +168,7 @@ const SearchPageInner = ({ data, pageContext, location }) => {
 
   const loadResults = () => {
     try {
+      if (!query) setResults({ results: [], query })
       const posts = data.allDocumentationArticle.edges.map(({ node: { title, fullTitle, path, content, lastUpdatedFormatted } }) => ({
         title,
         fullTitle,
@@ -218,7 +219,7 @@ const SearchPageInner = ({ data, pageContext, location }) => {
     const newQuery = getQuery(location)
     const newPage = getPage(location)
     if (newQuery !== query) setQuery(newQuery)
-    if (!results.query || results.query !== query) loadResults()
+    if (results.query === null || results.query !== query) loadResults()
     if (newPage !== page) setPage(newPage)
     if (newPage === page && results.results) validatePage(page)
   }, [ location, query, page, results ])
@@ -232,7 +233,7 @@ const SearchPageInner = ({ data, pageContext, location }) => {
       from: (page - 1) * RESULTS_PER_PAGE + 1,
       to: Math.min((page - 1) * RESULTS_PER_PAGE + RESULTS_PER_PAGE, results.results.length),
       total: results.results.length,
-      query: `_${query}_`
+      query: `_"${query}"_`
     }
 
     return renderTemplate(template, templateData)
@@ -240,7 +241,7 @@ const SearchPageInner = ({ data, pageContext, location }) => {
 
   function noMatchingResults (template) {
     const templateData = {
-      query: `_${query}_`
+      query: `_"${query}"_`
     }
 
     return renderTemplate(template, templateData)
