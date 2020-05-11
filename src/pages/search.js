@@ -208,6 +208,7 @@ const SearchPageInner = ({ data, pageContext, location }) => {
   }
 
   function validatePage (page) {
+    if (page === 1) return
     if (page > Math.ceil(results.results.length / RESULTS_PER_PAGE)) {
       pageOnChange(null, Math.ceil(results.results.length / RESULTS_PER_PAGE))
     } else if (page < 1) {
