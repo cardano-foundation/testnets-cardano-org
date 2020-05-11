@@ -13,7 +13,7 @@ The following instructions presume that you will be running your node on a Linux
 
 To build and run the node from source, you need the following packages and tools:
 
-* the Haskell platform and Haskell build-tool cabal (stack can also be used)
+* the Haskell platform and Haskell build-tool cabal
 * the version control system git
 * the gcc C-compiler
 * C++ support for gcc
