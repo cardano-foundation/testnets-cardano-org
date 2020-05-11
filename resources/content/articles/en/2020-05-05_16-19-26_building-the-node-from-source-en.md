@@ -9,7 +9,7 @@ last_updated: 2020-05-05T16:19:01.000Z
 ## Building the node from source
 By building and running the node directly from the source code, you can ensure that you get all the latest code updates.
 
-The following instructions presume that you will be running your node on a Linux system and are using cabal. For more information, see the supported platforms page. You can run a node on any platform by using a virtual machine, although instructions on how to set up a virtual machine to do so are not provided here. See the [community content](https://staging-updated-testnets-cardano.netlify.app/admin/#/collections/articles-en/entries/2020-05-04_05-00-00_community-en) section for additional information about virtual machines.
+The following instructions presume that you will be running your node on a Linux system and are using cabal. For more information, see the [supported platforms] (https://staging-updated-testnets-cardano.netlify.app/admin/#/collections/articles-en/entries/2020-05-04_05-00-00_supported-platforms-en) page. You can run a node on any platform by using a virtual machine, although instructions on how to set up a virtual machine to do so are not provided here. See the [community content](https://staging-updated-testnets-cardano.netlify.app/admin/#/collections/articles-en/entries/2020-05-04_05-00-00_community-en) section for additional information about virtual machines.
 
 To build and run the node from source, you need the following packages and tools:
 
@@ -33,8 +33,8 @@ If you are using a different flavor of Linux, you will need to use the package m
 How to build and run the node from source:
 
 1. In the terminal, run the following git command to clone the Cardano node repository and download the source code:
-`git clone `[`https://github.com/input-output-hk/cardano-node.git`](https://github.com/input-output-hk/cardano-node.git) \
-   This should create a `cardano-node` folder.
+`git clone` https://github.com/input-output-hk/cardano-node.git`
+This should create a `cardano node` folder.
 2. Download the latest source code from the releases page to this folder. \
    After the download has finished, you can check the contents using the following command: `ls cardano-node`
 3. Change your working directory to the folder in which the source code was downloaded using the following command:\
@@ -44,6 +44,6 @@ How to build and run the node from source:
    `git checkout tags/1.10.0`
 5. Build the source code using Cabal by running the following command:\
    `build all` \
-   Please note that building the node may take some time, possibly several hours. If you prefer you can also [build the source code using stack] (https://github.com/input-output-hk/cardano-tutorials/blob/brunjlar/node-setup/node-setup/build.md). 
+   Please note that building the node may take some time, possibly several hours.  
 6. Run the following command to initialize the node:\
    `./scripts/shelley-testnet-live.sh`
