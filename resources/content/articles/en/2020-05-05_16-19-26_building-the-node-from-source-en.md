@@ -1,17 +1,17 @@
 ---
 parent: 2020-05-05_16-12-19_installing-and-running-the-cardano-node
-title: Building the node from source
-description: Source node build - Shelley Haskell testnet
+title: Building a node from source
+description: Shelley Haskell testnet
 order: 2
 external_href: ""
 last_updated: 2020-05-05T16:19:01.000Z
 ---
-## Building the node from source
-By building and running the node directly from the source code, you can ensure that you get all the latest code updates.
+## Building a node from source
+By building and running a node directly from the source code, you can ensure that you get all the latest code updates.
 
-The following instructions presume that you will be running your node on a Linux system and are using cabal. For more information, see the [supported platforms] (https://staging-updated-testnets-cardano.netlify.app/admin/#/collections/articles-en/entries/2020-05-04_05-00-00_supported-platforms-en) page. You can run a node on any platform by using a virtual machine, although instructions on how to set up a virtual machine to do so are not provided here. See the [community content](https://staging-updated-testnets-cardano.netlify.app/admin/#/collections/articles-en/entries/2020-05-04_05-00-00_community-en) section for additional information about virtual machines.
+The following instructions presume that you will be running your node on a Linux system and are using cabal. For more information, see the [supported platforms](shelley-haskell/about/supported-platforms/) page. You can run a node on any platform by using a virtual machine, although instructions on how to set up a virtual machine to do so are not provided here. See the [community content](shelley-haskell/resources/community/) section for additional information about virtual machines.
 
-To build and run the node from source, you need the following packages and tools:
+To build and run a node from source, you need the following packages and tools:
 
 * the Haskell platform and Haskell build-tool cabal
 * the version control system git
@@ -23,27 +23,40 @@ To build and run the node from source, you need the following packages and tools
 
 You can install these dependencies as follows:
 
-`sudo yum update -y `\
-`sudo yum install git gcc gmp-devel -y `\
-`sudo yum install zlib-devel systemd-devel ncurses-devel -y `\
-`curl -sSL https://get.haskellstack.org/ | sh`
+```shell
+sudo yum update -y 
+sudo yum install git gcc gmp-devel -y 
+sudo yum install zlib-devel systemd-devel ncurses-devel -y
+curl -sSL https://get.haskellstack.org/ | sh
+```
 
 If you are using a different flavor of Linux, you will need to use the package manager suitable for your platform, instead of yum, and the names of the packages you need to install might differ.
 
 How to build and run the node from source:
 
 1. In the terminal, run the following git command to clone the Cardano node repository and download the source code:
-`git clone https://github.com/input-output-hk/cardano-node.git`
-This should create a `cardano node` folder.
-2. Download the latest source code from the [releases page] (https://github.com/input-output-hk/cardano-node/releases) to this folder. \
-After the download has finished, you can check the contents using the following command: `ls cardano-node`
-3. Change your working directory to the folder in which the source code was downloaded using the following command:\
-   `cd cardano-node`
-4. You should check out the latest release, for example tag 1.10.0 using the following command:\
-   `git fetch --all --tags`\
-   `git checkout tags/1.10.0`
-5. Build the source code using Cabal by running the following command:\
-   `build all` \
+   ```shell
+   git clone https://github.com/input-output-hk/cardano-node.git
+   ```
+1. Download the latest source code from the [releases page](https://github.com/input-output-hk/cardano-node/releases) to this folder. After the download has finished, you can check the contents using the following command:
+   ```shell
+   ls cardano-node
+   ```
+1. Change your working directory to the folder in which the source code was downloaded using the following command:
+   ```shell
+   cd cardano-node
+   ```
+1. You should check out the latest release, for example tag 1.10.0 using the following command:
+   ```shell
+   git fetch --all --tags
+   git checkout tags/1.10.0
+   ```
+5. Build the source code using Cabal by running the following command:
+   ```shell
+   build all
+   ```
 Please note that building the node may take some time, possibly several hours.  
-6. Run the following command to initialize the node:\
-   `./scripts/shelley-testnet-live.sh`
+6. Run the following command to initialize the node:
+   ```shell
+   ./scripts/shelley-testnet-live.sh
+   ```
