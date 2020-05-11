@@ -7,8 +7,10 @@ last_updated: 2020-05-01T08:00:00.000Z
 ---
 ## Shelley Haskell testnet introduction
 
+The Shelley Haskell testnet rollout with involve controlled phases.
+
 ### Three phases
-The Shelley Haskell testnet will be delivered in three phases, the first of which is a small, invitation-only beta involving a Shelley-only test network.
+The testnets will be delivered in three phases, the first of which is a small, invitation-only beta involving a Shelley-only test network.
 
 The second phase of the testnet will be public and will include stake pool configuration and operation on a Shelley-only network, as well as testing of the wallet backend, explorer, and dashboard.
 
