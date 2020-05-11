@@ -34,7 +34,6 @@ How to build and run the node from source:
 
 1. In the terminal, run the following git command to clone the Cardano node repository and download the source code:
 `git clone` https://github.com/input-output-hk/cardano-node.git`
-
 This should create a `cardano-node` folder.
 2. Download the latest source code from the releases page to this folder. \
    After the download has finished, you can check the contents using the following command: `ls cardano-node`
