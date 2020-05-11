@@ -15,6 +15,7 @@ import Blank from './Blank'
 import { FIXED_HEADER_OFFSET } from '../constants'
 import GlobalContentQuery from '../queries/GlobalContentQuery'
 import MarkdownComponents from '../components/MarkdownComponents'
+import Grafana from '../components/Grafana'
 import Container from '../components/Container'
 import config from '../config'
 
@@ -423,8 +424,9 @@ const Article = ({ pageContext }) => {
     const contentParts = []
     // Matches <!-- include components/<MyComponent> --> - where <MyComponent> is Alpha string reference to component
     // Or <!-- embed youtube/id --> - where id is the YouTube video id to embed
+    // Or <!-- embed grafana/url --> - where url is the Grafana URL
     // in src/components/MarkdownComponent/index.js
-    const pattern = /<!--\s(include|embed)\s(components|youtube)\/([^\s]+)\s-->/
+    const pattern = /<!--\s(include|embed)\s(components|youtube|grafana)\/([^\s]+)\s-->/
     let match = remainingContent.match(pattern)
     let matchIndex = match ? match.index : -1
 
@@ -446,6 +448,10 @@ const Article = ({ pageContext }) => {
               height: '350px'
             }}
           />
+        )
+      } else if (type === 'embed' && category === 'grafana' && value) {
+        contentParts.push(
+          <Grafana embedLink={value} />
         )
       }
 
