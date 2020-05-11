@@ -1,9 +1,0 @@
----
-title: Overview
-parent: kevm
-order: 1
-last_updated: "2020-05-01T09:00:00+01:00"
----
-## Overview
-
-Here you will find information and instructions for developers who wish to use the KEVM, a correct-by-construction version of the Ethereum virtual machine (EVM) specified in the K framework. It allows developers to experiment with any smart contract that can be run on the EVM, and offers improved security and performance. K is a means to formally verify software so the code can be automatically checked for any flaws, and can be proven to run exactly as it should. We encourage you to read the detailed documentation on the KEVM and its differences compared to the EVM. Most importantly, we look forward to your feedback.

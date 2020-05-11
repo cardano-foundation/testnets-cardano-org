@@ -17,8 +17,6 @@ const SearchPageQuery = ({ render }) => (
                     content {
                       title
                       showing_results
-                      previous
-                      next
                       no_results
                       last_updated
                       meta_title_prefix

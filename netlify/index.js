@@ -1,6 +1,7 @@
 import backend from './backend'
 import collections from './collections'
 import { getBranch } from './helpers'
+import editorComponents from './editorComponents'
 
 const init = window.initCMS
 const config = {
@@ -12,7 +13,6 @@ const config = {
       publicKey: process.env.UPLOADCARE_PUBLIC_KEY
     }
   },
-  logo_url: 'https://ucarecdn.com/0a28215f-a3f0-40e2-ac7e-d7dc93288d16/-/resize/150/-/progressive/yes/',
   show_preview_links: true,
   collections
 }
@@ -20,5 +20,7 @@ const config = {
 if (getBranch() === 'staging') config.publish_mode = 'editorial_workflow'
 
 console.log('CMS config', config)
+
+editorComponents.forEach(editorComponent => window.CMS.registerEditorComponent(editorComponent))
 
 init({ config })

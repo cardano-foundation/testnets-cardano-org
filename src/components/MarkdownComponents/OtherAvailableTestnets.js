@@ -43,7 +43,7 @@ export default () => (
       <Container>
         <div>
           <div>
-            <Link href='/more/kevm/kevm-overview/'>
+            <Link href='/more/kevm/overview/'>
               <img src='/images/kevm.svg' alt='KEVM icon' />
               <span>KEVM</span>
             </Link>
@@ -52,7 +52,7 @@ export default () => (
         </div>
         <div>
           <div>
-            <Link href='/more/iele/iele-overview/'>
+            <Link href='/more/iele/overview/'>
               <img src='/images/iele.svg' alt='IELE icon' />
               <span>IELE</span>
             </Link>

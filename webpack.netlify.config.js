@@ -25,12 +25,12 @@ config.availableLanguages.forEach(({ key: language }) => {
       const slug = filename.replace(new RegExp(`^(.*?)-${language}.md$`), '$1')
 
       return {
-        label: `${content.attributes.title} (${slug})`,
+        label: `${content.attributes.title} - ${content.attributes.description}`,
         value: slug
       }
     })
 })
-process.env.IOHK_AVAILABLE_ARTICLES = JSON.stringify(articles)
+process.env.AVAILABLE_ARTICLES = JSON.stringify(articles)
 
 const getRandomString = () => {
   let s = ''
@@ -63,7 +63,10 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: {
+            presets: [ '@babel/preset-env', '@babel/preset-react' ]
+          }
         }
       },
       {
@@ -80,7 +83,8 @@ module.exports = {
       // Branch exposed by netlify build https://www.netlify.com/docs/continuous-deployment/#environment-variables
       HEAD: 'staging',
       UPLOADCARE_PUBLIC_KEY: 'demopublickey',
-      GATSBY_IOHK_STARTER_CONFIG: JSON.stringify(config)
+      GATSBY_IOHK_STARTER_CONFIG: JSON.stringify(config),
+      AVAILABLE_ARTICLES: ''
     })
   ]
 }

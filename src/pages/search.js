@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import styled from 'styled-components'
-import { graphql } from 'gatsby'
+import { graphql, navigate } from 'gatsby'
 import PropTypes from 'prop-types'
 import { Location } from '@reach/router'
 import Box from '@material-ui/core/Box'
@@ -9,7 +9,7 @@ import TinyColor from '@ctrl/tinycolor'
 import showdown from 'showdown'
 import FlexSearch from 'flexsearch'
 import Markdown from '@input-output-hk/front-end-core-components/components/Markdown'
-import Link from '@input-output-hk/front-end-core-components/components/Link'
+import Pagination from '@material-ui/lab/Pagination'
 import Layout from '../components/Layout'
 import SearchPageQuery from '../queries/SearchPageQuery'
 import SearchField from '../components/SearchField'
@@ -66,15 +66,45 @@ function getSearchParam (search, key) {
   return null
 }
 
-const NavWrap = styled.div`
-  width: 100%;
+const SearchUpper = styled.div`
   display: flex;
-  justify-content: space-between;
-  
-  span {
-    opacity: 0.5;
-    cursor: default;
+
+  > div {
+    flex: 1;
+    display: flex;
+
+    &:last-of-type {
+      justify-content: flex-end;
+    }
   }
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    flex-direction: column;
+
+    > div {
+      padding: 0.5rem 0;
+
+      &:last-of-type {
+        justify-content: flex-start;
+      }
+    }
+  }
+`
+
+const SearchLower = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    justify-content: flex-start;
+  }
+`
+
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `
 
 const Items = styled.ul`
@@ -100,6 +130,7 @@ export const query = graphql`
       edges {
         node {
           title
+          fullTitle
           path
           lang
           content
@@ -122,9 +153,9 @@ const SearchPageInner = ({ data, pageContext, location }) => {
   }
 
   function getPage ({ search }) {
-    const page = parseInt(getSearchParam(search, 'page') || '0')
-    if (!page || isNaN(page) || page <= 0) return 0
-    return page - 1
+    const page = parseInt(getSearchParam(search, 'page') || '1')
+    if (!page || isNaN(page) || page <= 0) return 1
+    return page
   }
 
   const sanitizeContent = (content) => {
@@ -137,8 +168,10 @@ const SearchPageInner = ({ data, pageContext, location }) => {
 
   const loadResults = () => {
     try {
-      const posts = data.allDocumentationArticle.edges.map(({ node: { title, path, content, lastUpdatedFormatted } }) => ({
+      if (!query) setResults({ results: [], query })
+      const posts = data.allDocumentationArticle.edges.map(({ node: { title, fullTitle, path, content, lastUpdatedFormatted } }) => ({
         title,
+        fullTitle,
         path: `/${pageContext.lang}${path}`,
         content,
         lastUpdatedFormatted
@@ -153,7 +186,8 @@ const SearchPageInner = ({ data, pageContext, location }) => {
           id: 'path',
           field: [
             'content',
-            'title'
+            'title',
+            'fullTitle'
           ]
         }
       })
@@ -173,25 +207,23 @@ const SearchPageInner = ({ data, pageContext, location }) => {
     }
   }
 
+  function validatePage (page) {
+    if (page === 1) return
+    if (page > Math.ceil(results.results.length / RESULTS_PER_PAGE)) {
+      pageOnChange(null, Math.ceil(results.results.length / RESULTS_PER_PAGE))
+    } else if (page < 1) {
+      pageOnChange(null, 1)
+    }
+  }
+
   useEffect(() => {
     const newQuery = getQuery(location)
     const newPage = getPage(location)
     if (newQuery !== query) setQuery(newQuery)
-    if (!results.query || results.query !== query) loadResults()
+    if (results.query === null || results.query !== query) loadResults()
     if (newPage !== page) setPage(newPage)
+    if (newPage === page && results.results) validatePage(page)
   }, [ location, query, page, results ])
-
-  function getPageURL (newPage) {
-    return `/${pageContext.lang}/search/?query=${encodeURIComponent(query)}&page=${encodeURIComponent(newPage + 1)}`
-  }
-
-  function canNavigateToPreviousPage () {
-    return page > 0
-  }
-
-  function canNavigateToNextPage () {
-    return page < Math.floor(results.results.length / RESULTS_PER_PAGE) && page * RESULTS_PER_PAGE + RESULTS_PER_PAGE < results.results.length
-  }
 
   function renderTemplate (template, data) {
     return template.replace(/{{\s?([a-zA-Z0-9_]+)\s?}}/g, (out, name) => data[name] || out)
@@ -199,10 +231,10 @@ const SearchPageInner = ({ data, pageContext, location }) => {
 
   function showingResults (template) {
     const templateData = {
-      from: page * RESULTS_PER_PAGE + 1,
-      to: Math.min(page * RESULTS_PER_PAGE + RESULTS_PER_PAGE, results.results.length),
+      from: (page - 1) * RESULTS_PER_PAGE + 1,
+      to: Math.min((page - 1) * RESULTS_PER_PAGE + RESULTS_PER_PAGE, results.results.length),
       total: results.results.length,
-      query: `_${query}_`
+      query: `_"${query}"_`
     }
 
     return renderTemplate(template, templateData)
@@ -210,11 +242,14 @@ const SearchPageInner = ({ data, pageContext, location }) => {
 
   function noMatchingResults (template) {
     const templateData = {
-      query: `_${query}_`
+      query: `_"${query}"_`
     }
 
-    console.log('no', renderTemplate(template, templateData))
     return renderTemplate(template, templateData)
+  }
+
+  function pageOnChange (_, value) {
+    navigate(`/${pageContext.lang}/search/?query=${encodeURIComponent(query)}&page=${encodeURIComponent(value)}`)
   }
 
   return (
@@ -231,42 +266,40 @@ const SearchPageInner = ({ data, pageContext, location }) => {
             <Content>
               {results.results && results.results.length > 0 &&
                 <div>
-                  <Markdown source={showingResults(pageContent.showing_results)} />
+                  <SearchUpper>
+                    <div>
+                      <Column>
+                        <Markdown source={showingResults(pageContent.showing_results)} />
+                      </Column>
+                    </div>
+                    <div>
+                      <Column>
+                        <Pagination
+                          count={Math.ceil(results.results.length / RESULTS_PER_PAGE)}
+                          page={page}
+                          onChange={pageOnChange}
+                          boundaryCount={1}
+                          siblingCount={1}
+                        />
+                      </Column>
+                    </div>
+                  </SearchUpper>
                   <Items>
-                    {results.results.slice(page * RESULTS_PER_PAGE, page * RESULTS_PER_PAGE + RESULTS_PER_PAGE).map((post, i) => (
+                    {results.results.slice((page - 1) * RESULTS_PER_PAGE, (page - 1) * RESULTS_PER_PAGE + RESULTS_PER_PAGE).map((post) => (
                       <Fragment key={post.path}>
                         <SearchResult result={post} query={query} />
                       </Fragment>
                     ))}
                   </Items>
-                  <NavWrap>
-                    <div>
-                      <p>
-                        {canNavigateToPreviousPage() &&
-                          <Link
-                            href={getPageURL(page - 1)}
-                            tracking={{ category: 'search_navigation', label: 'previous' }}
-                          >
-                            {pageContent.previous}
-                          </Link>
-                        }
-                        <span>{!canNavigateToPreviousPage() && pageContent.previous}</span>
-                      </p>
-                    </div>
-                    <div>
-                      <p>
-                        {canNavigateToNextPage() &&
-                          <Link
-                            href={getPageURL(page + 1)}
-                            tracking={{ category: 'search_navigation', label: 'next' }}
-                          >
-                            {pageContent.next}
-                          </Link>
-                        }
-                        <span>{!canNavigateToNextPage() && pageContent.next}</span>
-                      </p>
-                    </div>
-                  </NavWrap>
+                  <SearchLower>
+                    <Pagination
+                      count={Math.ceil(results.results.length / RESULTS_PER_PAGE)}
+                      page={page}
+                      onChange={pageOnChange}
+                      boundaryCount={1}
+                      siblingCount={1}
+                    />
+                  </SearchLower>
                 </div>
               }
               {results.results && results.results.length === 0 &&

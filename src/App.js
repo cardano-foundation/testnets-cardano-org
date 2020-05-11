@@ -7,8 +7,10 @@ import IOHKLink, { Provider as LinkProvider } from '@input-output-hk/front-end-c
 import { Provider as MarkdownProvider } from '@input-output-hk/front-end-core-components/components/Markdown'
 import Styles from '@input-output-hk/front-end-site-components/components/Styles'
 import { ThemeProvider as MaterialUIThemeProvider } from '@material-ui/core/styles'
-import { ThemeProvider as StyledThemeProvider } from 'styled-components'
+import styled, { ThemeProvider as StyledThemeProvider } from 'styled-components'
+import TinyColor from '@ctrl/tinycolor'
 import { analytics, theme } from '@input-output-hk/front-end-core-libraries'
+import Zendesk from 'react-zendesk'
 import { navigate, Link as GatsbyLink } from 'gatsby'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { atomOneDark, atomOneLight } from 'react-syntax-highlighter/dist/esm/styles/hljs'
@@ -16,6 +18,7 @@ import config from './config'
 import { getThemes } from './themes'
 import Search from './state/Search'
 import Header from './components/Header'
+import Style from './components/Style'
 
 // Default route uses SSR from "pages"
 const DefaultRoute = ({ element }) => element
@@ -66,10 +69,34 @@ Link.propTypes = {
   onClick: PropTypes.func
 }
 
+const PreWrap = styled.div`
+  display: grid;
+
+  pre {
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+      width: 0.7rem;
+      height: 0.7rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: ${({ theme }) => new TinyColor(theme.palette.text.primary).setAlpha(0.2).toString()};
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: ${({ theme }) => new TinyColor(theme.palette.text.primary).setAlpha(0.5).toString()};
+      border-radius: 0.35rem;
+    }
+  }
+`
+
 const LightCodeRenderer = ({ value = '', language }) => (
-  <SyntaxHighlighter language={language} style={atomOneLight}>
-    {value}
-  </SyntaxHighlighter>
+  <PreWrap>
+    <SyntaxHighlighter language={language} style={atomOneLight}>
+      {value}
+    </SyntaxHighlighter>
+  </PreWrap>
 )
 
 LightCodeRenderer.propTypes = {
@@ -78,9 +105,11 @@ LightCodeRenderer.propTypes = {
 }
 
 const DarkCodeRenderer = ({ value = '', language }) => (
-  <SyntaxHighlighter language={language} style={atomOneDark}>
-    {value}
-  </SyntaxHighlighter>
+  <PreWrap>
+    <SyntaxHighlighter language={language} style={atomOneDark}>
+      {value}
+    </SyntaxHighlighter>
+  </PreWrap>
 )
 
 DarkCodeRenderer.propTypes = {
@@ -89,7 +118,7 @@ DarkCodeRenderer.propTypes = {
 }
 
 const App = ({ element }) => {
-  function languageOnUpdate ({ lang, prevLang, url, prevURL }) {
+  function languageOnUpdate ({ lang, prevLang }) {
     if (prevLang && lang !== prevLang) {
       navigate(`/${lang}/`)
       analytics.autoCapture({ category: analytics.constants.LANGUAGE, action: 'language_updated', label: lang })
@@ -138,7 +167,14 @@ const App = ({ element }) => {
                     <StyledThemeProvider theme={theme}>
                       <Language.Consumer>
                         {({ key: lang }) => (
-                          <LinkProvider lang={lang} component={Link}>
+                          <LinkProvider
+                            lang={lang}
+                            component={Link}
+                            isStatic={href => {
+                              if (href.match(/^blob:/)) return true
+                              return false
+                            }}
+                          >
                             <MarkdownProvider
                               markdownProps={{
                                 renderers: {
@@ -148,11 +184,13 @@ const App = ({ element }) => {
                               }}
                             >
                               <Styles theme={originalTheme.config} />
+                              <Style />
                               <Header />
                               <Router>
                                 {getRoutes(lang)}
                                 <DefaultRoute default element={element} />
                               </Router>
+                              <Zendesk zendeskKey={config.zendeskKey} color={{ theme: theme.colors.primary.main }} />
                             </MarkdownProvider>
                           </LinkProvider>
                         )}

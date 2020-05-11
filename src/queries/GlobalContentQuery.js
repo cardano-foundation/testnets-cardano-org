@@ -32,13 +32,58 @@ const GlobalContentQuery = ({ render }) => (
                       logo_alt
                       kevm_description
                       iele_description
+                      faucet_content {
+                        funds
+                        invalid_address
+                        server_error
+                        endpoint_not_found
+                        too_many_attempts
+                        too_many_attempts_retry
+                        address_helper_text
+                        api_key_helper_text
+                        request_funds
+                        request_more_funds
+                        success_heading
+                        verify_transaction_hash
+                        transaction_successful
+                      }
+                      downloaders_content {
+                        version
+                        error_fetching_data
+                        platforms_order {
+                          platform_name
+                        }
+                        sha_checksum
+                        verify_signature
+                        pgp_signature
+                        verify_checksum
+                        copy_to_clipboard
+                        windows {
+                          short_label
+                          full_label
+                          checksum_instructions
+                          signature_instructions
+                        }
+                        darwin {
+                          short_label
+                          full_label
+                          checksum_instructions
+                          signature_instructions
+                        }
+                        linux {
+                          short_label
+                          full_label
+                          checksum_instructions
+                          signature_instructions
+                        }
+                      }
                     }
                   }
                 }
               }
             }
 
-            iohkMainNavigationLinks {
+            mainNavigationLinks {
               mainNavigationLinks {
                 lang
                 items {
@@ -49,11 +94,11 @@ const GlobalContentQuery = ({ render }) => (
             }
           }
         `}
-        render={({ allFile, iohkMainNavigationLinks }) => {
+        render={({ allFile, mainNavigationLinks }) => {
           const content = allFile.nodes.filter(node => node.relativePath === `content/global/global-${lang}.md`).shift()
           if (!content || !content.childMarkdownRemark) throw new Error(`No global translations found for language ${lang}`)
 
-          const items = (iohkMainNavigationLinks.mainNavigationLinks.filter((itemSet) => itemSet.lang === lang).shift() || {}).items
+          const items = (mainNavigationLinks.mainNavigationLinks.filter((itemSet) => itemSet.lang === lang).shift() || {}).items
           if (!items) throw new Error(`No header links for language ${lang}`)
 
           return render(content.childMarkdownRemark.frontmatter.content, items)

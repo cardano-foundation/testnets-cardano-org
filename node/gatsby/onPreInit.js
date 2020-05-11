@@ -25,7 +25,7 @@ const setupEnvironment = ({ program }) => {
   if (!process.env.GATSBY_IOHK_STARTER_CONFIG) process.env.GATSBY_IOHK_STARTER_CONFIG = JSON.stringify(config)
 }
 
-const buildArticles = (markdownArticles, { key, baseURL = '/' } = {}) => {
+const buildArticles = (markdownArticles, { key, baseURL = '/', baseTitle = '' } = {}) => {
   const articles = []
   let filteredArticles
   if (!key) {
@@ -34,21 +34,34 @@ const buildArticles = (markdownArticles, { key, baseURL = '/' } = {}) => {
     filteredArticles = markdownArticles.filter(({ content }) => content.attributes.parent === key)
   }
 
+  const usedURLs = []
   filteredArticles.forEach(({ key, content }) => {
     const lastUpdated = moment(content.attributes.last_updated, 'YYYY-MM-DDTHH:mm:ssZ')
     lastUpdated.utcOffset(0)
 
+    // Remove datetime prefix on filename
+    const normalisedURL = key.replace(/^[\d]{4}-[\d]{2}-[\d]{2}_[\d]{2}-[\d]{2}-[\d]{2}_/, '')
+    const baseArticlePath = `${baseURL}${normalisedURL}`
+    let articlePath = `${baseArticlePath}/`
+    let i = 1
+    while (usedURLs.includes(articlePath)) {
+      articlePath = `${baseArticlePath}-${i}/`
+      i++
+    }
+
+    usedURLs.push(articlePath)
     articles.push({
       title: content.attributes.title,
+      fullTitle: `${baseTitle}${content.attributes.title}`,
       content: content.body,
       lastUpdatedFormatted: lastUpdated.format('MMMM D, YYYY HH:mm [UTC]'),
       lastUpdated: content.attributes.last_updated,
       key,
-      path: `${baseURL}${key}/`,
+      path: articlePath,
       order: content.attributes.order || 1,
-      redirects: content.attributes.redirects,
+      redirects: content.attributes.redirects || [],
       externalHref: content.attributes.external_href || '',
-      children: buildArticles(markdownArticles, { key, baseURL: `${baseURL}${key}/` })
+      children: buildArticles(markdownArticles, { key, baseURL: articlePath, baseTitle: `${baseTitle}${content.attributes.title} ` })
     })
   })
 

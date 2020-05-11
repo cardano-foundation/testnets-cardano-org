@@ -5,9 +5,10 @@ const buildCollection = language => {
     name: `articles-${language}`,
     label: `Articles (${language})`,
     folder: `resources/content/articles/${language}`,
-    slug: `{{slug}}-${language}`,
+    slug: `{{year}}-{{month}}-{{day}}_{{hour}}-{{minute}}-{{second}}_{{slug}}-${language}`,
     create: true,
     delete: true,
+    summary: `{{fields.title}} - {{fields.description}}`,
     fields: [
       getAllArticlesWidget(language, {
         required: false,
@@ -19,6 +20,13 @@ const buildCollection = language => {
       {
         label: 'Title',
         name: 'title',
+        widget: 'string',
+        required: true
+      },
+      {
+        label: 'Description',
+        name: 'description',
+        hint: 'Used to help identify the article on Netlify CMS',
         widget: 'string',
         required: true
       },
@@ -48,6 +56,7 @@ const buildCollection = language => {
       {
         label: 'Redirects from',
         name: 'redirects',
+        required: false,
         widget: 'list',
         fields: [
           {
@@ -58,10 +67,20 @@ const buildCollection = language => {
           {
             name: 'type',
             label: 'Type',
+            hint: 'Redirect status. 301 is permanent. 302 is temporary.',
             widget: 'select',
             multiple: false,
-            options: [ 301, 302 ],
-            default: 301
+            options: [
+              {
+                label: '301',
+                value: 301
+              },
+              {
+                label: '302',
+                value: 302
+              }
+            ],
+            default: null
           }
         ]
       },

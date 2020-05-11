@@ -5,15 +5,15 @@ module.exports = ({ actions }) => {
   const { createNode } = actions
   const articles = data.get('articles')
 
-  function findNextLink (children, basePath) {
+  function findNextLink (children) {
     let path
     const childrenValues = [ ...children ]
     while (!path && childrenValues.length > 0) {
       const next = childrenValues.shift()
       if (next.content) {
-        path = `${basePath}/${next.key}/`
+        path = next.path
       } else {
-        path = findNextLink(next.children, `${basePath}/${next.key}`)
+        path = findNextLink(next.children)
       }
     }
 
@@ -23,17 +23,14 @@ module.exports = ({ actions }) => {
   function getHeaderLinks (articles, lang) {
     const headerLinks = []
     articles.forEach(article => {
-      let path = `/${lang}`
-      if (article.content) {
-        path += `/${article.key}/`
-      } else {
-        path += findNextLink(article.children, `/${article.key}`)
-      }
+      const path = article.content ? article.path : findNextLink(article.children)
 
-      headerLinks.push({
-        path,
-        label: article.title
-      })
+      if (path) {
+        headerLinks.push({
+          path: `/${lang}${path}`,
+          label: article.title
+        })
+      }
     })
 
     return headerLinks
@@ -44,12 +41,12 @@ module.exports = ({ actions }) => {
       lang,
       items: getHeaderLinks(articles[lang], lang)
     })),
-    id: `iohk-main-navigation-links`,
+    id: `main-navigation-links`,
     parent: null,
     children: [],
     internal: {
-      type: 'IOHKMainNavigationLinks',
-      description: 'IOHK main navigation links taken from documentation',
+      type: 'MainNavigationLinks',
+      description: 'Main navigation links taken from articles',
       contentDigest: crypto
         .createHash(`md5`)
         .update(JSON.stringify(articles))
@@ -64,6 +61,7 @@ module.exports = ({ actions }) => {
         id: `document-id-${article.path}-${lang}`,
         content: article.content,
         title: article.title,
+        fullTitle: article.fullTitle,
         lastUpdatedFormatted: article.lastUpdatedFormatted,
         lang,
         parent: null,
