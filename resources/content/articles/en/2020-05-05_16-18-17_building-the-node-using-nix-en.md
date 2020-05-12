@@ -4,13 +4,13 @@ title: Building a node using Nix
 description: Nix build - Shelley Haskell testnet
 order: 1
 external_href: ""
-last_updated: 2020-05-05T16:17:15.000Z
+last_updated: 2020-05-12T16:17:15.000Z
 ---
 ## Building a node using Nix
 
 [Nix](https://nixos.org/) is a purely functional, cross-platform package manager for Linux and Unix systems. It is the package manager of choice for IOHK's internal development teams, and thus the recommended method for building a Cardano node to run on your machine.
 
-**Note:** The following instructions assume you are using Linux and have curl installed. See the [supported platforms](https://staging-updated-testnets-cardano.netlify.app/en/shelley-haskell/about/supported-platforms/) page for more details about supported platforms for the Shelley Haskell testnet.
+**Note:** The following instructions assume you are using Linux and have curl installed. See the [supported platforms](shelley-haskell/about/supported-platforms/) page for more details about supported platforms for the Shelley Haskell testnet.
 
 1. Download and install the Nix package manager by running the following commands from a terminal:
 ```shell
