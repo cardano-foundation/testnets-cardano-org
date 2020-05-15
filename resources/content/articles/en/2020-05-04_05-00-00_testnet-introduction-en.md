@@ -24,5 +24,5 @@ To maximize the value of this testnet, all you have to do is get involved. Runni
 
 This community-driven feedback is invaluable and will ensure that the mainnet Shelley era is the best it can be. We will also be highlighting the best community-created resources and information about the testnet on our community content page.
 
-
+fdgfdgdfgdfgdfg
 
