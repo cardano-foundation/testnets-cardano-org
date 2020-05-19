@@ -4,12 +4,12 @@ title: Building a node from source
 description: Shelley Haskell testnet
 order: 2
 external_href: ""
-last_updated: 2020-05-05T16:19:01.000Z
+last_updated: 2020-05-19T16:19:01.000Z
 ---
 ## Building a node from source
 By building and running a node directly from the source code, you can ensure that you get all the latest code updates.
 
-The following instructions presume that you will be running your node on a Linux system and are using cabal. For more information, see the [supported platforms](shelley-haskell/about/supported-platforms/) page. You can run a node on any platform by using a virtual machine, although instructions on how to set up a virtual machine to do so are not provided here. See the [community content](shelley-haskell/resources/community/) section for additional information about virtual machines.
+The following instructions presume that you will be running your node on a Linux system and are using cabal. For more information, see the [supported platforms](shelley-haskell/about/supported-platforms/) page. You can run a node on any platform by [using a virtual machine](/shelley-haskell/get-started/installing-and-running-the-cardano-node/running-the-node-on-an-aws-instance/).
 
 To build and run a node from source, you need the following packages and tools:
 
@@ -24,8 +24,8 @@ To build and run a node from source, you need the following packages and tools:
 You can install these dependencies as follows:
 
 ```shell
-sudo yum update -y 
-sudo yum install git gcc gmp-devel -y 
+sudo yum update -y
+sudo yum install git gcc gmp-devel -y
 sudo yum install zlib-devel systemd-devel ncurses-devel -y
 curl -sSL https://get.haskellstack.org/ | sh
 ```
@@ -60,3 +60,5 @@ Please note that building the node may take some time, possibly several hours.
    ```shell
    ./scripts/shelley-testnet-live.sh
    ```
+
+You should now have a Cardano node running on your machine, connected to the Shelley Haskell testnet.

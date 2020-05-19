@@ -4,7 +4,7 @@ title: Building a node using Nix
 description: Nix build - Shelley Haskell testnet
 order: 1
 external_href: ""
-last_updated: 2020-05-12T16:17:15.000Z
+last_updated: 2020-05-19T16:17:15.000Z
 ---
 ## Building a node using Nix
 
@@ -17,7 +17,7 @@ last_updated: 2020-05-12T16:17:15.000Z
 curl https://nixos.org/nix/install > install-nix.sh
 ./install-nix.sh
 ```
-2. Follow the instructions presented as part of the Nix installation process.
+1. Follow the instructions presented as part of the Nix installation process.
 1. Once Nix is installed, open a new `nix-shell` session and enter the following commands, which will clone the Cardano node GitHub repository, open the node file directory, build the node itself, and then run it:
 ```shell
 git clone https://github.com/input-output-hk/cardano-node
