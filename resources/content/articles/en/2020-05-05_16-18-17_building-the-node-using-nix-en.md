@@ -22,8 +22,8 @@ curl https://nixos.org/nix/install > install-nix.sh
 ```shell
 git clone https://github.com/input-output-hk/cardano-node
 cd cardano-node
-nix-build -A scripts.mainnet.node -o mainnet-node-local
-./mainnet-node-local
+nix-build -A scripts.ff.node -o ff-node-local
+./ff-node-local
 ```
 
 Please be aware that the process of building the node may take some time, possibly several hours.
