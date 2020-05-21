@@ -302,6 +302,198 @@ export default {
               ]
             }
           ]
+        },
+        {
+          name: 'staking_calculator',
+          label: 'Staking calculator',
+          widget: 'object',
+          fields: [
+            {
+              name: 'select_a_calculator',
+              label: 'Select a calculator',
+              widget: 'string'
+            },
+            {
+              name: 'i_want_to',
+              label: 'I want to',
+              widget: 'string'
+            },
+            {
+              name: 'delegate_my_stake',
+              label: 'Delegate my stake',
+              widget: 'string'
+            },
+            {
+              name: 'run_a_stake_pool',
+              label: 'Run a stake pool',
+              widget: 'string'
+            },
+            {
+              name: 'show_advanced_options',
+              label: 'Show advanced options',
+              widget: 'string'
+            },
+            {
+              name: 'ada_label',
+              label: 'ADA label',
+              widget: 'string'
+            },
+            {
+              name: 'ada_descriptor',
+              label: 'ADA field description',
+              widget: 'string'
+            },
+            {
+              name: 'reset',
+              label: 'Reset',
+              widget: 'string'
+            },
+            {
+              name: 'currency_label',
+              label: 'Currency label',
+              widget: 'string'
+            },
+            {
+              name: 'currency_descriptor',
+              label: 'Currency field description',
+              widget: 'string'
+            },
+            {
+              name: 'exchange_rate_label',
+              label: 'Exchange rate label',
+              widget: 'string'
+            },
+            {
+              name: 'exchange_rate_descriptor',
+              label: 'Exchange rate field description',
+              widget: 'markdown'
+            },
+            {
+              name: 'fixed_fee_label',
+              label: 'Fixed fee label',
+              widget: 'string'
+            },
+            {
+              name: 'fixed_fee_descriptor_ada',
+              label: 'Fixed fee field description (when using ADA)',
+              widget: 'string'
+            },
+            {
+              name: 'fixed_fee_descriptor',
+              label: 'Fixed fee field description (when using currency othet than ADA)',
+              widget: 'string'
+            },
+            {
+              name: 'stake_pool_control_label',
+              label: 'Stake pool control label',
+              widget: 'string'
+            },
+            {
+              name: 'stake_pool_control_descriptor',
+              label: 'Stake pool control field description',
+              widget: 'string'
+            },
+            {
+              name: 'total_stake_pools_label',
+              label: 'Total stake pools label',
+              widget: 'string'
+            },
+            {
+              name: 'participation_rate_label',
+              label: 'Participation rate label',
+              widget: 'string'
+            },
+            {
+              name: 'participation_rate_descriptor',
+              label: 'Participation rate field description',
+              widget: 'string'
+            },
+            {
+              name: 'operators_stake_label',
+              label: 'Operators stake label',
+              widget: 'string'
+            },
+            {
+              name: 'operators_stake_descriptor',
+              label: 'Operators stake field description',
+              widget: 'string'
+            },
+            {
+              name: 'stake_pool_margin_label',
+              label: 'Stake pool margin label',
+              widget: 'string'
+            },
+            {
+              name: 'stake_pool_margin_descriptor',
+              label: 'Stake pool margin field description',
+              widget: 'string'
+            },
+            {
+              name: 'stake_pool_performance_label',
+              label: 'Stake pool performance label',
+              widget: 'string'
+            },
+            {
+              name: 'stake_pool_performance_descriptor',
+              label: 'Stake pool performance field description',
+              widget: 'string'
+            },
+            {
+              name: 'delegation_rewards',
+              label: 'Delegation rewards',
+              widget: 'string'
+            },
+            {
+              name: 'daily',
+              label: 'Daily',
+              widget: 'string'
+            },
+            {
+              name: 'per_epoch',
+              label: 'Per epoch',
+              widget: 'string'
+            },
+            {
+              name: 'monthly',
+              label: 'Monthly',
+              widget: 'string'
+            },
+            {
+              name: 'yearly',
+              label: 'Yearly',
+              widget: 'string'
+            },
+            {
+              name: 'yield',
+              label: 'Yield',
+              widget: 'string'
+            },
+            {
+              name: 'private_stake_pool_label',
+              label: 'Private stake pool label',
+              widget: 'string'
+            },
+            {
+              name: 'private_stake_pool_descriptor',
+              label: 'Private stake pool input description',
+              widget: 'string'
+            },
+            {
+              name: 'running_costs',
+              label: 'Running costs',
+              widget: 'string'
+            },
+            {
+              name: 'stake_pool_operation_rewards',
+              label: 'Stake pool operation rewards',
+              widget: 'string'
+            },
+            {
+              name: 'combined_rewards',
+              label: 'Combined rewards',
+              widget: 'string'
+            }
+          ]
         }
       ]
     }
