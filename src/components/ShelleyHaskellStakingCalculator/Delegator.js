@@ -25,14 +25,17 @@ const Delegator = ({
   getCurrencySymbol,
   normalizeLargeNumber,
   currencies,
-  getDistributableReward
+  getDistributableReward,
+  containerRef
 }) => {
-  const [ rewards, setRewards ] = useState({
-    daily: { ada: normalizeLargeNumber(0, 6), currency: normalizeLargeNumber(0, 6), yield: normalizeLargeNumber(0, 2) },
-    epoch: { ada: normalizeLargeNumber(0, 6), currency: normalizeLargeNumber(0, 6), yield: normalizeLargeNumber(0, 2) },
-    monthly: { ada: normalizeLargeNumber(0, 6), currency: normalizeLargeNumber(0, 6), yield: normalizeLargeNumber(0, 2) },
-    yearly: { ada: normalizeLargeNumber(0, 6), currency: normalizeLargeNumber(0, 6), yield: normalizeLargeNumber(0, 2) }
-  })
+  const [ rewards, setRewards ] = useState([
+    {
+      daily: { ada: normalizeLargeNumber(0, 6), currency: normalizeLargeNumber(0, 6), yield: normalizeLargeNumber(0, 2) },
+      epoch: { ada: normalizeLargeNumber(0, 6), currency: normalizeLargeNumber(0, 6), yield: normalizeLargeNumber(0, 2) },
+      monthly: { ada: normalizeLargeNumber(0, 6), currency: normalizeLargeNumber(0, 6), yield: normalizeLargeNumber(0, 2) },
+      yearly: { ada: normalizeLargeNumber(0, 6), currency: normalizeLargeNumber(0, 6), yield: normalizeLargeNumber(0, 2) }
+    }
+  ])
 
   useEffect(() => {
     let stakePoolFixedFee = parseFloat(values.stakePoolFixedFee)
@@ -57,28 +60,36 @@ const Delegator = ({
     const dailyReward = epochReward / values.epochDurationInDays
     const monthlyReward = dailyReward * 30
     const yearlyReward = dailyReward * 365
-    setRewards({
-      daily: {
-        ada: normalizeLargeNumber(dailyReward, 6, true),
-        currency: normalizeLargeNumber(fromADA(dailyReward), 6, true),
-        yield: normalizeLargeNumber(dailyReward / ada * 100, 2, true)
-      },
-      epoch: {
-        ada: normalizeLargeNumber(epochReward, 6, true),
-        currency: normalizeLargeNumber(fromADA(epochReward), 6, true),
-        yield: normalizeLargeNumber(epochReward / ada * 100, 2, true)
-      },
-      monthly: {
-        ada: normalizeLargeNumber(monthlyReward, 6, true),
-        currency: normalizeLargeNumber(fromADA(monthlyReward), 6, true),
-        yield: normalizeLargeNumber(monthlyReward / ada * 100, 2, true)
-      },
-      yearly: {
-        ada: normalizeLargeNumber(yearlyReward, 6, true),
-        currency: normalizeLargeNumber(fromADA(yearlyReward), 6, true),
-        yield: normalizeLargeNumber(yearlyReward / ada * 100, 2, true)
+
+    const getPercentage = (n) => {
+      if (n === Infinity) return 'N/A'
+      return `${normalizeLargeNumber(n, 4, true)}%`
+    }
+
+    setRewards([
+      {
+        daily: {
+          ada: normalizeLargeNumber(dailyReward, 6, true),
+          currency: normalizeLargeNumber(fromADA(dailyReward), 6, true),
+          yield: getPercentage(dailyReward / ada * 100)
+        },
+        epoch: {
+          ada: normalizeLargeNumber(epochReward, 6, true),
+          currency: normalizeLargeNumber(fromADA(epochReward), 6, true),
+          yield: getPercentage(epochReward / ada * 100)
+        },
+        monthly: {
+          ada: normalizeLargeNumber(monthlyReward, 6, true),
+          currency: normalizeLargeNumber(fromADA(monthlyReward), 6, true),
+          yield: getPercentage(monthlyReward / ada * 100)
+        },
+        yearly: {
+          ada: normalizeLargeNumber(yearlyReward, 6, true),
+          currency: normalizeLargeNumber(fromADA(yearlyReward), 6, true),
+          yield: getPercentage(yearlyReward / ada * 100)
+        }
       }
-    })
+    ])
   }, [ values ])
 
   return (
@@ -197,23 +208,22 @@ const Delegator = ({
       }
       <Rewards
         fixedRewardsIndex={0}
-        rewards={[
-          {
-            title: content.staking_calculator.delegation_rewards,
-            labels: {
-              ada: 'ADA',
-              currency: values.currency.key,
-              currencySymbol: getCurrencySymbol(values.currency.key),
-              adaSymbol: getCurrencySymbol('ADA'),
-              yield: content.staking_calculator.delegation_rewards,
-              daily: content.staking_calculator.daily,
-              monthly: content.staking_calculator.monthly,
-              yearly: content.staking_calculator.yearly,
-              perEpoch: content.staking_calculator.per_epoch
-            },
-            breakdown: rewards
-          }
-        ]}
+        containerRef={containerRef}
+        rewards={rewards.map((reward) => ({
+          title: content.staking_calculator.delegation_rewards,
+          labels: {
+            ada: 'ADA',
+            currency: values.currency.key,
+            currencySymbol: getCurrencySymbol(values.currency.key),
+            adaSymbol: getCurrencySymbol('ADA'),
+            yield: content.staking_calculator.delegation_rewards,
+            daily: content.staking_calculator.daily,
+            monthly: content.staking_calculator.monthly,
+            yearly: content.staking_calculator.yearly,
+            perEpoch: content.staking_calculator.per_epoch
+          },
+          breakdown: reward
+        }))}
       />
     </Fragment>
   )
@@ -231,7 +241,8 @@ Delegator.propTypes = {
   getCurrencySymbol: PropTypes.func.isRequired,
   normalizeLargeNumber: PropTypes.func.isRequired,
   currencies: PropTypes.array.isRequired,
-  getDistributableReward: PropTypes.func.isRequired
+  getDistributableReward: PropTypes.func.isRequired,
+  containerRef: PropTypes.object.isRequired
 }
 
 export default Delegator

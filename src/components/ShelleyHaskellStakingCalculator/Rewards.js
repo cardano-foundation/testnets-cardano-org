@@ -121,30 +121,37 @@ const FixedRewardsContent = styled.div`
   }
 `
 
-const FixedRewards = ({ reward, rootRef }) => {
+const FixedRewards = ({ reward, rootRef, containerRef }) => {
   const [ visible, setVisible ] = useState(false)
 
   const onScroll = useCallback(() => {
-    const top = rootRef.current.getBoundingClientRect().top - window.innerHeight
+    if (!rootRef.current || !containerRef.current) return
     const offset = Math.min(200, window.innerHeight / 5) * -1
-    if (visible && top < offset) {
+    const containerTop = containerRef.current.getBoundingClientRect().top - window.innerHeight - (offset * 1.5)
+    const top = rootRef.current.getBoundingClientRect().top - window.innerHeight - offset
+    if (visible && top < 0) {
       setVisible(false)
-    } else if (!visible && top >= offset) {
+    } else if (visible && containerTop >= 0) {
+      setVisible(false)
+    } else if (!visible && top >= 0 && containerTop < 0) {
       setVisible(true)
     }
-  }, [ rootRef, visible ])
+  }, [ rootRef, containerRef, visible ])
 
   useEffect(() => {
-    if (rootRef.current) {
+    if (rootRef.current && containerRef.current) {
+      onScroll()
       window.addEventListener('scroll', onScroll)
       window.addEventListener('touchmove', onScroll)
+      window.addEventListener('resize', onScroll)
     }
 
     return () => {
-      window.addEventListener('scroll', onScroll)
-      window.addEventListener('touchmove', onScroll)
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('touchmove', onScroll)
+      window.removeEventListener('resize', onScroll)
     }
-  }, [ rootRef, visible ])
+  }, [ rootRef, containerRef, visible ])
 
   return (
     <TransitionGroup>
@@ -169,10 +176,12 @@ const FixedRewards = ({ reward, rootRef }) => {
                   <p><strong>{reward.labels.adaSymbol} {reward.breakdown.epoch.ada}</strong></p>
                 </div>
               }
-              <div>
-                <p>{reward.labels.yield}</p>
-                <p><strong>{reward.breakdown.epoch.yield}%</strong></p>
-              </div>
+              {reward.labels.yield !== null &&
+                <div>
+                  <p>{reward.labels.yield}</p>
+                  <p><strong>{reward.breakdown.epoch.yield}</strong></p>
+                </div>
+              }
             </FixedRewardsContent>
             <div className='logo'>
               <CardanoLogo active={false} />
@@ -186,7 +195,8 @@ const FixedRewards = ({ reward, rootRef }) => {
 
 FixedRewards.propTypes = {
   reward: PropTypes.object.isRequired,
-  rootRef: PropTypes.object.isRequired
+  rootRef: PropTypes.object.isRequired,
+  containerRef: PropTypes.object.isRequired
 }
 
 const RewardsTableContainer = styled.div`
@@ -244,9 +254,11 @@ const RewardTable = ({ reward }) => (
             <p>{reward.labels.currency} ({reward.labels.currencySymbol})</p>
           </div>
         }
-        <div>
-          <p>{reward.labels.yield} (%)</p>
-        </div>
+        {reward.labels.yield !== null &&
+          <div>
+            <p>{reward.labels.yield} (%)</p>
+          </div>
+        }
       </RewardsTableRow>
       <RewardsTableRow>
         <div>
@@ -260,9 +272,11 @@ const RewardTable = ({ reward }) => (
             <p>{reward.labels.currencySymbol} {reward.breakdown.daily.currency}</p>
           </div>
         }
-        <div>
-          <p>{reward.breakdown.daily.yield}%</p>
-        </div>
+        {reward.labels.yield !== null &&
+          <div>
+            <p>{reward.breakdown.daily.yield}</p>
+          </div>
+        }
       </RewardsTableRow>
       <RewardsTableRow>
         <div>
@@ -276,9 +290,11 @@ const RewardTable = ({ reward }) => (
             <p>{reward.labels.currencySymbol} {reward.breakdown.epoch.currency}</p>
           </div>
         }
-        <div>
-          <p>{reward.breakdown.epoch.yield}%</p>
-        </div>
+        {reward.labels.yield !== null &&
+          <div>
+            <p>{reward.breakdown.epoch.yield}</p>
+          </div>
+        }
       </RewardsTableRow>
       <RewardsTableRow>
         <div>
@@ -292,9 +308,11 @@ const RewardTable = ({ reward }) => (
             <p>{reward.labels.currencySymbol} {reward.breakdown.monthly.currency}</p>
           </div>
         }
-        <div>
-          <p>{reward.breakdown.monthly.yield}%</p>
-        </div>
+        {reward.labels.yield !== null &&
+          <div>
+            <p>{reward.breakdown.monthly.yield}</p>
+          </div>
+        }
       </RewardsTableRow>
       <RewardsTableRow>
         <div>
@@ -308,9 +326,11 @@ const RewardTable = ({ reward }) => (
             <p>{reward.labels.currencySymbol} {reward.breakdown.yearly.currency}</p>
           </div>
         }
-        <div>
-          <p>{reward.breakdown.yearly.yield}%</p>
-        </div>
+        {reward.labels.yield !== null &&
+          <div>
+            <p>{reward.breakdown.yearly.yield}</p>
+          </div>
+        }
       </RewardsTableRow>
     </RewardsTableContent>
   </RewardsTableContainer>
@@ -320,26 +340,28 @@ RewardTable.propTypes = {
   reward: PropTypes.object.isRequired
 }
 
-const Rewards = ({ rewards, fixedRewardsIndex }) => {
+const Rewards = ({ rewards, fixedRewardsIndex, containerRef }) => {
   const rootRef = useRef(null)
   return (
     <Container ref={rootRef}>
-      <FixedRewards reward={rewards[fixedRewardsIndex] || rewards[0]} rootRef={rootRef} />
-      {rewards.map(reward => <RewardTable key={reward.title} reward={reward} />)}
+      <FixedRewards containerRef={containerRef} reward={rewards[fixedRewardsIndex] || rewards[0]} rootRef={rootRef} />
+      {rewards.map((reward, index) => reward.hidden ? null : <RewardTable key={`${index}_${reward.title}`} reward={reward} />)}
     </Container>
   )
 }
 
 Rewards.propTypes = {
+  containerRef: PropTypes.object.isRequired,
   fixedRewardsIndex: PropTypes.number.isRequired,
   rewards: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
+    hidden: PropTypes.bool,
     labels: PropTypes.shape({
       ada: PropTypes.string.isRequired,
       currency: PropTypes.string.isRequired,
       currencySymbol: PropTypes.node.isRequired,
       adaSymbol: PropTypes.node.isRequired,
-      yield: PropTypes.string.isRequired,
+      yield: PropTypes.string,
       daily: PropTypes.string.isRequired,
       monthly: PropTypes.string.isRequired,
       yearly: PropTypes.string.isRequired,

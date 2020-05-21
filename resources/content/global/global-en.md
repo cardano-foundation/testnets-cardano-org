@@ -51,6 +51,12 @@ content:
     per_epoch: Per epoch
     monthly: Monthly
     yearly: Yearly
+    yield: Yield
+    private_stake_pool_label: Private stake pool
+    private_stake_pool_descriptor: Is the stake pool open to third party staking
+    running_costs: Running costs
+    stake_pool_operation_rewards: Stake pool operation rewards
+    combined_rewards: Combined rewards
   kevm_description: |
     The KEVM is a high quality, formally verified smart contract virtual machine compatible with the Ethereum virtual machine (EVM). Formally specified in the K framework, the KEVM uses formal semantics for elements such as the configuration and transition rules of EVM, resulting in a more secure virtual machine for smart contracts.
   iele_description: |

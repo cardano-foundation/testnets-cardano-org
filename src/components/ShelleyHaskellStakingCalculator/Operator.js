@@ -1,5 +1,17 @@
-import React from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import Markdown from '@input-output-hk/front-end-core-components/components/Markdown'
+import ADAAmount from './inputs/ADAAmount'
+import SelectCurrency from './inputs/SelectCurrency'
+import ExchangeRate from './inputs/ExchangeRate'
+import StakePoolFixedFee from './inputs/StakePoolFixedFee'
+import StakePoolControl from './inputs/StakePoolControl'
+import TotalStakePools from './inputs/TotalStakePools'
+import ParticipationRate from './inputs/ParticipationRate'
+import StakePoolMargin from './inputs/StakePoolMargin'
+import StakePoolPerformance from './inputs/StakePoolPerformance'
+import PrivateStakePoolSwitch from './inputs/PrivateStakePoolSwitch'
+import Rewards from './Rewards'
 
 const Operator = ({
   values,
@@ -11,14 +23,318 @@ const Operator = ({
   HalfWidthGroup,
   FullWidthGroup,
   getCurrencySymbol,
+  normalizeLargeNumber,
   currencies,
-  distributableReward
+  getDistributableReward,
+  containerRef
 }) => {
+  const [ privateStakePool, setPrivateStakePool ] = useState(false)
+  const [ rewards, setRewards ] = useState([
+    {
+      daily: { ada: normalizeLargeNumber(0, 6), currency: normalizeLargeNumber(0, 6), yield: normalizeLargeNumber(0, 2) },
+      epoch: { ada: normalizeLargeNumber(0, 6), currency: normalizeLargeNumber(0, 6), yield: normalizeLargeNumber(0, 2) },
+      monthly: { ada: normalizeLargeNumber(0, 6), currency: normalizeLargeNumber(0, 6), yield: normalizeLargeNumber(0, 2) },
+      yearly: { ada: normalizeLargeNumber(0, 6), currency: normalizeLargeNumber(0, 6), yield: normalizeLargeNumber(0, 2) }
+    }
+  ])
+
+  useEffect(() => {
+    let stakePoolFixedFee = privateStakePool ? 0 : parseFloat(values.stakePoolFixedFee)
+    let ada = parseFloat(values.ada)
+    const stakePoolMargin = privateStakePool ? 0 : values.stakePoolMargin
+    if (isNaN(stakePoolFixedFee)) stakePoolFixedFee = 0
+    if (isNaN(ada)) ada = 0
+
+    const distributableReward = getDistributableReward()
+    const stakedADA = values.totalADAInCirculation * values.participationRate
+    const totalStakeInPool = privateStakePool
+      ? ada
+      : stakedADA * Math.min(1 / values.totalStakePools, values.stakePoolControl)
+
+    let grossPoolReward = distributableReward * (totalStakeInPool / stakedADA)
+    const penalty = (1 - values.stakePoolPerformance) * grossPoolReward
+    grossPoolReward = grossPoolReward - penalty
+    grossPoolReward -= values.epochDurationInDays * stakePoolFixedFee
+    const netReward = grossPoolReward * (1 - stakePoolMargin)
+
+    const epochReward = netReward * Math.min(1, ada / totalStakeInPool)
+    const dailyReward = epochReward / values.epochDurationInDays
+    const monthlyReward = dailyReward * 30
+    const yearlyReward = dailyReward * 365
+
+    const dailyRunningCosts = stakePoolFixedFee
+    const epochRunningCosts = stakePoolFixedFee * values.epochDurationInDays
+    const monthlyRunningCosts = dailyRunningCosts * 30
+    const yearlyRunningCosts = dailyRunningCosts * 365
+
+    const epochMargin = grossPoolReward - netReward
+    const dailyMargin = epochMargin / values.epochDurationInDays
+    const monthlyMargin = dailyMargin * 30
+    const yearlyMargin = dailyMargin * 365
+
+    const getPercentage = (n) => {
+      if (n === Infinity) return 'N/A'
+      return `${normalizeLargeNumber(n, 4, true)}%`
+    }
+
+    setRewards([
+      // Running costs
+      {
+        type: 'running_costs',
+        daily: {
+          ada: normalizeLargeNumber(dailyRunningCosts, 6, true),
+          currency: normalizeLargeNumber(fromADA(dailyRunningCosts), 6, true),
+          yield: getPercentage(dailyRunningCosts / ada * 100)
+        },
+        epoch: {
+          ada: normalizeLargeNumber(epochRunningCosts, 6, true),
+          currency: normalizeLargeNumber(fromADA(epochRunningCosts), 6, true),
+          yield: getPercentage(epochRunningCosts / ada * 100)
+        },
+        monthly: {
+          ada: normalizeLargeNumber(monthlyRunningCosts, 6, true),
+          currency: normalizeLargeNumber(fromADA(monthlyRunningCosts), 6, true),
+          yield: getPercentage(monthlyRunningCosts / ada * 100)
+        },
+        yearly: {
+          ada: normalizeLargeNumber(yearlyRunningCosts, 6, true),
+          currency: normalizeLargeNumber(fromADA(yearlyRunningCosts), 6, true),
+          yield: getPercentage(yearlyRunningCosts / ada * 100)
+        }
+      },
+      // Margin rewards
+      {
+        type: 'margin_rewards',
+        daily: {
+          ada: normalizeLargeNumber(dailyMargin, 6, true),
+          currency: normalizeLargeNumber(fromADA(dailyMargin), 6, true),
+          yield: getPercentage(dailyMargin / ada * 100)
+        },
+        epoch: {
+          ada: normalizeLargeNumber(epochMargin, 6, true),
+          currency: normalizeLargeNumber(fromADA(epochMargin), 6, true),
+          yield: getPercentage(epochMargin / ada * 100)
+        },
+        monthly: {
+          ada: normalizeLargeNumber(monthlyMargin, 6, true),
+          currency: normalizeLargeNumber(fromADA(monthlyMargin), 6, true),
+          yield: getPercentage(monthlyMargin / ada * 100)
+        },
+        yearly: {
+          ada: normalizeLargeNumber(yearlyMargin, 6, true),
+          currency: normalizeLargeNumber(fromADA(yearlyMargin), 6, true),
+          yield: getPercentage(yearlyMargin / ada * 100)
+        }
+      },
+      // Delegation rewards
+      {
+        type: 'delegation_rewards',
+        daily: {
+          ada: normalizeLargeNumber(dailyReward, 6, true),
+          currency: normalizeLargeNumber(fromADA(dailyReward), 6, true),
+          yield: getPercentage(dailyReward / ada * 100)
+        },
+        epoch: {
+          ada: normalizeLargeNumber(epochReward, 6, true),
+          currency: normalizeLargeNumber(fromADA(epochReward), 6, true),
+          yield: getPercentage(epochReward / ada * 100)
+        },
+        monthly: {
+          ada: normalizeLargeNumber(monthlyReward, 6, true),
+          currency: normalizeLargeNumber(fromADA(monthlyReward), 6, true),
+          yield: getPercentage(monthlyReward / ada * 100)
+        },
+        yearly: {
+          ada: normalizeLargeNumber(yearlyReward, 6, true),
+          currency: normalizeLargeNumber(fromADA(yearlyReward), 6, true),
+          yield: getPercentage(yearlyReward / ada * 100)
+        }
+      },
+      // Combined rewards
+      {
+        type: 'combined_rewards',
+        daily: {
+          ada: normalizeLargeNumber(dailyReward + dailyMargin, 6, true),
+          currency: normalizeLargeNumber(fromADA(dailyReward + dailyMargin), 6, true),
+          yield: getPercentage((dailyReward + dailyMargin) / ada * 100)
+        },
+        epoch: {
+          ada: normalizeLargeNumber(epochReward + epochMargin, 6, true),
+          currency: normalizeLargeNumber(fromADA(epochReward + epochMargin), 6, true),
+          yield: getPercentage((epochReward + epochMargin) / ada * 100)
+        },
+        monthly: {
+          ada: normalizeLargeNumber(monthlyReward + monthlyMargin, 6, true),
+          currency: normalizeLargeNumber(fromADA(monthlyReward + monthlyMargin), 6, true),
+          yield: getPercentage((monthlyReward + monthlyMargin) / ada * 100)
+        },
+        yearly: {
+          ada: normalizeLargeNumber(yearlyReward + yearlyMargin, 6, true),
+          currency: normalizeLargeNumber(fromADA(yearlyReward + yearlyMargin), 6, true),
+          yield: getPercentage((yearlyReward + yearlyMargin) / ada * 100)
+        }
+      }
+    ])
+  }, [ values, privateStakePool ])
+
+  function getTitle (type) {
+    if (type === 'running_costs') return content.staking_calculator.running_costs
+    if (type === 'margin_rewards') return content.staking_calculator.stake_pool_operation_rewards
+    if (type === 'delegation_rewards') return content.staking_calculator.delegation_rewards
+    if (type === 'combined_rewards') return content.staking_calculator.combined_rewards
+    return 'N/A'
+  }
+
+  function isHidden (type) {
+    if (type === 'combined_rewards') return true
+    if (privateStakePool && type === 'margin_rewards') return true
+    if (privateStakePool && type === 'running_costs') return true
+    return false
+  }
+
   return (
-    <div>
-      {console.log({ values, setValue, content, toADA, fromADA, showAdvancedOptions, HalfWidthGroup, FullWidthGroup, getCurrencySymbol, currencies, distributableReward })}
-      <p>Operator</p>
-    </div>
+    <Fragment>
+      <HalfWidthGroup>
+        <div>
+          <PrivateStakePoolSwitch
+            checked={privateStakePool}
+            onChange={(value) => setPrivateStakePool(value)}
+            label={content.staking_calculator.private_stake_pool_label}
+            helperText={content.staking_calculator.private_stake_pool_descriptor}
+          />
+        </div>
+        <div />
+      </HalfWidthGroup>
+      <HalfWidthGroup>
+        <div>
+          <ADAAmount
+            value={values.ada}
+            onChange={value => setValue('ada', value)}
+            label={content.staking_calculator.ada_label}
+            helperText={content.staking_calculator.ada_descriptor}
+            adaSymbol={getCurrencySymbol('ADA')}
+          />
+        </div>
+        <div>
+          <SelectCurrency
+            value={values.currency}
+            onChange={value => setValue('currency', value)}
+            label={content.staking_calculator.currency_label}
+            helperText={content.staking_calculator.currency_descriptor}
+            currencies={currencies}
+          />
+        </div>
+      </HalfWidthGroup>
+      {(showAdvancedOptions || !privateStakePool) &&
+        <HalfWidthGroup>
+          {showAdvancedOptions &&
+            <div>
+              <ExchangeRate
+                value={values.currency.exchangeRate}
+                onChange={value => setValue('currency', { ...values.currency, exchangeRate: value })}
+                label={content.staking_calculator.exchange_rate_label}
+                helperText={<Markdown source={content.staking_calculator.exchange_rate_descriptor} />}
+                symbol={getCurrencySymbol(values.currency.key)}
+              />
+            </div>
+          }
+          <div>
+            {!privateStakePool &&
+              <StakePoolFixedFee
+                toADA={toADA}
+                fromADA={fromADA}
+                value={values.stakePoolFixedFee}
+                onChange={value => setValue('stakePoolFixedFee', value)}
+                label={content.staking_calculator.fixed_fee_label}
+                helperText={
+                  <Markdown
+                    source={
+                      values.currency.key === 'ADA'
+                        ? content.staking_calculator.fixed_fee_descriptor_ada
+                        : content.staking_calculator.fixed_fee_descriptor.replace(/{{\s?amount\s?}}/g, normalizeLargeNumber(parseFloat(values.stakePoolFixedFee), 6))
+                    }
+                  />
+                }
+                symbol={getCurrencySymbol(values.currency.key)}
+              />
+            }
+          </div>
+          {!showAdvancedOptions && <div />}
+        </HalfWidthGroup>
+      }
+      {showAdvancedOptions &&
+        <Fragment>
+          {!privateStakePool &&
+            <FullWidthGroup>
+              <StakePoolControl
+                value={values.stakePoolControl}
+                onChange={value => setValue('stakePoolControl', value)}
+                label={content.staking_calculator.stake_pool_control_label}
+                helperText={content.staking_calculator.stake_pool_control_descriptor}
+                adaInPool={normalizeLargeNumber(values.totalADAInCirculation * values.participationRate * values.stakePoolControl)}
+                adaSymbol={getCurrencySymbol('ADA')}
+              />
+            </FullWidthGroup>
+          }
+          {!privateStakePool &&
+            <FullWidthGroup>
+              <StakePoolMargin
+                value={values.stakePoolMargin}
+                onChange={value => setValue('stakePoolMargin', value)}
+                label={content.staking_calculator.stake_pool_margin_label}
+                helperText={content.staking_calculator.stake_pool_margin_descriptor}
+              />
+            </FullWidthGroup>
+          }
+          <FullWidthGroup>
+            <TotalStakePools
+              value={values.totalStakePools}
+              onChange={value => setValue('totalStakePools', value)}
+              label={content.staking_calculator.total_stake_pools_label}
+            />
+          </FullWidthGroup>
+          <FullWidthGroup>
+            <ParticipationRate
+              value={values.participationRate}
+              onChange={value => setValue('participationRate', value)}
+              label={content.staking_calculator.participation_rate_label}
+              helperText={content.staking_calculator.participation_rate_descriptor}
+              totalADAInCirculation={values.totalADAInCirculation}
+              adaSymbol={getCurrencySymbol('ADA')}
+              normalizeLargeNumber={normalizeLargeNumber}
+            />
+          </FullWidthGroup>
+          <FullWidthGroup>
+            <StakePoolPerformance
+              value={values.stakePoolPerformance}
+              onChange={value => setValue('stakePoolPerformance', value)}
+              label={content.staking_calculator.stake_pool_performance_label}
+              helperText={content.staking_calculator.stake_pool_performance_descriptor}
+            />
+          </FullWidthGroup>
+        </Fragment>
+      }
+      <Rewards
+        containerRef={containerRef}
+        fixedRewardsIndex={privateStakePool ? 2 : 3}
+        rewards={rewards.map((reward) => ({
+          title: getTitle(reward.type),
+          hidden: isHidden(reward.type),
+          labels: {
+            ada: 'ADA',
+            currency: values.currency.key,
+            currencySymbol: getCurrencySymbol(values.currency.key),
+            adaSymbol: getCurrencySymbol('ADA'),
+            yield: reward.type === 'running_costs' ? null : content.staking_calculator.yield,
+            daily: content.staking_calculator.daily,
+            monthly: content.staking_calculator.monthly,
+            yearly: content.staking_calculator.yearly,
+            perEpoch: content.staking_calculator.per_epoch
+          },
+          breakdown: reward
+        }))}
+      />
+    </Fragment>
   )
 }
 
@@ -32,8 +348,10 @@ Operator.propTypes = {
   content: PropTypes.object.isRequired,
   showAdvancedOptions: PropTypes.bool.isRequired,
   getCurrencySymbol: PropTypes.func.isRequired,
+  normalizeLargeNumber: PropTypes.func.isRequired,
   currencies: PropTypes.array.isRequired,
-  distributableReward: PropTypes.number.isRequired
+  getDistributableReward: PropTypes.func.isRequired,
+  containerRef: PropTypes.object.isRequired
 }
 
 export default Operator

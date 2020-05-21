@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Box from '@material-ui/core/Box'
@@ -166,6 +166,7 @@ const Calculator = ({ currencies, content }) => {
   const [ values, setValues ] = useState(getDefaultValues(allCurrencies[0]))
   const [ type, setType ] = useState('delegator')
   const [ showAdvancedOptions, setShowAdvancedOptions ] = useState(false)
+  const containerRef = useRef(null)
 
   function getDistributableReward () {
     const reserve = values.totalADA - values.totalADAInCirculation
@@ -227,7 +228,7 @@ const Calculator = ({ currencies, content }) => {
 
   const CalculatorComponent = type === 'delegator' ? Delegator : Operator
   return (
-    <Container>
+    <Container ref={containerRef}>
       <Introduction paddingBottom={1} textAlign='center'>
         <p>{content.staking_calculator.select_a_calculator}</p>
         <p>{content.staking_calculator.i_want_to}</p>
@@ -294,6 +295,7 @@ const Calculator = ({ currencies, content }) => {
           currencies={currencies}
           normalizeLargeNumber={normalizeLargeNumber}
           getDistributableReward={getDistributableReward}
+          containerRef={containerRef}
         />
       </Inputs>
     </Container>
