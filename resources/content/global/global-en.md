@@ -46,6 +46,11 @@ content:
     stake_pool_margin_descriptor: Set the amount of rewards taken by the stake pool operator, as a percentage of the total rewards earned by the pool
     stake_pool_performance_label: Stake pool performance
     stake_pool_performance_descriptor: How efficient is the stake pool, influences the stake pools penalty on the gross rewards. Any penalties go to the treasury
+    delegation_rewards: Delegation rewards
+    daily: Daily
+    per_epoch: Per epoch
+    monthly: Monthly
+    yearly: Yearly
   kevm_description: |
     The KEVM is a high quality, formally verified smart contract virtual machine compatible with the Ethereum virtual machine (EVM). Formally specified in the K framework, the KEVM uses formal semantics for elements such as the configuration and transition rules of EVM, resulting in a more secure virtual machine for smart contracts.
   iele_description: |

@@ -11,11 +11,12 @@ const Operator = ({
   HalfWidthGroup,
   FullWidthGroup,
   getCurrencySymbol,
-  currencies
+  currencies,
+  distributableReward
 }) => {
   return (
     <div>
-      {console.log({ values, setValue, content, toADA, fromADA, showAdvancedOptions, HalfWidthGroup, FullWidthGroup, getCurrencySymbol, currencies })}
+      {console.log({ values, setValue, content, toADA, fromADA, showAdvancedOptions, HalfWidthGroup, FullWidthGroup, getCurrencySymbol, currencies, distributableReward })}
       <p>Operator</p>
     </div>
   )
@@ -31,7 +32,8 @@ Operator.propTypes = {
   content: PropTypes.object.isRequired,
   showAdvancedOptions: PropTypes.bool.isRequired,
   getCurrencySymbol: PropTypes.func.isRequired,
-  currencies: PropTypes.array.isRequired
+  currencies: PropTypes.array.isRequired,
+  distributableReward: PropTypes.number.isRequired
 }
 
 export default Operator

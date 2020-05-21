@@ -57,6 +57,11 @@ const GlobalContentQuery = ({ render }) => (
                         stake_pool_margin_descriptor
                         stake_pool_performance_label
                         stake_pool_performance_descriptor
+                        delegation_rewards
+                        daily
+                        per_epoch
+                        monthly
+                        yearly
                       }
                       kevm_description
                       iele_description

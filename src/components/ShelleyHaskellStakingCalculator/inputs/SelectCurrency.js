@@ -11,6 +11,7 @@ const SelectCurrency = ({ value, onChange, label, helperText, currencies }) => (
       const currency = currencies.filter(currency => currency.key === e.target.value).shift()
       onChange(currency)
     }}
+    fullWidth
     SelectProps={{
       native: true
     }}

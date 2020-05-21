@@ -21,6 +21,7 @@ const StakePoolFixedFee = ({ value, onChange, label, helperText, symbol, toADA, 
       }}
       type='number'
       min={0}
+      fullWidth
       onChange={(e) => onChange(`${toADA(e.target.value)}`)}
       InputProps={{
         startAdornment: (

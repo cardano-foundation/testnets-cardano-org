@@ -20,8 +20,8 @@ const TotalStakePools = ({ value, label, onChange }) => (
       </InputLabel>
       <Slider
         value={value}
-        min={50}
-        max={150}
+        min={100}
+        max={1000}
         step={1}
         onChange={(_, v) => {
           if (v === value) return
@@ -29,16 +29,16 @@ const TotalStakePools = ({ value, label, onChange }) => (
         }}
         marks={[
           {
-            value: 50,
-            label: '50'
-          },
-          {
             value: 100,
             label: '100'
           },
           {
-            value: 150,
-            label: '150'
+            value: 500,
+            label: '500'
+          },
+          {
+            value: 1000,
+            label: '1000'
           }
         ]}
       />

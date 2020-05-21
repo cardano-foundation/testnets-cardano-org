@@ -14,7 +14,8 @@ import OperatorIcon from '../ShelleyHaskellStakingCalculator/OperatorIcon'
 import GlobalContentQuery from '../../queries/GlobalContentQuery'
 
 const Container = styled.div`
-  max-width: 60rem;
+  max-width: 80rem;
+  margin: 4rem 0;
 `
 
 const Introduction = styled(Box)`
@@ -131,25 +132,25 @@ const HalfWidthGroup = styled.div`
 
 const FullWidthGroup = styled.div`
   width: 100%;
-  margin: 6rem 2rem;
+  padding: 6rem 2rem;
 `
 
 const Inputs = styled.div`
 `
 
-const Results = styled.div`
-`
-
 const DEFAULT_VALUES = {
   ada: '0',
-  participationRate: 0.35,
+  participationRate: 0.45,
   stakePoolControl: 0.01,
   operatorsStake: 0.01,
   stakePoolMargin: 0.1,
   stakePoolPerformance: 1,
-  totalStakePools: 100,
+  totalStakePools: 500,
   totalADA: 45e9,
-  totalADAInCirculation: 31690410958.90
+  totalADAInCirculation: 31690410958.90,
+  epochDurationInDays: 5,
+  yearlyExpansionRate: 0.1,
+  treasuryRate: 0.1
 }
 
 function getDefaultValues (currency) {
@@ -165,6 +166,13 @@ const Calculator = ({ currencies, content }) => {
   const [ values, setValues ] = useState(getDefaultValues(allCurrencies[0]))
   const [ type, setType ] = useState('delegator')
   const [ showAdvancedOptions, setShowAdvancedOptions ] = useState(false)
+
+  function getDistributableReward () {
+    const reserve = values.totalADA - values.totalADAInCirculation
+    const epochDistribution = reserve * values.yearlyExpansionRate / (365 / values.epochDurationInDays)
+    const treasuryShare = epochDistribution * values.treasuryRate
+    return epochDistribution - treasuryShare
+  }
 
   const setValue = (key, value) => setValues({ ...values, [key]: value })
   const updateType = (type) => (e) => {
@@ -197,7 +205,7 @@ const Calculator = ({ currencies, content }) => {
   }
 
   const getCurrencySymbol = (key) => (currencies.filter(currency => currency.key === key).shift() || {}).symbol || null
-  const normalizeLargeNumber = (number, dp = 0) => {
+  const normalizeLargeNumber = (number, dp = 0, preserveDP = false) => {
     const normalizedNumber = (number || 0).toFixed(dp)
     const asStringArray = `${normalizedNumber}`.split('.')
     const n = asStringArray[0].split('').reverse()
@@ -208,7 +216,7 @@ const Calculator = ({ currencies, content }) => {
     }
 
     let finalNumber = n.reverse().join('').concat(asStringArray[1] ? `.${asStringArray[1]}` : '')
-    if (finalNumber.indexOf('.') > -1) {
+    if (!preserveDP && finalNumber.indexOf('.') > -1) {
       while (finalNumber[finalNumber.length - 1] === '0') {
         finalNumber = finalNumber.substring(0, finalNumber.length - 1)
       }
@@ -285,11 +293,9 @@ const Calculator = ({ currencies, content }) => {
           getCurrencySymbol={getCurrencySymbol}
           currencies={currencies}
           normalizeLargeNumber={normalizeLargeNumber}
+          getDistributableReward={getDistributableReward}
         />
       </Inputs>
-      <Results>
-        <p>Results</p>
-      </Results>
     </Container>
   )
 }

@@ -21,6 +21,7 @@ const ExchangeRate = ({ value, onChange, label, helperText, symbol }) => (
       value={`${value}`}
       type='number'
       min={0}
+      fullWidth
       onChange={(e) => onChange(e.target.value)}
       InputProps={{
         startAdornment: (
