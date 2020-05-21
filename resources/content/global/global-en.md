@@ -16,6 +16,36 @@ content:
   close_main_navigation: Close main navigation menu
   open_main_navigation: Open main navigation menu
   logo_alt: Cardano Testnets Logo
+  staking_calculator:
+    select_a_calculator: Select a calculator
+    i_want_to: I want to
+    delegate_my_stake: Delegate my stake
+    run_a_stake_pool: Run a stake pool
+    show_advanced_options: Advanced options
+    ada_label: Ada amount
+    ada_descriptor: Set the amount of ada you want to delegate
+    reset: Reset
+    currency_label: Currency
+    currency_descriptor: Please select the currency you wish to see results in
+    exchange_rate_label: Exchange rate
+    exchange_rate_descriptor: |
+      Set the value of a single ada in GBP, defaults to [CoinGecko market rate](https://www.coingecko.com/en/coins/cardano)
+    fixed_fee_label: Stake pool fixed fee
+    fixed_fee_descriptor_ada: |
+      Set the fixed fee covering daily stake pool running costs
+    fixed_fee_descriptor: |
+      Set the fixed fee covering daily stake pool running costs, in ADA ({{amount}} ADA)
+    stake_pool_control_label: Stake pool total stake
+    stake_pool_control_descriptor: Set the amount of stake the pool controls, as a percentage of the total available stake
+    total_stake_pools_label: Total stake pools
+    participation_rate_label: Delegation participation rate
+    participation_rate_descriptor: Set the total amount of stake delegated across the network in this epoch, as a percentage of the total available stake
+    operators_stake_label: Stake pool operator's stake
+    operators_stake_descriptor: Set the size of the stake pool operator's stake, as a percentage of the total stake in the pool
+    stake_pool_margin_label: Stake pool operator reward percentage
+    stake_pool_margin_descriptor: Set the amount of rewards taken by the stake pool operator, as a percentage of the total rewards earned by the pool
+    stake_pool_performance_label: Stake pool performance
+    stake_pool_performance_descriptor: How efficient is the stake pool, influences the stake pools penalty on the gross rewards. Any penalties go to the treasury
   kevm_description: |
     The KEVM is a high quality, formally verified smart contract virtual machine compatible with the Ethereum virtual machine (EVM). Formally specified in the K framework, the KEVM uses formal semantics for elements such as the configuration and transition rules of EVM, resulting in a more secure virtual machine for smart contracts.
   iele_description: |

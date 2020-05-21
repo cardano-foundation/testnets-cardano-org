@@ -30,6 +30,34 @@ const GlobalContentQuery = ({ render }) => (
                       close_main_navigation
                       open_main_navigation
                       logo_alt
+                      staking_calculator {
+                        select_a_calculator
+                        i_want_to
+                        delegate_my_stake
+                        run_a_stake_pool
+                        show_advanced_options
+                        reset
+                        ada_label
+                        ada_descriptor
+                        currency_label
+                        currency_descriptor
+                        exchange_rate_label
+                        exchange_rate_descriptor
+                        fixed_fee_label
+                        fixed_fee_descriptor_ada
+                        fixed_fee_descriptor
+                        stake_pool_control_label
+                        stake_pool_control_descriptor
+                        total_stake_pools_label
+                        participation_rate_label
+                        participation_rate_descriptor
+                        operators_stake_label
+                        operators_stake_descriptor
+                        stake_pool_margin_label
+                        stake_pool_margin_descriptor
+                        stake_pool_performance_label
+                        stake_pool_performance_descriptor
+                      }
                       kevm_description
                       iele_description
                       faucet_content {
