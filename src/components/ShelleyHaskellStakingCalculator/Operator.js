@@ -55,6 +55,7 @@ const Operator = ({
     const penalty = (1 - values.stakePoolPerformance) * grossPoolReward
     grossPoolReward = grossPoolReward - penalty
     grossPoolReward -= values.epochDurationInDays * stakePoolFixedFee
+    if (grossPoolReward < 0) grossPoolReward = 0
     const netReward = grossPoolReward * (1 - stakePoolMargin)
 
     const epochReward = netReward * Math.min(1, ada / totalStakeInPool)
