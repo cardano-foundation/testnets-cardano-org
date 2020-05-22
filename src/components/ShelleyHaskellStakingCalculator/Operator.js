@@ -192,6 +192,12 @@ const Operator = ({
     return false
   }
 
+  function getStakePoolControlMinValue () {
+    let ada = parseFloat(values.ada)
+    if (isNaN(ada)) ada = 0
+    return Math.min(ada === 0 ? 0 : ada / values.totalADAInCirculation / values.participationRate, 0.3)
+  }
+
   return (
     <Fragment>
       <HalfWidthGroup>
@@ -273,6 +279,8 @@ const Operator = ({
                 helperText={content.staking_calculator.stake_pool_control_descriptor}
                 adaInPool={normalizeLargeNumber(values.totalADAInCirculation * values.participationRate * values.stakePoolControl)}
                 adaSymbol={getCurrencySymbol('ADA')}
+                minValue={getStakePoolControlMinValue()}
+                normalizeLargeNumber={normalizeLargeNumber}
               />
             </FullWidthGroup>
           }

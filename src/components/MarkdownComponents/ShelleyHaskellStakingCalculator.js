@@ -132,7 +132,7 @@ const HalfWidthGroup = styled.div`
 
 const FullWidthGroup = styled.div`
   width: 100%;
-  padding: 6rem 2rem;
+  padding: 6rem 4rem;
 `
 
 const Inputs = styled.div`
@@ -223,7 +223,7 @@ const Calculator = ({ currencies, content }) => {
       }
     }
 
-    return finalNumber
+    return finalNumber.replace(/\.$/, '')
   }
 
   const CalculatorComponent = type === 'delegator' ? Delegator : Operator

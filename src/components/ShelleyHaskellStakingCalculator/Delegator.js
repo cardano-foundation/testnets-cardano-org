@@ -154,6 +154,8 @@ const Delegator = ({
               helperText={content.staking_calculator.stake_pool_control_descriptor}
               adaInPool={normalizeLargeNumber(values.totalADAInCirculation * values.participationRate * values.stakePoolControl)}
               adaSymbol={getCurrencySymbol('ADA')}
+              normalizeLargeNumber={normalizeLargeNumber}
+              minValue={0}
             />
           </FullWidthGroup>
           <FullWidthGroup>
