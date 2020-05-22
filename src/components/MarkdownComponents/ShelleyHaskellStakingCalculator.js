@@ -207,7 +207,9 @@ const Calculator = ({ currencies, content }) => {
 
   const getCurrencySymbol = (key) => (currencies.filter(currency => currency.key === key).shift() || {}).symbol || null
   const normalizeLargeNumber = (number, dp = 0, preserveDP = false) => {
-    const normalizedNumber = (number || 0).toFixed(dp)
+    let negative = number < 0
+    const normalizedNumber = Math.abs((number || 0).toFixed(dp))
+    if (normalizedNumber === 0) negative = false
     const asStringArray = `${normalizedNumber}`.split('.')
     const n = asStringArray[0].split('').reverse()
     let i = 3
@@ -223,7 +225,7 @@ const Calculator = ({ currencies, content }) => {
       }
     }
 
-    return finalNumber.replace(/\.$/, '')
+    return `${negative ? '-' : ''}${finalNumber.replace(/\.$/, '')}`
   }
 
   const CalculatorComponent = type === 'delegator' ? Delegator : Operator
