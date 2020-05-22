@@ -10,19 +10,32 @@ const Container = styled.div`
   }
 `
 
-const StakePoolFixedFee = ({ value, onChange, label, helperText, symbol, toADA, fromADA }) => (
+const getValue = (value) => {
+  if (value.indexOf('.') > -1) {
+    const [ n, decimals ] = value.split('.')
+    return `${n}.${decimals.substring(0, 8)}`
+  } else {
+    return value
+  }
+}
+
+const StakePoolFixedFee = ({ value, onChange, label, helperText, symbol }) => (
   <Container>
     <TextField
       label={label}
       helperText={helperText}
-      value={`${fromADA(value)}`}
+      value={getValue(value)}
       FormHelperTextProps={{
         component: 'div'
       }}
       type='number'
       min={0}
       fullWidth
-      onChange={(e) => onChange(`${toADA(e.target.value)}`)}
+      onChange={(e) => {
+        if (e.target.value.match(/^([\d]+|([\d]+)?\.[\d]{0,8})?$/)) {
+          onChange(e.target.value)
+        }
+      }}
       InputProps={{
         startAdornment: (
           <InputAdornment position='start'>
@@ -39,9 +52,7 @@ StakePoolFixedFee.propTypes = {
   onChange: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
   helperText: PropTypes.node,
-  symbol: PropTypes.node.isRequired,
-  toADA: PropTypes.func.isRequired,
-  fromADA: PropTypes.func.isRequired
+  symbol: PropTypes.node.isRequired
 }
 
 export default StakePoolFixedFee

@@ -38,7 +38,7 @@ const Delegator = ({
   ])
 
   useEffect(() => {
-    let stakePoolFixedFee = parseFloat(values.stakePoolFixedFee)
+    let stakePoolFixedFee = toADA(parseFloat(values.stakePoolFixedFee))
     let ada = parseFloat(values.ada)
     if (isNaN(stakePoolFixedFee)) stakePoolFixedFee = 0
     if (isNaN(ada)) ada = 0
@@ -138,7 +138,7 @@ const Delegator = ({
                     source={
                       values.currency.key === 'ADA'
                         ? content.staking_calculator.fixed_fee_descriptor_ada
-                        : content.staking_calculator.fixed_fee_descriptor.replace(/{{\s?amount\s?}}/g, normalizeLargeNumber(parseFloat(values.stakePoolFixedFee), 6))
+                        : content.staking_calculator.fixed_fee_descriptor.replace(/{{\s?amount\s?}}/g, normalizeLargeNumber(parseFloat(toADA(values.stakePoolFixedFee)), 6))
                     }
                   />
                 }

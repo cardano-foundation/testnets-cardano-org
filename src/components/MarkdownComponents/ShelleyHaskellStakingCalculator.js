@@ -175,18 +175,27 @@ const Calculator = ({ currencies, content }) => {
     return epochDistribution - treasuryShare
   }
 
-  const setValue = (key, value) => setValues({ ...values, [key]: value })
+  const setValue = (key, value) => {
+    const newValues = { ...values, [key]: value }
+    if (key === 'currency' && value.exchangeRate !== values.currency.exchangeRate) {
+      const stakePoolFixedFeeInADA = toADA(parseFloat(values.stakePoolFixedFee))
+      newValues.stakePoolFixedFee = `${fromADA(stakePoolFixedFeeInADA, value.exchangeRate)}`
+    }
+
+    setValues(newValues)
+  }
+
   const updateType = (type) => (e) => {
     e.preventDefault()
     setType(type)
   }
 
-  const fromADA = (amount) => {
-    return amount * parseFloat(values.currency.exchangeRate)
+  const fromADA = (amount, exchangeRate = null) => {
+    return amount * parseFloat(exchangeRate === null ? values.currency.exchangeRate : exchangeRate)
   }
 
-  const toADA = (amount) => {
-    return amount / parseFloat(values.currency.exchangeRate)
+  const toADA = (amount, exchangeRate = null) => {
+    return amount / parseFloat(exchangeRate === null ? values.currency.exchangeRate : exchangeRate)
   }
 
   const toggleShowAdvancedOptions = (e) => {

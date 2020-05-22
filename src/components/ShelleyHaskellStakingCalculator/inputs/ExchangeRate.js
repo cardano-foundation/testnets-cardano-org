@@ -10,6 +10,15 @@ const Container = styled.div`
   }
 `
 
+const getValue = (value) => {
+  if (value.indexOf('.') > -1) {
+    const [ n, decimals ] = value.split('.')
+    return `${n}.${decimals.substring(0, 8)}`
+  } else {
+    return value
+  }
+}
+
 const ExchangeRate = ({ value, onChange, label, helperText, symbol }) => (
   <Container>
     <TextField
@@ -18,11 +27,15 @@ const ExchangeRate = ({ value, onChange, label, helperText, symbol }) => (
       FormHelperTextProps={{
         component: 'div'
       }}
-      value={`${value}`}
+      value={getValue(`${value}`)}
       type='number'
       min={0}
       fullWidth
-      onChange={(e) => onChange(e.target.value)}
+      onChange={(e) => {
+        if (e.target.value.match(/^([\d]+|([\d]+)?\.[\d]{0,8})?$/)) {
+          onChange(e.target.value)
+        }
+      }}
       InputProps={{
         startAdornment: (
           <InputAdornment position='start'>

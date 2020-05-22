@@ -39,7 +39,7 @@ const Operator = ({
   ])
 
   useEffect(() => {
-    let stakePoolFixedFee = privateStakePool ? 0 : parseFloat(values.stakePoolFixedFee)
+    let stakePoolFixedFee = privateStakePool ? 0 : toADA(parseFloat(values.stakePoolFixedFee))
     let ada = parseFloat(values.ada)
     const stakePoolMargin = privateStakePool ? 0 : values.stakePoolMargin
     if (isNaN(stakePoolFixedFee)) stakePoolFixedFee = 0
@@ -258,7 +258,7 @@ const Operator = ({
                     source={
                       values.currency.key === 'ADA'
                         ? content.staking_calculator.fixed_fee_descriptor_ada
-                        : content.staking_calculator.fixed_fee_descriptor.replace(/{{\s?amount\s?}}/g, normalizeLargeNumber(parseFloat(values.stakePoolFixedFee), 6))
+                        : content.staking_calculator.fixed_fee_descriptor.replace(/{{\s?amount\s?}}/g, normalizeLargeNumber(toADA(parseFloat(values.stakePoolFixedFee)), 6))
                     }
                   />
                 }
