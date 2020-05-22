@@ -5,7 +5,7 @@ parent: 2020-05-04_05-00-00_about-en.md
 order: 2
 last_updated: "2020-05-22T09:00:00+01:00"
 ---
-## What is a stake pool
+## What is a stake pool?
 
 A stake pool is a reliable block-producing server node that holds the combined stake of various stakeholders in a single entity (it pools the stake that has been delegated to it). Stake pools are responsible for processing transactions and producing new blocks and are at the core of Ouroboros, the Cardano proof-of-stake protocol.
 
