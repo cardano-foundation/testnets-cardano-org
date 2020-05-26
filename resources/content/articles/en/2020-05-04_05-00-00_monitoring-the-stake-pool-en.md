@@ -1,7 +1,7 @@
 ---
 parent: 2020-05-04_05-00-00_monitor
 title: Monitoring the stake pool
-description: Shelley Haskell monitor
+description: Shelley monitor
 order: 1
 last_updated: 2020-05-01T08:00:00.000Z
 ---

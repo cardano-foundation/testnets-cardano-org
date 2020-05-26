@@ -1,5 +1,5 @@
 ---
-title: Shelley Haskell
+title: Shelley
 description: Root navigation
 order: 1
 parent: ''
