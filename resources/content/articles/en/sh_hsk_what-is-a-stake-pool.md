@@ -1,7 +1,7 @@
 ---
 title: What is a stake pool?
 description: About
-parent: 2020-05-04_05-00-00_about-en.md
+parent: 2020-05-04_05-00-00_about
 order: 2
 last_updated: "2020-05-22T09:00:00+01:00"
 ---
