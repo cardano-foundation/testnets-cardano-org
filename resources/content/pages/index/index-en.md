@@ -3,11 +3,11 @@
 title: en (English) Home page content
 content:
   hero_content: |
-    ## The Shelley Haskell testnet has begun
+    ## The Shelley testnet has begun
 
     ### Cardano is a groundbreaking proof-of-stake blockchain and home to the ada cryptocurrency. The Cardano testnets are at the bleeding edge of the network's development, using the power of our community to iterate and improve.
 
-    The Shelley Haskell testnet is the final step before Shelley functionality, including stake pools, stake delegation, and decentralization, is rolled out to the Cardano mainnet. We're currently running an invitation-only beta, but the public phase is coming soon. 
+    The Shelley testnet is the final step before Shelley functionality, including stake pools, stake delegation, and decentralization, is rolled out to the Cardano mainnet. We're currently running an invitation-only beta, but the public phase is coming soon. 
   hero_cta_label: Find out more
   hero_cta_href: /shelley-haskell/overview/
   available_testnets: Available testnets
