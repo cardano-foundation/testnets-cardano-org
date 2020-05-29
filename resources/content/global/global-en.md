@@ -57,6 +57,12 @@ content:
     running_costs: Running costs
     stake_pool_operation_rewards: Stake pool operation rewards
     combined_rewards: Combined rewards
+    transaction_fees_per_epoch_label: Average transaction fees per epoch
+    transaction_fees_per_epoch_descriptor: The average amount of transaction fees per epoch are added to the net distribution of rewards and used to calculate the distribution rate from the reserves
+    system_performance_label: Anticipated system performance
+    system_performance_descriptor: The overall anticipated system performance
+    influence_factor_label: Influence factor (a0)
+    influence_factor_descriptor: System parameter used to control the ADA distribution rate
   kevm_description: |
     The KEVM is a high quality, formally verified smart contract virtual machine compatible with the Ethereum virtual machine (EVM). Formally specified in the K framework, the KEVM uses formal semantics for elements such as the configuration and transition rules of EVM, resulting in a more secure virtual machine for smart contracts.
   iele_description: |

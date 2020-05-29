@@ -10,7 +10,10 @@ import TotalStakePools from './inputs/TotalStakePools'
 import ParticipationRate from './inputs/ParticipationRate'
 import StakePoolMargin from './inputs/StakePoolMargin'
 import StakePoolPerformance from './inputs/StakePoolPerformance'
+import TransactionFeesPerEpoch from './inputs/TransactionFeesPerEpoch'
 import PrivateStakePoolSwitch from './inputs/PrivateStakePoolSwitch'
+import AnticipatedSystemPerformance from './inputs/AnticipatedSystemPerformance'
+import InfluenceFactor from './inputs/InfluenceFactor'
 import Rewards from './Rewards'
 
 const Operator = ({
@@ -233,41 +236,67 @@ const Operator = ({
         </div>
       </HalfWidthGroup>
       {(showAdvancedOptions || !privateStakePool) &&
-        <HalfWidthGroup>
-          {showAdvancedOptions &&
-            <div>
-              <ExchangeRate
-                value={values.currency.exchangeRate}
-                onChange={value => setValue('currency', { ...values.currency, exchangeRate: value })}
-                label={content.staking_calculator.exchange_rate_label}
-                helperText={<Markdown source={content.staking_calculator.exchange_rate_descriptor} />}
-                symbol={getCurrencySymbol(values.currency.key)}
-              />
-            </div>
-          }
-          <div>
-            {!privateStakePool &&
-              <StakePoolFixedFee
-                toADA={toADA}
-                fromADA={fromADA}
-                value={values.stakePoolFixedFee}
-                onChange={value => setValue('stakePoolFixedFee', value)}
-                label={content.staking_calculator.fixed_fee_label}
-                helperText={
-                  <Markdown
-                    source={
-                      values.currency.key === 'ADA'
-                        ? content.staking_calculator.fixed_fee_descriptor_ada
-                        : content.staking_calculator.fixed_fee_descriptor.replace(/{{\s?amount\s?}}/g, normalizeLargeNumber(toADA(parseFloat(values.stakePoolFixedFee)), 6))
-                    }
-                  />
-                }
-                symbol={getCurrencySymbol(values.currency.key)}
-              />
+        <Fragment>
+          <HalfWidthGroup>
+            {showAdvancedOptions &&
+              <div>
+                <ExchangeRate
+                  value={values.currency.exchangeRate}
+                  onChange={value => setValue('currency', { ...values.currency, exchangeRate: value })}
+                  label={content.staking_calculator.exchange_rate_label}
+                  helperText={<Markdown source={content.staking_calculator.exchange_rate_descriptor} />}
+                  symbol={getCurrencySymbol(values.currency.key)}
+                />
+              </div>
             }
-          </div>
-          {!showAdvancedOptions && <div />}
-        </HalfWidthGroup>
+            {!privateStakePool &&
+              <div>
+                <StakePoolFixedFee
+                  toADA={toADA}
+                  fromADA={fromADA}
+                  value={values.stakePoolFixedFee}
+                  onChange={value => setValue('stakePoolFixedFee', value)}
+                  label={content.staking_calculator.fixed_fee_label}
+                  helperText={
+                    <Markdown
+                      source={
+                        values.currency.key === 'ADA'
+                          ? content.staking_calculator.fixed_fee_descriptor_ada
+                          : content.staking_calculator.fixed_fee_descriptor.replace(/{{\s?amount\s?}}/g, normalizeLargeNumber(toADA(parseFloat(values.stakePoolFixedFee)), 6))
+                      }
+                    />
+                  }
+                  symbol={getCurrencySymbol(values.currency.key)}
+                />
+              </div>
+            }
+            {!showAdvancedOptions && <div />}
+            {showAdvancedOptions && privateStakePool &&
+              <div>
+                <TransactionFeesPerEpoch
+                  value={values.transactionFeesPerEpoch}
+                  onChange={value => setValue('transactionFeesPerEpoch', value)}
+                  label={content.staking_calculator.transaction_fees_per_epoch_label}
+                  adaSymbol={getCurrencySymbol('ADA')}
+                  helperText={content.staking_calculator.transaction_fees_per_epoch_descriptor}
+                />
+              </div>
+            }
+          </HalfWidthGroup>
+          {showAdvancedOptions && !privateStakePool &&
+            <HalfWidthGroup>
+              <div>
+                <TransactionFeesPerEpoch
+                  value={values.transactionFeesPerEpoch}
+                  onChange={value => setValue('transactionFeesPerEpoch', value)}
+                  label={content.staking_calculator.transaction_fees_per_epoch_label}
+                  adaSymbol={getCurrencySymbol('ADA')}
+                  helperText={content.staking_calculator.transaction_fees_per_epoch_descriptor}
+                />
+              </div>
+            </HalfWidthGroup>
+          }
+        </Fragment>
       }
       {showAdvancedOptions &&
         <Fragment>
@@ -319,6 +348,22 @@ const Operator = ({
               onChange={value => setValue('stakePoolPerformance', value)}
               label={content.staking_calculator.stake_pool_performance_label}
               helperText={content.staking_calculator.stake_pool_performance_descriptor}
+            />
+          </FullWidthGroup>
+          <FullWidthGroup>
+            <AnticipatedSystemPerformance
+              value={values.anticipatedSystemPerformance}
+              onChange={value => setValue('anticipatedSystemPerformance', value)}
+              label={content.staking_calculator.system_performance_label}
+              helperText={content.staking_calculator.system_performance_descriptor}
+            />
+          </FullWidthGroup>
+          <FullWidthGroup>
+            <InfluenceFactor
+              value={values.influenceFactor}
+              onChange={value => setValue('influenceFactor', value)}
+              label={content.staking_calculator.influence_factor_label}
+              helperText={content.staking_calculator.influence_factor_descriptor}
             />
           </FullWidthGroup>
         </Fragment>

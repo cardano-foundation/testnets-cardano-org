@@ -150,7 +150,11 @@ const DEFAULT_VALUES = {
   totalADAInCirculation: 31690410958.90,
   epochDurationInDays: 5,
   yearlyExpansionRate: 0.1,
-  treasuryRate: 0.1
+  treasuryRate: 0.1,
+  influenceFactor: 0.1,
+  transactionFeesPerEpoch: '2000',
+  expectedRewardsPerYear: 0.05,
+  anticipatedSystemPerformance: 0.99
 }
 
 function getDefaultValues (currency) {
@@ -170,9 +174,17 @@ const Calculator = ({ currencies, content }) => {
 
   function getDistributableReward () {
     const reserve = values.totalADA - values.totalADAInCirculation
-    const epochDistribution = reserve * values.yearlyExpansionRate / (365 / values.epochDurationInDays)
-    const treasuryShare = epochDistribution * values.treasuryRate
-    return epochDistribution - treasuryShare
+
+    let transactionFeesPerEpoch = parseFloat(values.transactionFeesPerEpoch)
+    if (!transactionFeesPerEpoch || isNaN(transactionFeesPerEpoch) || transactionFeesPerEpoch < 0) transactionFeesPerEpoch = 0
+
+    const epochsPerYear = 365 / values.epochDurationInDays
+    const epochExpansionRate = Math.max(0, ((values.totalADAInCirculation * (Math.pow(1 + values.expectedRewardsPerYear, 1 / epochsPerYear) - 1) - (1 - values.treasuryRate) * transactionFeesPerEpoch) / ((1 - values.treasuryRate) * Math.min(values.anticipatedSystemPerformance, 1) * reserve)))
+
+    const epochDistribution = reserve * epochExpansionRate
+    const netEpochDistribution = epochDistribution * Math.min(1, values.anticipatedSystemPerformance) + transactionFeesPerEpoch
+    const treasuryShare = netEpochDistribution * values.treasuryRate
+    return (netEpochDistribution - treasuryShare) / (1 + values.influenceFactor)
   }
 
   const setValue = (key, value) => {

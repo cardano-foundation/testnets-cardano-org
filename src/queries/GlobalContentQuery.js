@@ -68,6 +68,12 @@ const GlobalContentQuery = ({ render }) => (
                         running_costs
                         stake_pool_operation_rewards
                         combined_rewards
+                        transaction_fees_per_epoch_label
+                        transaction_fees_per_epoch_descriptor
+                        system_performance_label
+                        system_performance_descriptor
+                        influence_factor_label
+                        influence_factor_descriptor
                       }
                       kevm_description
                       iele_description

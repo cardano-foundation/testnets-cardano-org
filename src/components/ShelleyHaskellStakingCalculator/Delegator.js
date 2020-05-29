@@ -11,6 +11,9 @@ import ParticipationRate from './inputs/ParticipationRate'
 import OperatorsStake from './inputs/OperatorsStake'
 import StakePoolMargin from './inputs/StakePoolMargin'
 import StakePoolPerformance from './inputs/StakePoolPerformance'
+import TransactionFeesPerEpoch from './inputs/TransactionFeesPerEpoch'
+import AnticipatedSystemPerformance from './inputs/AnticipatedSystemPerformance'
+import InfluenceFactor from './inputs/InfluenceFactor'
 import Rewards from './Rewards'
 
 const Delegator = ({
@@ -146,6 +149,17 @@ const Delegator = ({
               />
             </div>
           </HalfWidthGroup>
+          <HalfWidthGroup>
+            <div>
+              <TransactionFeesPerEpoch
+                value={values.transactionFeesPerEpoch}
+                onChange={value => setValue('transactionFeesPerEpoch', value)}
+                label={content.staking_calculator.transaction_fees_per_epoch_label}
+                adaSymbol={getCurrencySymbol('ADA')}
+                helperText={content.staking_calculator.transaction_fees_per_epoch_descriptor}
+              />
+            </div>
+          </HalfWidthGroup>
           <FullWidthGroup>
             <StakePoolControl
               value={values.stakePoolControl}
@@ -204,6 +218,22 @@ const Delegator = ({
               onChange={value => setValue('stakePoolPerformance', value)}
               label={content.staking_calculator.stake_pool_performance_label}
               helperText={content.staking_calculator.stake_pool_performance_descriptor}
+            />
+          </FullWidthGroup>
+          <FullWidthGroup>
+            <AnticipatedSystemPerformance
+              value={values.anticipatedSystemPerformance}
+              onChange={value => setValue('anticipatedSystemPerformance', value)}
+              label={content.staking_calculator.system_performance_label}
+              helperText={content.staking_calculator.system_performance_descriptor}
+            />
+          </FullWidthGroup>
+          <FullWidthGroup>
+            <InfluenceFactor
+              value={values.influenceFactor}
+              onChange={value => setValue('influenceFactor', value)}
+              label={content.staking_calculator.influence_factor_label}
+              helperText={content.staking_calculator.influence_factor_descriptor}
             />
           </FullWidthGroup>
         </Fragment>
