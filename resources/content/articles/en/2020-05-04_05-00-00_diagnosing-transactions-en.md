@@ -4,6 +4,9 @@ title: Diagnosing problems and troubleshooting
 description: Shelley transactions
 order: 2
 last_updated: 2020-05-01T08:00:00.000Z
+redirects:
+  - from: /en/shelley-haskell/transactions/diagnosing-transactions/
+    type: 301
 ---
 ## Diagnosing problems and troubleshooting
 

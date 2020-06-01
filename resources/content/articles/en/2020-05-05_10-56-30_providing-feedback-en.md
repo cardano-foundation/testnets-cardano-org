@@ -5,6 +5,9 @@ description: Shelley testnet feedback info
 order: 3
 external_href: ""
 last_updated: 2020-05-05T10:00:19.000Z
+redirects:
+  - from: /en/shelley-haskell/resources/providing-feedback/
+    type: 301
 ---
 ## Providing feedback
 

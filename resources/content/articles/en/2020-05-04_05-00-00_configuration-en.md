@@ -1,5 +1,5 @@
 ---
-parent: 2020-05-04_05-00-00_shelley-haskell
+parent: 2020-05-04_05-00-00_shelley
 title: Configure
 description: Shelley configure section
 order: 6
