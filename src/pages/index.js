@@ -146,7 +146,7 @@ export default () => (
             <h4>{content.available_testnets}</h4>
             <ul>
               <li>
-                <Link href='/shelley-haskell/overview/' tracking={{ category: 'home_page', label: 'shelley_haskell_cta' }}>
+                <Link href='/shelley/overview/' tracking={{ category: 'home_page', label: 'shelley_haskell_cta' }}>
                   <img src='/images/shelley.png' alt='Shelley' />
                   <span>Shelley</span>
                 </Link>
