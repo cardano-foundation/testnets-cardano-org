@@ -9,7 +9,7 @@ content:
 
     The Shelley testnet is the final step before Shelley functionality, including stake pools, stake delegation, and decentralization, is rolled out to the Cardano mainnet. We're currently running an invitation-only beta, but the public phase is coming soon. 
   hero_cta_label: Find out more
-  hero_cta_href: /shelley-haskell/overview/
+  hero_cta_href: /shelley/overview/
   available_testnets: Available testnets
   tecnhical_support_content: |
     #### Need technical support?
