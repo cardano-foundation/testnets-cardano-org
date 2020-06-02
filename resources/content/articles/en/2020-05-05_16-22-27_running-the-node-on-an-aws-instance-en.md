@@ -5,6 +5,9 @@ description: AWS - Shelley testnet
 order: 4
 external_href: ""
 last_updated: 2020-05-19T16:21:56.000Z
+redirects:
+  - from: /en/shelley-haskell/get-started/installing-and-running-the-cardano-node/running-the-node-on-an-aws-instance/
+    type: 301
 ---
 ## Running a node using an AWS instance
 If you don't have access to a Linux system, you can run the node on a virtual machine using an Amazon Web Services (AWS) instance.

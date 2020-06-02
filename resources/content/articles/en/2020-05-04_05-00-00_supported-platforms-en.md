@@ -4,6 +4,9 @@ title: Supported platforms
 description: Shelley about
 order: 3
 last_updated: 2020-05-01T09:00:00+01:00
+redirects:
+  - from: /en/shelley-haskell/about/supported-platforms/
+    type: 301
 ---
 ## Supported platforms
 

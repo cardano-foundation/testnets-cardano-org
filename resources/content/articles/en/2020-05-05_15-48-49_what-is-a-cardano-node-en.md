@@ -5,6 +5,9 @@ description: What is a Cardano node - Shelley testnet
 order: 1
 external_href: ""
 last_updated: 2020-05-05T13:47:27+01:00
+redirects:
+  - from: /en/shelley-haskell/get-started/what-is-a-cardano-node/
+    type: 301
 ---
 ## What is a Cardano node?
 

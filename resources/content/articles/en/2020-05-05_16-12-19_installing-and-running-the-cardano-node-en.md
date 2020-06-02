@@ -5,6 +5,9 @@ description: Shelley testnet
 order: 2
 external_href: ""
 last_updated: 2020-05-12T15:50:01.000Z
+redirects:
+  - from: /en/shelley-haskell/get-started/installing-and-running-the-cardano-node/
+    type: 301
 ---
 ## Installing and running a Cardano node
 

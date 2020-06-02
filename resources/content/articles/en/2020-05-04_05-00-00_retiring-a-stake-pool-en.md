@@ -4,6 +4,9 @@ title: Retiring a stake pool
 description: Shelley configuration
 order: 3
 last_updated: 2020-05-01T08:00:00.000Z
+redirects:
+  - from: /en/shelley-haskell/configuration/retiring-a-stake-pool/
+    type: 301
 ---
 ## Retiring a stake pool
 
