@@ -1,8 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import { Location } from '@reach/router'
+import styled, { keyframes } from 'styled-components'
+import TinyColor from '@ctrl/tinycolor'
+import Link from '@input-output-hk/front-end-core-components/components/Link'
+import { MdClose, MdVisibility, MdVisibilityOff, MdRotateLeft, MdFileUpload } from 'react-icons/md'
+import { FaTwitter, FaFacebookF, FaClipboard } from 'react-icons/fa'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
+import Modal from '@material-ui/core/Modal'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Delegator from '../ShelleyHaskellStakingCalculator/Delegator'
 import Operator from '../ShelleyHaskellStakingCalculator/Operator'
@@ -29,6 +35,133 @@ const Introduction = styled(Box)`
       margin-bottom: 0.6rem;
     }
   }
+`
+
+const ModalContent = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100vh;
+  max-height: 25rem;
+  width: 100vw;
+  max-width: 30rem;
+  transform: translate(-50%, -50%);
+  padding: 6rem 2rem 2rem 2rem;
+  background-color: ${({ theme }) => theme.palette.background.paper};
+
+  ${({ theme }) => theme.breakpoints.down('xs')} {
+    padding: 4rem 2rem 6rem;
+  }
+`
+
+const ModalContentInner = styled.div`
+  overflow-y: auto;
+  height: 100%;
+  padding: 0.7rem;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 0.7rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: ${({ theme }) => new TinyColor(theme.palette.text.primary).setAlpha(0.2).toString()};
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => new TinyColor(theme.palette.text.primary).setAlpha(0.5).toString()};
+    border-radius: 0.35rem;
+  }
+`
+
+const CloseModal = styled(Link)`
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  color: ${({ theme }) => theme.palette.text.primary};
+  font-size: 3rem;
+
+  &:hover {
+    color: ${({ theme }) => theme.palette.text.primary};
+  }
+`
+
+const ShareLinks = styled.div`
+  display: flex;
+  font-size: 2.2rem;
+
+  > div {
+    flex: 1;
+    margin: 1rem;
+  }
+
+  span {
+    font-size: 1.6rem;
+    vertical-align: text-top;
+  }
+`
+
+const TwitterLink = styled(Link)`
+  color: #fff;
+  background-color: #00acee;
+  padding: 0.4rem 0.8rem 0;
+  border-radius: 0.4rem;
+
+  &:hover {
+    color: #fff;
+  }
+`
+
+const FacebookLink = styled(Link)`
+  color: #fff;
+  background-color: #3b5998;
+  padding: 0.4rem 0.8rem 0;
+  border-radius: 0.4rem;
+
+  &:hover {
+    color: #fff;
+  }
+`
+
+const CopyToClipboardLink = styled(Link)`
+  color: ${({ theme }) => theme.palette.primary.contrastText};
+  padding: 0.4rem 0.8rem 0;
+  border-radius: 0.4rem;
+  font-size: 2.2rem;
+  position: relative;
+
+  &:hover {
+    color: ${({ theme }) => theme.palette.primary.contrastText};
+  }
+
+  span.text {
+    font-size: 1.6rem;
+    vertical-align: text-top;
+  }
+`
+
+const ghost = keyframes`
+  from {
+    transform: scale(1) translateY(-50%);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(2.6) translateY(-50%);
+    opacity: 0;
+  }
+`
+
+const AnimatedClipboard = styled.span`
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: top;
+  animation-name: ${ghost};
+  animation-duration: 0.5s;
+  animation-easing: ease-out;
+  animation-iteration-count: 1;
 `
 
 const CalculatorPicker = styled.div`
@@ -95,20 +228,28 @@ const CalculatorPicker = styled.div`
 `
 
 const Actions = styled.div`
-  display: flex;
-
   > div {
-    flex: 1;
-    margin: 2rem;
+    display: flex;
+
+    > div {
+      flex: 1;
+      margin: 1rem 2rem;
+    }
+
+    &:last-of-type {
+      margin-bottom: 1rem;
+    }
   }
 
   @media screen and (max-width: 600px) {
-    flex-direction: column;
-
     > div {
-      max-width: 25rem;
-      width: 100%;
-      margin: 1rem auto;
+      flex-direction: column;
+      
+      > div {
+        max-width: 25rem;
+        width: 100%;
+        margin: 1rem auto;
+      }
     }
   }
 `
@@ -157,20 +298,25 @@ const DEFAULT_VALUES = {
   anticipatedSystemPerformance: 0.99
 }
 
-function getDefaultValues (currency) {
+function getDefaultValues (currency, initialValues) {
   return {
     ...DEFAULT_VALUES,
+    ...initialValues,
     currency,
-    stakePoolFixedFee: `${parseFloat(currency.exchangeRate) * 250}`
+    stakePoolFixedFee: `${parseFloat(currency.exchangeRate) * initialValues.stakePoolFixedFee || 250}`
   }
 }
 
-const Calculator = ({ currencies, content }) => {
+const Calculator = ({ currencies, content, initialValues, initialCalculator, origin, pathname }) => {
   const [ allCurrencies, setAllCurrencies ] = useState(JSON.parse(JSON.stringify(currencies)))
-  const [ values, setValues ] = useState(getDefaultValues(allCurrencies[0]))
-  const [ type, setType ] = useState('delegator')
+  const [ values, setValues ] = useState(getDefaultValues(allCurrencies[0], initialValues))
+  const [ type, setType ] = useState(initialCalculator)
   const [ showAdvancedOptions, setShowAdvancedOptions ] = useState(false)
+  const [ shareModalVisible, setShareModalVisible ] = useState(false)
+  const [ copied, setCopied ] = useState(false)
   const containerRef = useRef(null)
+  const copiedTimeout = useRef(null)
+  const modalContent = useRef(null)
 
   function getDistributableReward () {
     const reserve = values.totalADA - values.totalADAInCirculation
@@ -218,7 +364,7 @@ const Calculator = ({ currencies, content }) => {
   const reset = () => {
     const currency = currencies.filter(currency => currency.key === values.currency.key).shift()
     setAllCurrencies(JSON.parse(JSON.stringify(currencies)))
-    setValues(getDefaultValues(currency))
+    setValues(getDefaultValues(currency, initialValues))
   }
 
   const onReset = (e) => {
@@ -247,6 +393,46 @@ const Calculator = ({ currencies, content }) => {
     }
 
     return `${negative ? '-' : ''}${finalNumber.replace(/\.$/, '')}`
+  }
+
+  const getShareableLink = () => {
+    const params = new URLSearchParams()
+    const keys = [
+      'ada',
+      'participationRate',
+      'stakePoolControl',
+      'operatorsStake',
+      'stakePoolMargin',
+      'stakePoolPerformance',
+      'totalStakePools',
+      'influenceFactor',
+      'transactionFeesPerEpoch',
+      'anticipatedSystemPerformance',
+      'stakePoolFixedFee'
+    ]
+
+    keys.forEach(key => params.set(key, values[key]))
+    params.set('calculator', type)
+    return `${origin}${pathname}?${params.toString()}`
+  }
+
+  const copyShareableLink = (e) => {
+    e.preventDefault()
+    const el = document.createElement('textarea')
+    const link = getShareableLink()
+    el.value = link
+    el.setAttribute('readonly', 'true')
+    el.setAttribute('aria-hidden', 'true')
+    el.setAttribute('tab-index', '-1')
+    el.style.position = 'absolute'
+    el.style.left = '-999999px'
+    modalContent.current.appendChild(el)
+    el.select()
+    document.execCommand('copy')
+    modalContent.current.removeChild(el)
+    clearTimeout(copiedTimeout.current)
+    setCopied(true)
+    copiedTimeout.current = setTimeout(() => setCopied(false), 500)
   }
 
   const CalculatorComponent = type === 'delegator' ? Delegator : Operator
@@ -284,24 +470,90 @@ const Calculator = ({ currencies, content }) => {
       </CalculatorPicker>
       <Actions>
         <div>
-          <Button
-            color='primary'
-            variant={showAdvancedOptions ? 'contained' : 'outlined'}
-            onClick={toggleShowAdvancedOptions}
-            fullWidth
-          >
-            {content.staking_calculator.show_advanced_options}
-          </Button>
+          <div>
+            <Button
+              color='primary'
+              variant={showAdvancedOptions ? 'contained' : 'outlined'}
+              onClick={toggleShowAdvancedOptions}
+              fullWidth
+            >
+              {content.staking_calculator.show_advanced_options}<Box component='span' marginLeft={0.8}>{showAdvancedOptions ? <MdVisibilityOff /> : <MdVisibility />}</Box>
+            </Button>
+          </div>
+          <div>
+            <Button
+              color='primary'
+              variant='outlined'
+              onClick={onReset}
+              fullWidth
+            >
+              {content.staking_calculator.reset}<Box component='span' marginLeft={0.8}><MdRotateLeft /></Box>
+            </Button>
+          </div>
         </div>
         <div>
-          <Button
-            color='primary'
-            variant='outlined'
-            onClick={onReset}
-            fullWidth
-          >
-            {content.staking_calculator.reset}
-          </Button>
+          <div>
+            <Button
+              color='primary'
+              variant='outlined'
+              onClick={(e) => {
+                e.preventDefault()
+                setShareModalVisible(true)
+              }}
+              fullWidth
+            >
+              {content.staking_calculator.share}<Box component='span' marginLeft={0.8}><MdFileUpload /></Box>
+            </Button>
+            {shareModalVisible &&
+              <Modal
+                open={shareModalVisible}
+                onClose={(e) => {
+                  e.preventDefault()
+                  setShareModalVisible(false)
+                }}
+                disableScrollLock
+              >
+                <ModalContent ref={modalContent}>
+                  <CloseModal
+                    href='#'
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setShareModalVisible(false)
+                    }}
+                  >
+                    <MdClose />
+                  </CloseModal>
+                  <ModalContentInner>
+                    <Box textAlign='center'>
+                      <ShareLinks>
+                        <div>
+                          <TwitterLink href={`https://twitter.com/intent/tweet?text=${getShareableLink()}`}>
+                            <FaTwitter /> <span>{content.staking_calculator.tweet}</span>
+                          </TwitterLink>
+                        </div>
+                        <div>
+                          <FacebookLink href={`https://www.facebook.com/dialog/share?href=${getShareableLink()}&display=popup&app_id=282617186477949&redirect_uri=https://facebook.com/`}>
+                            <FaFacebookF /> <span>{content.staking_calculator.share}</span>
+                          </FacebookLink>
+                        </div>
+                      </ShareLinks>
+                      <p>
+                        <CopyToClipboardLink href='#copy-to-clipboard' onClick={copyShareableLink}>
+                          <FaClipboard /> <span className='text'>{content.staking_calculator.copy_to_clipboard}</span>
+                          {copied &&
+                            <AnimatedClipboard>
+                              <FaClipboard />
+                            </AnimatedClipboard>
+                          }
+                        </CopyToClipboardLink>
+                      </p>
+                    </Box>
+                  </ModalContentInner>
+                </ModalContent>
+              </Modal>
+            }
+          </div>
+          <div />
         </div>
       </Actions>
       <Inputs>
@@ -331,7 +583,11 @@ Calculator.propTypes = {
     key: PropTypes.string.isRequired,
     exchangeRate: PropTypes.string.isRequired
   })),
-  content: PropTypes.object.isRequired
+  content: PropTypes.object.isRequired,
+  initialValues: PropTypes.object.isRequired,
+  initialCalculator: PropTypes.oneOf([ 'delegator', 'operator' ]),
+  origin: PropTypes.string.isRequired,
+  pathname: PropTypes.string.isRequired
 }
 
 export default () => {
@@ -379,19 +635,71 @@ export default () => {
     loadCardanoData()
   }, [])
 
+  function getInitialValues (search) {
+    const params = new URLSearchParams(search)
+    const initialValues = {}
+    const keys = params.keys()
+    for (const key of keys) {
+      const value = params.get(key)
+      if (key === 'ada') {
+        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0) initialValues.ada = value
+      } else if (key === 'participationRate') {
+        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0.2 && parseFloat(value) <= 1) initialValues.participationRate = parseFloat(value)
+      } else if (key === 'stakePoolControl') {
+        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 3) initialValues.stakePoolControl = parseFloat(value)
+      } else if (key === 'operatorsStake') {
+        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 1) initialValues.operatorsStake = parseFloat(value)
+      } else if (key === 'stakePoolMargin') {
+        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 1) initialValues.stakePoolMargin = parseFloat(value)
+      } else if (key === 'stakePoolPerformance') {
+        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 1.2) initialValues.stakePoolPerformance = parseFloat(value)
+      } else if (key === 'totalStakePools') {
+        if (!isNaN(parseInt(value)) && parseInt(value) >= 100 && parseInt(value) <= 1000) initialValues.totalStakePools = parseInt(value)
+      } else if (key === 'influenceFactor') {
+        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 10) initialValues.influenceFactor = parseFloat(value)
+      } else if (key === 'transactionFeesPerEpoch') {
+        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0) initialValues.transactionFeesPerEpoch = value
+      } else if (key === 'anticipatedSystemPerformance') {
+        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 1.2) initialValues.anticipatedSystemPerformance = parseFloat(value)
+      } else if (key === 'stakePoolFixedFee') {
+        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0) initialValues.stakePoolFixedFee = parseFloat(value)
+      }
+    }
+
+    return initialValues
+  }
+
+  function getInitialCalculator (search) {
+    const params = new URLSearchParams(search)
+    const initialCalculator = params.get('calculator')
+    if ([ 'delegator', 'operator' ].includes(initialCalculator)) return initialCalculator
+    return 'delegator'
+  }
+
   return (
     <GlobalContentQuery
       render={content => (
-        <Box position='relative'>
-          {currencies === null &&
-            <Box textAlign='center' paddingTop={4} paddingBottom={4}>
-              <CircularProgress />
+        <Location>
+          {({ location }) => (
+            <Box position='relative'>
+              {currencies === null &&
+                <Box textAlign='center' paddingTop={4} paddingBottom={4}>
+                  <CircularProgress />
+                </Box>
+              }
+              {currencies !== null &&
+                <Calculator
+                  initialValues={getInitialValues(location.search)}
+                  initialCalculator={getInitialCalculator(location.search)}
+                  currencies={currencies}
+                  content={content}
+                  origin={location.origin}
+                  pathname={location.pathname}
+                />
+              }
             </Box>
-          }
-          {currencies !== null &&
-            <Calculator currencies={currencies} content={content} />
-          }
-        </Box>
+          )}
+        </Location>
       )}
     />
   )

@@ -37,6 +37,9 @@ const GlobalContentQuery = ({ render }) => (
                         run_a_stake_pool
                         show_advanced_options
                         reset
+                        share
+                        tweet
+                        copy_to_clipboard
                         ada_label
                         ada_descriptor
                         currency_label

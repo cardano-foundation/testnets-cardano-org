@@ -25,6 +25,9 @@ content:
     ada_label: Ada amount
     ada_descriptor: Set the amount of ada you want to delegate
     reset: Reset
+    share: Share
+    tweet: Tweet
+    copy_to_clipboard: Copy to clipboard
     currency_label: Currency
     currency_descriptor: Please select the currency you wish to see results in
     exchange_rate_label: Exchange rate
