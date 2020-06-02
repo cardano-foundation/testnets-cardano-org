@@ -42,6 +42,8 @@ const GlobalContentQuery = ({ render }) => (
                         copy_to_clipboard
                         ada_label
                         ada_descriptor
+                        ada_label_operator
+                        ada_descriptor_operator
                         currency_label
                         currency_descriptor
                         exchange_rate_label

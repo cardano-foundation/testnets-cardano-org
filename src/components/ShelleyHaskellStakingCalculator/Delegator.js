@@ -42,22 +42,27 @@ const Delegator = ({
 
   useEffect(() => {
     let stakePoolFixedFee = toADA(parseFloat(values.stakePoolFixedFee))
+    let operatorsStake = parseFloat(values.operatorsStake)
     let ada = parseFloat(values.ada)
     if (isNaN(stakePoolFixedFee)) stakePoolFixedFee = 0
+    if (isNaN(operatorsStake)) operatorsStake = 0
     if (isNaN(ada)) ada = 0
 
     const distributableReward = getDistributableReward()
+    // Possibly operatorsStake / (values.totalADAInCirculation * values.participationRate) instead
+    const sigmaPrime = Math.min(1 / values.totalStakePools, 1 / values.targetStakePools)
+    const sPrime = Math.min(ada / values.totalADAInCirculation, 1 / values.targetStakePools)
+    const z = 1 / values.totalStakePools
     const stakedADA = values.totalADAInCirculation * values.participationRate
     const totalStakeInPool = stakedADA * Math.min(1 / values.totalStakePools, values.stakePoolControl)
-    const operatorStake = values.stakePoolControl * totalStakeInPool
-    const delegatedStake = totalStakeInPool - operatorStake
-    let grossPoolReward = distributableReward * (totalStakeInPool / stakedADA)
+    const delegatedStake = Math.max(totalStakeInPool - operatorsStake, 0)
+    let grossPoolReward = distributableReward * (sigmaPrime + sPrime * values.influenceFactor * (sigmaPrime - sPrime * (z - sigmaPrime) / z) / z)
     const penalty = (1 - values.stakePoolPerformance) * grossPoolReward
     grossPoolReward = grossPoolReward - penalty
     grossPoolReward -= values.epochDurationInDays * stakePoolFixedFee
     const netReward = grossPoolReward * (1 - values.stakePoolMargin)
-    const operatorReward = netReward * values.operatorsStake
-    const delegatorsRewards = netReward - operatorReward
+    const operatorsReward = netReward * (Math.min(operatorsStake / totalStakeInPool, 1))
+    const delegatorsRewards = Math.max(0, netReward - operatorsReward)
     const epochReward = Math.max(delegatorsRewards * Math.min(ada / delegatedStake, 1), 0)
 
     const dailyReward = epochReward / values.epochDurationInDays
@@ -159,6 +164,15 @@ const Delegator = ({
                 helperText={content.staking_calculator.transaction_fees_per_epoch_descriptor}
               />
             </div>
+            <div>
+              <OperatorsStake
+                value={values.operatorsStake}
+                onChange={value => setValue('operatorsStake', value)}
+                label={content.staking_calculator.operators_stake_label}
+                helperText={content.staking_calculator.operators_stake_descriptor}
+                adaSymbol={getCurrencySymbol('ADA')}
+              />
+            </div>
           </HalfWidthGroup>
           <FullWidthGroup>
             <StakePoolControl
@@ -186,20 +200,6 @@ const Delegator = ({
               label={content.staking_calculator.participation_rate_label}
               helperText={content.staking_calculator.participation_rate_descriptor}
               totalADAInCirculation={values.totalADAInCirculation}
-              adaSymbol={getCurrencySymbol('ADA')}
-              normalizeLargeNumber={normalizeLargeNumber}
-            />
-          </FullWidthGroup>
-          <FullWidthGroup>
-            <OperatorsStake
-              value={values.operatorsStake}
-              onChange={value => setValue('operatorsStake', value)}
-              label={content.staking_calculator.operators_stake_label}
-              helperText={content.staking_calculator.operators_stake_descriptor}
-              totalADAInCirculation={values.totalADAInCirculation}
-              participationRate={values.participationRate}
-              totalADA={values.ada || '0'}
-              stakePoolControl={values.stakePoolControl}
               adaSymbol={getCurrencySymbol('ADA')}
               normalizeLargeNumber={normalizeLargeNumber}
             />

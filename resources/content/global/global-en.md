@@ -24,6 +24,8 @@ content:
     show_advanced_options: Advanced options
     ada_label: Ada amount
     ada_descriptor: Set the amount of ada you want to delegate
+    ada_label_operator: Pledge amount
+    ada_descriptor_operator: Set the amount of ada you want to pledge to your pool
     reset: Reset
     share: Share
     tweet: Tweet

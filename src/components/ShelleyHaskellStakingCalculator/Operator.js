@@ -54,12 +54,20 @@ const Operator = ({
       ? ada
       : stakedADA * Math.min(1 / values.totalStakePools, values.stakePoolControl)
 
-    let grossPoolReward = distributableReward * (totalStakeInPool / stakedADA)
-    const penalty = (1 - values.stakePoolPerformance) * grossPoolReward
-    grossPoolReward = grossPoolReward - penalty
+    // Possibly ada / (values.totalADAInCirculation * values.participationRate) instead
+    const sigmaPrime = Math.min(1 / values.totalStakePools, 1 / values.targetStakePools)
+    const sPrime = Math.min(ada / values.totalADAInCirculation, 1 / values.targetStakePools)
+    const z = 1 / values.totalStakePools
+    let grossPoolReward = distributableReward * (sigmaPrime + sPrime * values.influenceFactor * (sigmaPrime - sPrime * (z - sigmaPrime) / z) / z)
+    console.log({ distributableReward, grossPoolReward, sigmaPrime, sPrime, z, influenceFactor: values.influenceFactor })
+    grossPoolReward -= grossPoolReward * (Math.max(0, 1 - values.stakePoolPerformance))
+    console.log({ grossPoolRewardAfterPenalty: grossPoolReward })
     grossPoolReward -= values.epochDurationInDays * stakePoolFixedFee
+    console.log({ grossPoolRewardAfterOperatingCosts: grossPoolReward })
     if (grossPoolReward < 0) grossPoolReward = 0
-    const netReward = grossPoolReward * (1 - stakePoolMargin)
+    const margin = stakePoolMargin * grossPoolReward
+    const netReward = grossPoolReward * margin
+    console.log({ margin })
 
     const epochReward = netReward * Math.min(1, ada / totalStakeInPool)
     const dailyReward = epochReward / values.epochDurationInDays
@@ -71,7 +79,7 @@ const Operator = ({
     const monthlyRunningCosts = dailyRunningCosts * 30
     const yearlyRunningCosts = dailyRunningCosts * 365
 
-    const epochMargin = grossPoolReward - netReward
+    const epochMargin = margin
     const dailyMargin = epochMargin / values.epochDurationInDays
     const monthlyMargin = dailyMargin * 30
     const yearlyMargin = dailyMargin * 365
@@ -220,8 +228,8 @@ const Operator = ({
           <ADAAmount
             value={values.ada}
             onChange={value => setValue('ada', value)}
-            label={content.staking_calculator.ada_label}
-            helperText={content.staking_calculator.ada_descriptor}
+            label={content.staking_calculator.ada_label_operator}
+            helperText={content.staking_calculator.ada_descriptor_operator}
             adaSymbol={getCurrencySymbol('ADA')}
           />
         </div>

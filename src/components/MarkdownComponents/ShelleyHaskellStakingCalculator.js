@@ -280,22 +280,23 @@ const Inputs = styled.div`
 `
 
 const DEFAULT_VALUES = {
-  ada: '0',
-  participationRate: 0.45,
-  stakePoolControl: 0.01,
-  operatorsStake: 0.01,
-  stakePoolMargin: 0.1,
+  ada: '10000',
+  participationRate: 0.7,
+  stakePoolControl: 0.005,
+  operatorsStake: '10000',
+  stakePoolMargin: 0.03,
   stakePoolPerformance: 1,
-  totalStakePools: 500,
+  totalStakePools: 200,
   totalADA: 45e9,
   totalADAInCirculation: 31690410958.90,
   epochDurationInDays: 5,
   yearlyExpansionRate: 0.1,
   treasuryRate: 0.1,
   influenceFactor: 0.1,
-  transactionFeesPerEpoch: '2000',
+  transactionFeesPerEpoch: '10000',
   expectedRewardsPerYear: 0.05,
-  anticipatedSystemPerformance: 0.99
+  anticipatedSystemPerformance: 0.99,
+  targetStakePools: 100
 }
 
 function getDefaultValues (currency, initialValues) {
@@ -303,7 +304,9 @@ function getDefaultValues (currency, initialValues) {
     ...DEFAULT_VALUES,
     ...initialValues,
     currency,
-    stakePoolFixedFee: `${parseFloat(currency.exchangeRate) * initialValues.stakePoolFixedFee || 250}`
+    stakePoolFixedFee: initialValues.stakePoolFixedFee !== undefined
+      ? `${initialValues.stakePoolFixedFee}`
+      : `${40 / parseFloat(currency.exchangeRate)}`
   }
 }
 
@@ -327,8 +330,9 @@ const Calculator = ({ currencies, content, initialValues, initialCalculator, ori
     const epochsPerYear = 365 / values.epochDurationInDays
     const epochExpansionRate = Math.max(0, ((values.totalADAInCirculation * (Math.pow(1 + values.expectedRewardsPerYear, 1 / epochsPerYear) - 1) - (1 - values.treasuryRate) * transactionFeesPerEpoch) / ((1 - values.treasuryRate) * Math.min(values.anticipatedSystemPerformance, 1) * reserve)))
 
+    console.log({ epochExpansionRate })
     const epochDistribution = reserve * epochExpansionRate
-    const netEpochDistribution = epochDistribution * Math.min(1, values.anticipatedSystemPerformance) + transactionFeesPerEpoch
+    const netEpochDistribution = (epochDistribution * Math.min(1, values.anticipatedSystemPerformance)) + transactionFeesPerEpoch
     const treasuryShare = netEpochDistribution * values.treasuryRate
     return (netEpochDistribution - treasuryShare) / (1 + values.influenceFactor)
   }
@@ -648,7 +652,7 @@ export default () => {
       } else if (key === 'stakePoolControl') {
         if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 3) initialValues.stakePoolControl = parseFloat(value)
       } else if (key === 'operatorsStake') {
-        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 1) initialValues.operatorsStake = parseFloat(value)
+        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 10000000) initialValues.operatorsStake = parseFloat(value)
       } else if (key === 'stakePoolMargin') {
         if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 1) initialValues.stakePoolMargin = parseFloat(value)
       } else if (key === 'stakePoolPerformance') {
