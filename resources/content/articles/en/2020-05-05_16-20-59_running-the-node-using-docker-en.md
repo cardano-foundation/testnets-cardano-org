@@ -1,10 +1,13 @@
 ---
 parent: 2020-05-05_16-12-19_installing-and-running-the-cardano-node
 title: Running the node using Docker
-description: Docker node running - Shelley Haskell testnet
+description: Docker node running - Shelley testnet
 order: 3
 external_href: ""
 last_updated: 2020-05-05T16:20:25.000Z
+redirects:
+  - from: /en/shelley-haskell/get-started/installing-and-running-the-cardano-node/running-the-node-using-docker/
+    type: 301
 ---
 ## Running the node using a Docker image
 

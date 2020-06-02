@@ -1,9 +1,12 @@
 ---
 parent: 2020-05-04_05-00-00_configuration
 title: Changing the stake pool system configuration
-description: Shelley Haskell configuration
+description: Shelley configuration
 order: 1
 last_updated: 2020-05-01T08:00:00.000Z
+redirects:
+  - from: /en/shelley-haskell/configuration/system-configuration/
+    type: 301
 ---
 ## Changing the stake pool system configuration
 

@@ -4,6 +4,9 @@ description: About
 parent: 2020-05-04_05-00-00_about
 order: 2
 last_updated: "2020-05-22T09:00:00+01:00"
+redirects:
+  - from: /en/shelley-haskell/about/what-is-a-stake-pool/
+    type: 301
 ---
 ## What is a stake pool?
 

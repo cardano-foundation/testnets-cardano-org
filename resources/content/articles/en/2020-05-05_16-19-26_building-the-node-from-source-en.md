@@ -1,10 +1,13 @@
 ---
 parent: 2020-05-05_16-12-19_installing-and-running-the-cardano-node
 title: Building a node from source
-description: Shelley Haskell testnet
+description: Shelley testnet
 order: 2
 external_href: ""
 last_updated: 2020-05-19T16:19:01.000Z
+redirects:
+  - from: /en/shelley-haskell/get-started/installing-and-running-the-cardano-node/building-the-node-from-source/
+    type: 301
 ---
 ## Building a node from source
 By building and running a node directly from the source code, you can ensure that you get all the latest code updates.
@@ -61,4 +64,4 @@ Please note that building the node may take some time, possibly several hours.
    ./scripts/shelley-testnet-live.sh
    ```
 
-You should now have a Cardano node running on your machine, connected to the Shelley Haskell testnet.
+You should now have a Cardano node running on your machine, connected to the Shelley testnet.

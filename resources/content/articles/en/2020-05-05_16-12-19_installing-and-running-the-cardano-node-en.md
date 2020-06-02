@@ -1,10 +1,13 @@
 ---
 parent: 2020-05-05_12-27-39_get-started
 title: Installing and running a Cardano node
-description: Shelley Haskell testnet
+description: Shelley testnet
 order: 2
 external_href: ""
 last_updated: 2020-05-12T15:50:01.000Z
+redirects:
+  - from: /en/shelley-haskell/get-started/installing-and-running-the-cardano-node/
+    type: 301
 ---
 ## Installing and running a Cardano node
 
