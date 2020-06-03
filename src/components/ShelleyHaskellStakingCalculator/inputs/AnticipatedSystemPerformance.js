@@ -25,7 +25,7 @@ const AnticipatedSystemPerformance = ({ value, label, onChange, helperText }) =>
       </InputLabel>
       <Slider
         value={value}
-        min={0}
+        min={0.9}
         max={1.2}
         step={0.01}
         onChange={(_, v) => {

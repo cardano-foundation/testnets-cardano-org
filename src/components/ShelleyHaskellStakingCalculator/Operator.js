@@ -54,20 +54,16 @@ const Operator = ({
       ? ada
       : stakedADA * Math.min(1 / values.totalStakePools, values.stakePoolControl)
 
-    // Possibly ada / (values.totalADAInCirculation * values.participationRate) instead
-    const sigmaPrime = Math.min(1 / values.totalStakePools, 1 / values.targetStakePools)
-    const sPrime = Math.min(ada / values.totalADAInCirculation, 1 / values.targetStakePools)
+    const sigmaPrime = Math.min(values.stakePoolControl, 1 / Math.max(values.targetStakePools, values.totalStakePools))
+    const sPrime = Math.min(ada / values.totalADAInCirculation, 1 / Math.max(values.targetStakePools, values.totalStakePools))
     const z = 1 / values.totalStakePools
     let grossPoolReward = distributableReward * (sigmaPrime + sPrime * values.influenceFactor * (sigmaPrime - sPrime * (z - sigmaPrime) / z) / z)
-    console.log({ distributableReward, grossPoolReward, sigmaPrime, sPrime, z, influenceFactor: values.influenceFactor })
+    console.log({ grossPoolReward })
     grossPoolReward -= grossPoolReward * (Math.max(0, 1 - values.stakePoolPerformance))
-    console.log({ grossPoolRewardAfterPenalty: grossPoolReward })
     grossPoolReward -= values.epochDurationInDays * stakePoolFixedFee
-    console.log({ grossPoolRewardAfterOperatingCosts: grossPoolReward })
     if (grossPoolReward < 0) grossPoolReward = 0
     const margin = stakePoolMargin * grossPoolReward
-    const netReward = grossPoolReward * margin
-    console.log({ margin })
+    const netReward = grossPoolReward - margin
 
     const epochReward = netReward * Math.min(1, ada / totalStakeInPool)
     const dailyReward = epochReward / values.epochDurationInDays
