@@ -1,13 +1,16 @@
 ---
 parent: 2020-05-04_05-00-00_about
 title: Introduction
-description: Shelley Haskell about
+description: Shelley about
 order: 1
 last_updated: 2020-05-01T08:00:00.000Z
+redirects:
+  - from: /en/shelley-haskell/about/testnet-introduction/
+    type: 301
 ---
-## Shelley Haskell testnet introduction
+## Shelley testnet introduction
 
-The rollout of the Shelley Haskell testnet will involve a series of controlled phases.
+The rollout of the Shelley testnet will involve a series of controlled phases.
 
 ### Three phases
 The testnets will be delivered in three phases, the first of which is a small, invitation-only beta involving a Shelley-only test network.
@@ -16,7 +19,7 @@ The second phase of the testnet will be public and will include stake pool confi
 
 The final phase of the testnet will be the most complex, including everything from the first two phases, plus stake delegation on a hybrid Byron/Shelley network designed to replicate the network conditions of the Cardano mainnet during the transition to Shelley.
 
-The Shelley Haskell testnet is designed to prove new Shelley technologies in a controlled environment, and the experience, data, and feedback gathered from all three phases will contribute directly to the mainnet release of Shelley.
+The Shelley testnet is designed to prove new Shelley technologies in a controlled environment, and the experience, data, and feedback gathered from all three phases will contribute directly to the mainnet release of Shelley.
 
 ### Getting involved
 
