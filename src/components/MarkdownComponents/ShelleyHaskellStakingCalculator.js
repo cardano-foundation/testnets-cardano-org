@@ -299,20 +299,21 @@ const DEFAULT_VALUES = {
   targetStakePools: 100
 }
 
-function getDefaultValues (currency, initialValues) {
+function getDefaultValues (currency, initialValues, usdExchangeRate) {
+  console.log({ usdExchangeRate })
   return {
     ...DEFAULT_VALUES,
     ...initialValues,
     currency,
     stakePoolFixedFee: initialValues.stakePoolFixedFee !== undefined
       ? `${initialValues.stakePoolFixedFee}`
-      : `${40 / parseFloat(currency.exchangeRate)}`
+      : `${usdExchangeRate ? 40 / parseFloat(usdExchangeRate) : 500 / parseFloat(currency.exchangeRate)}`
   }
 }
 
 const Calculator = ({ currencies, content, initialValues, initialCalculator, origin, pathname }) => {
   const [ allCurrencies, setAllCurrencies ] = useState(JSON.parse(JSON.stringify(currencies)))
-  const [ values, setValues ] = useState(getDefaultValues(allCurrencies[0], initialValues))
+  const [ values, setValues ] = useState(getDefaultValues(allCurrencies[0], initialValues, getUSDExchangeRate()))
   const [ type, setType ] = useState(initialCalculator)
   const [ showAdvancedOptions, setShowAdvancedOptions ] = useState(false)
   const [ shareModalVisible, setShareModalVisible ] = useState(false)
@@ -320,6 +321,10 @@ const Calculator = ({ currencies, content, initialValues, initialCalculator, ori
   const containerRef = useRef(null)
   const copiedTimeout = useRef(null)
   const modalContent = useRef(null)
+
+  function getUSDExchangeRate () {
+    return (currencies.filter(currency => currency.key === 'USD').shift() || {}).exchangeRate
+  }
 
   function getDistributableReward () {
     const reserve = values.totalADA - values.totalADAInCirculation
@@ -330,7 +335,6 @@ const Calculator = ({ currencies, content, initialValues, initialCalculator, ori
     const epochsPerYear = 365 / values.epochDurationInDays
     const epochExpansionRate = Math.max(0, ((values.totalADAInCirculation * (Math.pow(1 + values.expectedRewardsPerYear, 1 / epochsPerYear) - 1) - (1 - values.treasuryRate) * transactionFeesPerEpoch) / ((1 - values.treasuryRate) * Math.min(values.anticipatedSystemPerformance, 1) * reserve)))
 
-    console.log({ epochExpansionRate })
     const epochDistribution = reserve * epochExpansionRate
     const netEpochDistribution = (epochDistribution * Math.min(1, values.anticipatedSystemPerformance)) + transactionFeesPerEpoch
     const treasuryShare = netEpochDistribution * values.treasuryRate
@@ -368,7 +372,7 @@ const Calculator = ({ currencies, content, initialValues, initialCalculator, ori
   const reset = () => {
     const currency = currencies.filter(currency => currency.key === values.currency.key).shift()
     setAllCurrencies(JSON.parse(JSON.stringify(currencies)))
-    setValues(getDefaultValues(currency, initialValues))
+    setValues(getDefaultValues(currency, initialValues, getUSDExchangeRate()))
   }
 
   const onReset = (e) => {
