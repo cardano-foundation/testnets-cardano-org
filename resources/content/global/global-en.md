@@ -46,7 +46,7 @@ content:
     participation_rate_label: Delegation participation rate
     participation_rate_descriptor: Set the total amount of stake delegated across the network in this epoch, as a percentage of the total available stake
     operators_stake_label: Stake pool operator's stake
-    operators_stake_descriptor: Set the size of the stake pool operator's stake, as a percentage of the total stake in the pool
+    operators_stake_descriptor: Set the size of the stake pool operator's stake
     stake_pool_margin_label: Stake pool operator reward percentage
     stake_pool_margin_descriptor: Set the amount of rewards taken by the stake pool operator, as a percentage of the total rewards earned by the pool
     stake_pool_performance_label: Stake pool performance
