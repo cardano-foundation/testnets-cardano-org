@@ -20,9 +20,7 @@ During each epoch, rewards are distributed amongst all stakeholders who have del
 
 The following formula outlines how the rewards mechanism works. The available rewards amount, transaction fees, plus monetary expansion, is denoted by R. 
 First, the share of all available rewards that a specific pool can receive is we determined, as follows:
-![image info](pledge_formula.png)
-
-
+![pledge formula](https://github.com/cardano-foundation/testnets-cardano-org/blob/staging/resources/content/articles/article-images/pledge_formula.png)
 
 These elements are defined as follows:
 * R - total available rewards for this epoch
