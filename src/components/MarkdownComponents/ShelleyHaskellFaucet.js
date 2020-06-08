@@ -3,8 +3,7 @@ import Faucet from '../Faucet'
 
 export default () => (
   <Faucet
-    getEndpoint={({ address, apiKey }) => `https://shelley-haskell-testnet.iohkdev.io/send-money/${address}?apiKey=${apiKey}`}
+    getEndpoint={({ address, apiKey }) => `https://faucet.ff.dev.cardano.org/send-money/${address}?apiKey=${apiKey}`}
     hasApiKey
-    getTransactionURL={({ txid }) => `https://shelleyexplorer.cardano.org/transaction/${txid}/`}
   />
 )
