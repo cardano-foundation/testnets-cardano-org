@@ -6,7 +6,7 @@ order: 5
 external_href: ""
 last_updated: 2020-06-08T16:41:44+01:00
 ---
-## Reistering a stake pool on the blockchain
+## Registering a stake pool on the blockchain
 An account needs to have a stake pool registration certificate before it can participate in stake delegation between stake pools. This cryptographically-signed certificate contains details such as pool owner information, the hash of the pool operator’s verification key and VRF key, pledge details, the associated reward account, pool relay nodes, and the hash of the pool metadata. 
 
 The registration certificate transfers staking rights from one staking key to another. The certificate contains the staking-key of the pool leader and is sent to the blockchain to register the stake pool with the other participants of the blockchain. 
