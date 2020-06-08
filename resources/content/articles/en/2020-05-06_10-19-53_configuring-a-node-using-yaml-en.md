@@ -1,10 +1,10 @@
 ---
 parent: 2020-05-05_12-27-39_get-started
-title: Configuring a node using YAML
+title: Configuring a node
 description: Shelley testnet
 order: 3
 external_href: ""
-last_updated: 2020-05-06T11:17:20+01:00
+last_updated: 2020-05-06T10:17:20.000Z
 redirects:
   - from: /en/shelley-haskell/get-started/configuring-a-node-using-yaml/
     type: 301
