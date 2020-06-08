@@ -4,7 +4,7 @@ title: Pledging and Rewards
 description: Pledging and Rewards
 order: 1
 external_href: ""
-last_updated: 2020-05-05T13:47:27+01:00
+last_updated: 2020-06-08T12:38:57+01:00
 ---
 
 ## Pledging and Rewards
