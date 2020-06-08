@@ -16,7 +16,7 @@ Each node should run on a dedicated server, and the firewall on the block-produc
 
 If a relay node becomes compromised, you can simply switch it off and use a different one.
 
-**Configuring your node communication**
+**Configuring your node communication**
 
 Nodes (both block-producing and relay nodes), are configured in the topology.json file, which defines the network nodes with which your node can communicate.
 
@@ -26,7 +26,8 @@ The [topology.json](https://github.com/input-output-hk/cardano-tutorials/blob/ma
 * `port` - the port that you wish that communication to go through.
 * `valency` - defines how many open connections your node should have. This parameter only affects dns addresses. If a dns address is provided, `valency` determines the number of resolved IP addresses that the node should maintain an active connection with. For IP addresses, `valency` is a boolean value where `0` means that the address should be ignored.
 
-**Configuring a relay node via the Cardano CLI**
+
+**Configuring a relay node via the Cardano CLI**
 
 This procedure assumes the availability of working `config.yaml`, `topology.json`, and `genesis.json` files.
 
@@ -37,31 +38,31 @@ To create a relay node, follow these steps:
  ```cd cardano-node
  mkdir relay
  cp config.yaml genesis.json topology.json block-producing/
- cp config.yaml genesis.json topology.json relay/```
+ cp config.yaml genesis.json topology.json relay/
+```
 
 2. Specify the port that the relay node will use for communicating with other nodes. For example, the relay node is configured to communicate with an external node with the URL: relays-new.cardano-mainnet.iohk.io,through port 8081, with valency value of 1 (only one active connection).
 
 relay/topology.json:
 
- {
+ `{
       {
         "addr": "relays-new.cardano-mainnet.iohk.io",
         "port": 8081,
         "valency": 1
       }
-  }
+  }`
 
-Start the node on the AWS instance, using a terminal multiplexer like tmux. Using tmux enables the aperture of different panes in a single terminal window. 
+3. Start the node on the AWS instance, using a terminal multiplexer like tmux. Using tmux enables the aperture of different panes in a single terminal window. 
 
-Install tmux using sudo yum install tmux -y and start it with tmux new
+Install tmux using `sudo yum install tmux -y` and start it with `tmux new`
 
-Start the relay node with this code:
+4. Start the relay node with this code:
 
- cardano-node run \
+ ```cardano-node run \
      --topology relay/topology.json \
      --database-path relay/db \
      --socket-path relay/db/node.socket \
      --host-addr 127.0.0.1 \
      --port 8081 \
-     --config relay/config.yaml
-
+     --config relay/config.yaml```
