@@ -1,5 +1,5 @@
 ---
-parent: 2020-05-05_12-27-39_get-started
+parent: 2020-05-04_05-00-00_configuration
 title: Configuring a node
 description: Shelley testnet
 order: 3
