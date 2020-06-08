@@ -26,6 +26,7 @@ To build and run a node from source, you need the following packages and tools:
 
 You can install these dependencies as follows:
 
+CentOS/RHEL based system
 ```shell
 sudo yum update -y
 sudo yum install git gcc gmp-devel -y
@@ -33,7 +34,15 @@ sudo yum install zlib-devel systemd-devel ncurses-devel -y
 curl -sSL https://get.haskellstack.org/ | sh
 ```
 
-If you are using a different flavor of Linux, you will need to use the package manager suitable for your platform, instead of yum, and the names of the packages you need to install might differ.
+Debian/Ubuntu use the following instead:
+
+```shell
+sudo apt-get update -y
+sudo apt-get install build-essential pkg-config libffi-dev libgmp-dev libssl-dev libtinfo-dev libsystemd-dev zlib1g-dev make g++ tmux git jq wget libncursesw5 -y
+curl -sSL https://get.haskellstack.org/ | sh
+```
+
+If you are using a different flavor of Linux, you will need to use the package manager suitable for your platform, and the names of the packages you need to install might differ.
 
 How to build and run the node from source:
 
