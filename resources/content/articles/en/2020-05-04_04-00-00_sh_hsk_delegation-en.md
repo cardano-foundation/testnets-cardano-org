@@ -1,9 +1,9 @@
 ---
+parent: 2020-05-04_05-00-00_about-en.md
 title: Understanding the delegation mechanism
 description: About
-parent: 2020-05-04_05-00-00_about-en.md
 order: 2
-last_updated: "2020-05-01T09:00:00+01:00"
+last_updated: 2020-06-08T12:37:34+01:00
 ---
 ## Understanding the delegation mechanism
 
