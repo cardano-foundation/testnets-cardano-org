@@ -2,7 +2,7 @@
 parent: 2020-05-05_12-27-39_get-started
 title: Pledging and Rewards
 description: Pledging and Rewards
-order: 1
+order: 4
 external_href: ""
 last_updated: 2020-06-08T12:38:57+01:00
 ---
