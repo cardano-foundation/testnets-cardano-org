@@ -19,7 +19,7 @@ During each epoch, rewards are distributed amongst all stakeholders who have del
 
 
 The following formula outlines how the rewards mechanism works. The available rewards amount, transaction fees, plus monetary expansion, is denoted by R. 
-First, the share of all available rewards that a specific pool can receive is we determined, as follows:
+First, the share of all available rewards that a specific pool can receive is determined, as follows:
 ![pledge formula](https://github.com/cardano-foundation/testnets-cardano-org/blob/staging/resources/content/articles/article-images/pledge_formula.png)
 
 These elements are defined as follows:
@@ -48,6 +48,12 @@ After pool rewards have been calculated and adjusted for pool performance, they 
 * First, the declared costs are subtracted and given to the pool operator.
 * Next, the declared margin is subtracted and given to the pool operator..
 * Finally the remainder is split fairly (proportional to delegated stake), amongst all people who delegated to the pool, including the pool owners.
+
+A pledging calculator is available to use for estimation purposes. The rewards predicted by this calculator *are only an estimate*. The actual amount of ada received in rewards may vary, and will depend on a number of factors including; the actual stake pool performance, that is, the number of blocks a stake pool is observed to produce in a given epoch, versus the number it was expected to produce. Changes to network parameters may also affect rewards.
+
+The annualized equivalent returns given by this calculator assume that stake is delegated to the same stake pool for a 365-day period, and that stake pool performance and other settings are consistent over that timeframe. IOHK accepts no responsibility for any discrepancy between estimated and actual rewards.
+
+Disclaimer: this calculator is provided for guidance only.
 
 
 
