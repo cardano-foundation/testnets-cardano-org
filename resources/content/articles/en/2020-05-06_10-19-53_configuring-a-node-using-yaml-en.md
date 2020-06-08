@@ -1,7 +1,7 @@
 ---
 parent: 2020-05-04_05-00-00_configuration
 title: Configuring a node
-description: Shelley testnet
+description: Configuring a node
 order: 3
 external_href: ""
 last_updated: 2020-05-06T10:17:20.000Z
