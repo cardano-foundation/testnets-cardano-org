@@ -54,8 +54,8 @@ const Operator = ({
       ? ada
       : stakedADA * Math.min(1 / values.totalStakePools, values.stakePoolControl)
 
-    const sigmaPrime = Math.min(values.stakePoolControl, 1 / Math.max(values.targetStakePools, values.totalStakePools))
-    const sPrime = Math.min(ada / values.totalADAInCirculation, 1 / Math.max(values.targetStakePools, values.totalStakePools))
+    const sigmaPrime = Math.min(values.stakePoolControl, 1 / values.totalStakePools)
+    const sPrime = Math.min(ada / values.totalADAInCirculation, 1 / values.totalStakePools)
     const z = 1 / values.totalStakePools
     let grossPoolReward = distributableReward * (sigmaPrime + sPrime * values.influenceFactor * (sigmaPrime - sPrime * (z - sigmaPrime) / z) / z)
     console.log({ grossPoolReward })

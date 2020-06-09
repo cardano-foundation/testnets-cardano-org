@@ -295,8 +295,7 @@ const DEFAULT_VALUES = {
   influenceFactor: 0.1,
   transactionFeesPerEpoch: '10000',
   expectedRewardsPerYear: 0.05,
-  anticipatedSystemPerformance: 0.99,
-  targetStakePools: 100
+  anticipatedSystemPerformance: 0.99
 }
 
 function getDefaultValues (currency, initialValues, usdExchangeRate) {

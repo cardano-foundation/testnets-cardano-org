@@ -49,8 +49,8 @@ const Delegator = ({
     if (isNaN(ada)) ada = 0
 
     const distributableReward = getDistributableReward()
-    const sigmaPrime = Math.min(values.stakePoolControl, 1 / Math.max(values.targetStakePools, values.totalStakePools))
-    const sPrime = Math.min(ada / values.totalADAInCirculation, 1 / Math.max(values.targetStakePools, values.totalStakePools))
+    const sigmaPrime = Math.min(values.stakePoolControl, 1 / values.totalStakePools)
+    const sPrime = Math.min(operatorsStake / values.totalADAInCirculation, 1 / values.totalStakePools)
     const z = 1 / values.totalStakePools
     const stakedADA = values.totalADAInCirculation * values.participationRate
     const totalStakeInPool = stakedADA * Math.min(1 / values.totalStakePools, values.stakePoolControl)
