@@ -1,12 +1,12 @@
 ---
 parent: 2020-05-05_16-12-19_installing-and-running-the-cardano-node
-title: Running Cardano Node as a Relay
+title: Running Cardano node as a relay
 description: Running Cardano Node as a Relay
-order: 1
+order: 3
 external_href: ""
 last_updated: 2020-06-08T13:08:02+01:00
 ---
-## Running Cardano node as a Relay
+## Running Cardano node as a relay
 
 Within the Cardano environment, there are two types of nodes: Block-producing nodes, and relay nodes, which are nodes with no operational certificates. 
 
