@@ -183,10 +183,16 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL }) => 
           <Markdown
             source={content.faucet_content.transaction_successful.replace(/{{\samount\s}}/g, getTransactionAmount()).replace(/{{\saddress\s}}/, values.address)}
           />
-          {result.txid &&
+          {result.txid && getTransactionURL &&
             <Fragment>
               <p>{content.faucet_content.verify_transaction_hash}</p>
               <p><strong><Link href={getTransactionURL({ txid: result.txid })}>{result.txid}</Link></strong></p>
+            </Fragment>
+          }
+          {result.txid && !getTransactionURL &&
+            <Fragment>
+              <p>{content.faucet_content.verify_transaction_hash}</p>
+              <p><strong>{result.txid}</strong></p>
             </Fragment>
           }
           <Box marginTop={2}>
@@ -204,7 +210,7 @@ FaucetInner.propTypes = {
   content: PropTypes.object.isRequired,
   getEndpoint: PropTypes.func.isRequired,
   hasApiKey: PropTypes.bool.isRequired,
-  getTransactionURL: PropTypes.func.isRequired
+  getTransactionURL: PropTypes.func
 }
 
 const Faucet = ({ getEndpoint, hasApiKey, getTransactionURL }) => (
@@ -223,7 +229,7 @@ const Faucet = ({ getEndpoint, hasApiKey, getTransactionURL }) => (
 Faucet.propTypes = {
   getEndpoint: PropTypes.func.isRequired,
   hasApiKey: PropTypes.bool.isRequired,
-  getTransactionURL: PropTypes.func.isRequired
+  getTransactionURL: PropTypes.func
 }
 
 export default Faucet
