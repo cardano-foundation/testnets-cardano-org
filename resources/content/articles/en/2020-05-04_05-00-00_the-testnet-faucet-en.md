@@ -5,7 +5,7 @@ description: Shelley Haskell about
 order: 3
 last_updated: 2020-05-01T08:00:00.000Z
 ---
-## The Shelley Testnet Faucet
+## The Shelley testnet faucet
 
 Since the Shelley testnet is an independent network, separate from the Cardano mainnet, it requires its own tokens.
 
