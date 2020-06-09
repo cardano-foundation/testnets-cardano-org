@@ -1,10 +1,10 @@
 ---
 parent: 2020-05-05_16-12-19_installing-and-running-the-cardano-node
 title: Running Cardano node as a relay
-description: Running Cardano Node as a Relay
+description: Running Cardano node as a relay
 order: 3
 external_href: ""
-last_updated: 2020-06-08T13:08:02+01:00
+last_updated: 2020-06-08T12:08:02.000Z
 ---
 ## Running Cardano node as a relay
 
