@@ -242,13 +242,13 @@ const Operator = ({
       {(showAdvancedOptions || !privateStakePool) &&
         <Fragment>
           <HalfWidthGroup>
-            {showAdvancedOptions &&
+            {showAdvancedOptions && values.currency.key !== 'ADA' &&
               <div>
                 <ExchangeRate
                   value={values.currency.exchangeRate}
                   onChange={value => setValue('currency', { ...values.currency, exchangeRate: value })}
                   label={content.staking_calculator.exchange_rate_label}
-                  helperText={<Markdown source={content.staking_calculator.exchange_rate_descriptor} />}
+                  helperText={<Markdown source={content.staking_calculator.exchange_rate_descriptor.replace(/{{\s?currency\s?}}/g, values.currency.key)} />}
                   symbol={getCurrencySymbol(values.currency.key)}
                 />
               </div>

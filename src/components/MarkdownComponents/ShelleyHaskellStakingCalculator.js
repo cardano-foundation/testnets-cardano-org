@@ -300,7 +300,6 @@ const DEFAULT_VALUES = {
 }
 
 function getDefaultValues (currency, initialValues, usdExchangeRate) {
-  console.log({ usdExchangeRate })
   return {
     ...DEFAULT_VALUES,
     ...initialValues,
@@ -322,8 +321,12 @@ const Calculator = ({ currencies, content, initialValues, initialCalculator, ori
   const copiedTimeout = useRef(null)
   const modalContent = useRef(null)
 
+  function getInitialCurrency (key) {
+    return (currencies.filter(currency => currency.key === key).shift() || {})
+  }
+
   function getUSDExchangeRate () {
-    return (currencies.filter(currency => currency.key === 'USD').shift() || {}).exchangeRate
+    return getInitialCurrency('USD').exchangeRate
   }
 
   function getDistributableReward () {
@@ -357,11 +360,15 @@ const Calculator = ({ currencies, content, initialValues, initialCalculator, ori
   }
 
   const fromADA = (amount, exchangeRate = null) => {
-    return amount * parseFloat(exchangeRate === null ? values.currency.exchangeRate : exchangeRate)
+    let exchangeRateUsed = parseFloat(exchangeRate === null ? values.currency.exchangeRate : exchangeRate)
+    if (isNaN(exchangeRateUsed) || exchangeRateUsed <= 0) exchangeRateUsed = getInitialCurrency(values.currency.key).exchangeRate || 1
+    return amount * exchangeRateUsed
   }
 
   const toADA = (amount, exchangeRate = null) => {
-    return amount / parseFloat(exchangeRate === null ? values.currency.exchangeRate : exchangeRate)
+    let exchangeRateUsed = parseFloat(exchangeRate === null ? values.currency.exchangeRate : exchangeRate)
+    if (isNaN(exchangeRateUsed) || exchangeRateUsed <= 0) exchangeRateUsed = getInitialCurrency(values.currency.key).exchangeRate || 1
+    return amount / exchangeRateUsed
   }
 
   const toggleShowAdvancedOptions = (e) => {

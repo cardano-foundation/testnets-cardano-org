@@ -34,7 +34,7 @@ content:
     currency_descriptor: Please select the currency you wish to see results in
     exchange_rate_label: Exchange rate
     exchange_rate_descriptor: |
-      Set the value of a single ada in GBP, defaults to [CoinGecko market rate](https://www.coingecko.com/en/coins/cardano)
+      Set the value of a single ada in {{ currency }}, defaults to [CoinGecko market rate](https://www.coingecko.com/en/coins/cardano)
     fixed_fee_label: Stake pool fixed fee
     fixed_fee_descriptor_ada: |
       Set the fixed fee covering daily stake pool running costs
