@@ -13,6 +13,8 @@ The faucet is a web-based service that provides free tokens to users of the test
 
 You will need some initial funds to start testing stake pools and delegating stake on the testnet network. The [faucet component](/en/shelley/tools/faucet/) will provide you with the tokens required to get started.
 
+We have applied a daily faucet limit of 1000 test ada a day for each testnet user to ensure everyone has access to funds.
+
 When you have finished using your test tokens, please return them to the faucet so that other members of the community can use them. Please return your test tokens to this address: 
 `615609ae508051b0251587ac43f816f6ee1e104057e1168032ba644e27bc1c7dc8`
 
