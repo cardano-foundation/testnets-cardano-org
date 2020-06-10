@@ -75,8 +75,6 @@ const GlobalContentQuery = ({ render }) => (
                         combined_rewards
                         transaction_fees_per_epoch_label
                         transaction_fees_per_epoch_descriptor
-                        system_performance_label
-                        system_performance_descriptor
                         influence_factor_label
                         influence_factor_descriptor
                       }

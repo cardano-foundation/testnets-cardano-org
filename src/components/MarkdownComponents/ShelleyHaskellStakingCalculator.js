@@ -290,12 +290,10 @@ const DEFAULT_VALUES = {
   totalADA: 45e9,
   totalADAInCirculation: 31690410958.90,
   epochDurationInDays: 5,
-  yearlyExpansionRate: 0.1,
   treasuryRate: 0.1,
   influenceFactor: 0.1,
   transactionFeesPerEpoch: '10000',
-  expectedRewardsPerYear: 0.05,
-  anticipatedSystemPerformance: 0.99
+  expectedRewardsPerYear: 0.05
 }
 
 function getDefaultValues (currency, initialValues, usdExchangeRate) {
@@ -335,10 +333,10 @@ const Calculator = ({ currencies, content, initialValues, initialCalculator, ori
     if (!transactionFeesPerEpoch || isNaN(transactionFeesPerEpoch) || transactionFeesPerEpoch < 0) transactionFeesPerEpoch = 0
 
     const epochsPerYear = 365 / values.epochDurationInDays
-    const epochExpansionRate = Math.max(0, ((values.totalADAInCirculation * (Math.pow(1 + values.expectedRewardsPerYear, 1 / epochsPerYear) - 1) - (1 - values.treasuryRate) * transactionFeesPerEpoch) / ((1 - values.treasuryRate) * Math.min(values.anticipatedSystemPerformance, 1) * reserve)))
+    const epochExpansionRate = Math.max(0, ((values.totalADAInCirculation * (Math.pow(1 + values.expectedRewardsPerYear, 1 / epochsPerYear) - 1) - (1 - values.treasuryRate) * transactionFeesPerEpoch) / ((1 - values.treasuryRate) * reserve)))
 
     const epochDistribution = reserve * epochExpansionRate
-    const netEpochDistribution = (epochDistribution * Math.min(1, values.anticipatedSystemPerformance)) + transactionFeesPerEpoch
+    const netEpochDistribution = epochDistribution + transactionFeesPerEpoch
     const treasuryShare = netEpochDistribution * values.treasuryRate
     return (netEpochDistribution - treasuryShare) / (1 + values.influenceFactor)
   }
@@ -421,7 +419,6 @@ const Calculator = ({ currencies, content, initialValues, initialCalculator, ori
       'totalStakePools',
       'influenceFactor',
       'transactionFeesPerEpoch',
-      'anticipatedSystemPerformance',
       'stakePoolFixedFee'
     ]
 
@@ -673,8 +670,6 @@ export default () => {
         if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 10) initialValues.influenceFactor = parseFloat(value)
       } else if (key === 'transactionFeesPerEpoch') {
         if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0) initialValues.transactionFeesPerEpoch = value
-      } else if (key === 'anticipatedSystemPerformance') {
-        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 1.2) initialValues.anticipatedSystemPerformance = parseFloat(value)
       } else if (key === 'stakePoolFixedFee') {
         if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0) initialValues.stakePoolFixedFee = parseFloat(value)
       }

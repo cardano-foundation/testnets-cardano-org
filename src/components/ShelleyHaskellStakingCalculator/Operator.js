@@ -12,7 +12,6 @@ import StakePoolMargin from './inputs/StakePoolMargin'
 import StakePoolPerformance from './inputs/StakePoolPerformance'
 import TransactionFeesPerEpoch from './inputs/TransactionFeesPerEpoch'
 import PrivateStakePoolSwitch from './inputs/PrivateStakePoolSwitch'
-import AnticipatedSystemPerformance from './inputs/AnticipatedSystemPerformance'
 import InfluenceFactor from './inputs/InfluenceFactor'
 import Rewards from './Rewards'
 
@@ -352,14 +351,6 @@ const Operator = ({
               onChange={value => setValue('stakePoolPerformance', value)}
               label={content.staking_calculator.stake_pool_performance_label}
               helperText={content.staking_calculator.stake_pool_performance_descriptor}
-            />
-          </FullWidthGroup>
-          <FullWidthGroup>
-            <AnticipatedSystemPerformance
-              value={values.anticipatedSystemPerformance}
-              onChange={value => setValue('anticipatedSystemPerformance', value)}
-              label={content.staking_calculator.system_performance_label}
-              helperText={content.staking_calculator.system_performance_descriptor}
             />
           </FullWidthGroup>
           <FullWidthGroup>

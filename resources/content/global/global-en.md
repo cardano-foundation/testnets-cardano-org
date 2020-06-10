@@ -64,8 +64,6 @@ content:
     combined_rewards: Combined rewards
     transaction_fees_per_epoch_label: Average transaction fees per epoch
     transaction_fees_per_epoch_descriptor: The average amount of transaction fees per epoch are added to the net distribution of rewards and used to calculate the distribution rate from the reserves
-    system_performance_label: Anticipated system performance
-    system_performance_descriptor: The overall anticipated system performance
     influence_factor_label: Influence factor (a0)
     influence_factor_descriptor: System parameter used to control the ADA distribution rate
   kevm_description: |
