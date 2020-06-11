@@ -12,7 +12,6 @@ import Modal from '@material-ui/core/Modal'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Delegator from '../ShelleyHaskellStakingCalculator/Delegator'
 import Operator from '../ShelleyHaskellStakingCalculator/Operator'
-import ADASymbol from '../ShelleyHaskellStakingCalculator/ADASymbol'
 import BTCSymbol from '../ShelleyHaskellStakingCalculator/BTCSymbol'
 import CardanoLogo from '../ShelleyHaskellStakingCalculator/CardanoLogo'
 import DelegatorIcon from '../ShelleyHaskellStakingCalculator/DelegatorIcon'
@@ -280,20 +279,20 @@ const Inputs = styled.div`
 `
 
 const DEFAULT_VALUES = {
-  ada: '10000',
-  participationRate: 0.7,
+  ada: '90222',
   stakePoolControl: 0.005,
   operatorsStake: '10000',
   stakePoolMargin: 0.03,
   stakePoolPerformance: 1,
-  totalStakePools: 200,
+  totalStakePools: 250,
   totalADA: 45e9,
-  totalADAInCirculation: 31690410958.90,
+  totalADAInCirculation: 31112483745,
   epochDurationInDays: 5,
   treasuryRate: 0.1,
-  influenceFactor: 0.1,
-  transactionFeesPerEpoch: '10000',
-  expectedRewardsPerYear: 0.05
+  influenceFactor: 0.5,
+  transactionFeesPerEpoch: '0',
+  currentEpoch: 1,
+  expansionRate: 0.0012
 }
 
 function getDefaultValues (currency, initialValues, usdExchangeRate) {
@@ -303,7 +302,7 @@ function getDefaultValues (currency, initialValues, usdExchangeRate) {
     currency,
     stakePoolFixedFee: initialValues.stakePoolFixedFee !== undefined
       ? `${initialValues.stakePoolFixedFee}`
-      : `${usdExchangeRate ? 40 / parseFloat(usdExchangeRate) : 500 / parseFloat(currency.exchangeRate)}`
+      : `${usdExchangeRate ? 14.03895 / parseFloat(usdExchangeRate) : 500 / parseFloat(currency.exchangeRate)}`
   }
 }
 
@@ -326,19 +325,30 @@ const Calculator = ({ currencies, content, initialValues, initialCalculator, ori
     return getInitialCurrency('USD').exchangeRate
   }
 
-  function getDistributableReward () {
-    const reserve = values.totalADA - values.totalADAInCirculation
+  function getTotalADAInCirculation (epoch, startingTotalADAInCirculation) {
+    let i = 1
+    let totalADAInCirculation = startingTotalADAInCirculation || values.totalADAInCirculation
+    while (i < epoch) {
+      const reserve = values.totalADA - totalADAInCirculation
+      totalADAInCirculation += reserve * values.expansionRate
+      i++
+    }
 
+    return totalADAInCirculation
+  }
+
+  function getEpochDistributableRewards (totalADAInCirculation, transactionFeesPerEpoch) {
+    const reserve = values.totalADA - totalADAInCirculation
+    return (reserve * values.expansionRate + transactionFeesPerEpoch) * (1 - values.treasuryRate)
+  }
+
+  function getDistributableRewards (epoch) {
     let transactionFeesPerEpoch = parseFloat(values.transactionFeesPerEpoch)
     if (!transactionFeesPerEpoch || isNaN(transactionFeesPerEpoch) || transactionFeesPerEpoch < 0) transactionFeesPerEpoch = 0
 
-    const epochsPerYear = 365 / values.epochDurationInDays
-    const epochExpansionRate = Math.max(0, ((values.totalADAInCirculation * (Math.pow(1 + values.expectedRewardsPerYear, 1 / epochsPerYear) - 1) - (1 - values.treasuryRate) * transactionFeesPerEpoch) / ((1 - values.treasuryRate) * reserve)))
-
-    const epochDistribution = reserve * epochExpansionRate
-    const netEpochDistribution = epochDistribution + transactionFeesPerEpoch
-    const treasuryShare = netEpochDistribution * values.treasuryRate
-    return (netEpochDistribution - treasuryShare) / (1 + values.influenceFactor)
+    const totalADAInCirculation = getTotalADAInCirculation(epoch)
+    const epochDistribution = getEpochDistributableRewards(totalADAInCirculation, transactionFeesPerEpoch)
+    return epochDistribution
   }
 
   const setValue = (key, value) => {
@@ -411,7 +421,6 @@ const Calculator = ({ currencies, content, initialValues, initialCalculator, ori
     const params = new URLSearchParams()
     const keys = [
       'ada',
-      'participationRate',
       'stakePoolControl',
       'operatorsStake',
       'stakePoolMargin',
@@ -580,7 +589,8 @@ const Calculator = ({ currencies, content, initialValues, initialCalculator, ori
           getCurrencySymbol={getCurrencySymbol}
           currencies={currencies}
           normalizeLargeNumber={normalizeLargeNumber}
-          getDistributableReward={getDistributableReward}
+          getDistributableRewards={getDistributableRewards}
+          getTotalADAInCirculation={getTotalADAInCirculation}
           containerRef={containerRef}
         />
       </Inputs>
@@ -606,7 +616,7 @@ export default () => {
 
   const parseCurrencies = (data) => {
     const currencies = [
-      { symbol: <ADASymbol />, key: 'ADA', exchangeRate: '1' },
+      { symbol: '₳', key: 'ADA', exchangeRate: '1' },
       { key: 'USD', symbol: '$' },
       { key: 'BTC', symbol: <BTCSymbol /> },
       { key: 'EUR', symbol: '€' },
@@ -654,8 +664,6 @@ export default () => {
       const value = params.get(key)
       if (key === 'ada') {
         if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0) initialValues.ada = value
-      } else if (key === 'participationRate') {
-        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0.2 && parseFloat(value) <= 1) initialValues.participationRate = parseFloat(value)
       } else if (key === 'stakePoolControl') {
         if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 3) initialValues.stakePoolControl = parseFloat(value)
       } else if (key === 'operatorsStake') {

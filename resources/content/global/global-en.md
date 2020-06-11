@@ -52,9 +52,6 @@ content:
     stake_pool_performance_label: Stake pool performance
     stake_pool_performance_descriptor: How efficient is the stake pool, influences the stake pools penalty on the gross rewards. Any penalties go to the treasury
     delegation_rewards: Delegation rewards
-    daily: Daily
-    per_epoch: Per epoch
-    monthly: Monthly
     yearly: Yearly
     yield: Yield
     private_stake_pool_label: Private stake pool

@@ -63,10 +63,7 @@ const GlobalContentQuery = ({ render }) => (
                         stake_pool_performance_label
                         stake_pool_performance_descriptor
                         delegation_rewards
-                        daily
                         yield
-                        per_epoch
-                        monthly
                         yearly
                         private_stake_pool_label
                         private_stake_pool_descriptor

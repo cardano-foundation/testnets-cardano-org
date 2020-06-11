@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import Box from '@material-ui/core/Box'
+import Theme from '@input-output-hk/front-end-core-components/components/Theme'
 import CardanoLogo from './CardanoLogo'
 import { TinyColor } from '@ctrl/tinycolor'
+import { VictoryChart, VictoryTooltip, VictoryAxis, VictoryLine, VictoryVoronoiContainer } from 'victory'
 
 const Container = styled.div`
   position: relative;
@@ -163,23 +165,23 @@ const FixedRewards = ({ reward, rootRef, containerRef }) => {
         >
           <FixedRewardsContainer>
             <Box textAlign='center'>
-              <h4>{reward.title} {reward.labels.perEpoch}</h4>
+              <h4>{reward.labels.yearly} {reward.title}</h4>
             </Box>
             <FixedRewardsContent>
               <div>
                 <p>{reward.labels.currency} ({reward.labels.currencySymbol})</p>
-                <p><strong>{reward.labels.currencySymbol} {reward.breakdown.epoch.currency}</strong></p>
+                <p><strong>{reward.labels.currencySymbol} {reward.breakdown.yearly.currency}</strong></p>
               </div>
               {reward.labels.currency !== reward.labels.ada &&
                 <div className='ada-rewards'>
                   <p>{reward.labels.ada} ({reward.labels.adaSymbol})</p>
-                  <p><strong>{reward.labels.adaSymbol} {reward.breakdown.epoch.ada}</strong></p>
+                  <p><strong>{reward.labels.adaSymbol} {reward.breakdown.yearly.ada}</strong></p>
                 </div>
               }
               {reward.labels.yield !== null &&
                 <div>
                   <p>{reward.labels.yield}</p>
-                  <p><strong>{reward.breakdown.epoch.yield}</strong></p>
+                  <p><strong>{reward.breakdown.yearly.yield}</strong></p>
                 </div>
               }
             </FixedRewardsContent>
@@ -262,60 +264,6 @@ const RewardTable = ({ reward }) => (
       </RewardsTableRow>
       <RewardsTableRow>
         <div>
-          <p>{reward.labels.daily}</p>
-        </div>
-        <div>
-          <p>{reward.labels.adaSymbol} {reward.breakdown.daily.ada}</p>
-        </div>
-        {reward.labels.currency !== reward.labels.ada &&
-          <div>
-            <p>{reward.labels.currencySymbol} {reward.breakdown.daily.currency}</p>
-          </div>
-        }
-        {reward.labels.yield !== null &&
-          <div>
-            <p>{reward.breakdown.daily.yield}</p>
-          </div>
-        }
-      </RewardsTableRow>
-      <RewardsTableRow>
-        <div>
-          <p>{reward.labels.perEpoch}</p>
-        </div>
-        <div>
-          <p>{reward.labels.adaSymbol} {reward.breakdown.epoch.ada}</p>
-        </div>
-        {reward.labels.currency !== reward.labels.ada &&
-          <div>
-            <p>{reward.labels.currencySymbol} {reward.breakdown.epoch.currency}</p>
-          </div>
-        }
-        {reward.labels.yield !== null &&
-          <div>
-            <p>{reward.breakdown.epoch.yield}</p>
-          </div>
-        }
-      </RewardsTableRow>
-      <RewardsTableRow>
-        <div>
-          <p>{reward.labels.monthly}</p>
-        </div>
-        <div>
-          <p>{reward.labels.adaSymbol} {reward.breakdown.monthly.ada}</p>
-        </div>
-        {reward.labels.currency !== reward.labels.ada &&
-          <div>
-            <p>{reward.labels.currencySymbol} {reward.breakdown.monthly.currency}</p>
-          </div>
-        }
-        {reward.labels.yield !== null &&
-          <div>
-            <p>{reward.breakdown.monthly.yield}</p>
-          </div>
-        }
-      </RewardsTableRow>
-      <RewardsTableRow>
-        <div>
           <p>{reward.labels.yearly}</p>
         </div>
         <div>
@@ -340,11 +288,93 @@ RewardTable.propTypes = {
   reward: PropTypes.object.isRequired
 }
 
-const Rewards = ({ rewards, fixedRewardsIndex, containerRef }) => {
+const ChartContainer = styled(Box)`
+  position: relative;
+
+  h4 {
+    text-align: center;
+    margin-bottom: 0;
+    position: absolute;
+    width: 100%;
+
+    @media screen and (max-width: 500px) {
+      top: -2rem;
+    }
+  }
+`
+
+const RewardsGraph = ({ title, yLabel, currencySymbol, data, normalizeLargeNumber }) => (
+  <ChartContainer marginTop={8}>
+    <h4>{title}</h4>
+    <Theme.Consumer>
+      {({ theme }) => (
+        <VictoryChart
+          width={500}
+          height={300}
+          scale={{ x: 'linear' }}
+          padding={{ top: 75, bottom: 55, left: 100, right: 65 }}
+          containerComponent={
+            <VictoryVoronoiContainer
+              voronoiDimension='x'
+              labels={({ datum }) => `Epoch: ${datum.x}\n${currencySymbol} ${normalizeLargeNumber(datum.y, 6)}\n${currencySymbol} ${normalizeLargeNumber(datum.reward, 6)}`}
+            />
+          }
+        >
+          <VictoryAxis
+            crossAxis={false}
+            label='Epoch'
+            style={{
+              tickLabels: { fill: theme.palette.text.primary },
+              axisLabel: { fill: theme.palette.text.primary, padding: 35 }
+            }}
+          />
+          <VictoryAxis
+            dependentAxis
+            label={yLabel}
+            style={{
+              tickLabels: { fill: theme.palette.text.primary },
+              axisLabel: { fill: theme.palette.text.primary, padding: 70 }
+            }}
+          />
+          <VictoryLine
+            style={{
+              data: { stroke: theme.palette.primary.light }
+            }}
+            data={data}
+            labelComponent={<VictoryTooltip />}
+          />
+        </VictoryChart>
+      )}
+    </Theme.Consumer>
+  </ChartContainer>
+)
+
+RewardsGraph.propTypes = {
+  title: PropTypes.string.isRequired,
+  yLabel: PropTypes.string.isRequired,
+  currencySymbol: PropTypes.string.isRequired,
+  data: PropTypes.arrayOf(PropTypes.shape({
+    x: PropTypes.number.isRequired,
+    y: PropTypes.number.isRequired
+  })),
+  normalizeLargeNumber: PropTypes.func.isRequired
+}
+
+const Rewards = ({ rewards, fixedRewardsIndex, graphData, containerRef, normalizeLargeNumber }) => {
   const rootRef = useRef(null)
   return (
     <Container ref={rootRef}>
       <FixedRewards containerRef={containerRef} reward={rewards[fixedRewardsIndex] || rewards[0]} rootRef={rootRef} />
+      {graphData.map(graph => (
+        <RewardsGraph
+          title={graph.title}
+          normalizeLargeNumber={normalizeLargeNumber}
+          key={graph.key}
+          data={graph.data}
+          yLabel={graph.yLabel}
+          currencySymbol={graph.currencySymbol}
+        />
+      ))}
       {rewards.map((reward, index) => reward.hidden ? null : <RewardTable key={`${index}_${reward.title}`} reward={reward} />)}
     </Container>
   )
@@ -353,6 +383,20 @@ const Rewards = ({ rewards, fixedRewardsIndex, containerRef }) => {
 Rewards.propTypes = {
   containerRef: PropTypes.object.isRequired,
   fixedRewardsIndex: PropTypes.number.isRequired,
+  normalizeLargeNumber: PropTypes.func.isRequired,
+  graphData: PropTypes.arrayOf(PropTypes.shape({
+    key: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    yLabel: PropTypes.string.isRequired,
+    currencySymbol: PropTypes.string.isRequired,
+    data: PropTypes.arrayOf(PropTypes.shape({
+      // Epoch
+      x: PropTypes.number.isRequired,
+      // ADA
+      y: PropTypes.number.isRequired,
+      reward: PropTypes.number.isRequired
+    })).isRequired
+  })).isRequired,
   rewards: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     hidden: PropTypes.bool,
@@ -362,27 +406,9 @@ Rewards.propTypes = {
       currencySymbol: PropTypes.node.isRequired,
       adaSymbol: PropTypes.node.isRequired,
       yield: PropTypes.string,
-      daily: PropTypes.string.isRequired,
-      monthly: PropTypes.string.isRequired,
-      yearly: PropTypes.string.isRequired,
-      perEpoch: PropTypes.string.isRequired
+      yearly: PropTypes.string.isRequired
     }),
     breakdown: PropTypes.shape({
-      daily: PropTypes.shape({
-        ada: PropTypes.string.isRequired,
-        currency: PropTypes.string,
-        yield: PropTypes.string.isRequired
-      }),
-      epoch: PropTypes.shape({
-        ada: PropTypes.string.isRequired,
-        currency: PropTypes.string,
-        yield: PropTypes.string.isRequired
-      }),
-      monthly: PropTypes.shape({
-        ada: PropTypes.string.isRequired,
-        currency: PropTypes.string,
-        yield: PropTypes.string.isRequired
-      }),
       yearly: PropTypes.shape({
         ada: PropTypes.string.isRequired,
         currency: PropTypes.string,
