@@ -89,9 +89,9 @@ Then run:
    cabal install cardano-node cardano-cli
    ```
 Please note that building the node may take some time, possibly several hours.  
-6. Run the following command to initialize the node:
-   ```shell
-   ./scripts/shelley-testnet-live.sh
-   ```
 
-You should now have a Cardano node running on your machine, connected to the Shelley testnet.
+6. When the process finishes run the following to validate that you have the correct version: 
+   ```shell
+   cardano-cli --version
+   > cardano-cli-1.13.0 ...
+   ```
