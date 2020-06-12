@@ -47,6 +47,8 @@ const Delegator = ({
     if (isNaN(stakePoolFixedFee)) stakePoolFixedFee = 0
     const epochDistribution = getDistributableRewards(epoch)
     const poolSaturation = totalADAInCirculation / values.totalStakePools
+    const control = values.stakePoolControl * totalADAInCirculation
+    const cappedADA = Math.min(ada, Math.max(0, Math.min(poolSaturation, control) - operatorsStake))
     const operatorsPledge = Math.min(poolSaturation, operatorsStake)
     const operatorsPledgePercentage = operatorsPledge / totalADAInCirculation
     let grossPoolReward = epochDistribution / (1 + values.influenceFactor) * (Math.min(1 / values.totalStakePools, values.stakePoolControl) + values.influenceFactor * operatorsPledgePercentage)
@@ -58,7 +60,7 @@ const Delegator = ({
     const operatorsReward = netReward * operatorsPledgePercentage
     const delegatorsRewards = netReward - operatorsReward
     const stakePoolControlADA = values.stakePoolControl * totalADAInCirculation
-    const reward = (delegatorsRewards * ada / stakePoolControlADA)
+    const reward = (delegatorsRewards * cappedADA / stakePoolControlADA)
     return {
       ada: ada + reward,
       reward: reward,
