@@ -279,7 +279,7 @@ const Inputs = styled.div`
 `
 
 const DEFAULT_VALUES = {
-  ada: '90222',
+  ada: '10000',
   stakePoolControl: 1 / 250,
   operatorsStake: '10000',
   stakePoolMargin: 0.03,
@@ -292,7 +292,7 @@ const DEFAULT_VALUES = {
   influenceFactor: 0.5,
   transactionFeesPerEpoch: '0',
   currentEpoch: 1,
-  expansionRate: 0.0012
+  expansionRate: 0.01
 }
 
 function getDefaultValues (currency, initialValues, usdExchangeRate) {
