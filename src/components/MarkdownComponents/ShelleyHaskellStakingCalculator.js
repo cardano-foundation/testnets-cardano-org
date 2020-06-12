@@ -280,7 +280,7 @@ const Inputs = styled.div`
 
 const DEFAULT_VALUES = {
   ada: '90222',
-  stakePoolControl: 0.005,
+  stakePoolControl: 1 / 250,
   operatorsStake: '10000',
   stakePoolMargin: 0.03,
   stakePoolPerformance: 1,

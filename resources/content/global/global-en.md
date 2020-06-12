@@ -17,6 +17,7 @@ content:
   open_main_navigation: Open main navigation menu
   logo_alt: Cardano Testnets Logo
   staking_calculator:
+    saturation: Pool saturation
     select_a_calculator: Select a calculator
     i_want_to: I want to
     delegate_my_stake: Delegate my stake
@@ -35,7 +36,7 @@ content:
     exchange_rate_label: Exchange rate
     exchange_rate_descriptor: |
       Set the value of a single ada in {{ currency }}, defaults to [CoinGecko market rate](https://www.coingecko.com/en/coins/cardano)
-    fixed_fee_label: Stake pool fixed fee
+    fixed_fee_label: Stake pool daily fixed fee
     fixed_fee_descriptor_ada: |
       Set the fixed fee covering daily stake pool running costs
     fixed_fee_descriptor: |

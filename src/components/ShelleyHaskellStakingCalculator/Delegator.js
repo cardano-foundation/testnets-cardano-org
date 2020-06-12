@@ -209,7 +209,14 @@ const Delegator = ({
               onChange={value => setValue('stakePoolControl', value)}
               label={content.staking_calculator.stake_pool_control_label}
               helperText={content.staking_calculator.stake_pool_control_descriptor}
-              adaInPool={normalizeLargeNumber(values.totalADAInCirculation * values.stakePoolControl)}
+              saturated={values.stakePoolControl > 1 / values.totalStakePools}
+              totalADAInCirculation={values.totalADAInCirculation}
+              totalStakePools={values.totalStakePools}
+              saturationLabel={(
+                <Fragment>
+                  {content.staking_calculator.saturation} {getCurrencySymbol('ADA')} {normalizeLargeNumber(1 / values.totalStakePools * values.totalADAInCirculation, 6)}
+                </Fragment>
+              )}
               adaSymbol={getCurrencySymbol('ADA')}
               normalizeLargeNumber={normalizeLargeNumber}
               minValue={0}

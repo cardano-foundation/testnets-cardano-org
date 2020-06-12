@@ -5,6 +5,7 @@ import ADAAmount from './inputs/ADAAmount'
 import SelectCurrency from './inputs/SelectCurrency'
 import ExchangeRate from './inputs/ExchangeRate'
 import StakePoolFixedFee from './inputs/StakePoolFixedFee'
+import StakePoolControl from './inputs/StakePoolControl'
 import TotalStakePools from './inputs/TotalStakePools'
 import StakePoolMargin from './inputs/StakePoolMargin'
 import StakePoolPerformance from './inputs/StakePoolPerformance'
@@ -306,11 +307,22 @@ const Operator = ({
         <Fragment>
           {!privateStakePool &&
             <FullWidthGroup>
-              <StakePoolMargin
-                value={values.stakePoolMargin}
-                onChange={value => setValue('stakePoolMargin', value)}
-                label={content.staking_calculator.stake_pool_margin_label}
-                helperText={content.staking_calculator.stake_pool_margin_descriptor}
+              <StakePoolControl
+                value={values.stakePoolControl}
+                onChange={value => setValue('stakePoolControl', value)}
+                label={content.staking_calculator.stake_pool_control_label}
+                helperText={content.staking_calculator.stake_pool_control_descriptor}
+                saturated={values.stakePoolControl > 1 / values.totalStakePools}
+                totalADAInCirculation={values.totalADAInCirculation}
+                totalStakePools={values.totalStakePools}
+                saturationLabel={(
+                  <Fragment>
+                    {content.staking_calculator.saturation} {getCurrencySymbol('ADA')} {normalizeLargeNumber(1 / values.totalStakePools * values.totalADAInCirculation, 6)}
+                  </Fragment>
+                )}
+                adaSymbol={getCurrencySymbol('ADA')}
+                normalizeLargeNumber={normalizeLargeNumber}
+                minValue={0}
               />
             </FullWidthGroup>
           }
@@ -321,6 +333,16 @@ const Operator = ({
               label={content.staking_calculator.total_stake_pools_label}
             />
           </FullWidthGroup>
+          {!privateStakePool &&
+            <FullWidthGroup>
+              <StakePoolMargin
+                value={values.stakePoolMargin}
+                onChange={value => setValue('stakePoolMargin', value)}
+                label={content.staking_calculator.stake_pool_margin_label}
+                helperText={content.staking_calculator.stake_pool_margin_descriptor}
+              />
+            </FullWidthGroup>
+          }
           <FullWidthGroup>
             <StakePoolPerformance
               value={values.stakePoolPerformance}

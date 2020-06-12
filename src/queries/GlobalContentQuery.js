@@ -31,6 +31,7 @@ const GlobalContentQuery = ({ render }) => (
                       open_main_navigation
                       logo_alt
                       staking_calculator {
+                        saturation
                         select_a_calculator
                         i_want_to
                         delegate_my_stake
