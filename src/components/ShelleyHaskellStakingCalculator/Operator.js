@@ -12,6 +12,8 @@ import StakePoolPerformance from './inputs/StakePoolPerformance'
 import TransactionFeesPerEpoch from './inputs/TransactionFeesPerEpoch'
 import PrivateStakePoolSwitch from './inputs/PrivateStakePoolSwitch'
 import InfluenceFactor from './inputs/InfluenceFactor'
+import TreasuryRate from './inputs/TreasuryRate'
+import ExpansionRate from './inputs/ExpansionRate'
 import Rewards from './Rewards'
 
 const Operator = ({
@@ -49,13 +51,18 @@ const Operator = ({
     const poolSaturation = totalADAInCirculation / values.totalStakePools
     const operatorsPledge = Math.min(poolSaturation, operatorsStake)
     const operatorsPledgePercentage = operatorsPledge / totalADAInCirculation
-    let grossPoolReward = epochDistribution / (1 + values.influenceFactor) * (Math.min(1 / values.totalStakePools, values.stakePoolControl) + values.influenceFactor * operatorsPledgePercentage)
+    const control = privateStakePool
+      ? operatorsStake / values.totalADAInCirculation
+      : values.stakePoolControl
+
+    let grossPoolReward = epochDistribution / (1 + values.influenceFactor) * (Math.min(1 / values.totalStakePools, control) + values.influenceFactor * operatorsPledgePercentage)
     const penalty = (1 - values.stakePoolPerformance) * grossPoolReward
     grossPoolReward = Math.max(0, grossPoolReward - penalty)
     grossPoolReward = Math.max(0, grossPoolReward - values.epochDurationInDays * stakePoolFixedFee)
     const margin = grossPoolReward * stakePoolMargin
     const netReward = grossPoolReward - margin
-    const operatorsReward = netReward * operatorsPledgePercentage
+    const adaInPool = Math.min(control * values.totalADAInCirculation, poolSaturation)
+    const operatorsReward = netReward * (operatorsPledge / adaInPool)
     return {
       operatorsStake: operatorsStake + operatorsReward + margin,
       operatorsReward: operatorsReward,
@@ -79,7 +86,7 @@ const Operator = ({
   }
 
   useEffect(() => {
-    let stakePoolFixedFee = privateStakePool ? 0 : toADA(parseFloat(values.stakePoolFixedFee))
+    let stakePoolFixedFee = toADA(parseFloat(values.stakePoolFixedFee))
     let ada = parseFloat(values.ada)
     if (isNaN(stakePoolFixedFee)) stakePoolFixedFee = 0
     if (isNaN(ada)) ada = 0
@@ -254,27 +261,25 @@ const Operator = ({
                 />
               </div>
             }
-            {!privateStakePool &&
-              <div>
-                <StakePoolFixedFee
-                  toADA={toADA}
-                  fromADA={fromADA}
-                  value={values.stakePoolFixedFee}
-                  onChange={value => setValue('stakePoolFixedFee', value)}
-                  label={content.staking_calculator.fixed_fee_label}
-                  helperText={
-                    <Markdown
-                      source={
-                        values.currency.key === 'ADA'
-                          ? content.staking_calculator.fixed_fee_descriptor_ada
-                          : content.staking_calculator.fixed_fee_descriptor.replace(/{{\s?amount\s?}}/g, normalizeLargeNumber(toADA(parseFloat(values.stakePoolFixedFee)), 6))
-                      }
-                    />
-                  }
-                  symbol={getCurrencySymbol(values.currency.key)}
-                />
-              </div>
-            }
+            <div>
+              <StakePoolFixedFee
+                toADA={toADA}
+                fromADA={fromADA}
+                value={values.stakePoolFixedFee}
+                onChange={value => setValue('stakePoolFixedFee', value)}
+                label={content.staking_calculator.fixed_fee_label}
+                helperText={
+                  <Markdown
+                    source={
+                      values.currency.key === 'ADA'
+                        ? content.staking_calculator.fixed_fee_descriptor_ada
+                        : content.staking_calculator.fixed_fee_descriptor.replace(/{{\s?amount\s?}}/g, normalizeLargeNumber(toADA(parseFloat(values.stakePoolFixedFee)), 6))
+                    }
+                  />
+                }
+                symbol={getCurrencySymbol(values.currency.key)}
+              />
+            </div>
             {!showAdvancedOptions && <div />}
             {showAdvancedOptions && privateStakePool &&
               <div>
@@ -357,6 +362,22 @@ const Operator = ({
               onChange={value => setValue('influenceFactor', value)}
               label={content.staking_calculator.influence_factor_label}
               helperText={content.staking_calculator.influence_factor_descriptor}
+            />
+          </FullWidthGroup>
+          <FullWidthGroup>
+            <TreasuryRate
+              value={values.treasuryRate}
+              onChange={value => setValue('treasuryRate', value)}
+              label={content.staking_calculator.treasury_rate_label}
+              helperText={content.staking_calculator.treasury_rate_descriptor}
+            />
+          </FullWidthGroup>
+          <FullWidthGroup>
+            <ExpansionRate
+              value={values.expansionRate}
+              onChange={value => setValue('expansionRate', value)}
+              label={content.staking_calculator.expansion_rate_label}
+              helperText={content.staking_calculator.expansion_rate_descriptor}
             />
           </FullWidthGroup>
         </Fragment>

@@ -26,14 +26,14 @@ const TextFieldInput = styled(TextField)`
   }
 `
 
-const StakePoolMargin = ({ value, label, onChange, helperText }) => {
+const ExpansionRate = ({ value, label, onChange, helperText }) => {
   const [ textValue, setTextValue ] = useState(`${value * 100}`)
 
   const textOnChange = (e) => {
     setTextValue(e.target.value)
     const floatValue = parseFloat(e.target.value)
     if (!isNaN(floatValue) && floatValue > 0) {
-      onChange(Math.min(floatValue / 100, 1))
+      onChange(Math.min(floatValue / 100, 0.02))
     }
   }
 
@@ -59,12 +59,12 @@ const StakePoolMargin = ({ value, label, onChange, helperText }) => {
         <Slider
           value={value}
           min={0}
-          max={1}
-          step={0.01}
+          max={0.02}
+          step={0.00001}
           onChange={(_, v) => {
             if (v === value) return
             onChange(v)
-            setTextValue(Math.round(v * 100))
+            setTextValue(Math.round(v * 1e5) / 1e3)
           }}
           marks={[
             {
@@ -72,8 +72,8 @@ const StakePoolMargin = ({ value, label, onChange, helperText }) => {
               label: '0%'
             },
             {
-              value: 1,
-              label: '100%'
+              value: 0.02,
+              label: '2%'
             }
           ]}
         />
@@ -85,11 +85,11 @@ const StakePoolMargin = ({ value, label, onChange, helperText }) => {
   )
 }
 
-StakePoolMargin.propTypes = {
+ExpansionRate.propTypes = {
   value: PropTypes.number.isRequired,
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   helperText: PropTypes.string.isRequired
 }
 
-export default StakePoolMargin
+export default ExpansionRate

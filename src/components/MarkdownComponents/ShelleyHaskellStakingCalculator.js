@@ -428,7 +428,11 @@ const Calculator = ({ currencies, content, initialValues, initialCalculator, ori
       'totalStakePools',
       'influenceFactor',
       'transactionFeesPerEpoch',
-      'stakePoolFixedFee'
+      'stakePoolFixedFee',
+      'treasuryRate',
+      'expansionRate',
+      'epochDurationInDays',
+      'currentEpoch'
     ]
 
     keys.forEach(key => params.set(key, values[key]))
@@ -665,13 +669,13 @@ export default () => {
       if (key === 'ada') {
         if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0) initialValues.ada = value
       } else if (key === 'stakePoolControl') {
-        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 3) initialValues.stakePoolControl = parseFloat(value)
+        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 0.02) initialValues.stakePoolControl = parseFloat(value)
       } else if (key === 'operatorsStake') {
-        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 10000000) initialValues.operatorsStake = parseFloat(value)
+        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0) initialValues.operatorsStake = parseFloat(value)
       } else if (key === 'stakePoolMargin') {
         if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 1) initialValues.stakePoolMargin = parseFloat(value)
       } else if (key === 'stakePoolPerformance') {
-        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 1.2) initialValues.stakePoolPerformance = parseFloat(value)
+        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 1) initialValues.stakePoolPerformance = parseFloat(value)
       } else if (key === 'totalStakePools') {
         if (!isNaN(parseInt(value)) && parseInt(value) >= 100 && parseInt(value) <= 1000) initialValues.totalStakePools = parseInt(value)
       } else if (key === 'influenceFactor') {
@@ -680,6 +684,14 @@ export default () => {
         if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0) initialValues.transactionFeesPerEpoch = value
       } else if (key === 'stakePoolFixedFee') {
         if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0) initialValues.stakePoolFixedFee = parseFloat(value)
+      } else if (key === 'treasuryRate') {
+        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 1) initialValues.treasuryRate = parseFloat(value)
+      } else if (key === 'expansionRate') {
+        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 0 && parseFloat(value) <= 0.02) initialValues.expansionRate = parseFloat(value)
+      } else if (key === 'epochDurationInDays') {
+        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 1 && parseFloat(value) <= 30) initialValues.epochDurationInDays = parseFloat(value)
+      } else if (key === 'currentEpoch') {
+        if (!isNaN(parseFloat(value)) && parseFloat(value) >= 1) initialValues.currentEpoch = parseFloat(value)
       }
     }
 

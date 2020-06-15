@@ -26,7 +26,7 @@ const StakePoolPerformance = ({ value, label, onChange, helperText }) => (
       <Slider
         value={value}
         min={0}
-        max={1.2}
+        max={1}
         step={0.01}
         onChange={(_, v) => {
           if (v === value) return
@@ -40,10 +40,6 @@ const StakePoolPerformance = ({ value, label, onChange, helperText }) => (
           {
             value: 1,
             label: '100%'
-          },
-          {
-            value: 1.2,
-            label: '120%'
           }
         ]}
       />

@@ -27,6 +27,10 @@ content:
     ada_descriptor: Set the amount of ada you want to delegate
     ada_label_operator: Pledge amount
     ada_descriptor_operator: Set the amount of ada you want to pledge to your pool
+    treasury_rate_label: Treasury rate
+    treasury_rate_descriptor: '% of gross rewards distributed to the treasury'
+    expansion_rate_label: Expansion rate
+    expansion_rate_descriptor: '% of reserves released per epoch'
     reset: Reset
     share: Share
     tweet: Tweet

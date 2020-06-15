@@ -37,6 +37,10 @@ const GlobalContentQuery = ({ render }) => (
                         delegate_my_stake
                         run_a_stake_pool
                         show_advanced_options
+                        treasury_rate_label
+                        treasury_rate_descriptor
+                        expansion_rate_label
+                        expansion_rate_descriptor
                         reset
                         share
                         tweet

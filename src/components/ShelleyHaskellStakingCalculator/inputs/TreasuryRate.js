@@ -26,7 +26,7 @@ const TextFieldInput = styled(TextField)`
   }
 `
 
-const StakePoolMargin = ({ value, label, onChange, helperText }) => {
+const TreasuryRate = ({ value, label, onChange, helperText }) => {
   const [ textValue, setTextValue ] = useState(`${value * 100}`)
 
   const textOnChange = (e) => {
@@ -60,11 +60,11 @@ const StakePoolMargin = ({ value, label, onChange, helperText }) => {
           value={value}
           min={0}
           max={1}
-          step={0.01}
+          step={0.001}
           onChange={(_, v) => {
             if (v === value) return
             onChange(v)
-            setTextValue(Math.round(v * 100))
+            setTextValue(Math.round(v * 1000) / 10)
           }}
           marks={[
             {
@@ -85,11 +85,11 @@ const StakePoolMargin = ({ value, label, onChange, helperText }) => {
   )
 }
 
-StakePoolMargin.propTypes = {
+TreasuryRate.propTypes = {
   value: PropTypes.number.isRequired,
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   helperText: PropTypes.string.isRequired
 }
 
-export default StakePoolMargin
+export default TreasuryRate

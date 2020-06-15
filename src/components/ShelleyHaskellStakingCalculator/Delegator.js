@@ -13,6 +13,8 @@ import StakePoolPerformance from './inputs/StakePoolPerformance'
 import TransactionFeesPerEpoch from './inputs/TransactionFeesPerEpoch'
 import InfluenceFactor from './inputs/InfluenceFactor'
 import Rewards from './Rewards'
+import TreasuryRate from './inputs/TreasuryRate'
+import ExpansionRate from './inputs/ExpansionRate'
 
 const Delegator = ({
   values,
@@ -57,7 +59,8 @@ const Delegator = ({
     grossPoolReward = Math.max(0, grossPoolReward - values.epochDurationInDays * stakePoolFixedFee)
     const margin = grossPoolReward * values.stakePoolMargin
     const netReward = grossPoolReward - margin
-    const operatorsReward = netReward * operatorsPledgePercentage
+    const adaInPool = Math.min(values.stakePoolControl * values.totalADAInCirculation, poolSaturation)
+    const operatorsReward = netReward * (operatorsPledge / adaInPool)
     const delegatorsRewards = netReward - operatorsReward
     const stakePoolControlADA = values.stakePoolControl * totalADAInCirculation
     const reward = (delegatorsRewards * cappedADA / stakePoolControlADA)
@@ -253,6 +256,22 @@ const Delegator = ({
               onChange={value => setValue('influenceFactor', value)}
               label={content.staking_calculator.influence_factor_label}
               helperText={content.staking_calculator.influence_factor_descriptor}
+            />
+          </FullWidthGroup>
+          <FullWidthGroup>
+            <TreasuryRate
+              value={values.treasuryRate}
+              onChange={value => setValue('treasuryRate', value)}
+              label={content.staking_calculator.treasury_rate_label}
+              helperText={content.staking_calculator.treasury_rate_descriptor}
+            />
+          </FullWidthGroup>
+          <FullWidthGroup>
+            <ExpansionRate
+              value={values.expansionRate}
+              onChange={value => setValue('expansionRate', value)}
+              label={content.staking_calculator.expansion_rate_label}
+              helperText={content.staking_calculator.expansion_rate_descriptor}
             />
           </FullWidthGroup>
         </Fragment>
