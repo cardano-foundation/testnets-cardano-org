@@ -18,6 +18,7 @@ redirects:
 1. Download and install the Nix package manager by running the following commands from a terminal:
 ```shell
 curl https://nixos.org/nix/install > install-nix.sh
+chmod +x ./install-nix.sh
 ./install-nix.sh
 ```
 1. Follow the instructions presented as part of the Nix installation process.
