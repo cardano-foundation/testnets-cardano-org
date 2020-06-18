@@ -10,19 +10,15 @@ redirects:
 ---
 ## Retiring a stake pool
 
-<!--StartFragment-->
-
 Stake pools might cease to operate for a number of reasons. Any stake pools no longer in use should be retired, so they do not appear as an option for delegators.
-
 
 
 If you need to retire a stake pool, you must first determine the epoch within which the pool will be retired, create a de-registration certificate, then attach this certificate to a transaction, and finally submit the transaction to the blockchain. The transaction needs to be signed with the operator’s cold key.
 
 
-
 To retire a stake pool, follow these steps:
 
-1. Determine the epoch when the stake pool is to be retired, which must beafterthe current epoch, butno later than eMaxepochs in the future (eMax is a protocol parameter).
+1. Determine the epoch when the stake pool is to be retired, which must be after the current epoch, but no later than eMax epochs in the future (eMax is a protocol parameter).
 2. Use this code to identify the current epoch. The number of slots per epoch is recorded in the genesis file. In this example, the epoch lasts 21600 slots.
 
 ```
@@ -127,7 +123,3 @@ cardano-cli shelley transaction sign \
     ```
 
 The pool will be retired at epoch 40.
-
-
-
-<!--EndFragment-->
