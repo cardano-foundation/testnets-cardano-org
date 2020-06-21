@@ -27,47 +27,51 @@ This data needs to be hosted by the pool operator at a URL that they maintain (t
 
 2. Register or re-register the pool on-chain using the node CLI as described in the tutorials (Stake Pool Registration).  Provide all the necessary metadata in the registration, including the relay information, the URL for the metadata file and metadata hash, as well as the cost parameters.  
 
-    cardano-cli shelley stake-pool registration-certificate \
-
-    --cold-verification-key-file FILE                       
-    --vrf-verification-key-file FILE     
-    --pool-pledge LOVELACE               
-    --pool-cost LOVELACE                 
-    --pool-margin DOUBLE                 
-    --pool-reward-account-verification-key-file FILE       
-    --pool-owner-stake-verification-key-file FILE
-    --pool-relay-port INT   
-    --pool-relay-ipv4 STRING
-    --pool-relay-ipv6 STRING
-    --pool-relay-port INT   
-    --single-host-pool-relay STRING
-    --pool-relay-port INT   
-    --multi-host-pool-relay STRING
-    --metadata-url URL       
-    --metadata-hash HASH     
-    --mainnet                
-    --testnet-magic NATURAL  
-    --out-file FILE         
-
+```shell
+cardano-cli shelley stake-pool registration-certificate \
+--cold-verification-key-file FILE                       
+--vrf-verification-key-file FILE     
+--pool-pledge LOVELACE               
+--pool-cost LOVELACE                 
+--pool-margin DOUBLE                 
+--pool-reward-account-verification-key-file FILE       
+--pool-owner-stake-verification-key-file FILE
+--pool-relay-port INT   
+--pool-relay-ipv4 STRING
+--pool-relay-ipv6 STRING
+--pool-relay-port INT   
+--single-host-pool-relay STRING
+--pool-relay-port INT   
+--multi-host-pool-relay STRING
+--metadata-url URL       
+--metadata-hash HASH     
+--mainnet                
+--testnet-magic NATURAL  
+--out-file FILE         
+```
 Build, sign and submit the transaction:
 
-    cardano-cli shelley transaction build-raw \
-    --tx-in TxId#TxIx
-    --tx-out TxOut+Lovelace            
-    --ttl SLOT                   
-    --fee LOVELACE              
-    --certificate-file FILE      
-    --withdrawal WITHDRAWAL      
-    --metadata-file FILE         
-    --update-proposal-file FILE  
-    --out-file FILE              
-
+```shell
+cardano-cli shelley transaction build-raw \
+--tx-in TxId#TxIx
+--tx-out TxOut+Lovelace            
+--ttl SLOT                   
+--fee LOVELACE              
+--certificate-file FILE      
+--withdrawal WITHDRAWAL      
+--metadata-file FILE         
+--update-proposal-file FILE  
+--out-file FILE              
+```
 3. Obtain the pool id using the node CLI.
-
-    cardano-cli shelley stake-pool id --verification-key-file pool.vkey
-    > <poolid>
+```shell
+cardano-cli shelley stake-pool id --verification-key-file pool.vkey
+> <poolid>
+```
 
 You can check whether the on-chain registration has succeeded by running:
 
-    cardano-cli shelley query ledger-state --testnet-magic 42 \
-      | jq '._delegationState._pstate._pParams.<poolid>'
+```shell
+cardano-cli shelley query ledger-state --testnet-magic 42 \
+| jq '._delegationState._pstate._pParams.<poolid>'
+```
