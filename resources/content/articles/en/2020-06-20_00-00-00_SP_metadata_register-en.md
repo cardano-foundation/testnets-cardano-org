@@ -22,7 +22,7 @@ To register a stake pool metadata you need to:
     "homepage": "https://teststakepool.com"
     }
 
-This data needs to be hosted by the pool operator at a URL that they maintain (their personal website, a github raw gist file, etc, for example "[https://gist.githubusercontent.com/testPool/.../testPool.json](shorturl.at/gDV47). The URL must be no more than 64 bytes long.
+This data needs to be hosted by the pool operator at a URL that they maintain (their personal website, a github raw gist file, etc, for example "[https://gist.githubusercontent.com/testPool/.../testPool.json](https://gist.githubusercontent.com/CarlosLopezDeLara/894990b1ed0a585edf6641868c1ac48d/raw/79fcb39d1788716bbfb5f1084b04438320513132/testPool.json). The URL must be no more than 64 bytes long.
 
 
 2. Register or re-register the pool on-chain using the node CLI as described in the tutorials (Stake Pool Registration).  Provide all the necessary metadata in the registration, including the relay information, the URL for the metadata file and metadata hash, as well as the cost parameters.  
