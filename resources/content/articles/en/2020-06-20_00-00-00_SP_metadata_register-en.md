@@ -25,13 +25,12 @@ To register a stake pool metadata you need to:
 ```
 This data needs to be hosted by the pool operator at a URL that they maintain (their personal website, a github raw gist file, etc, for example "[https://gist.githubusercontent.com/testPool/.../testPool.json](shorturl.at/gDV47). The URL must be no more than 64 bytes long.
 
-1. Get the hash of your file:
+2. Get the hash of your file:
 ```shell
 cardano-cli shelley stake-pool metadata-hash --pool-metadata-file testPool.json
 >6bf124f217d0e5a0a8adb1dbd8540e1334280d49ab861127868339f43b3948af
 ```
-1. Register or re-register the pool on-chain using the node CLI as described in the tutorials (Stake Pool Registration).  Provide all the necessary metadata in the registration, including the relay information, the URL for the metadata file and metadata hash, as well as the cost parameters.  
-
+3. Register or re-register the pool on-chain using the node CLI as described in the tutorials (Stake Pool Registration).  Provide all the necessary metadata in the registration, including the relay information, the URL for the metadata file and metadata hash, as well as the cost parameters.  
 ```shell
 cardano-cli shelley stake-pool registration-certificate \
 --cold-verification-key-file cold.vkey \
@@ -75,8 +74,7 @@ cardano-cli shelley transaction submit \
 --tx-file tx.signed \
 --testnet-magic 42
 ```
-
-1. Obtain the pool id using the node CLI.
+4. Obtain the pool id using the node CLI.
 ```shell
 cardano-cli shelley stake-pool id --verification-key-file pool.vkey
 > <poolid>
