@@ -292,7 +292,7 @@ const DEFAULT_VALUES = {
   influenceFactor: 0.5,
   transactionFeesPerEpoch: '0',
   currentEpoch: 1,
-  expansionRate: 0.00125
+  expansionRate: 0.002
 }
 
 function getDefaultValues (currency, initialValues, usdExchangeRate) {
