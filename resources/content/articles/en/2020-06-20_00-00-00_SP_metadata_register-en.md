@@ -85,7 +85,7 @@ cardano-cli shelley query ledger-state --testnet-magic 42 \
 | jq '._delegationState._pstate._pParams.<poolid>'
 ```
 
-Temporary step until DB-sync is upgraded
+5. Temporary step until DB-sync is upgraded
 
 Submit a PR to add your pool data to https://github.com/input-output-hk/cardano-ops/blob/master/topologies/ff-peers.nix 
 You will need to provide your IP address/DNS host name and port.
