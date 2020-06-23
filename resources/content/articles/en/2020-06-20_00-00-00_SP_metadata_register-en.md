@@ -84,3 +84,21 @@ You can check whether the on-chain registration has succeeded by running:
 cardano-cli shelley query ledger-state --testnet-magic 42 \
 | jq '._delegationState._pstate._pParams.<poolid>'
 ```
+
+Temporary step until DB-sync is upgraded
+
+Submit a PR to add your pool data to https://github.com/input-output-hk/cardano-ops/blob/master/topologies/ff-peers.nix 
+You will need to provide your IP address/DNS host name and port.
+
+```shell
+{
+   operator = “testPool”;
+   poolId = “<poolid>”;
+   metadataUrl = “https://gist.githubusercontent.com/testPool/.../testPool.json”
+   meatadataHash = “6bf124f217d0e5a0a8adb1dbd8540e1334280d49ab861127868339f43b3948af”;
+   addr = “123.123.123.123”;
+   port = 3001
+}
+```
+
+cardano-cli shelley transaction build-raw \
