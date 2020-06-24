@@ -55,7 +55,11 @@ const Operator = ({
       ? operatorsStake / values.totalADAInCirculation
       : values.stakePoolControl
 
-    let grossPoolReward = epochDistribution / (1 + values.influenceFactor) * (Math.min(1 / values.totalStakePools, control) + values.influenceFactor * operatorsPledgePercentage)
+    const z0 = 1 / values.totalStakePools
+    const sigmaPrime = Math.min(z0, control)
+
+    let grossPoolReward = epochDistribution / (1 + values.influenceFactor) * (sigmaPrime + values.influenceFactor * operatorsPledgePercentage * (((sigmaPrime - operatorsPledgePercentage) * ((z0 - sigmaPrime) / z0)) / z0))
+
     const penalty = (1 - values.stakePoolPerformance) * grossPoolReward
     grossPoolReward = Math.max(0, grossPoolReward - penalty)
     grossPoolReward = Math.max(0, grossPoolReward - values.epochDurationInDays * stakePoolFixedFee)

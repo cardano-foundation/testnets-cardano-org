@@ -53,7 +53,11 @@ const Delegator = ({
     const cappedADA = Math.min(ada, Math.max(0, Math.min(poolSaturation, control) - operatorsStake))
     const operatorsPledge = Math.min(poolSaturation, operatorsStake)
     const operatorsPledgePercentage = operatorsPledge / totalADAInCirculation
-    let grossPoolReward = epochDistribution / (1 + values.influenceFactor) * (Math.min(1 / values.totalStakePools, values.stakePoolControl) + values.influenceFactor * operatorsPledgePercentage)
+
+    const z0 = 1 / values.totalStakePools
+    const sigmaPrime = Math.min(z0, values.stakePoolControl)
+
+    let grossPoolReward = epochDistribution / (1 + values.influenceFactor) * (sigmaPrime + values.influenceFactor * operatorsPledgePercentage * (((sigmaPrime - operatorsPledgePercentage) * ((z0 - sigmaPrime) / z0)) / z0))
     const penalty = (1 - values.stakePoolPerformance) * grossPoolReward
     grossPoolReward = Math.max(0, grossPoolReward - penalty)
     grossPoolReward = Math.max(0, grossPoolReward - values.epochDurationInDays * stakePoolFixedFee)
@@ -61,9 +65,8 @@ const Delegator = ({
     const netReward = grossPoolReward - margin
     const adaInPool = Math.min(values.stakePoolControl * values.totalADAInCirculation, poolSaturation)
     const operatorsReward = netReward * (operatorsPledge / adaInPool)
-    const delegatorsRewards = netReward - operatorsReward
     const stakePoolControlADA = values.stakePoolControl * totalADAInCirculation
-    const reward = (delegatorsRewards * cappedADA / stakePoolControlADA)
+    const reward = (netReward * cappedADA / stakePoolControlADA)
     return {
       ada: ada + reward,
       reward: reward,
