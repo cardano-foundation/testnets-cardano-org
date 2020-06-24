@@ -284,15 +284,15 @@ const DEFAULT_VALUES = {
   operatorsStake: '10000',
   stakePoolMargin: 0.03,
   stakePoolPerformance: 1,
-  totalStakePools: 250,
+  totalStakePools: 150,
   totalADA: 45e9,
   totalADAInCirculation: 31112483745,
   epochDurationInDays: 5,
-  treasuryRate: 0.2,
-  influenceFactor: 0.5,
+  treasuryRate: 0.05,
+  influenceFactor: 0.3,
   transactionFeesPerEpoch: '0',
   currentEpoch: 1,
-  expansionRate: 0.002
+  expansionRate: 0.0022
 }
 
 function getDefaultValues (currency, initialValues, usdExchangeRate) {
