@@ -295,20 +295,20 @@ const DEFAULT_VALUES = {
   expansionRate: 0.0022
 }
 
-function getDefaultValues (currency, initialValues, usdExchangeRate) {
+function getDefaultValues (currency, initialValues) {
   return {
     ...DEFAULT_VALUES,
     ...initialValues,
     currency,
     stakePoolFixedFee: initialValues.stakePoolFixedFee !== undefined
       ? `${initialValues.stakePoolFixedFee}`
-      : `${usdExchangeRate ? 14.03895 / parseFloat(usdExchangeRate) : 500 / parseFloat(currency.exchangeRate)}`
+      : `${68 / parseFloat(currency.exchangeRate)}`
   }
 }
 
 const Calculator = ({ currencies, content, initialValues, initialCalculator, origin, pathname }) => {
   const [ allCurrencies, setAllCurrencies ] = useState(JSON.parse(JSON.stringify(currencies)))
-  const [ values, setValues ] = useState(getDefaultValues(allCurrencies[0], initialValues, getUSDExchangeRate()))
+  const [ values, setValues ] = useState(getDefaultValues(allCurrencies[0], initialValues))
   const [ type, setType ] = useState(initialCalculator)
   const [ showAdvancedOptions, setShowAdvancedOptions ] = useState(false)
   const [ shareModalVisible, setShareModalVisible ] = useState(false)
@@ -319,10 +319,6 @@ const Calculator = ({ currencies, content, initialValues, initialCalculator, ori
 
   function getInitialCurrency (key) {
     return (currencies.filter(currency => currency.key === key).shift() || {})
-  }
-
-  function getUSDExchangeRate () {
-    return getInitialCurrency('USD').exchangeRate
   }
 
   function getTotalADAInCirculation (epoch, startingTotalADAInCirculation) {
@@ -386,7 +382,7 @@ const Calculator = ({ currencies, content, initialValues, initialCalculator, ori
   const reset = () => {
     const currency = currencies.filter(currency => currency.key === values.currency.key).shift()
     setAllCurrencies(JSON.parse(JSON.stringify(currencies)))
-    setValues(getDefaultValues(currency, initialValues, getUSDExchangeRate()))
+    setValues(getDefaultValues(currency, initialValues))
   }
 
   const onReset = (e) => {
