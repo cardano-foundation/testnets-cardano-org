@@ -1,0 +1,54 @@
+Stake pool operators should follow these steps to register their stake pool’s metadata:
+
+1. Build a JSON file for the stake pool metadata:
+{
+  "name": "mypool",
+  "description": "My stake pool",
+  "ticker": "POOL1",
+  "homepage": "https://mystakepool.com"
+}
+
+Note: The metadata must be hosted in a URL that is maintained by the stake pool operator. This could be their own personal website, a GitHub raw gist file, etc. The URL cannot be longer than 64 bytes long.
+
+2. Use the node CLI to register or re-register the stake pool on the blockchain
+
+The registration information must include:
+
+Relay information
+Metadata URL
+Metadata hash
+Cost parameters
+
+cardano-cli shelley stake-pool registration-certificate
+   --metadata-url  https://mystakepool.com/mypool.json  \  
+   --metadata-hash \ 
+f97a632341f642f5ac1e15bd182d0c9599c3767230aa9bfb48b120f1c30538eb \  
+   --pool-relay-port 3001 --pool-relay-ipv4 76.54.23.45 \
+   ...
+   
+3. Obtain the stake pool ID
+ 
+ Use this code to obtain the stake pool id and obtain all the information required to register the pool in the SMASH database:
+ 
+ cardano-cli shelley stake-pool id --verification-key-file pool.vkey
+> <poolid>
+
+Note: You can check if the on-chain registration was succeeded by using this code:
+
+cardano-cli shelley query ledger-state --testnet-magic 42 
+  | jq '._delegationState._pstate._pParams.<poolid>'
+  
+4.Submit a PR [here](https://github.com/input-output-hk/cardano-ops/blob/master/topologies/ff-peers.nix) to add your pool's data.
+  
+  Note that you will need to provide your IP address or host name, and port.
+
+{
+   operator = “name”;
+   poolId = “<poolid>”;
+   metadataUrl = “https://yourpool.com/pool.json”
+   meatadataHash = “yourpoolhash”;
+   addr = “relay.kevinspool.org”;
+   port = 3001;
+}
+
+Important: Registering your IP address with IOHK will make it “public”, so please follow good security practices by running firewalls and other online security methods.
