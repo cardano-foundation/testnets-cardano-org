@@ -84,13 +84,13 @@ Then run:
    git fetch --all --tags
    git checkout tags/1.13.0
    ```
-5. Build the source code using Cabal by running the following command:
+1. Build the source code using Cabal by running the following command:
    ```shell
    cabal install cardano-node cardano-cli
    ```
 Please note that building the node may take some time, possibly several hours.  
 
-6. When the process finishes run the following to validate that you have the correct version: 
+1. When the process finishes run the following to validate that you have the correct version:
    ```shell
    cardano-cli --version
    > cardano-cli-1.13.0 ...
