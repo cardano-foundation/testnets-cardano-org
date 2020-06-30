@@ -334,7 +334,7 @@ const WalletDownloaders = ({ gaCategory, settingsEndpoint }) => {
           }
           {hasError &&
             <ErrorContainer>
-              <Typography variant='h3' color='error'>{content.downloaders_content.error_fetching_data}</Typography>
+              <Typography variant='h3' color='error'>{content.downloaders_content.no_releases_available}</Typography>
             </ErrorContainer>
           }
         </Box>

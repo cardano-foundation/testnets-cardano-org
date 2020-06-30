@@ -50,6 +50,7 @@ const GlobalContentQuery = ({ render }) => (
                       downloaders_content {
                         version
                         error_fetching_data
+                        no_releases_available
                         platforms_order {
                           platform_name
                         }
