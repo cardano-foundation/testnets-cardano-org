@@ -42,6 +42,7 @@ content:
     verify_checksum: Verify checksum
     copy_to_clipboard: Copy to clipboard
     error_fetching_data: Error fetching data
+    no_releases_available: No releases are currently available right now, please check back later.
     platforms_order:
       - platform_name: darwin
       - platform_name: linux
