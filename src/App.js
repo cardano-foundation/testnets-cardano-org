@@ -28,7 +28,7 @@ DefaultRoute.propTypes = { element: PropTypes.node.isRequired }
 const Link = forwardRef((props, ref) => {
   const componentProps = { ...props }
   let Component = GatsbyLink
-  if (props.isStatic || !props.isRelative) {
+  if (props.isStatic || !props.isRelative || props.href.match(/^#/) || (componentProps.target && componentProps.target !== '_self')) {
     Component = 'a'
     if (!props.isRelative) {
       componentProps.target = '_blank'
