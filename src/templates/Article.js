@@ -340,7 +340,7 @@ const NavigationTree = ({ items, lang, path, ariaLabel, currentPathname, id = ''
           {item.children.length > 0 && !item.externalHref &&
             <Fragment>
               <AccordionToggle
-                href={item.path}
+                href={item.hasContent ? item.path : '#'}
                 className={item.hasContent ? '' : 'has-no-content'}
                 onClick={toggleAccordion(item)}
                 activeClassName='active'
