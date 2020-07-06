@@ -6,9 +6,9 @@ parent: 2020-05-04_08-00-00_getting-started
 last_updated: "2020-05-01T09:00:00+01:00"
 redirects:
   - from: /en/marlowe/get-started/
-    type: 301
+    type: "301"
   - from: /en/marlowe/get-started/modeling-financial-products-in-marlowe/
-    type: 301
+    type: "301"
 ---
 ## Modelling financial products in Marlowe
 

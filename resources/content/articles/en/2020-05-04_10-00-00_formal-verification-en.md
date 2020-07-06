@@ -6,7 +6,7 @@ order: 6
 last_updated: "2020-05-01T09:00:00+01:00"
 redirects:
   - from: /en/iele/about/formal-verification/
-    type: 301
+    type: "301"
 ---
 ## Formal Design, Implementation, and Verification of Blockchain Languages
 

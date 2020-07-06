@@ -6,7 +6,7 @@ order: 3
 last_updated: 2020-06-12T11:34:32+01:00
 redirects:
   - from: /en/shelley-haskell/configuration/retiring-a-stake-pool/
-    type: 301
+    type: "301"
 ---
 ## Retiring a stake pool
 

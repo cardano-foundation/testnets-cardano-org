@@ -6,7 +6,7 @@ order: 1
 last_updated: 2020-05-01T08:00:00.000Z
 redirects:
   - from: /en/shelley-haskell/about/testnet-introduction/
-    type: 301
+    type: "301"
 ---
 ## Shelley testnet introduction
 

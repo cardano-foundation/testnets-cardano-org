@@ -6,7 +6,7 @@ parent: 2020-05-04_09-00-00_getting-started
 last_updated: "2020-05-01T09:00:00+01:00"
 redirects:
   - from: /en/cardano/byron/get-started/faucet-and-testnet-tokens/
-    type: 301
+    type: "301"
 ---
 ## Faucet and testnet tokens
 

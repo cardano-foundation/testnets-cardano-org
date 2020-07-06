@@ -7,7 +7,7 @@ external_href: ""
 last_updated: 2020-05-19T16:17:15.000Z
 redirects:
   - from: /en/shelley-haskell/get-started/installing-and-running-the-cardano-node/building-the-node-using-nix/
-    type: 301
+    type: "301"
 ---
 ## Building a node using Nix
 

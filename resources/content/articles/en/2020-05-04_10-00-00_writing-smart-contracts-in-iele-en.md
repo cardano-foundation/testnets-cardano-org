@@ -6,9 +6,9 @@ order: 1
 last_updated: "2020-05-01T09:00:00+01:00"
 redirects:
   - from: /en/iele/get-started/
-    type: 301
+    type: "301"
   - from: /en/iele/get-started/writing-smart-contracts-in-iele/
-    type: 301
+    type: "301"
 ---
 ## Writing Smart Contracts in IELE
 

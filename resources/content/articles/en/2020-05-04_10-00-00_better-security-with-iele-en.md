@@ -6,7 +6,7 @@ order: 9
 last_updated: "2020-05-01T09:00:00+01:00"
 redirects:
   - from: /en/iele/get-started/better-security-with-iele/
-    type: 301
+    type: "301"
 ---
 ## Better security with IELE
 

@@ -73,11 +73,11 @@ const buildCollection = language => {
             options: [
               {
                 label: '301',
-                value: 301
+                value: '301'
               },
               {
                 label: '302',
-                value: 302
+                value: '302'
               }
             ],
             default: null

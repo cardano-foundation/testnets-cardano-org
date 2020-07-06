@@ -6,7 +6,7 @@ parent: 2020-05-04_08-00-00_getting-started
 last_updated: "2020-05-01T09:00:00+01:00"
 redirects:
   - from: /en/marlowe/get-started/using-marlowe-playground-the-marlowe-emulator/
-    type: 301
+    type: "301"
 ---
 ## Using the Marlowe Playground
 
