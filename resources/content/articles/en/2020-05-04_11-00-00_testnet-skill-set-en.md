@@ -6,9 +6,9 @@ order: 1
 last_updated: "2020-05-01T09:00:00+01:00"
 redirects:
   - from: /en/kevm/about/
-    type: 301
+    type: "301"
   - from: /en/kevm/about/testnet-skill-set/
-    type: 301
+    type: "301"
 ---
 ## Testnet skill set
 

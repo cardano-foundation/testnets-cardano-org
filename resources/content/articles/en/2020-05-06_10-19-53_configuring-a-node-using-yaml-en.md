@@ -7,7 +7,7 @@ external_href: ""
 last_updated: 2020-05-06T11:17:20+01:00
 redirects:
   - from: /en/shelley-haskell/get-started/configuring-a-node-using-yaml/
-    type: 301
+    type: "301"
 ---
 ## Configuring a node
 

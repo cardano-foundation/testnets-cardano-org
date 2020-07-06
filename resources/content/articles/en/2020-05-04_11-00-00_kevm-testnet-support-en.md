@@ -6,7 +6,7 @@ order: 2
 last_updated: "2020-05-01T09:00:00+01:00"
 redirects:
   - from: /en/kevm/about/kevm-testnet-support/
-    type: 301
+    type: "301"
 ---
 ## KEVM testnet support
 
