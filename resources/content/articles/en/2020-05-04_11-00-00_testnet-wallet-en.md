@@ -6,7 +6,7 @@ order: 3
 last_updated: "2020-05-01T09:00:00+01:00"
 redirects:
   - from: /en/kevm/get-started/testnet-wallet/
-    type: 301
+    type: "301"
 ---
 ## Mallet 2.0
 

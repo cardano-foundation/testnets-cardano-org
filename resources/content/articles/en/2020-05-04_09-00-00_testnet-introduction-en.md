@@ -6,9 +6,9 @@ parent: 2020-05-04_09-00-00_about
 last_updated: "2020-05-01T09:00:00+01:00"
 redirects:
   - from: /en/cardano/byron/about/
-    type: 301
+    type: "301"
   - from: /en/cardano/byron/about/testnet-introduction/
-    type: 301
+    type: "301"
 ---
 ## Testnet introduction
 

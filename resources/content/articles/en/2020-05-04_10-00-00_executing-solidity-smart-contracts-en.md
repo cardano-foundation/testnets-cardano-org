@@ -6,7 +6,7 @@ order: 2
 last_updated: "2020-05-01T09:00:00+01:00"
 redirects:
   - from: /en/iele/get-started/executing-solidity-contracts/
-    type: 301
+    type: "301"
 ---
 ## Executing Solidity Smart Contracts on the IELE Testnet
 

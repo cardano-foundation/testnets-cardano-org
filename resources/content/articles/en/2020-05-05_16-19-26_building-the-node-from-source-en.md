@@ -7,7 +7,7 @@ external_href: ""
 last_updated: 2020-05-19T16:19:01.000Z
 redirects:
   - from: /en/shelley-haskell/get-started/installing-and-running-the-cardano-node/building-the-node-from-source/
-    type: 301
+    type: "301"
 ---
 ## Installing dependancies
 By building and running a node directly from the source code, you can ensure that you get all the latest code updates.

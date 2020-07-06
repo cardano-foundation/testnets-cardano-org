@@ -6,7 +6,7 @@ order: 8
 last_updated: "2020-05-01T09:00:00+01:00"
 redirects:
   - from: /en/iele/about/k-cardano-iele/
-    type: 301
+    type: "301"
 ---
 ## K framework for Cardano and IELE
 

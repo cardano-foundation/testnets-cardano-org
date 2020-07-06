@@ -6,9 +6,9 @@ parent: 2020-05-04_09-00-00_getting-started
 last_updated: "2020-05-01T09:00:00+01:00"
 redirects:
   - from: /en/cardano/byron/get-started/
-    type: 301
+    type: "301"
   - from: /en/cardano/byron/get-started/testnet-wallet/
-    type: 301
+    type: "301"
 ---
 ## Daedalus wallet for the Cardano testnets
 
