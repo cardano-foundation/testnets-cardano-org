@@ -9,6 +9,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import Markdown from '@input-output-hk/front-end-core-components/components/Markdown'
 import Link from '@input-output-hk/front-end-core-components/components/Link'
 import moment from 'moment'
+import ReCaptcha from 'react-google-recaptcha'
 import GlobalContentQuery from '../queries/GlobalContentQuery'
 
 const Container = styled(Box)`
@@ -29,12 +30,14 @@ const LoadingContainer = styled.div`
 
 const DEFAULT_VALUES = {
   address: '',
-  apiKey: ''
+  apiKey: '',
+  reCaptcha: false
 }
 
 const DEFAULT_ERRORS = {
   address: '',
-  apiKey: ''
+  apiKey: '',
+  reCaptcha: ''
 }
 
 const statuses = {
@@ -43,7 +46,7 @@ const statuses = {
   success: 'success'
 }
 
-const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL }) => {
+const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCaptcha }) => {
   const [ values, setValues ] = useState(DEFAULT_VALUES)
   const [ errors, setErrors ] = useState(DEFAULT_ERRORS)
   const [ serverError, setServerError ] = useState('')
@@ -51,7 +54,12 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL }) => 
   const [ status, setStatus ] = useState(statuses.ready)
 
   const valueOnChange = (key) => (e) => {
-    setValues({ ...values, [key]: e.target.value })
+    if (key === 'reCaptcha') {
+      setValues({ ...values, [key]: e })
+    } else {
+      setValues({ ...values, [key]: e.target.value })
+    }
+
     setErrors({ ...errors, [key]: '' })
   }
 
@@ -72,6 +80,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL }) => 
   const onSubmit = async (e) => {
     e.preventDefault()
     const newErrors = {}
+    if (!values.reCaptcha) newErrors.reCaptcha = content.faucet_content.please_complete_recaptcha
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors)
       return
@@ -81,7 +90,9 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL }) => 
     setServerError('')
     setStatus(statuses.loading)
     try {
-      const url = getEndpoint({ address: values.address, apiKey: values.apiKey })
+      const endpointParams = { address: values.address, apiKey: values.apiKey }
+      if (reCaptcha) endpointParams.reCaptchaResponse = values.reCaptcha
+      const url = getEndpoint(endpointParams)
       const result = await fetch(url, { method: 'POST' })
       const jsonResult = await result.json()
       if (result.status === 200 && jsonResult.success === false) {
@@ -169,6 +180,19 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL }) => 
                 />
               </Box>
             }
+            {reCaptcha &&
+              <Box marginBottom={2}>
+                {errors.reCaptcha &&
+                  <Typography color='error'>
+                    <strong>{errors.reCaptcha}</strong>
+                  </Typography>
+                }
+                <ReCaptcha
+                  sitekey={reCaptcha.sitekey}
+                  onChange={valueOnChange('reCaptcha')}
+                />
+              </Box>
+            }
             <Box display='flex' justifyContent='flex-end'>
               <Button disabled={status === statuses.loading} type='submit' color='primary' variant='contained'>
                 {content.faucet_content.request_funds}
@@ -210,10 +234,14 @@ FaucetInner.propTypes = {
   content: PropTypes.object.isRequired,
   getEndpoint: PropTypes.func.isRequired,
   hasApiKey: PropTypes.bool.isRequired,
-  getTransactionURL: PropTypes.func
+  getTransactionURL: PropTypes.func,
+  reCaptcha: PropTypes.shape({
+    version: PropTypes.number.isRequired,
+    sitekey: PropTypes.string.isRequired
+  })
 }
 
-const Faucet = ({ getEndpoint, hasApiKey, getTransactionURL }) => (
+const Faucet = ({ getEndpoint, hasApiKey, getTransactionURL, reCaptcha }) => (
   <GlobalContentQuery
     render={content => (
       <FaucetInner
@@ -221,6 +249,7 @@ const Faucet = ({ getEndpoint, hasApiKey, getTransactionURL }) => (
         getEndpoint={getEndpoint}
         hasApiKey={hasApiKey}
         getTransactionURL={getTransactionURL}
+        reCaptcha={reCaptcha}
       />
     )}
   />
@@ -229,7 +258,11 @@ const Faucet = ({ getEndpoint, hasApiKey, getTransactionURL }) => (
 Faucet.propTypes = {
   getEndpoint: PropTypes.func.isRequired,
   hasApiKey: PropTypes.bool.isRequired,
-  getTransactionURL: PropTypes.func
+  getTransactionURL: PropTypes.func,
+  reCaptcha: PropTypes.shape({
+    version: PropTypes.number.isRequired,
+    sitekey: PropTypes.string.isRequired
+  })
 }
 
 export default Faucet
