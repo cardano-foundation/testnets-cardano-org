@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState, Fragment, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Box from '@material-ui/core/Box'
@@ -52,6 +52,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
   const [ serverError, setServerError ] = useState('')
   const [ result, setResult ] = useState(null)
   const [ status, setStatus ] = useState(statuses.ready)
+  const reCaptchaRef = useRef(null)
 
   const valueOnChange = (key) => (e) => {
     if (key === 'reCaptcha') {
@@ -140,6 +141,13 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
     setResult(null)
   }
 
+  useEffect(() => {
+    if (reCaptchaRef.current && serverError) {
+      reCaptchaRef.current.reset()
+      setValues({ ...values, reCaptcha: null })
+    }
+  }, [ reCaptchaRef, serverError ])
+
   return (
     <Fragment>
       {[ statuses.ready, statuses.loading ].includes(status) &&
@@ -190,6 +198,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
                 <ReCaptcha
                   sitekey={reCaptcha.sitekey}
                   onChange={valueOnChange('reCaptcha')}
+                  ref={reCaptchaRef}
                 />
               </Box>
             }

@@ -7,7 +7,7 @@ export default () => (
     hasApiKey
     reCaptcha={{
       version: 2,
-      sitekey: '6LeUZ64ZAAAAAMHWlSUqsT2bt8HS5fZXngoyeMRB'
+      sitekey: '6LemMq8ZAAAAADN_Iw6z3dSl0QC_tLRjJPHo9JNF'
     }}
   />
 )
