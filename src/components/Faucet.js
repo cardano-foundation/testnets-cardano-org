@@ -97,12 +97,8 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
       const result = await fetch(url, { method: 'POST' })
       const jsonResult = await result.json()
       if (result.status === 200 && jsonResult.success === false) {
-        if (jsonResult.txid === 'ERROR') {
-          setErrors({ ...errors, address: content.faucet_content.invalid_address })
-        } else {
-          setServerError(content.faucet_content.server_error)
-        }
-
+        if (jsonResult.txid === 'ERROR') setErrors({ ...errors, address: content.faucet_content.invalid_address })
+        setServerError(content.faucet_content.server_error)
         setStatus(statuses.ready)
       } else if (result.status === 200) {
         setResult({ txid: jsonResult.txid, amount: jsonResult.amount })
