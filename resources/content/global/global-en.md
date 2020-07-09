@@ -34,6 +34,7 @@ content:
     success_heading: Success
     verify_transaction_hash: 'Please verify the following transaction hash:'
     transaction_successful: Your transaction has been successful and __{{ amount }}__ have been sent to __{{ address }}__.
+    please_complete_recaptcha: Please complete the ReCAPTCHA
   downloaders_content:
     version: Version
     sha_checksum: SHA256 checksum

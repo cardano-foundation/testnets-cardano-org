@@ -46,6 +46,7 @@ const GlobalContentQuery = ({ render }) => (
                         success_heading
                         verify_transaction_hash
                         transaction_successful
+                        please_complete_recaptcha
                       }
                       downloaders_content {
                         version
