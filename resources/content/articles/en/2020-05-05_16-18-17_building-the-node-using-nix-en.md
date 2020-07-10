@@ -31,7 +31,7 @@ chmod +x ./install-nix.sh
 3. Run:
 
 ```shell
-./install-nix.sh --daemon --nix-extra-conf-files nix.conf
+./install-nix.sh --daemon --nix-extra-conf-file nix.conf
 ```
 
 4. Follow the instructions presented as part of the Nix installation process.
