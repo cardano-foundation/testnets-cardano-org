@@ -98,7 +98,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
       const jsonResult = await result.json()
       if (result.status === 200 && jsonResult.success === false) {
         if (jsonResult.txid === 'ERROR') setErrors({ ...errors, address: content.faucet_content.invalid_address })
-        setServerError(content.faucet_content.server_error)
+        setServerError(jsonResult.message || content.faucet_content.server_error)
         setStatus(statuses.ready)
       } else if (result.status === 200) {
         setResult({ txid: jsonResult.txid, amount: jsonResult.amount })
@@ -120,7 +120,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
             return
 
           default:
-            setServerError(content.faucet_content.server_error)
+            setServerError(jsonResult.message || content.faucet_content.server_error)
             setStatus(statuses.ready)
             return
         }
