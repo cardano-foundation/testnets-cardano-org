@@ -82,20 +82,24 @@ const SideNavigationContainer = styled(Box)`
 const MainContent = styled.div`
   padding-left: 4rem;
   flex-basis: 80%;
+  max-width: 80%;
   flex-shrink: 2;
 
   &.no-nav {
     padding-left: 0;
     flex-basis: 100%;
+    max-width: 100%;
   }
 
   ${({ theme }) => theme.breakpoints.down('md')} {
     flex-basis: 70%;
+    max-width: 70%;
   }
 
   ${({ theme }) => theme.breakpoints.down('sm')} {
     padding-left: 0;
     flex-basis: 100%;
+    max-width: 100%;
   }
 `
 

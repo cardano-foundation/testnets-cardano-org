@@ -30,6 +30,56 @@ const GlobalContentQuery = ({ render }) => (
                       close_main_navigation
                       open_main_navigation
                       logo_alt
+                      staking_calculator {
+                        saturation
+                        select_a_calculator
+                        i_want_to
+                        delegate_my_stake
+                        run_a_stake_pool
+                        show_advanced_options
+                        treasury_rate_label
+                        treasury_rate_descriptor
+                        expansion_rate_label
+                        expansion_rate_descriptor
+                        reset
+                        share
+                        tweet
+                        copy_to_clipboard
+                        ada_label
+                        ada_descriptor
+                        ada_label_operator
+                        ada_descriptor_operator
+                        currency_label
+                        currency_descriptor
+                        exchange_rate_label
+                        exchange_rate_descriptor
+                        fixed_fee_label
+                        fixed_fee_descriptor_ada
+                        fixed_fee_descriptor
+                        stake_pool_control_label
+                        stake_pool_control_descriptor
+                        total_stake_pools_label
+                        participation_rate_label
+                        participation_rate_descriptor
+                        operators_stake_label
+                        operators_stake_descriptor
+                        stake_pool_margin_label
+                        stake_pool_margin_descriptor
+                        stake_pool_performance_label
+                        stake_pool_performance_descriptor
+                        delegation_rewards
+                        yield
+                        yearly
+                        private_stake_pool_label
+                        private_stake_pool_descriptor
+                        running_costs
+                        stake_pool_operation_rewards
+                        combined_rewards
+                        transaction_fees_per_epoch_label
+                        transaction_fees_per_epoch_descriptor
+                        influence_factor_label
+                        influence_factor_descriptor
+                      }
                       kevm_description
                       iele_description
                       faucet_content {
