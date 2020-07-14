@@ -6,6 +6,7 @@ import KEVMFaucet from './KEVMFaucet'
 import OtherAvailableTestnets from './OtherAvailableTestnets'
 import ShelleyDaedalusDownloaders from './ShelleyDaedalusDownloaders'
 import ShelleyHaskellFaucet from './ShelleyHaskellFaucet'
+import ShelleyHaskellStakingCalculator from './ShelleyHaskellStakingCalculator'
 
 export default {
   ByronDaedalusDownloaders,
@@ -15,5 +16,6 @@ export default {
   KEVMFaucet,
   OtherAvailableTestnets,
   ShelleyDaedalusDownloaders,
-  ShelleyHaskellFaucet
+  ShelleyHaskellFaucet,
+  ShelleyHaskellStakingCalculator
 }
