@@ -6,7 +6,7 @@ parent: 2020-05-04_10-00-00_resources
 last_updated: "2020-05-01T09:00:00+01:00"
 redirects:
   - from: /en/iele/resources/support/
-    type: 301
+    type: "301"
 ---
 ## Support and help
 

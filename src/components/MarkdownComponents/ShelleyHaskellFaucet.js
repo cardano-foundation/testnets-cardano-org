@@ -3,8 +3,11 @@ import Faucet from '../Faucet'
 
 export default () => (
   <Faucet
-    getEndpoint={({ address, apiKey }) => `https://shelley-haskell-testnet.iohkdev.io/send-money/${address}?apiKey=${apiKey}`}
+    getEndpoint={({ address, apiKey, reCaptchaResponse }) => `https://faucet.shelley-testnet.dev.cardano.org/send-money/${address}?apiKey=${apiKey}&g-recaptcha-response=${reCaptchaResponse}`}
     hasApiKey
-    getTransactionURL={({ txid }) => `https://shelleyexplorer.cardano.org/transaction/${txid}/`}
+    reCaptcha={{
+      version: 2,
+      sitekey: '6LemMq8ZAAAAADN_Iw6z3dSl0QC_tLRjJPHo9JNF'
+    }}
   />
 )

@@ -6,12 +6,13 @@ parent: 2020-05-04_08-00-00_getting-started
 last_updated: "2020-05-01T09:00:00+01:00"
 redirects:
   - from: /en/marlowe/get-started/using-marlowe-playground-the-marlowe-emulator/
-    type: 301
+    type: "301"
 ---
 ## Using the Marlowe Playground
 
-[The Marlowe Playground](https://prod.meadow.marlowe.iohkdev.io/) is an emulator that provides a browser-based graphical interface where you can easily play with and edit your contracts. It also runs the required actions to test your input and output transactions as if you were integrated with a live blockchain. This tool provides a simple yet robust and secure platform for modeling financial instruments.
+The [Marlowe Playground](https://alpha.marlowe.iohkdev.io) is a browser-based environment for designing and developing contracts, using either code or a no-code visual editor. The Marlowe Playground simulates contract behaviour and analyzes all the possible behaviours of a contract ('static analysis') without having to execute it on the blockchain. You can see how the contract evolves as participants interact with it, setting choices and making deposits of currency. It is possible to 'undo' actions and try other paths through the contract. The Playground also allows you to perform a 'static analysis' that will tell you whether all payments that your contract mandates will be made in full, and display examples of how a payment can fail. All this is described in detail in the [online tutorial](https://alpha.marlowe.iohkdev.io/tutorial), which is part of the Marlowe Playground environment.
 
-With the Marlowe Playground you can simulate block-by-block execution of your contracts using the Blockly library and Marlowe’s semantics compiled to JavaScript by the Haste compiler. Interlocking building blocks are used to represent instructions, and the money amounts of your contracts and choices are accessed through observations.
+Contracts can be developed in two different ways: One, using a visual editor that allows you to put a Marlowe contract together piece by piece in an intuitive way. At each stage you choose one of a selection of components that fit into a gap in the contract, just like fitting a piece into a jigsaw puzzle. And two, using code. If you want to use code, then you can develop Marlowe contracts embedded in Haskell, which lets you name parts of your contract to make it easier to read it and comprehend it.
+ 
 
-The executable parts of Marlowe are represented as Haskell data types and use single step and per-block stages that are easy to use. You can also benefit from using the embedded [Fay code editor](https://github.com/faylang/fay/wiki), a subset of Haskell, to generate Marlowe code to use within The Marlowe Playground. There are some pre-loaded examples provided by The Marlowe Playground for deposit incentives, limited crowd-funding, and escrow contracts that you can play with. This will help you learn how to execute, import, and save both Fay and The Marlowe Playground code.
+

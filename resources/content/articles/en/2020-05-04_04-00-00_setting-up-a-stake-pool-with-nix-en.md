@@ -6,7 +6,7 @@ parent: 2020-05-04_04-00-00_getting-started
 last_updated: "2020-05-01T09:00:00+01:00"
 redirects:
   - from: /en/cardano/shelley/get-started/setting-up-a-stake-pool-with-nix/
-    type: 301
+    type: "301"
 ---
 ## Setting up a stake pool with Nix
 

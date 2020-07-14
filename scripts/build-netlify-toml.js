@@ -35,7 +35,7 @@ async function buildNetlifyToml () {
         if (article.redirects) {
           article.redirects.forEach(({ from, type }) => {
             const to = article.externalHref || `/${lang}${article.path}`
-            content = addRedirect(from, content, type, to, false)
+            content = addRedirect(from, content, parseInt(type), to, false)
           })
         }
       }

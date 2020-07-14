@@ -6,9 +6,9 @@ order: 1
 last_updated: "2020-05-01T09:00:00+01:00"
 redirects:
   - from: /en/iele/about/
-    type: 301
+    type: "301"
   - from: /en/iele/about/skills-and-requirements/
-    type: 301
+    type: "301"
 ---
 ## IELE Skill Set
 
