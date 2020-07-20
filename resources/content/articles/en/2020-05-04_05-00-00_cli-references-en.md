@@ -51,7 +51,7 @@ The `transaction` command contains the following sub commands:
 * `witness`: witnesses a transaction
 * `sign-witness`: signs and witnesses a transaction
 * `check`: checks the transaction
-* `submit`: submits the transaction to the local node whose Unix domain socket is obtained from the CARANO_NODE_SOCKET_PATH environment variable.
+* `submit`: submits the transaction to the local node whose Unix domain socket is obtained from the CARDANO_NODE_SOCKET_PATH environment variable.
 * `calculate-min-fee`: calculates the minimum fee for the transaction
 * `info`: prints information about the transaction
 
