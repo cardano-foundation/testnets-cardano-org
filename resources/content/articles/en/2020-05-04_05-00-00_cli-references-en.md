@@ -18,7 +18,7 @@ The set of `cardano-cli shelley` commands include:
 * `transaction`: Shelley transaction commands
 * `node`: Shelley node operation commands
 * `stake-pool`: Shelley stake pool commands
-* `query`: Shelley node query commands. This queries the local node whose Unix domain socket is obtained from the CARDNAO_NODE_SOCKET-PATH environment variable. 
+* `query`: Shelley node query commands. This queries the local node whose Unix domain socket is obtained from the CARDANO_NODE_SOCKET-PATH environment variable. 
 * `block`: Shelley block commands
 * `system`: Shelley system commands
 * `genesis`: Shelley genesis block commands
