@@ -224,6 +224,10 @@ const WalletDownloaders = ({ gaCategory, settingsEndpoint }) => {
     if (window.navigator.msSaveBlob) window.navigator.msSaveBlob(getPGPBlob(signature), getPGPFilename(URL))
   }
 
+  const unCacheURL = (url) => {
+    return url + '?t=' + (new Date().getTime())
+  }
+
   return (
     <GlobalContentQuery
       render={content => (
@@ -237,7 +241,7 @@ const WalletDownloaders = ({ gaCategory, settingsEndpoint }) => {
                   <Box marginTop={1} marginBottom={1}>
                     <Button
                       component={Link}
-                      href={URL}
+                      href={unCacheURL(URL)}
                       variant='contained'
                       color='primary'
                       tracking={{ category: gaCategory, label: `download_${key}_${version}` }}
