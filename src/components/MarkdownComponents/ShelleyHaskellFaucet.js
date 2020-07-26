@@ -3,7 +3,7 @@ import Faucet from '../Faucet'
 
 export default () => (
   <Faucet
-    getEndpoint={({ address, apiKey, reCaptchaResponse }) => `https://faucet.shelley-testnet.dev.cardano.org/send-money/${address}?apiKey=${apiKey}&g-recaptcha-response=${reCaptchaResponse}`}
+    getEndpoint={({ address, apiKey, reCaptchaResponse }) => `https://faucet.mainnet-candidate-4.dev.cardano.org/send-money/${address}?apiKey=${apiKey}&g-recaptcha-response=${reCaptchaResponse}`}
     hasApiKey
     reCaptcha={{
       version: 2,
