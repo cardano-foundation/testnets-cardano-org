@@ -419,6 +419,12 @@ const Article = ({ pageContext }) => {
     return `${baseHref}${encodeURIComponent(`Invalid content ${pathname}${query || ''}${hash || ''}`)}`
   }
 
+  const renderDownloaders = (loc) => {
+    if (!loc) return
+    if (!loc.href) return
+    return loc.href.includes('/shelley/get-started/wallet/') && <ShelleyDaedalusDownloaders />
+  }
+
   /**
    * Replaces references to custom components with rendered component
    * e.g. <!-- include components/OtherComponent --> -> renders components/MarkdownComponents/OtherComponent if it exists
@@ -543,9 +549,9 @@ const Article = ({ pageContext }) => {
                     <MarkdownContent>
                       {renderArticleContent()}
                     </MarkdownContent>
-                    {location && location.href.includes('/shelley/get-started/wallet/') &&
-                      <ShelleyDaedalusDownloaders />
-                    }
+                    <MarkdownContent>
+                      {renderDownloaders(location)}
+                    </MarkdownContent>
                     <Box marginTop={2} marginBottom={2}>
                       {pageContext.lastUpdatedFormatted &&
                         <LastUpdated>
