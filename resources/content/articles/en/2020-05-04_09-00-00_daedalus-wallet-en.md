@@ -16,7 +16,7 @@ Download any of the special testnet-only versions of the wallet for developers a
 
 __NOTE: this wallet is for developer use on the Byron testnet only. To take part in the Shelley Incentivized Testnet, please download wallets from the [Incentivized Testnet website](https://staking.cardano.org/en/).__
 
-<!-- include components/ByronDaedalusDownloaders -->
+#### Download Links follow instructions below
 
 1. Open the Daedalus wallet.
 1. Select your preferred language.

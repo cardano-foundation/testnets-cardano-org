@@ -19,6 +19,7 @@ import Grafana from '../components/Grafana'
 import Container from '../components/Container'
 import config from '../config'
 import ShelleyDaedalusDownloaders from '../components/MarkdownComponents/ShelleyDaedalusDownloaders'
+import ByronDaedalusDownloaders from '../components/MarkdownComponents/ByronDaedalusDownloaders'
 
 const PageContent = styled.div`
   display: flex;
@@ -422,7 +423,11 @@ const Article = ({ pageContext }) => {
   const renderDownloaders = (loc) => {
     if (!loc) return
     if (!loc.href) return
-    return loc.href.includes('/shelley/get-started/wallet/') && <ShelleyDaedalusDownloaders />
+    if (loc.href.includes('/shelley/get-started/wallet/')) {
+      return <ShelleyDaedalusDownloaders />
+    } else if (loc.href.includes('/byron/getting-started/daedalus-wallet/')) {
+      return <ByronDaedalusDownloaders />
+    }
   }
 
   /**
