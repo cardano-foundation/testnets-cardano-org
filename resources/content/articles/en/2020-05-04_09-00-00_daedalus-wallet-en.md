@@ -1,5 +1,5 @@
 ---
-title: Daedalus wallet for the Byron testnets
+title: Daedalus wallet for the Byron testnet
 order: 1
 description: Byron getting started
 parent: 2020-05-04_09-00-00_getting-started
@@ -10,7 +10,7 @@ redirects:
   - from: /en/cardano/byron/get-started/testnet-wallet/
     type: "301"
 ---
-## Daedalus wallet for the Cardano testnets
+## Daedalus wallet for the Byron testnet
 
 Download any of the special testnet-only versions of the wallet for developers and install it by following the on-screen instructions.
 
