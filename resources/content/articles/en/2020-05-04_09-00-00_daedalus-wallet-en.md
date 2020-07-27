@@ -1,5 +1,5 @@
 ---
-title: Daedalus wallet for the Cardano testnets
+title: Daedalus wallet for the Byron testnets
 order: 1
 description: Byron getting started
 parent: 2020-05-04_09-00-00_getting-started
@@ -14,7 +14,7 @@ redirects:
 
 Download any of the special testnet-only versions of the wallet for developers and install it by following the on-screen instructions.
 
-__NOTE: this wallet is for developer use on the Byron testnet only. To take part in the Shelley Incentivized Testnet, please download wallets from the [Incentivized Testnet website](https://staking.cardano.org/en/).__
+__NOTE: this wallet is for developer use on the Byron testnet only.__
 
 <!-- include components/ByronDaedalusDownloaders -->
 
