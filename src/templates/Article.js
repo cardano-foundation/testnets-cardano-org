@@ -18,6 +18,7 @@ import MarkdownComponents from '../components/MarkdownComponents'
 import Grafana from '../components/Grafana'
 import Container from '../components/Container'
 import config from '../config'
+import ShelleyDaedalusDownloaders from '../components/MarkdownComponents/ShelleyDaedalusDownloaders'
 
 const PageContent = styled.div`
   display: flex;
@@ -542,6 +543,9 @@ const Article = ({ pageContext }) => {
                     <MarkdownContent>
                       {renderArticleContent()}
                     </MarkdownContent>
+                    {location && location.href.includes('/shelley/get-started/wallet/') &&
+                      <ShelleyDaedalusDownloaders />
+                    }
                     <Box marginTop={2} marginBottom={2}>
                       {pageContext.lastUpdatedFormatted &&
                         <LastUpdated>
