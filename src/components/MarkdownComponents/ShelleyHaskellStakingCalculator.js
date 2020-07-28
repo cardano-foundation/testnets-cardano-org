@@ -288,11 +288,11 @@ const DEFAULT_VALUES = {
   totalADA: 45e9,
   totalADAInCirculation: 31112483745,
   epochDurationInDays: 5,
-  treasuryRate: 0.05,
+  treasuryRate: 0.20,
   influenceFactor: 0.3,
   transactionFeesPerEpoch: '0',
   currentEpoch: 1,
-  expansionRate: 0.0022
+  expansionRate: 0.003
 }
 
 function getDefaultValues (currency, initialValues) {
