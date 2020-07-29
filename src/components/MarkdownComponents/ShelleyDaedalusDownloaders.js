@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import WalletDownloaders from '../WalletDownloaders'
-
 export default () => (
-  <WalletDownloaders
-    gaCategory='shelley_daedalus_downloaders'
-    settingsEndpoint='https://updates-shelley-testnet.s3.amazonaws.com/daedalus-latest-version.json'
-  />
+  <Fragment>
+    <WalletDownloaders
+      gaCategory='shelley_daedalus_downloaders'
+      settingsEndpoint='https://updates-shelley-testnet.s3.amazonaws.com/daedalus-latest-version.json'
+    />
+  </Fragment>
 )

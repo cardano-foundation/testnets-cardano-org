@@ -18,6 +18,7 @@ import MarkdownComponents from '../components/MarkdownComponents'
 import Grafana from '../components/Grafana'
 import Container from '../components/Container'
 import config from '../config'
+import CardanoDownloader from '../components/MarkdownComponents/CardanoDownloader'
 
 const PageContent = styled.div`
   display: flex;
@@ -418,6 +419,14 @@ const Article = ({ pageContext }) => {
     return `${baseHref}${encodeURIComponent(`Invalid content ${pathname}${query || ''}${hash || ''}`)}`
   }
 
+  const renderDownloaders = (loc) => {
+    if (!loc) return
+    if (!loc.href) return
+    if (loc.href.includes('/cardano/get-started/wallet/')) {
+      return <CardanoDownloader />
+    }
+  }
+
   /**
    * Replaces references to custom components with rendered component
    * e.g. <!-- include components/OtherComponent --> -> renders components/MarkdownComponents/OtherComponent if it exists
@@ -541,6 +550,9 @@ const Article = ({ pageContext }) => {
                     }
                     <MarkdownContent>
                       {renderArticleContent()}
+                    </MarkdownContent>
+                    <MarkdownContent>
+                      {renderDownloaders(location)}
                     </MarkdownContent>
                     <Box marginTop={2} marginBottom={2}>
                       {pageContext.lastUpdatedFormatted &&
