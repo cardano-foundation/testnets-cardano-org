@@ -147,13 +147,13 @@ export default () => (
             <ul>
               <li>
                 <Link href='/cardano/overview/' tracking={{ category: 'home_page', label: 'shelley_haskell_cta' }}>
-                  <img src='/images/shelley.png' alt='Shelley' />
+                  <img src='/images/cardano-icon-white.png' alt='Shelley' />
                   <span>Cardano</span>
                 </Link>
               </li>
               <li>
                 <Link href='/itn/overview/' tracking={{ category: 'home_page', label: 'itn_cta' }}>
-                  <img src='/images/shelley.png' alt='Shelley' />
+                  <img src='/images/cardano-icon-red.svg' alt='Shelley' />
                   <span>ITN</span>
                 </Link>
               </li>
