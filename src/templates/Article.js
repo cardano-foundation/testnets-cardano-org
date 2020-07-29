@@ -18,7 +18,7 @@ import MarkdownComponents from '../components/MarkdownComponents'
 import Grafana from '../components/Grafana'
 import Container from '../components/Container'
 import config from '../config'
-import ByronDaedalusDownloaders from '../components/MarkdownComponents/ByronDaedalusDownloaders'
+import CardanoDownloader from '../components/MarkdownComponents/CardanoDownloader'
 
 const PageContent = styled.div`
   display: flex;
@@ -423,7 +423,7 @@ const Article = ({ pageContext }) => {
     if (!loc) return
     if (!loc.href) return
     if (loc.href.includes('/cardano/get-started/wallet/')) {
-      return <ByronDaedalusDownloaders />
+      return <CardanoDownloader />
     }
   }
 
