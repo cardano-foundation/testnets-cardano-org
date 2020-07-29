@@ -7,7 +7,7 @@ last_updated: 2020-05-01T08:00:00.000Z
 ---
 ## CLI Reference
 
-The Shelley command line interface (CLI) provides a collection of tools for key generation, transaction construction, certificate creation and other important tasks. It is organized in a hierarchy of subcommands, and each level comes with its own built-in documentation of command syntax and options.
+The Cardano command line interface (CLI) provides a collection of tools for key generation, transaction construction, certificate creation and other important tasks. It is organized in a hierarchy of subcommands, and each level comes with its own built-in documentation of command syntax and options.
 
 This section provides a reference of the core `cardano-cli shelley` commands and their associated sub commands:
 
