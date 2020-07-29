@@ -12,7 +12,7 @@ redirects:
 ---
 ## Testnet introduction
 
-The Incentivized Testnet (ITN), provided a testing environment where ada users and developers could experiment with stake pools and help build up a collection of pools on Cardano. It marked the third and last key phase of our Shelley testnet roll out program.  
+The Incentivized Testnet (ITN), provided a testing environment where ada users and developers could experiment with stake pools and help build up a collection of pools on Cardano.
 
 By offering real ada rewards, incentivization was tested in a ‘real-world’ context, and rewards were earned while testing the stake delegation experience. It also gave stake pool operators the opportunity to establish their pools. The community practiced various stake delegation scenarios and successfully tested both our delegation and incentives processes to ensure that they are robust enough for open experimentation and adoption.
 
