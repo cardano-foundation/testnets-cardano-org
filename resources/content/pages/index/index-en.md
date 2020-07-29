@@ -5,7 +5,7 @@ content:
   hero_content: |
     ## Cardano Shelley is coming
 
-    ### Cardano is a third-generation proof-of-stake blockchain platform and home to the ada cryptocurrency. TThe Cardano testnet sits at the vanguard of the network's development. It provides a sandboxed environment for continuing innovation, harnessing the power of our community to iterate and improve.
+    ### Cardano is a third-generation proof-of-stake blockchain platform and home to the ada cryptocurrency. The Cardano testnet sits at the vanguard of the network's development. It provides a sandboxed environment for continuing innovation, harnessing the power of our community to iterate and improve.
 
     The Cardano testnet offers full Shelley functionality, including stake pools, stake delegation, and decentralization. The testnet is now open for any stake pool operator who wishes to come on board, as we prepare to launch Shelley on the Cardano mainnet.
 
