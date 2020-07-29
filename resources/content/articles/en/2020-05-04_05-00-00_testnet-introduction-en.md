@@ -8,7 +8,7 @@ redirects:
   - from: /en/shelley-haskell/about/testnet-introduction/
     type: "301"
 ---
-## Shelley testnet introduction
+## Cardano testnet introduction
 
 The rollout of Shelley will soon see the release of the third iteration of the testnet, which will introduce stake delegation on a hybrid Byron/Shelley network designed to replicate the network conditions of the Cardano mainnet during the transition to Shelley. A new version of the Daedalus wallet has also been written to be used specifically with the third iteration of the testnet.
 

@@ -1,5 +1,5 @@
 ---
-parent: 2020-05-04_05-00-00_shelley
+parent: 2020-05-04_05-00-00_cardano
 title: Configure
 description: Shelley configure section
 order: 6
