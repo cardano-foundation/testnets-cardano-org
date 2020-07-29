@@ -25,4 +25,4 @@ If you don't have access to a Linux system, you can run the node on a virtual ma
 1. When asked which connection method to use, select _EC2 Instance Connect_. Press the _Connect_ button.
 1. To verify that you new Linux instance is successfully connected, type `echo hello` into the console and press the return key. This should print `hello` to the console.
 
-You now have access to a virtual machine running a Linux system. Follow the instructions on the [building a node from source](/shelley/get-started/installing-and-running-the-cardano-node/building-the-node-from-source/) page to build and run a Cardano node.
+You now have access to a virtual machine running a Linux system. Follow the instructions on the [building a node from source](/cardano/get-started/installing-and-running-the-cardano-node/building-the-node-from-source/) page to build and run a Cardano node.

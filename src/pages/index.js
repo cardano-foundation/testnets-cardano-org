@@ -146,21 +146,15 @@ export default () => (
             <h4>{content.available_testnets}</h4>
             <ul>
               <li>
-                <Link href='/shelley/overview/' tracking={{ category: 'home_page', label: 'shelley_haskell_cta' }}>
-                  <img src='/images/shelley.png' alt='Shelley' />
-                  <span>Shelley</span>
+                <Link href='/cardano/overview/' tracking={{ category: 'home_page', label: 'shelley_haskell_cta' }}>
+                  <img src='/images/cardano-icon-white.png' alt='Shelley' />
+                  <span>Cardano</span>
                 </Link>
               </li>
               <li>
                 <Link href='/itn/overview/' tracking={{ category: 'home_page', label: 'itn_cta' }}>
-                  <img src='/images/shelley.png' alt='Shelley' />
+                  <img src='/images/cardano-icon-red.svg' alt='Shelley' />
                   <span>ITN</span>
-                </Link>
-              </li>
-              <li>
-                <Link href='/byron/overview/' tracking={{ category: 'home_page', label: 'byron_cta' }}>
-                  <img src='/images/byron.png' alt='Byron' />
-                  <span>Byron</span>
                 </Link>
               </li>
               <li>

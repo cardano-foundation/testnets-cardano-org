@@ -10,7 +10,7 @@ import TinyColor from '@ctrl/tinycolor'
 import Link from '@input-output-hk/front-end-core-components/components/Link'
 import Markdown from '@input-output-hk/front-end-core-components/components/Markdown'
 import { analytics } from '@input-output-hk/front-end-core-libraries'
-import { FaDownload } from 'react-icons/fa'
+import { FaDownload, FaCogs } from 'react-icons/fa'
 import { MdClose } from 'react-icons/md'
 import GlobalContentQuery from '../queries/GlobalContentQuery'
 
@@ -39,8 +39,7 @@ const Container = styled.div`
   }
 `
 
-const ErrorContainer = styled.div`
-  padding: 2rem 0 8rem;
+const ErrorContainer = styled(Box)`
   text-align: center;
 `
 
@@ -337,7 +336,8 @@ const WalletDownloaders = ({ gaCategory, settingsEndpoint }) => {
             </LoadingContainer>
           }
           {hasError &&
-            <ErrorContainer>
+            <ErrorContainer pl={12} pr={12}>
+              <Typography variant='h1' color='error'><FaCogs /></Typography>
               <Typography variant='h3' color='error'>{content.downloaders_content.no_releases_available}</Typography>
             </ErrorContainer>
           }

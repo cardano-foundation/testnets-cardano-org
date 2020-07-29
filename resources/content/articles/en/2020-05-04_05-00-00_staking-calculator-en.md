@@ -4,6 +4,9 @@ description: Shelley Haskell staking calculator
 parent: 2020-05-04_05-00-00_tools
 order: 4
 last_updated: "2020-07-14T12:30:00+01:00"
+redirects:
+  - from: /en/shelley/tools/staking-calculator/
+    type: "301"
 ---
 ## Staking Calculator
 
