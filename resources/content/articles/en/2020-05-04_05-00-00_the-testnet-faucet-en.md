@@ -3,7 +3,7 @@ parent: 2020-05-04_05-00-00_about
 title: The testnet faucet
 description: Shelley Haskell about
 order: 3
-last_updated: 2020-07-26T08:00:00.000Z
+last_updated: 2020-07-29T08:00:00.000Z
 ---
 ## The Cardano testnet faucet
 
@@ -21,5 +21,5 @@ When you have finished using your test tokens, please return them to the faucet 
 If you have an API key and prefer to use the cli, you can use the following command:
 
 ```bash
-curl -v -XPOST "https://faucet.mainnet-candidate-4.dev.cardano.org/send-money/$YOURADDRESS?apiKey=$APIKEY"
+curl -v -XPOST "https://faucet.cardano-testnet.iohk.io/send-money/$YOURADDRESS?apiKey=$APIKEY"
 ```
