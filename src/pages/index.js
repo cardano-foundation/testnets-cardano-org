@@ -6,7 +6,7 @@ import Link from '@input-output-hk/front-end-core-components/components/Link'
 import Layout from '../components/Layout'
 import Container from '../components/Container'
 import IndexPageQuery from '../queries/IndexPageQuery'
-import ShelleyBackground from '../../resources/images/shelley-background.jpg'
+import TestnetBackground from '../../resources/images/logo.svg'
 import { TinyColor } from '@ctrl/tinycolor'
 
 const HeroContainer = styled(Container)`
@@ -14,8 +14,11 @@ const HeroContainer = styled(Container)`
 `
 
 const Hero = styled.div`
-  background-image: url(${ShelleyBackground});
-  background-size: cover;
+  overflow:hidden;
+  background:#335cbe linear-gradient(90deg, rgba(0,51,173,1) 0%, rgba(51,92,190,1) 100%);
+  background-image: url(${TestnetBackground});
+  background-size: 40%;
+  background-position: 75% 30%;
   background-repeat: no-repeat;
   position: relative;
 `
@@ -41,6 +44,9 @@ const HeroContent = styled.div`
   max-width: 60rem;
   position: relative;
   padding: 8rem 0 12rem;
+  h2, h3 {
+    color: ${({ theme }) => theme.palette.primary.main};
+  }
 `
 
 const HeroCTA = styled.div`
