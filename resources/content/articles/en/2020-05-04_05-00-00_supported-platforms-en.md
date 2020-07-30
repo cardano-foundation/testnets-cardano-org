@@ -10,7 +10,7 @@ redirects:
 ---
 ## Supported platforms
 
-During the first phase of the Shelley testnet, the node can run on at least the following supported platforms:
+During the first phase of the Cardano testnet, the node can run on at least the following supported platforms:
 
 - Linux Ubuntu 19.10 (Eoan Ermine) or later
 - Linux Mint 19.3 (Tricia) or later

@@ -7,7 +7,7 @@ last_updated: 2020-05-01T08:00:00.000Z
 ---
 ## CLI Reference
 
-The Shelley command line interface (CLI) provides a collection of tools for key generation, transaction construction, certificate creation and other important tasks. It is organized in a hierarchy of subcommands, and each level comes with its own built-in documentation of command syntax and options.
+The Cardano command line interface (CLI) provides a collection of tools for key generation, transaction construction, certificate creation and other important tasks. It is organized in a hierarchy of subcommands, and each level comes with its own built-in documentation of command syntax and options.
 
 This section provides a reference of the core `cardano-cli shelley` commands and their associated sub commands:
 
@@ -18,7 +18,7 @@ The set of `cardano-cli shelley` commands include:
 * `transaction`: Shelley transaction commands
 * `node`: Shelley node operation commands
 * `stake-pool`: Shelley stake pool commands
-* `query`: Shelley node query commands. This queries the local node whose Unix domain socket is obtained from the CARDNAO_NODE_SOCKET-PATH environment variable. 
+* `query`: Shelley node query commands. This queries the local node whose Unix domain socket is obtained from the CARDANO_NODE_SOCKET-PATH environment variable. 
 * `block`: Shelley block commands
 * `system`: Shelley system commands
 * `genesis`: Shelley genesis block commands
@@ -51,7 +51,7 @@ The `transaction` command contains the following sub commands:
 * `witness`: witnesses a transaction
 * `sign-witness`: signs and witnesses a transaction
 * `check`: checks the transaction
-* `submit`: submits the transaction to the local node whose Unix domain socket is obtained from the CARANO_NODE_SOCKET_PATH environment variable.
+* `submit`: submits the transaction to the local node whose Unix domain socket is obtained from the CARDANO_NODE_SOCKET_PATH environment variable.
 * `calculate-min-fee`: calculates the minimum fee for the transaction
 * `info`: prints information about the transaction
 
