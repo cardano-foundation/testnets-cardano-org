@@ -30,6 +30,8 @@ const PageContent = styled.div`
 `
 
 const SideNavigationContainer = styled(Box)`
+  position: relative;
+  z-index:0;
   padding: 2rem 0;
   flex-basis: 20%;
   border-right: 0.1rem solid ${({ theme }) => new TinyColor(theme.palette.text.primary).setAlpha(0.2).toString()};
@@ -77,6 +79,17 @@ const SideNavigationContainer = styled(Box)`
     &.position-bottom {
       display: none;
     }
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    z-index:-1;
+    top:0;
+    left:-25vw;
+    width:calc(100% + 25vw);
+    height:100%;
+    background: ${({ theme }) => theme.palette.primary.main};
+    opacity:0.05;
   }
 `
 

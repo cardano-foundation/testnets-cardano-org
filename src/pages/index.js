@@ -11,32 +11,29 @@ import { TinyColor } from '@ctrl/tinycolor'
 
 const HeroContainer = styled(Container)`
   position: relative;
+  
 `
 
 const Hero = styled.div`
   overflow:hidden;
-  background:#335cbe linear-gradient(90deg, rgba(0,51,173,1) 0%, rgba(51,92,190,1) 100%);
-  background-image: url(${TestnetBackground});
-  background-size: 40%;
-  background-position: 75% 30%;
-  background-repeat: no-repeat;
+  background:linear-gradient(90deg, rgba(0,51,173,1) 0%, rgba(51,92,190,1) 100%);
   position: relative;
 `
 
 const HeroBackground = styled.div`
+  background: url(${TestnetBackground});
+  background-size: 60rem;
+  background-position: 80% 30%;
+  background-repeat: no-repeat;
   position: absolute;
   overflow: hidden;
-  opacity: 0.7;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-
-  svg {
-    width: 100%;
-    max-width: 120rem;
-    min-width: 105rem;
-    fill: ${({ theme }) => theme.palette.background.default};
+  @media(max-width:767px){
+    background-size: 40rem;
+    background-position: 150% 30%;
   }
 `
 
@@ -44,7 +41,10 @@ const HeroContent = styled.div`
   max-width: 60rem;
   position: relative;
   padding: 8rem 0 12rem;
-  h2, h3 {
+  h1, p {
+    color: ${({ theme }) => theme.palette.primary.contrastText};
+  }
+  a span {
     color: ${({ theme }) => theme.palette.primary.main};
   }
 `
@@ -126,16 +126,12 @@ export default () => (
       <Layout>
         <Hero>
           <HeroContainer>
-            <HeroBackground>
-              <svg viewBox='0,0,100,100'>
-                <polygon points='0,0 0,100 100,0' />
-              </svg>
-            </HeroBackground>
+            <HeroBackground />
             <HeroContent>
               <Markdown source={content.hero_content} />
               <HeroCTA>
                 <Button
-                  color='primary'
+                  color='default'
                   variant='contained'
                   component={Link}
                   href={content.hero_cta_href}
@@ -153,7 +149,7 @@ export default () => (
             <ul>
               <li>
                 <Link href='/cardano/overview/' tracking={{ category: 'home_page', label: 'shelley_haskell_cta' }}>
-                  <img src='/images/cardano-icon-white.png' alt='Shelley' />
+                  <img src='https://ucarecdn.com/d0a80719-c769-477d-94d9-c5fe9ca53597/' alt='Shelley' />
                   <span>Cardano</span>
                 </Link>
               </li>
@@ -171,7 +167,7 @@ export default () => (
               </li>
               <li>
                 <Link href='/marlowe/overview/' tracking={{ category: 'home_page', label: 'marlowe_cta' }}>
-                  <img src='/images/marlowe.png' alt='Marlowe' />
+                  <img src='/images/marlowe.svg' alt='Marlowe' />
                   <span>Marlowe</span>
                 </Link>
               </li>
