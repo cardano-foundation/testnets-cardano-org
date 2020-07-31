@@ -30,6 +30,9 @@ const PageContent = styled.div`
 `
 
 const SideNavigationContainer = styled(Box)`
+  * {
+    font-size: 1.6rem;
+  }
   position: relative;
   z-index:0;
   padding: 2rem 0;
