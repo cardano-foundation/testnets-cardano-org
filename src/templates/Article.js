@@ -570,6 +570,19 @@ const Article = ({ pageContext }) => {
                     <MarkdownContent>
                       {renderDownloaders(location)}
                     </MarkdownContent>
+                    {console.log('pageContext', pageContext)}
+                    <MarkdownContent>
+                      {(pageContext.previous || pageContext.next) &&
+                        <Box display='flex' flexDirection='row' justifyContent='space-between' width='100%'>
+                          {pageContext.previous &&
+                            <Link href={pageContext.previous.path} title={pageContext.previous.title}>&larr; {content.previous}</Link>
+                          }
+                          {pageContext.next &&
+                            <Link href={pageContext.next.path} title={pageContext.next.title}>{content.next} &rarr;</Link>
+                          }
+                        </Box>
+                      }
+                    </MarkdownContent>
                     <Box marginTop={2} marginBottom={2}>
                       {pageContext.lastUpdatedFormatted &&
                         <LastUpdated>
@@ -640,6 +653,8 @@ Article.propTypes = {
     content: PropTypes.string.isRequired,
     navigationContext: PropTypes.object.isRequired,
     lastUpdatedFormatted: PropTypes.string,
+    previous: PropTypes.object,
+    next: PropTypes.object,
     lang: PropTypes.string.isRequired
   }).isRequired
 }
