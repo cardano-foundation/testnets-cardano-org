@@ -55,9 +55,7 @@ module.exports = ({ actions }) => {
   })
 
   function createArticleNodes (articles, lang) {
-    articles.forEach((article, i) => {
-      const next = i === articles.length - 1 ? null : articles[i + 1]
-      const previous = i === 0 ? null : articles[i - 1]
+    articles.forEach(article => {
       createNode({
         path: article.path,
         id: `document-id-${article.path}-${lang}`,
@@ -68,8 +66,6 @@ module.exports = ({ actions }) => {
         lang,
         parent: null,
         children: [],
-        previous,
-        next,
         internal: {
           type: 'DocumentationArticle',
           description: 'Documentation article',

@@ -572,7 +572,7 @@ const Article = ({ pageContext }) => {
                     </MarkdownContent>
                     {console.log('pageContext', pageContext)}
                     <MarkdownContent>
-                      {(pageContext.previous || pageContext.next) &&
+                      {!pageContext.hasNoChildContent && (pageContext.previous || pageContext.next) &&
                         <Box display='flex' flexDirection='row' justifyContent='space-between' width='100%'>
                           {pageContext.previous &&
                             <Link href={pageContext.previous.path} title={pageContext.previous.title}>&larr; {content.previous}</Link>
@@ -655,7 +655,8 @@ Article.propTypes = {
     lastUpdatedFormatted: PropTypes.string,
     previous: PropTypes.object,
     next: PropTypes.object,
-    lang: PropTypes.string.isRequired
+    lang: PropTypes.string.isRequired,
+    hasNoChildContent: PropTypes.bool
   }).isRequired
 }
 

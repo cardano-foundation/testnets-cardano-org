@@ -58,6 +58,7 @@ const buildArticles = (markdownArticles, { key, baseURL = '/', baseTitle = '' } 
       lastUpdated: content.attributes.last_updated,
       key,
       path: articlePath,
+      hasNoChildContent: content.attributes.hasNoChildContent,
       order: content.attributes.order || 1,
       redirects: content.attributes.redirects || [],
       externalHref: content.attributes.external_href || '',

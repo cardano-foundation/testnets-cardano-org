@@ -34,7 +34,8 @@ module.exports = ({ createPage }) => {
             lastUpdated: article.lastUpdated,
             lang,
             previous,
-            next
+            next,
+            hasNoChildContent: article.hasNoChildContent
           }
         })
       }
