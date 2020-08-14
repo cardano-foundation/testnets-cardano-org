@@ -485,7 +485,7 @@ export default () => {
                     </Column>
                   }
                   <MobileSearchIconContainer>
-                    <Link
+                    <a
                       href='#'
                       tracking={{ label: 'header_toggle_mobile_search_bar' }}
                       onClick={toggleMobileSearchBar}
@@ -494,10 +494,10 @@ export default () => {
                       aria-label={mobileSearchBarOpen ? content.close_search_bar : content.open_search_bar}
                     >
                       <MdSearch />
-                    </Link>
+                    </a>
                   </MobileSearchIconContainer>
                   <MobileNavContainer marginLeft={1}>
-                    <Link
+                    <a
                       href='#'
                       tracking={{ label: 'header_toggle_mobile_menu' }}
                       onClick={toggleMobileMenu}
@@ -507,7 +507,7 @@ export default () => {
                     >
                       {mobileMenuOpen && <MdClose />}
                       {!mobileMenuOpen && <MdMenu />}
-                    </Link>
+                    </a>
                   </MobileNavContainer>
                 </Box>
               </Box>

@@ -235,7 +235,7 @@ const MobileInlineNavigation = styled.div`
   }
 `
 
-const ReportAnIssueLink = styled(Link)`
+const ReportAnIssueLink = styled.a`
   display: flex;
 `
 
@@ -245,7 +245,7 @@ const LastUpdated = styled.div`
   }
 `
 
-const ExternalLink = styled(Link)`
+const ExternalLink = styled.a`
   display: inline-block;
 `
 
@@ -550,7 +550,7 @@ const Article = ({ pageContext }) => {
                             autoScroll={false}
                           />
                         </div>
-                        <Link
+                        <a
                           href='#'
                           aria-hidden='true'
                           tracking={{ label: 'toggle_mobile_article_navigation_top' }}
@@ -561,7 +561,7 @@ const Article = ({ pageContext }) => {
                         >
                           {mobileTopNavigationOpen && <FaChevronUp />}
                           {!mobileTopNavigationOpen && <FaEllipsisH />}
-                        </Link>
+                        </a>
                       </MobileInlineNavigation>
                     }
                     <MarkdownContent>
@@ -570,7 +570,6 @@ const Article = ({ pageContext }) => {
                     <MarkdownContent>
                       {renderDownloaders(location)}
                     </MarkdownContent>
-                    {console.log('pageContext', pageContext)}
                     <MarkdownContent>
                       {!pageContext.hasNoChildContent && (pageContext.previous || pageContext.next) &&
                         <Box display='flex' flexDirection='row' justifyContent='space-between' width='100%'>
@@ -617,7 +616,7 @@ const Article = ({ pageContext }) => {
                             autoScroll={false}
                           />
                         </div>
-                        <Link
+                        <a
                           href='#'
                           aria-hidden='true'
                           tracking={{ label: 'toggle_mobile_article_navigation_bottom' }}
@@ -628,7 +627,7 @@ const Article = ({ pageContext }) => {
                         >
                           {mobileBottomNavigationOpen && <FaChevronUp />}
                           {!mobileBottomNavigationOpen && <FaEllipsisH />}
-                        </Link>
+                        </a>
                       </MobileInlineNavigation>
                     }
                   </MainContent>
