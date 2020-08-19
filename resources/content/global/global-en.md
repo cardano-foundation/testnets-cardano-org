@@ -8,6 +8,8 @@ content:
   last_updated: Last updated
   report_an_issue: Report a documentation issue
   search: Search
+  previous: Previous
+  next: Next
   search_form_aria_label: Search Cardano Testnets
   search_form_submit_aria_label: Perform search
   open_search_bar: Open search bar

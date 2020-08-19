@@ -22,6 +22,8 @@ const GlobalContentQuery = ({ render }) => (
                       last_updated
                       report_an_issue
                       search
+                      previous
+                      next
                       search_form_aria_label
                       search_form_submit_aria_label
                       open_search_bar

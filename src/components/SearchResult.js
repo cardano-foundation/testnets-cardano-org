@@ -53,7 +53,9 @@ const SearchResult = ({ result, query }) => {
         : text
     }
 
-    if (matchIndex >= 0 && (!limit || indexes.length + 1 <= limit)) return highlightMatch(text, query, { indexes: [ ...indexes, startIndex === undefined ? matchIndex : (matchIndex + startIndex + query.length) ], limit, surroundingContext })
+    if (matchIndex >= 0 && (!limit || indexes.length + 1 <= limit) && query) {
+      return highlightMatch(text, query, { indexes: [ ...indexes, startIndex === undefined ? matchIndex : (matchIndex + startIndex + query.length) ], limit, surroundingContext })
+    }
 
     if (surroundingContext) {
       return (

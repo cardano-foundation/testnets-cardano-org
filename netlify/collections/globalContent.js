@@ -46,6 +46,16 @@ export default {
           widget: 'string'
         },
         {
+          name: 'previous',
+          label: 'Previous label',
+          widget: 'string'
+        },
+        {
+          name: 'next',
+          label: 'Next label',
+          widget: 'string'
+        },
+        {
           name: 'search_form_aria_label',
           label: 'Search form aria label',
           widget: 'string'
