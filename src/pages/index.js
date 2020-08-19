@@ -6,12 +6,11 @@ import Link from '@input-output-hk/front-end-core-components/components/Link'
 import Layout from '../components/Layout'
 import Container from '../components/Container'
 import IndexPageQuery from '../queries/IndexPageQuery'
-import TestnetBackground from '../../resources/images/logo.svg'
+import TestnetBackground from '../../resources/images/cardano-testnet-header-hyperspace.png'
 import { TinyColor } from '@ctrl/tinycolor'
 
 const HeroContainer = styled(Container)`
   position: relative;
-  
 `
 
 const Hero = styled.div`
@@ -22,18 +21,17 @@ const Hero = styled.div`
 
 const HeroBackground = styled.div`
   background: url(${TestnetBackground});
-  background-size: 60rem;
-  background-position: 80% 30%;
+  background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
   overflow: hidden;
   top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: -10rem;
   @media(max-width:767px){
-    background-size: 40rem;
-    background-position: 150% 30%;
+    background-size: contain;
+    right:0;
   }
 `
 
@@ -104,6 +102,10 @@ const AvailableTestnets = styled.div`
   }
 `
 
+const AvailableTestnetsWrap = styled(Container)`
+  background: ${({ theme }) => theme.palette.grey[50]};
+`
+
 const TechnicalSupportContainer = styled.div`
   background-color: ${({ theme }) => new TinyColor(theme.palette.background.default).lighten(4).toString()};
 `
@@ -143,7 +145,7 @@ export default () => (
             </HeroContent>
           </HeroContainer>
         </Hero>
-        <Container>
+        <AvailableTestnetsWrap>
           <AvailableTestnets>
             <h4>{content.available_testnets}</h4>
             <ul>
@@ -178,7 +180,7 @@ export default () => (
               </Link>
             </div>
           </AvailableTestnets>
-        </Container>
+        </AvailableTestnetsWrap>
         <TechnicalSupportContainer>
           <Container>
             <TechnicalSupport>
