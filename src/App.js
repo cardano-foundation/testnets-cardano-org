@@ -186,7 +186,6 @@ const App = ({ element }) => {
                               <Styles theme={originalTheme.config} />
                               <Style />
                               <Header />
-                              {console.log(theme)}
                               <Router>
                                 {getRoutes(lang)}
                                 <DefaultRoute default element={element} />
