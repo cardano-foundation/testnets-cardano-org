@@ -18,7 +18,9 @@ function getContext (article) {
 module.exports = ({ createPage }) => {
   const articleTemplate = path.join(__dirname, '../../../src/templates/Article.js')
   function createChildPages (lang, articles, { context = null } = {}) {
-    articles.forEach((article) => {
+    articles.forEach((article, i) => {
+      const next = i === articles.length - 1 ? null : articles[i + 1]
+      const previous = i === 0 ? null : articles[i - 1]
       const navigationContext = context || cleanNavigationContext(getContext(article))
       if (article.content) {
         createPage({
@@ -30,7 +32,10 @@ module.exports = ({ createPage }) => {
             content: article.content,
             lastUpdatedFormatted: article.lastUpdatedFormatted,
             lastUpdated: article.lastUpdated,
-            lang
+            lang,
+            previous,
+            next,
+            hasNoChildContent: article.hasNoChildContent
           }
         })
       }

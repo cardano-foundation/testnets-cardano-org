@@ -21,7 +21,7 @@ import config from '../config'
 const Bar = styled(AppBar)`
   background-color: ${({ theme }) => new TinyColor(theme.palette.background.default).lighten(5).toString()};
   color: ${({ theme }) => theme.palette.text.primary};
-
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.05), 0px 4px 5px 0px rgba(0,0,0,0.05), 0px 1px 10px 0px rgba(0,0,0,0.05);
   a,
   a:hover {
     color: ${({ theme }) => theme.palette.text.primary};
@@ -68,7 +68,7 @@ const Column = styled(Box)`
 
 const Logo = styled(Column)`
   img {
-    width: 4rem;
+    width: 2.5rem;
     max-height: 4rem;
   }
 
@@ -485,7 +485,7 @@ export default () => {
                     </Column>
                   }
                   <MobileSearchIconContainer>
-                    <Link
+                    <a
                       href='#'
                       tracking={{ label: 'header_toggle_mobile_search_bar' }}
                       onClick={toggleMobileSearchBar}
@@ -494,10 +494,10 @@ export default () => {
                       aria-label={mobileSearchBarOpen ? content.close_search_bar : content.open_search_bar}
                     >
                       <MdSearch />
-                    </Link>
+                    </a>
                   </MobileSearchIconContainer>
                   <MobileNavContainer marginLeft={1}>
-                    <Link
+                    <a
                       href='#'
                       tracking={{ label: 'header_toggle_mobile_menu' }}
                       onClick={toggleMobileMenu}
@@ -507,7 +507,7 @@ export default () => {
                     >
                       {mobileMenuOpen && <MdClose />}
                       {!mobileMenuOpen && <MdMenu />}
-                    </Link>
+                    </a>
                   </MobileNavContainer>
                 </Box>
               </Box>

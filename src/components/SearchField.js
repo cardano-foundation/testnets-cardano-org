@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FiSearch } from 'react-icons/fi'
 import { navigate } from 'gatsby'
+import TinyColor from '@ctrl/tinycolor'
 import Language from '@input-output-hk/front-end-core-components/components/Language'
 import { analytics } from '@input-output-hk/front-end-core-libraries'
 import Search from '../state/Search'
@@ -15,7 +16,7 @@ const Form = styled.form`
 
 const Input = styled.input`
   width: 80%;
-  border: 0.1rem solid ${({ theme }) => theme.palette.text.primary}};
+  border: 0.1rem solid ${({ theme }) => new TinyColor(theme.palette.text.primary).lighten(70).toString()};
   background: transparent;
   height: 3.8rem;
   padding: 0 2rem;
@@ -42,7 +43,7 @@ const Submit = styled.button`
   width: 20%;
   vertical-align: middle;
   height: 3.8rem;
-  border: 0.1rem solid ${({ theme }) => theme.palette.text.primary};
+  border: 0.1rem solid ${({ theme }) => new TinyColor(theme.palette.text.primary).lighten(70).toString()};
   border-left: 0;
   background-color: transparent;
   opacity: ${({ disabled }) => disabled ? 0.4 : 1};

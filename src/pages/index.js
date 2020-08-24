@@ -6,7 +6,7 @@ import Link from '@input-output-hk/front-end-core-components/components/Link'
 import Layout from '../components/Layout'
 import Container from '../components/Container'
 import IndexPageQuery from '../queries/IndexPageQuery'
-import ShelleyBackground from '../../resources/images/shelley-background.jpg'
+import TestnetBackground from '../../resources/images/cardano-testnet-header-hyperspace.png'
 import { TinyColor } from '@ctrl/tinycolor'
 
 const HeroContainer = styled(Container)`
@@ -14,26 +14,24 @@ const HeroContainer = styled(Container)`
 `
 
 const Hero = styled.div`
-  background-image: url(${ShelleyBackground});
-  background-size: cover;
-  background-repeat: no-repeat;
+  overflow:hidden;
+  background:linear-gradient(90deg, rgba(0,51,173,1) 0%, rgba(51,92,190,1) 100%);
   position: relative;
 `
 
 const HeroBackground = styled.div`
+  background: url(${TestnetBackground});
+  background-size: cover;
+  background-repeat: no-repeat;
   position: absolute;
   overflow: hidden;
-  opacity: 0.7;
   top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
-
-  svg {
-    width: 100%;
-    max-width: 120rem;
-    min-width: 105rem;
-    fill: ${({ theme }) => theme.palette.background.default};
+  right: -10rem;
+  @media(max-width:767px){
+    background-size: contain;
+    right:0;
   }
 `
 
@@ -41,6 +39,12 @@ const HeroContent = styled.div`
   max-width: 60rem;
   position: relative;
   padding: 8rem 0 12rem;
+  h1, p {
+    color: ${({ theme }) => theme.palette.primary.contrastText};
+  }
+  a span {
+    color: ${({ theme }) => theme.palette.primary.main};
+  }
 `
 
 const HeroCTA = styled.div`
@@ -98,6 +102,10 @@ const AvailableTestnets = styled.div`
   }
 `
 
+const AvailableTestnetsWrap = styled(Container)`
+  background: ${({ theme }) => theme.palette.grey[50]};
+`
+
 const TechnicalSupportContainer = styled.div`
   background-color: ${({ theme }) => new TinyColor(theme.palette.background.default).lighten(4).toString()};
 `
@@ -120,16 +128,12 @@ export default () => (
       <Layout>
         <Hero>
           <HeroContainer>
-            <HeroBackground>
-              <svg viewBox='0,0,100,100'>
-                <polygon points='0,0 0,100 100,0' />
-              </svg>
-            </HeroBackground>
+            <HeroBackground />
             <HeroContent>
               <Markdown source={content.hero_content} />
               <HeroCTA>
                 <Button
-                  color='primary'
+                  color='default'
                   variant='contained'
                   component={Link}
                   href={content.hero_cta_href}
@@ -141,13 +145,13 @@ export default () => (
             </HeroContent>
           </HeroContainer>
         </Hero>
-        <Container>
+        <AvailableTestnetsWrap>
           <AvailableTestnets>
             <h4>{content.available_testnets}</h4>
             <ul>
               <li>
                 <Link href='/cardano/overview/' tracking={{ category: 'home_page', label: 'shelley_haskell_cta' }}>
-                  <img src='/images/cardano-icon-white.png' alt='Shelley' />
+                  <img src='https://ucarecdn.com/d0a80719-c769-477d-94d9-c5fe9ca53597/' alt='Shelley' />
                   <span>Cardano</span>
                 </Link>
               </li>
@@ -165,7 +169,7 @@ export default () => (
               </li>
               <li>
                 <Link href='/marlowe/overview/' tracking={{ category: 'home_page', label: 'marlowe_cta' }}>
-                  <img src='/images/marlowe.png' alt='Marlowe' />
+                  <img src='/images/marlowe.svg' alt='Marlowe' />
                   <span>Marlowe</span>
                 </Link>
               </li>
@@ -176,7 +180,7 @@ export default () => (
               </Link>
             </div>
           </AvailableTestnets>
-        </Container>
+        </AvailableTestnetsWrap>
         <TechnicalSupportContainer>
           <Container>
             <TechnicalSupport>

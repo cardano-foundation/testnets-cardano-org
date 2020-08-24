@@ -30,6 +30,11 @@ const PageContent = styled.div`
 `
 
 const SideNavigationContainer = styled(Box)`
+  * {
+    font-size: 1.6rem;
+  }
+  position: relative;
+  z-index:0;
   padding: 2rem 0;
   flex-basis: 20%;
   border-right: 0.1rem solid ${({ theme }) => new TinyColor(theme.palette.text.primary).setAlpha(0.2).toString()};
@@ -77,6 +82,17 @@ const SideNavigationContainer = styled(Box)`
     &.position-bottom {
       display: none;
     }
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    z-index:-1;
+    top:0;
+    left:-25vw;
+    width:calc(100% + 25vw);
+    height:100%;
+    background: ${({ theme }) => theme.palette.primary.main};
+    opacity:0.05;
   }
 `
 
@@ -219,7 +235,7 @@ const MobileInlineNavigation = styled.div`
   }
 `
 
-const ReportAnIssueLink = styled(Link)`
+const ReportAnIssueLink = styled.a`
   display: flex;
 `
 
@@ -229,7 +245,7 @@ const LastUpdated = styled.div`
   }
 `
 
-const ExternalLink = styled(Link)`
+const ExternalLink = styled.a`
   display: inline-block;
 `
 
@@ -534,7 +550,7 @@ const Article = ({ pageContext }) => {
                             autoScroll={false}
                           />
                         </div>
-                        <Link
+                        <a
                           href='#'
                           aria-hidden='true'
                           tracking={{ label: 'toggle_mobile_article_navigation_top' }}
@@ -545,7 +561,7 @@ const Article = ({ pageContext }) => {
                         >
                           {mobileTopNavigationOpen && <FaChevronUp />}
                           {!mobileTopNavigationOpen && <FaEllipsisH />}
-                        </Link>
+                        </a>
                       </MobileInlineNavigation>
                     }
                     <MarkdownContent>
@@ -553,6 +569,18 @@ const Article = ({ pageContext }) => {
                     </MarkdownContent>
                     <MarkdownContent>
                       {renderDownloaders(location)}
+                    </MarkdownContent>
+                    <MarkdownContent>
+                      {!pageContext.hasNoChildContent && (pageContext.previous || pageContext.next) &&
+                        <Box display='flex' flexDirection='row' justifyContent='space-between' width='100%'>
+                          {pageContext.previous &&
+                            <Link href={pageContext.previous.path} title={pageContext.previous.title}>&larr; {content.previous}</Link>
+                          }
+                          {pageContext.next &&
+                            <Link href={pageContext.next.path} title={pageContext.next.title}>{content.next} &rarr;</Link>
+                          }
+                        </Box>
+                      }
                     </MarkdownContent>
                     <Box marginTop={2} marginBottom={2}>
                       {pageContext.lastUpdatedFormatted &&
@@ -588,7 +616,7 @@ const Article = ({ pageContext }) => {
                             autoScroll={false}
                           />
                         </div>
-                        <Link
+                        <a
                           href='#'
                           aria-hidden='true'
                           tracking={{ label: 'toggle_mobile_article_navigation_bottom' }}
@@ -599,7 +627,7 @@ const Article = ({ pageContext }) => {
                         >
                           {mobileBottomNavigationOpen && <FaChevronUp />}
                           {!mobileBottomNavigationOpen && <FaEllipsisH />}
-                        </Link>
+                        </a>
                       </MobileInlineNavigation>
                     }
                   </MainContent>
@@ -624,7 +652,10 @@ Article.propTypes = {
     content: PropTypes.string.isRequired,
     navigationContext: PropTypes.object.isRequired,
     lastUpdatedFormatted: PropTypes.string,
-    lang: PropTypes.string.isRequired
+    previous: PropTypes.object,
+    next: PropTypes.object,
+    lang: PropTypes.string.isRequired,
+    hasNoChildContent: PropTypes.bool
   }).isRequired
 }
 
