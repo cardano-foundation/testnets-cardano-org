@@ -5,6 +5,7 @@ import ITNFaucet from './ITNFaucet'
 import KEVMFaucet from './KEVMFaucet'
 import OtherAvailableTestnets from './OtherAvailableTestnets'
 import ShelleyHaskellFaucet from './ShelleyHaskellFaucet'
+import FaucetSelector from './FaucetSelector'
 import ShelleyHaskellStakingCalculator from './ShelleyHaskellStakingCalculator'
 
 export default {
@@ -13,6 +14,7 @@ export default {
   IELEFaucet,
   ITNFaucet,
   KEVMFaucet,
+  FaucetSelector,
   OtherAvailableTestnets,
   ShelleyHaskellFaucet,
   ShelleyHaskellStakingCalculator

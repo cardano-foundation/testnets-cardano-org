@@ -173,6 +173,12 @@ export default () => (
                   <span>Marlowe</span>
                 </Link>
               </li>
+              <li>
+                <Link href='/native-tokens/overview/' tracking={{ category: 'home_page', label: 'native-token_cta' }}>
+                  <img src='/images/native-token.svg' alt='Native Tokens' />
+                  <span style={{ lineHeight: 1 }}>Native Tokens</span>
+                </Link>
+              </li>
             </ul>
             <div>
               <Link href='/more/'>
