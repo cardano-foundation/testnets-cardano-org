@@ -54,7 +54,7 @@ const HeroCTA = styled.div`
 
 const AvailableTestnets = styled.div`
   display: block;
-  max-width: 100rem;
+  max-width: 120rem;
   margin: 0 auto;
   text-transform: uppercase;
   padding: 4rem 0;
@@ -73,7 +73,7 @@ const AvailableTestnets = styled.div`
       flex: 1;
       padding: 2rem;
       display: inline-block;
-      width: 20%;
+      width: 16%;
       min-width: 20rem;
       flex-direction: column;
       justify-content: flex-end;
@@ -151,14 +151,26 @@ export default () => (
             <ul>
               <li>
                 <Link href='/cardano/overview/' tracking={{ category: 'home_page', label: 'shelley_haskell_cta' }}>
-                  <img src='https://ucarecdn.com/d0a80719-c769-477d-94d9-c5fe9ca53597/' alt='Shelley' />
+                  <img src='https://ucarecdn.com/d0a80719-c769-477d-94d9-c5fe9ca53597/' alt='Cardano' />
                   <span>Cardano</span>
                 </Link>
               </li>
               <li>
                 <Link href='/itn/overview/' tracking={{ category: 'home_page', label: 'itn_cta' }}>
-                  <img src='/images/cardano-icon-red.svg' alt='Shelley' />
+                  <img src='/images/cardano-icon-red.svg' alt='ITN' />
                   <span>ITN</span>
+                </Link>
+              </li>
+              <li>
+                <Link href='/kevm/overview/' tracking={{ category: 'home_page', label: 'kevm_cta' }}>
+                  <img src='/images/kevm.svg' alt='KEVM' />
+                  <span>KEVM</span>
+                </Link>
+              </li>
+              <li>
+                <Link href='/iele/overview/' tracking={{ category: 'home_page', label: 'iele_cta' }}>
+                  <img src='/images/iele.svg' alt='IELE' />
+                  <span>IELE</span>
                 </Link>
               </li>
               <li>
@@ -174,11 +186,6 @@ export default () => (
                 </Link>
               </li>
             </ul>
-            <div>
-              <Link href='/more/'>
-                {content.more_label}
-              </Link>
-            </div>
           </AvailableTestnets>
         </AvailableTestnetsWrap>
         <TechnicalSupportContainer>
