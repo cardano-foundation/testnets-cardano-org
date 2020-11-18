@@ -10,7 +10,7 @@ content:
     The Cardano testnet offers full Shelley functionality, including stake pools, stake delegation, and decentralization. It also integrates early Goguen functionality (e.g. transaction metadata) to enable a new era of utility, Dapps and smart contracts on Cardano. The testnet is open to any stake pool operator, developer or commercial partner who wishes to join us building the future.
 
   hero_cta_label: Find out more
-  hero_cta_href: /2020-11-18_11_12-00-00_testnets/cardano/overview/
+  hero_cta_href: /testnets/cardano/overview/
   available_testnets: Available testnets
   tecnhical_support_content: |
     #### Need technical support?
