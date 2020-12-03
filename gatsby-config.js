@@ -12,8 +12,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'IOHK Gatsby Starter Documentation',
-        short_name: 'IOHK Docs Starter',
+        name: 'Cardano Developers',
+        short_name: 'Cardano Devs',
         start_url: '/',
         icon: 'resources/images/manifest-icon.png',
         background_color: '#121326',
