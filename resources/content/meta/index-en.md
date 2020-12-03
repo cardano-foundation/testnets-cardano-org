@@ -1,6 +1,6 @@
 ---
 title: en (English) site content
 head:
-  title: Cardano Testnets
+  title: Cardano Developers
   meta: []
 ---
