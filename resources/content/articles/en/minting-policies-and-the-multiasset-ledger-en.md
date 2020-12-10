@@ -37,7 +37,7 @@ A minting policy is the set of rules that govern the minting and burning of asse
 
 Minting policies are defined by the users who want to create a new asset. For example, a user might wish to only allow themselves to mint any more of a certain kind of token. This would be specified in the policy.
 
-Minting rules can be expressed :
+Minting rules can be expressed:
 
 As very basic set of rules that is made up of (ANDs and ORs of):
 1.  A specification of what signatures are needed to allow the mint (i.e., a multisig specification, where no code is needed).
