@@ -8,14 +8,12 @@ last_updated: "2020-12-10T09:00:00+01:00"
 
 ## Minting policies and the multiasset ledger
 
-Single-Asset Ledger
-===================
+### Single-Asset Ledger
 
 Cryptocurrency ledgers that track exactly one type of asset are called
 single-asset ledgers.
 
-Multi-Asset (MA) Support
-========================
+### Multi-Asset (MA) Support
 
 A blockchain, ledger, or cryptocurrency is said to have multi-asset (MA)
 support when the network or ledger supports tracking transfer and
@@ -29,8 +27,7 @@ transactions, to accommodate transactions that simultaneously use a
 range of assets. These assets include ada and a variety of user-define
 custom token types.
 
-Native vs non-Native MA Support
-===============================
+## Native vs non-Native MA Support
 
 Some cryptocurrency ledgers have built-in support to track ownership and
 transfer of more than one type of asset. This type of MA support is
@@ -41,8 +38,7 @@ functionality, it is possible to track assets for which there is no
 ledger accounting support. This is done with a layer-2 solution built
 using smart contracts. This type of MA support is non-native.
 
-Principal Asset
-===============
+## Principal Asset
 
 Assets on Cardano are all native, however, there is a sense in which ada
 is a special kind of asset. It is the only asset that, at this time, is
@@ -52,11 +48,9 @@ type of asset) is due to the construction of the underlying consensus
 protocol. Because of this, on the Cardano platform, we refer to ada as
 the principal asset.
 
-Minting policy
-==============
+## Minting policy
 
-Overview
---------
+### Overview
 
 A minting policy is the set of rules that govern the minting and burning
 of assets scoped under that policy. The point of a minting policy is to
@@ -83,8 +77,7 @@ transaction is processed, by running the code or checking the relevant
 signatures. Transactions must adhere to all the minting policies of all
 assets that the transaction is attempting to mint.
 
-Important points about minting policies and assets scoped under them.
----------------------------------------------------------------------
+### Important points about minting policies and assets scoped under them.
 
 -   All assets necessarily have a minting policy. For example, the
     minting policy of ada is "new ada can never be minted".
@@ -109,8 +102,7 @@ Important points about minting policies and assets scoped under them.
     to buy CAD: the amount of CAD you can buy with a fixed amount of USD
     depends on the exchange rate of the place where you do the trade.
 
-Association between an asset and its minting policy
----------------------------------------------------
+### Association between an asset and its minting policy
 
 The association between an asset and its minting policy is permanent for
 safety reasons: this feature protects the users and the system from
@@ -131,8 +123,7 @@ laws set the policy", and this is a policy which requires looking up the
 current laws (which themselves could change), and only minting money in
 adherence to them.
 
-Minting policy examples
------------------------
+### Minting policy examples
 
 -   Single-issuer policy
 -   Time-locked mint policy
@@ -181,8 +172,7 @@ tokens for a specific concert, for example. The venue capacity is known
 ahead of time, so there'll be no need to ever allow more tickets to be
 minted.
 
-Minting transactions
---------------------
+## Minting transactions
 
 To introduce new quantities of new tokens on the ledger (minting) or to
 remove existing tokens (burning), each transaction features a mint
