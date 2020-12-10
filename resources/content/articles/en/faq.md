@@ -1,7 +1,7 @@
 ---
 title: FAQ
 description: Native tokens in Cardano
-parent: native-tokens.md
+parent: native-tokens
 order: 4
 last_updated: "2020-12-10T09:00:00+01:00"
 ---
