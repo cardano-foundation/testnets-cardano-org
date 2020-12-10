@@ -1,5 +1,5 @@
 ---
-title: Native tokens
+title: Minting Policies And The Multiasset Ledger
 description: Native tokens in Cardano
 parent: 2020-11-25_09-00-00_development-environments
 order: 2
