@@ -1,7 +1,7 @@
 ---
-title: Native tokens
+title: Glossary
 description: Native tokens in Cardano
-parent: native-tokens
+parent: native-tokens.md
 order: 5
 last_updated: "2020-12-10T09:00:00+01:00"
 ---
