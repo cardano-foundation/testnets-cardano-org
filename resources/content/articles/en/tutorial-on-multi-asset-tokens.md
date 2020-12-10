@@ -1,7 +1,7 @@
 ---
 title: Tutorial on Multi-Asset Tokens
 description: Native tokens in Cardano
-parent: native-tokens.md
+parent: native-tokens
 order: 3
 last_updated: "2020-12-10T12:31:00+01:00"
 ---
