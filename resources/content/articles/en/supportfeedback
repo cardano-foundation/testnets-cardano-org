@@ -1,0 +1,20 @@
+---
+title: Glossary
+description: Native tokens in Cardano
+parent: native-tokens
+order: 5
+last_updated: "2020-12-10T09:00:00+01:00"
+---
+
+Thanks for your interest in building native tokens on Cardano. To help you get started we have compiled a handy list of resources:
+
+* [Cardano Forum discussion forum](https://forum.cardano.org/c/developers/cardano-tokens/150)
+* [GitHub repository](https://github.com/input-output-hk/cardano-node)
+
+Please note that over the holiday period, technical support for the pre-production environment and token builder tool will be extremely limited.
+
+Support is unavailable between the dates of 23rd - 27th December and 31 December - 3rd January inclusive.
+
+Outside these hours, our technical and community teams will be periodically checking in on the [GitHub repo] (https://github.com/input-output-hk/cardano-node) and dedicated [Cardano Forum discussion forum] (https://forum.cardano.org/c/developers/cardano-tokens/150), to expedite any urgent queries or requests.
+
+We encourage you to draw on community feedback and support as much as possible.
