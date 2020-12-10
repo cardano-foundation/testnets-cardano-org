@@ -113,12 +113,15 @@ last_updated: "2020-12-10T09:00:00+01:00"
 > market state, or self-governed entity. A token can be fungible or
 > non-fungible, and act as a payment unit, reward, trading asset, or
 > information holder.
+
 **Tokenization**
 
 > The process of representing real-world assets with digital tokens.
+
 **Token minting**
 
 > The process of creating new tokens.
+
 **Utility token**
 
 > A digital token that holds certain functionality in regards to a
