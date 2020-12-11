@@ -12,6 +12,7 @@ last_updated: "2020-12-10T09:00:00+01:00"
 
 
 **Q. What's the definition of 'multi-asset (MA)' support and does Cardano have it?**
+
 A. Multi-asset (MA) support is the name of a feature set (functionality)
 that a ledger (blockchain/wallet/cryptocurrency/banking platform) can
 provide, which allows it to do accounting on or transact with more than
@@ -24,7 +25,8 @@ support is native, which means that tokens can be transacted with
 the ledger functionality of the cryptocurrency, without the need for
 smart contracts to enable this functionality.
 
-**Q. What is (asset) tokenization? 
+**Q. What is (asset) tokenization?**
+
 A. Tokenizing an asset means creating an on-chain representation of that
 asset.
 
@@ -32,6 +34,7 @@ asset.
 
 
 **Q. What does 'minting' a token mean?**
+
 A.'Minting' refers to the process whereby new tokens are created or
 destroyed. That is, the total amount in circulation (ie. added up over
 all addresses on the ledger) of the token type being minted increases or
@@ -39,10 +42,12 @@ decreases. Minting a positive quantity of tokens is token creation, and
 minting a negative quantity is token destruction.
 
 **Q. What does 'burning' a token mean?**
+
 A.'Burning' refers to the process whereby tokens are destroyed. It is
 synonymous with 'negative minting'.
 
 **Q. What is token redeeming?** 
+
 A. Token redeeming is the action of sending tokens back to the issuer to be
 burned. This is usually done when the tokens being redeemed no longer
 have a purpose on the ledger, and the user or contract in possession of
@@ -55,6 +60,7 @@ may choose to do so anyway to avoid having unusable tokens in their
 wallet.
 
 **Q. What is a minting transaction?**
+
 A. Transactions have different structure in the Shelley, ShelleyMA, and
 Goguen eras, but this structure is the same within a single er The
 Shelley+MA and Goguen transactions can carry data that specifies what
@@ -78,6 +84,7 @@ transaction might simultaneously mint some tokens and burn some other
 ones.
 
 **Q. What is a minting policy?**
+
 A. A minting policy is a set of rules used to regulate the minting of
 assets associated with it (scoped under it). For example, who has
 control (and under what conditions) over the supply of the currency, and
@@ -95,6 +102,7 @@ signatures. Transaction data must satisfy all the minting policies of
 all assets the transaction is attempting to mint.
 
 **Q. What is a token builder and what is its functionality?**
+
 A. A token builder is a piece of software that allows the user to define
 the tokens to be minted and include them in a minting transaction. It
 also ensures that the appropriate additional data needed to verify that
@@ -104,6 +112,7 @@ transaction (see minting policy question below).
 ### Policy examples and ways to define policies
 
 **Q. What is 'multisig' and how is it related to minting policies?**
+
 A. The multisig scripting language (which existed prior to the introduction
 of MA functionality on Cardano) specifies some minimal set of signatures
 required to allow a transaction to perform a certain action, usually to
@@ -121,6 +130,7 @@ language extensions, multisig is the only way to specify a minting
 policy.
 
 **Q. What do Plutus smart contracts have to do with native tokens?**
+
 A. Minting policies can be written in the Plutus smart contract language.
 This allows users to express a much wider range of policies than just
 the single issuer policy expressible using multisig. The one-time
@@ -128,6 +138,7 @@ minting policy, for example, can be expressed in Plutus (but not just as
 multisig).
 
 **Q. What is a single-issuer minting policy?**
+
 A. A single-issuer minting policy specifies that only the entity holding a
 particular set of keys is allowed to mint tokens under a particular
 policy. For example, the set of keys specified in the minting policy
@@ -141,6 +152,7 @@ policy proves that all the existing cards scoped under this policy have
 been legitimately minted by the baseball card company.
 
 **Q. What is a one-time minting policy?**
+
 A. In a one-time minting policy, the complete set of tokens scoped under it
 is minted by one specific transaction. This means that no more tokens
 will ever be minted under that policy. This type of policy does require
@@ -153,6 +165,7 @@ there'll be no need to ever allow more tickets to be minted.
 ### Multi-asset structure, representation and properties
 
 **Q. What is fungibility and non-fungibility?**
+
 A. Fungibility is a relation between two assets/tokens. Tokens are said to
 be fungible with each other when they are interchangeable. For example,
 fiat money is fungible as a $10 bill is interchangeable with all other
@@ -173,6 +186,7 @@ For more detail, see the token bundle section.
 ### Transacting with native tokens
 
 **Q. How do native tokens appear in a user's wallet?** 
+
 A. Prior to the introduction of MA functionality into the Cardano system, a
 user's wallet contains both outputs with addresses that belong to the
 user, and the amounts of ada that these addresses hold. For example,
@@ -195,6 +209,7 @@ In this example, there are three policies: `adaPolicy`, `cryptoDoggie`,
 and `cryptoBirds`.
 
 **Q. Do native tokens have human-readable identifiers and other metadata?**
+
 A. Human-readable names for assets (instead of the long alphanumeric Policy
 ID strings and asset names) can be registered on a metadata server. If a
 user is using a wallet integrated with a metadata server, they will be
@@ -212,6 +227,7 @@ the metadata field of the transaction. This will increase transaction
 fees proportionally to the size of the additional metadata.
 
 **Q. What are the costs related to minting and trading native tokens?**
+
 A. Costs related to multi assets can be divided into two categories:
 
 **Fees**: Sending and minting tokens affects the fees that the author of
@@ -281,14 +297,17 @@ of `(CryptoDoggiesPolicy, poodle, 4)` in a new output made by the consolidating 
 total, more ada to cover the min-ada-value, as ada is needed in the additional outputs.
 
 **Q. What types of assets can I use to cover costs associated with native tokens?**
+
 A. Currently, only ada can be used to make fee payments or deposits.
 
 **Q. How does coin selection work for custom native tokens?**
+
 A. From the users' perspective, it is similar to ada coin selection, i.e.,
 the user selects the tokens and the quantities that they wish to spend,
 and the wallet picks appropriate inputs and covers fees.
 
 **Q. Is it possible to send tokens to an address?**
+
 A. Yes, sending native tokens to an address is done in the same way as
 sending ada to an address, i.e., by submitting a transaction with
 outputs containing the token bundles the transaction author wishes to
@@ -327,12 +346,14 @@ in someone else's wallet, even if the minting policy would specifically
 allow this.
 
 **Q. Is there a Distributed Exchange (DEX) for Cardano native tokens?**
+
 A. No. The Cardano ledger does not itself support DEX functionality.
 However, when smart contract functionality is available, one can post
 non-ada assets for exchange or sale on the ledger using a smart
 contract.
 
 **Q. Is there an asset registry for Cardano native tokens?**
+
 A. No. The implementation of the Native Tokens feature on Cardano does not
 require an asset registry. However, the metadata server (see "Do assets
 have human-readable identifiers and other metadata?") can be used to
