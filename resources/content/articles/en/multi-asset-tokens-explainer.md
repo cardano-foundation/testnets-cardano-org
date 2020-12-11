@@ -253,6 +253,10 @@ The multi-asset token lifecycle consists of five main phases:
 4. redeeming
 5. burning
 
+The following diagram outlines the interaction between the system components:
+
+![Multi-asset](multiassetdiagram.png)
+
 Each of these logical phases involves transactions on the Cardano blockchain, which may incur fees in ada. The main groups of actors are:
 
 - **Asset controllers**, who define the policy for the asset class, and *authorise* token issuers to mint/burn tokens. They may also retain co-signing rights for any tokens that are issued/burnt.
