@@ -177,19 +177,19 @@ Adherence to minting policies is checked by the node at the time a transaction i
 
 ### Important points about minting policies and assets scoped under them
 
-*All assets necessarily have a minting policy. For example, the minting policy of ada is "new ada can never be minted".
+* All assets necessarily have a minting policy. For example, the minting policy of ada is "new ada can never be minted".
 
-*A token is associated with (i.e., scoped under) exactly one minting policy.
+* A token is associated with (i.e., scoped under) exactly one minting policy.
 
-*A single policy specifies both minting and burning conditions of tokens scoped under it. Adherence to it is checked both at the time of minting as well as burning.
+* A single policy specifies both minting and burning conditions of tokens scoped under it. Adherence to it is checked both at the time of minting as well as burning.
 
-*An asset cannot ever change its associated minting policy. This association is permanent. In other words, existing tokens cannot be associated with a new policy. Users can, however, buy back and burn all existing tokens and mint new ones, with a new minting policy. Note that this is a feature, not a bug!
+* An asset cannot ever change its associated minting policy. This association is permanent. In other words, existing tokens cannot be associated with a new policy. Users can, however, buy back and burn all existing tokens and mint new ones, with a new minting policy. Note that this is a feature, not a bug!
 
-*If an existing asset on the ledger is scoped under a particular policy, it is guaranteed that it was originally minted according to that policy.
+* If an existing asset on the ledger is scoped under a particular policy, it is guaranteed that it was originally minted according to that policy.
 
-*Unless tokens of a given policy are being minted in a transaction, the actual policy is irrelevant. It is just used as an identifier of the asset.
+* Unless tokens of a given policy are being minted in a transaction, the actual policy is irrelevant. It is just used as an identifier of the asset.
 
-*Assets associated with different minting policies are never fungible with one another. They can be traded in the same way one may use USD to buy CAD: the amount of CAD you can buy with a fixed amount of USD depends on the exchange rate of the place where you do the trade.
+* Assets associated with different minting policies are never fungible with one another. They can be traded in the same way one may use USD to buy CAD: the amount of CAD you can buy with a fixed amount of USD depends on the exchange rate of the place where you do the trade.
 
 ### Association between an asset and its minting policy
 
