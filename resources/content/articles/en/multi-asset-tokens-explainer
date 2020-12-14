@@ -162,15 +162,15 @@ Another advantage of native tokens over ERC20 is security. ERC20 tokens have pro
 
 **Overview**
 
-A minting policy is the set of rules that govern the minting and burning of assets scoped under that policy. The point of a minting policy is to specify the conditions under which tokens are minted (or burned). For example, the rules might specify who has control over the asset supply through minting and burning, for example.
+A minting policy is the set of rules that govern the minting and burning of assets scoped under that policy. The point of a minting policy is to specify the conditions under which tokens are minted (or burned). For example, the rules might specify who has control over the asset supply through minting and burning.
 
 Minting policies are defined by the users who want to create a new asset. For example, a user might wish to only allow themselves to mint any more of a certain kind of token. This would be specified in the policy.
 
 Minting rules can be expressed:
 
 As very basic set of rules that is made up of (ANDs and ORs of):
-1.  A specification of what signatures are needed to allow the mint (i.e., a multisig specification, where no code is needed).
-2.  A specification of during what slot the script can be spent from (i.e., after slot 15 and before slot 20)
+1.  A specification of what signatures are needed to allow the mint (e.g., a multisig specification, where no code is needed).
+2.  A specification of during what slot the script can be spent from (e.g., after slot 15 and before slot 20)
 With a Plutus Core script.
 
 Adherence to minting policies is checked by the node at the time a transaction is processed, by running the code or checking the relevant signatures. Transactions must adhere to all the minting policies of all assets that the transaction is attempting to mint.
@@ -178,7 +178,7 @@ Adherence to minting policies is checked by the node at the time a transaction i
 ### Important points about minting policies and assets scoped under them
 
 * All assets necessarily have a minting policy. For example, the minting policy of ada is "new ada can never be minted".
-* A token is associated with (i.e., scoped under) exactly one minting policy.
+* A token is associated with (e.g., scoped under) exactly one minting policy.
 * A single policy specifies both minting and burning conditions of tokens scoped under it. Adherence to it is checked both at the time of minting as well as burning.
 * An asset cannot ever change its associated minting policy. This association is permanent. In other words, existing tokens cannot be associated with a new policy. Users can, however, buy back and burn all existing tokens and mint new ones, with a new minting policy. Note that this is a feature, not a bug!
 * If an existing asset on the ledger is scoped under a particular policy, it is guaranteed that it was originally minted according to that policy.
@@ -216,7 +216,7 @@ This type of policy can be used to specify when tokens can be spent from an addr
 - only in or after a specified time slot
 - only before a specified time slot
 
-This type of policy is usually not used by itself. Usually, it is in conjunction with the multisignature or single issuer policy, eg This output can be spent after slot s and only by a transaction signed by key k.
+This type of policy is usually not used by itself. Usually, it is in conjunction with the multisignature or single issuer policy, e.g. This output can be spent after slot *s* and only by a transaction signed by key *k*.
 
 This type of policy can be implemented without Plutus smart contracts.
 
