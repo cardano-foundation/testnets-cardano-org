@@ -16,6 +16,6 @@ Your feedback is important because it helps us improve Cardano and the testnet. 
 
 You can reach the developers of Cardano directly at the Telegram website. Just join the [@CardanoDevelopersOfficial](https://t.me/CardanoDevelopersOfficial) channel.
 
-### Hoe to get technical support
+### How to get technical support
 
 To contact IOHK Technical Support, please submit a request using the [Submit a request form](https://iohk.zendesk.com/hc/en-us/requests/new). You can also click on the Support button at the bottom right of your screen. The request form is better if you have a lot to write.
