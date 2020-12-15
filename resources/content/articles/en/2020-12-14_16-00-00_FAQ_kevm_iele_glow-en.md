@@ -4,6 +4,7 @@ description: Frequently asked questions on KEVM, IELE and Glow
 order: 4
 external_href: ""
 parent: "2020-05-04_07-00-00_virtual-machines"
+last_updated: "2020-12-15T11:30:00+01:00"
 ---
 
 # FAQ for KEVM, IELE, and GLOW

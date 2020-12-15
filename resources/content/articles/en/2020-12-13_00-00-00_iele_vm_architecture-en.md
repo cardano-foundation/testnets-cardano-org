@@ -4,6 +4,7 @@ description: How does the different components interact in KEVM and IELE
 order: 6
 parent: 2020-05-04_11-00-00_getting-started
 external_href: ""
+last_updated: "2020-12-15T11:30:00+01:00"
 ---
 
 ## Smart Contracts Architecture with KEVM and IELE
