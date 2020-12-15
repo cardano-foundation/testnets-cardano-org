@@ -3,14 +3,14 @@ title: Advantages of using IELE
 description: IELE about
 parent: 2020-05-04_10-00-00_about
 order: 3
-last_updated: "2020-05-01T09:00:00+01:00"
+last_updated: "2020-12-15T09:00:00+01:00"
 redirects:
   - from: /en/iele/about/advantages-of-using-iele/
     type: "301"
 ---
 ## Advantages of using IELE
 
-In the Goguen phase of the Cardano project, the Ethereum virtual machine (EVM) has been replaced by IELE. IELE is the foundation of a strategy to make secure, reliable, and efficient smart contracts easier to write. Many of its benefits will only appear in later phases, but Solidity programmers get some of them now.
+IELE is the foundation of a strategy to make secure, reliable, and efficient smart contracts easier to write. Many of its benefits will only appear in later phases, but Solidity programmers get some of them now.
 
 ### No arithmetic for 'int' and 'uint' types.
 
@@ -22,7 +22,7 @@ Note: IELE treats integers with a specified length, like 'uint8', the same way E
 
 ### No stack overflow
 
-The EVM stores cheap transient data on its stack. The stack has room for only 1,024 256-bit values. That means stack overflow is something a programmer has to worry about. IELE's stack, like that of virtual machines for languages such as Java or Python, is limited only by available memory. So stack overflows hardly ever happen and almost certainly mean your program has a bug (probably infinite recursion). And, unless you have provided an unrealistically huge gas allowance, you'll run out of gas before the stack overflows. (That is, after all, the purpose of gas: to prevent runaway computation.)
+The EVM stores cheap transient data on its stack. The stack has room for only 1,024 256-bit values. That means stack overflow is something a programmer has to worry about. IELE's stack, like that of virtual machines for languages such as Java or Python, is limited only by available memory. So stack overflows hardly ever happen and almost certainly mean your program has a bug (probably infinite recursion). In addition, unless you have provided an unrealistically huge gas allowance, you'll run out of gas before the stack overflows. (That is, after all, the purpose of gas: to prevent runaway computation.)
 
 ### Contracts have been made easier to write and less error-prone
 
@@ -32,7 +32,7 @@ EVM's CALLDATA and DELEGATECALL instructions make security bugs too easy, so the
 
 Unlike the Ethereum Solidity compiler, the Cardano compiler doesn't allow inline bytecodes. Instead, the typical reasons people write inline code are handled by built-in functions. (More will be added if needed.)
 
-In EVM, it's possible to create a contract without calling its constructor. That is impossible in IELE.
+In the EVM, it's possible to create a contract without calling its constructor. That is impossible in IELE.
 
 ### IELE as a foundation for future benefits
 
@@ -50,7 +50,7 @@ You may have heard that formal verification is an 'ivory tower' and impractical 
 
 #### Multiple languages
 
-In this phase of Cardano, only Solidity compiles for IELE. More languages (eg, Plutus) will be supported in later phases. IELE was designed to make it easier to add a language than EVM allows.
+In this phase of Cardano, only Solidity compiles for IELE. More languages (for example, Plutus) will be supported in later phases. IELE was designed to make it easier to add a language than EVM allows.
 
 As you'd hope, a contract written in one language will be able to call a contract written in another. That means, for example, that Solidity code can be reused while you migrate to another language.
 
