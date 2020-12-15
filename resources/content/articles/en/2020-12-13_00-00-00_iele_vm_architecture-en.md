@@ -62,6 +62,8 @@ Zooming in once more, we can see in detail what is inside each component.
 
 How do these components look when a developer is working with them?
 
-In [this video](https://www.youtube.com/embed/Tp4Z0RbjSa8) [Lars Brünjes](mailto:lars.bruenjes@iohk.io), director of education at IOHK develops a smart contract using the Solidity to IELE compiler and the Mallet wallet.
+In this video[Lars Brünjes](mailto:lars.bruenjes@iohk.io), director of education at IOHK develops a smart contract using the Solidity to IELE compiler and the Mallet wallet.
+
+<!-- embed youtube/Tp4Z0RbjSa8 -->
 
 As we have seen, several software elements need to be in place to execute smart contracts. However, the basic interactions between a developer, user, and stake pool operator are very simple. 
