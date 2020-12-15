@@ -3,7 +3,7 @@ title: Skills and requirements
 description: IELE about
 parent: 2020-05-04_10-00-00_about
 order: 1
-last_updated: "2020-05-01T09:00:00+01:00"
+last_updated: "2020-12-15T09:00:00+01:00"
 redirects:
   - from: /en/iele/about/
     type: "301"
