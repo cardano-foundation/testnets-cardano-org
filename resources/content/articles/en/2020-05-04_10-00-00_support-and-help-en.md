@@ -10,12 +10,8 @@ redirects:
 ---
 ## Support and help
 
-Your feedback is important because it helps us improve Cardano and the testnet. We have an active [Telegram](https://t.me/CardanoDevelopersOfficial) communication channel and a technical support desk to help with the process.
+Thank you for your interest in using IELE. If you are interested in participating in this program, please fill out [our survey](https://input-output.typeform.com/to/OJsf0XcD) and we will be in touch soon!
 
-### Telegram channel: Cardano developers
+Note that over the holiday period, technical support will be extremely limited. Support will be unavailable between the dates of 23rd - 27th December and 31st December - 3rd January, both inclusive.
 
-You can reach the developers of Cardano directly at the Telegram website. Just join the [@CardanoDevelopersOfficial](https://t.me/CardanoDevelopersOfficial) channel.
-
-### How to get technical support
-
-To contact IOHK Technical Support, please submit a request using the [Submit a request form](https://iohk.zendesk.com/hc/en-us/requests/new). You can also click on the Support button at the bottom right of your screen. The request form is better if you have a lot to write.
+Outside these hours, our technical and community teams will occasionally check in to expedite any urgent queries or requests. We encourage you to draw on community feedback and support as much as possible.
