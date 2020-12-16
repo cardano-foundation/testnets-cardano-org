@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="662px" preserveAspectRatio="none" style="width:1196px;height:662px;" version="1.1" viewBox="0 0 1196 662" width="1196px" zoomAndPan="magnify"><defs/><g><text fill="#747FE4" font-family="Open Sans" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="376" x="406.75" y="28.708">Smart contract interactions (context level)</text><rect fill="#E1DABD" height="37.2813" style="stroke:#6631A0;stroke-width:1.0;" width="10" x="53.5" y="216.7969"/><rect fill="#ABC798" height="212.4063" style="stroke:#6631A0;stroke-width:1.0;" width="10" x="142.5" y="342.6406"/><rect fill="#028090" height="137.8438" style="stroke:#6631A0;stroke-width:1.0;" width="10" x="811.5" y="379.9219"/><line style="stroke:#6631A0;stroke-width:3.0;stroke-dasharray:5.0,5.0;" x1="58" x2="58" y1="126.2344" y2="573.0469"/><line style="stroke:#6631A0;stroke-width:3.0;stroke-dasharray:5.0,5.0;" x1="147" x2="147" y1="126.2344" y2="573.0469"/><line style="stroke:#6631A0;stroke-width:3.0;stroke-dasharray:5.0,5.0;" x1="588.5" x2="588.5" y1="126.2344" y2="573.0469"/><line style="stroke:#6631A0;stroke-width:3.0;stroke-dasharray:5.0,5.0;" x1="816" x2="816" y1="126.2344" y2="573.0469"/><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="101" x="5" y="121.5176">Developer</text><ellipse cx="58.5" cy="49.9531" fill="#747FE4" rx="8" ry="8" style="stroke:#6631A0;stroke-width:2.0;"/><path d="M58.5,57.9531 L58.5,84.9531 M45.5,65.9531 L71.5,65.9531 M58.5,84.9531 L45.5,99.9531 M58.5,84.9531 L71.5,99.9531 " fill="none" style="stroke:#6631A0;stroke-width:2.0;"/><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="101" x="5" y="590.6113">Developer</text><ellipse cx="58.5" cy="605.3281" fill="#747FE4" rx="8" ry="8" style="stroke:#6631A0;stroke-width:2.0;"/><path d="M58.5,613.3281 L58.5,640.3281 M45.5,621.3281 L71.5,621.3281 M58.5,640.3281 L45.5,655.3281 M58.5,640.3281 L71.5,655.3281 " fill="none" style="stroke:#6631A0;stroke-width:2.0;"/><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="45" x="122" y="121.5176">User</text><ellipse cx="147.5" cy="49.9531" fill="#747FE4" rx="8" ry="8" style="stroke:#6631A0;stroke-width:2.0;"/><path d="M147.5,57.9531 L147.5,84.9531 M134.5,65.9531 L160.5,65.9531 M147.5,84.9531 L134.5,99.9531 M147.5,84.9531 L160.5,99.9531 " fill="none" style="stroke:#6631A0;stroke-width:2.0;"/><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="45" x="122" y="590.6113">User</text><ellipse cx="147.5" cy="605.3281" fill="#747FE4" rx="8" ry="8" style="stroke:#6631A0;stroke-width:2.0;"/><path d="M147.5,613.3281 L147.5,640.3281 M134.5,621.3281 L160.5,621.3281 M147.5,640.3281 L134.5,655.3281 M147.5,640.3281 L160.5,655.3281 " fill="none" style="stroke:#6631A0;stroke-width:2.0;"/><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="110" x="530.5" y="121.5176">Blockchain</text><path d="M570.5,66.9531 C570.5,56.9531 588.5,56.9531 588.5,56.9531 C588.5,56.9531 606.5,56.9531 606.5,66.9531 L606.5,92.9531 C606.5,102.9531 588.5,102.9531 588.5,102.9531 C588.5,102.9531 570.5,102.9531 570.5,92.9531 L570.5,66.9531 " fill="#EAE9EB" style="stroke:#333333;stroke-width:1.5;"/><path d="M570.5,66.9531 C570.5,76.9531 588.5,76.9531 588.5,76.9531 C588.5,76.9531 606.5,76.9531 606.5,66.9531 " fill="none" style="stroke:#333333;stroke-width:1.5;"/><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="110" x="530.5" y="590.6113">Blockchain</text><path d="M570.5,605.3281 C570.5,595.3281 588.5,595.3281 588.5,595.3281 C588.5,595.3281 606.5,595.3281 606.5,605.3281 L606.5,631.3281 C606.5,641.3281 588.5,641.3281 588.5,641.3281 C588.5,641.3281 570.5,641.3281 570.5,631.3281 L570.5,605.3281 " fill="#EAE9EB" style="stroke:#333333;stroke-width:1.5;"/><path d="M570.5,605.3281 C570.5,615.3281 588.5,615.3281 588.5,615.3281 C588.5,615.3281 606.5,615.3281 606.5,605.3281 " fill="none" style="stroke:#333333;stroke-width:1.5;"/><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="261" x="683" y="121.5176">&lt;&lt;Blokchain validator&gt;&gt;</text><ellipse cx="816.5" cy="49.9531" fill="#747FE4" rx="8" ry="8" style="stroke:#6631A0;stroke-width:2.0;"/><path d="M816.5,57.9531 L816.5,84.9531 M803.5,65.9531 L829.5,65.9531 M816.5,84.9531 L803.5,99.9531 M816.5,84.9531 L829.5,99.9531 " fill="none" style="stroke:#6631A0;stroke-width:2.0;"/><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="261" x="683" y="590.6113">&lt;&lt;Blokchain validator&gt;&gt;</text><ellipse cx="816.5" cy="605.3281" fill="#747FE4" rx="8" ry="8" style="stroke:#6631A0;stroke-width:2.0;"/><path d="M816.5,613.3281 L816.5,640.3281 M803.5,621.3281 L829.5,621.3281 M816.5,640.3281 L803.5,655.3281 M816.5,640.3281 L829.5,655.3281 " fill="none" style="stroke:#6631A0;stroke-width:2.0;"/><rect fill="#E1DABD" height="37.2813" style="stroke:#6631A0;stroke-width:1.0;" width="10" x="53.5" y="216.7969"/><rect fill="#ABC798" height="212.4063" style="stroke:#6631A0;stroke-width:1.0;" width="10" x="142.5" y="342.6406"/><rect fill="#028090" height="137.8438" style="stroke:#6631A0;stroke-width:1.0;" width="10" x="811.5" y="379.9219"/><rect fill="#747FE4" height="3" style="stroke:#747FE4;stroke-width:1.0;" width="1189.5" x="0" y="160.875"/><line style="stroke:#747FE4;stroke-width:2.5;" x1="0" x2="1189.5" y1="160.875" y2="160.875"/><line style="stroke:#747FE4;stroke-width:2.5;" x1="0" x2="1189.5" y1="163.875" y2="163.875"/><rect fill="#747FE4" height="31.2813" style="stroke:#747FE4;stroke-width:5.0;" width="219" x="485.25" y="146.2344"/><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="199" x="491.25" y="168.7988">Development Phase</text><polygon fill="#747FE4" points="576.5,212.7969,586.5,216.7969,576.5,220.7969,580.5,216.7969" style="stroke:#747FE4;stroke-width:1.0;"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="63.5" x2="582.5" y1="216.7969" y2="216.7969"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="70.5" y="210.0801">[1]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="338" x="106.5" y="210.0801">codes and deploys smart contract</text><polygon fill="#747FE4" points="69.5,250.0781,59.5,254.0781,69.5,258.0781,65.5,254.0781" style="stroke:#747FE4;stroke-width:1.0;"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="63.5" x2="587.5" y1="254.0781" y2="254.0781"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="75.5" y="247.3613">[2]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="128" x="111.5" y="247.3613">confirmation</text><rect fill="#747FE4" height="3" style="stroke:#747FE4;stroke-width:1.0;" width="1189.5" x="0" y="286.7188"/><line style="stroke:#747FE4;stroke-width:2.5;" x1="0" x2="1189.5" y1="286.7188" y2="286.7188"/><line style="stroke:#747FE4;stroke-width:2.5;" x1="0" x2="1189.5" y1="289.7188" y2="289.7188"/><rect fill="#747FE4" height="31.2813" style="stroke:#747FE4;stroke-width:5.0;" width="184" x="502.75" y="272.0781"/><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="164" x="508.75" y="294.6426">Execution Phase</text><polygon fill="#747FE4" points="576.5,338.6406,586.5,342.6406,576.5,346.6406,580.5,342.6406" style="stroke:#747FE4;stroke-width:1.0;"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="152.5" x2="582.5" y1="342.6406" y2="342.6406"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="159.5" y="335.9238">[3]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="381" x="195.5" y="335.9238">depost to interact with smart contract</text><polygon fill="#747FE4" points="799.5,375.9219,809.5,379.9219,799.5,383.9219,803.5,379.9219" style="stroke:#747FE4;stroke-width:1.0;"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="588.5" x2="805.5" y1="379.9219" y2="379.9219"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="595.5" y="373.2051">[4]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="112" x="631.5" y="373.2051">new blocks</text><line style="stroke:#747FE4;stroke-width:3.0;" x1="821.5" x2="863.5" y1="417.2031" y2="417.2031"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="863.5" x2="863.5" y1="417.2031" y2="430.2031"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="822.5" x2="863.5" y1="430.2031" y2="430.2031"/><polygon fill="#747FE4" points="832.5,426.2031,822.5,430.2031,832.5,434.2031,828.5,430.2031" style="stroke:#747FE4;stroke-width:1.0;"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="828.5" y="410.4863">[5]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="242" x="864.5" y="410.4863">execute smart contracts</text><line style="stroke:#747FE4;stroke-width:3.0;" x1="821.5" x2="863.5" y1="467.4844" y2="467.4844"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="863.5" x2="863.5" y1="467.4844" y2="480.4844"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="822.5" x2="863.5" y1="480.4844" y2="480.4844"/><polygon fill="#747FE4" points="832.5,476.4844,822.5,480.4844,832.5,484.4844,828.5,480.4844" style="stroke:#747FE4;stroke-width:1.0;"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="828.5" y="460.7676">[6]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="313" x="864.5" y="460.7676">create new blocks (sometimes)</text><polygon fill="#747FE4" points="599.5,513.7656,589.5,517.7656,599.5,521.7656,595.5,517.7656" style="stroke:#747FE4;stroke-width:1.0;"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="593.5" x2="815.5" y1="517.7656" y2="517.7656"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="605.5" y="511.0488">[7]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="163" x="641.5" y="511.0488">validated blocks</text><polygon fill="#747FE4" points="158.5,551.0469,148.5,555.0469,158.5,559.0469,154.5,555.0469" style="stroke:#747FE4;stroke-width:1.0;"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="152.5" x2="587.5" y1="555.0469" y2="555.0469"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="164.5" y="548.3301">[8]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="137" x="200.5" y="548.3301">new balances</text><!--MD5=[dd6c18dd0b852d084ec56f889e79948e]
+@startuml(id=context)
+scale max 2000x1409
+
+!define TESTNETLIGHT
+!include /home/agarciafdz/exp/PlantUMLStyles/PlantUMLStyles/iohkStyle.puml
+
+ autonumber "<b>[0]"
+ !$BG_USER = "#ABC798"
+ !$BG_DEV = "#E1DABD"
+ !$BG_NODE = "#028090"
+
+ title Smart contract interactions (context level)
+ actor Developer
+ actor User
+ database Blockchain
+ actor "<<Blokchain validator>>" as Stakepool
+
+== Development Phase ==
+
+ Developer -> Blockchain: codes and deploys smart contract
+ activate Developer $BG_DEV
+ Blockchain -> Developer: confirmation
+ deactivate Developer
+
+== Execution Phase ==
+
+
+ User -> Blockchain: depost to interact with smart contract
+ activate User $BG_USER
+ Blockchain -> Stakepool: new blocks
+ activate Stakepool $BG_NODE
+ Stakepool -> Stakepool : execute smart contracts
+ Stakepool -> Stakepool : create new blocks (sometimes)
+ Stakepool -> Blockchain: validated blocks
+ deactivate Stakepool
+ Blockchain -> User: new balances
+ deactivate User
+
+ @enduml
+
+@startuml(id=context)
+scale max 2000x1409
+
+
+
+
+
+
+skinparam stereotypeCBackgroundColor ACCENTDARK
+skinparam backgroundColor BACKGROUNDCOLOR
+skinparam shadowing false
+skinparam roundCorner 25
+skinparam defaultTextAlignment center
+
+
+
+
+
+
+
+skinparam title{
+  FontColor 747fe4
+  FontName Open Sans
+}
+
+
+skinparam circledCharacter {
+  radius 8
+  fontSize 20
+  fontName Open Sans
+}
+
+skinparam class {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+    arrowColor 747fe4
+  arrowFontName Open Sans
+  arrowFontColor 333
+  arrowFontSize 20
+  ArrowThickness 3
+  LollipopColor 747fe4
+  attributeFontColor eae9eb
+  attributeFontSize 20
+  attributeIconSize 20
+}
+
+skinparam actor {
+    backgroundColor 747fe4
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+  StereotypeFontName 6631a0
+  fontcolor 6631a0 
+  borderColor  6631a0 
+
+  
+}
+
+skinparam participant {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+  BackgroundColor eae9eb
+  BorderColor eae9eb
+  Fontcolor 6631a0 
+}
+
+
+skinparam interface {
+    backgroundColor 747fe4
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+}
+
+skinparam component {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+  BorderColor 747fe4
+  BackgroundColor 333
+  fontColor eae9eb
+  stereotypeFontColor eae9eb
+  BorderThickness 5
+}
+
+skinparam node {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+  BorderColor 747fe4
+  BackgroundColor eae9eb
+  FontName Open Sans
+}
+
+skinparam database {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+  BackgroundColor eae9eb
+  BorderColor 333
+  StereotypeFontName Open Sans
+  stereotypeFontColor 6631a0
+  FontColor 6631a0
+}
+
+skinparam queue {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+}
+
+
+skinparam usecase {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+    arrowColor 747fe4
+  arrowFontName Open Sans
+  arrowFontColor 333
+  arrowFontSize 20
+  ArrowThickness 3
+  LollipopColor 747fe4
+}
+
+skinparam activity {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+    arrowColor 747fe4
+  arrowFontName Open Sans
+  arrowFontColor 333
+  arrowFontSize 20
+  ArrowThickness 3
+  LollipopColor 747fe4
+}
+
+skinparam sequence {
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+    arrowColor 747fe4
+  arrowFontName Open Sans
+  arrowFontColor 333
+  arrowFontSize 20
+  ArrowThickness 3
+  LollipopColor 747fe4
+  lifeLineBorderColor 6631a0
+  LifeLineBorderThickness 3
+  lifeLineBackgroundColor 747fe4
+  DividerBorderColor 747fe4
+  DividerBorderThickness 5
+  DividerFontName Open Sans
+  DividerFontStyle light
+  DividerFontSize 20
+  DividerBackgroundColor 747fe4
+  DividerFontColor 333
+  TitleFontColor 747fe4
+  TitleFontSize 20
+  TitleFontName Open Sans
+  StereotypeFontColor 6631a0
+}
+
+skinparam boundary {
+    backgroundColor 747fe4
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+}
+
+skinparam control {
+    backgroundColor 747fe4
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+}
+
+skinparam entity {
+    backgroundColor 747fe4
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+}
+
+
+skinparam state {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+    arrowColor 747fe4
+  arrowFontName Open Sans
+  arrowFontColor 333
+  arrowFontSize 20
+  ArrowThickness 3
+  LollipopColor 747fe4
+  startColor 747fe4
+  endColor 6631a0
+}
+
+
+skinparam object {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+    arrowColor 747fe4
+  arrowFontName Open Sans
+  arrowFontColor 333
+  arrowFontSize 20
+  ArrowThickness 3
+  LollipopColor 747fe4
+}
+
+skinparam note {
+    backgroundColor 747fe4
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+}
+
+skinparam cloud {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+    arrowColor 747fe4
+  arrowFontName Open Sans
+  arrowFontColor 333
+  arrowFontSize 20
+  ArrowThickness 3
+  LollipopColor 747fe4
+  BackgroundColor 333
+  fontColor eae9eb
+  stereotypeFontColor eae9eb
+  BorderThickness 5
+}
+
+skinparam rectangle {
+  StereotypeFontName Open Sans
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+  BackgroundColor eae9eb
+  BorderColor 333
+  stereotypeFontColor 6631a0
+  FontColor 6631a0
+}
+
+skinparam storage {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+}
+
+skinparam package {
+  BackgroundColor eae9eb
+  borderColor 747fe4
+  BorderThickness 6
+  FontColor 333
+  stereotypeFontColor 333
+  FontName Open Sans
+}
+
+
+skinparam caption{
+  FontColor 747fe4
+  FontName Open Sans
+}
+
+
+ autonumber "<b>[0]"
+
+ title Smart contract interactions (context level)
+ actor Developer
+ actor User
+ database Blockchain
+ actor "<<Blokchain validator>>" as Stakepool
+
+== Development Phase ==
+
+ Developer -> Blockchain: codes and deploys smart contract
+ activate Developer #E1DABD
+ Blockchain -> Developer: confirmation
+ deactivate Developer
+
+== Execution Phase ==
+
+
+ User -> Blockchain: depost to interact with smart contract
+ activate User #ABC798
+ Blockchain -> Stakepool: new blocks
+ activate Stakepool #028090
+ Stakepool -> Stakepool : execute smart contracts
+ Stakepool -> Stakepool : create new blocks (sometimes)
+ Stakepool -> Blockchain: validated blocks
+ deactivate Stakepool
+ Blockchain -> User: new balances
+ deactivate User
+
+ @enduml
+
+PlantUML version 1.2020.21(Mon Nov 30 10:40:11 CST 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

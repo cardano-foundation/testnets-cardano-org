@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1355px" preserveAspectRatio="none" style="width:1973px;height:1355px;" version="1.1" viewBox="0 0 1973 1355" width="1973px" zoomAndPan="magnify"><defs/><g><text fill="#747FE4" font-family="Open Sans" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="408" x="779.25" y="28.708">Smart contract interactions (component level)</text><rect fill="#E1DABD" height="1308.2813" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.0;" width="201" x="197.5" y="40.9531"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="195" x="200.5" y="53.02">Development Environment</text><rect fill="#ABC798" height="1308.2813" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.0;" width="210" x="841.5" y="40.9531"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="130" x="881.5" y="53.02">User Environment</text><rect fill="#028090" height="1308.2813" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.0;" width="170" x="1429.5" y="40.9531"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="164" x="1432.5" y="53.02">Validator Environment</text><line style="stroke:#6631A0;stroke-width:3.0;stroke-dasharray:5.0,5.0;" x1="58" x2="58" y1="172.7969" y2="1213.3906"/><line style="stroke:#6631A0;stroke-width:3.0;stroke-dasharray:5.0,5.0;" x1="298" x2="298" y1="172.7969" y2="1213.3906"/><line style="stroke:#6631A0;stroke-width:3.0;stroke-dasharray:5.0,5.0;" x1="697" x2="697" y1="172.7969" y2="1213.3906"/><line style="stroke:#6631A0;stroke-width:3.0;stroke-dasharray:5.0,5.0;" x1="946.5" x2="946.5" y1="172.7969" y2="1213.3906"/><line style="stroke:#6631A0;stroke-width:3.0;stroke-dasharray:5.0,5.0;" x1="1224.5" x2="1224.5" y1="172.7969" y2="1213.3906"/><line style="stroke:#6631A0;stroke-width:3.0;stroke-dasharray:5.0,5.0;" x1="1514.5" x2="1514.5" y1="172.7969" y2="1213.3906"/><line style="stroke:#6631A0;stroke-width:3.0;stroke-dasharray:5.0,5.0;" x1="1822.5" x2="1822.5" y1="172.7969" y2="1213.3906"/><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="101" x="5" y="168.0801">Developer</text><ellipse cx="58.5" cy="96.5156" fill="#747FE4" rx="8" ry="8" style="stroke:#6631A0;stroke-width:2.0;"/><path d="M58.5,104.5156 L58.5,131.5156 M45.5,112.5156 L71.5,112.5156 M58.5,131.5156 L45.5,146.5156 M58.5,131.5156 L71.5,146.5156 " fill="none" style="stroke:#6631A0;stroke-width:2.0;"/><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="101" x="5" y="1230.9551">Developer</text><ellipse cx="58.5" cy="1245.6719" fill="#747FE4" rx="8" ry="8" style="stroke:#6631A0;stroke-width:2.0;"/><path d="M58.5,1253.6719 L58.5,1280.6719 M45.5,1261.6719 L71.5,1261.6719 M58.5,1280.6719 L45.5,1295.6719 M58.5,1280.6719 L71.5,1295.6719 " fill="none" style="stroke:#6631A0;stroke-width:2.0;"/><rect fill="#EAE9EB" height="107.125" rx="12.5" ry="12.5" style="stroke:#EAE9EB;stroke-width:1.5;" width="142" x="227" y="64.6719"/><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="128" x="234" y="90.2363">&lt;&lt;Editor&gt;&gt;</text><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="71" x="262.5" y="113.5176">Truffle,</text><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="95" x="253.5" y="136.7988">Remix or,</text><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="89" x="256.5" y="160.0801">Terminal</text><rect fill="#EAE9EB" height="107.125" rx="12.5" ry="12.5" style="stroke:#EAE9EB;stroke-width:1.5;" width="142" x="227" y="1212.3906"/><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="128" x="234" y="1237.9551">&lt;&lt;Editor&gt;&gt;</text><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="71" x="262.5" y="1261.2363">Truffle,</text><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="95" x="253.5" y="1284.5176">Remix or,</text><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="89" x="256.5" y="1307.7988">Terminal</text><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="45" x="672" y="168.0801">User</text><ellipse cx="697.5" cy="96.5156" fill="#747FE4" rx="8" ry="8" style="stroke:#6631A0;stroke-width:2.0;"/><path d="M697.5,104.5156 L697.5,131.5156 M684.5,112.5156 L710.5,112.5156 M697.5,131.5156 L684.5,146.5156 M697.5,131.5156 L710.5,146.5156 " fill="none" style="stroke:#6631A0;stroke-width:2.0;"/><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="45" x="672" y="1230.9551">User</text><ellipse cx="697.5" cy="1245.6719" fill="#747FE4" rx="8" ry="8" style="stroke:#6631A0;stroke-width:2.0;"/><path d="M697.5,1253.6719 L697.5,1280.6719 M684.5,1261.6719 L710.5,1261.6719 M697.5,1280.6719 L684.5,1295.6719 M697.5,1280.6719 L710.5,1295.6719 " fill="none" style="stroke:#6631A0;stroke-width:2.0;"/><rect fill="#EAE9EB" height="107.125" rx="12.5" ry="12.5" style="stroke:#EAE9EB;stroke-width:1.5;" width="202" x="845.5" y="64.6719"/><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="132" x="880.5" y="90.2363">&lt;&lt;Wallet&gt;&gt;</text><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="176" x="858.5" y="113.5176">Integrated in IDE,</text><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="87" x="903" y="136.7988">Mallet or</text><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="103" x="898" y="160.0801">Metamask</text><rect fill="#EAE9EB" height="107.125" rx="12.5" ry="12.5" style="stroke:#EAE9EB;stroke-width:1.5;" width="202" x="845.5" y="1212.3906"/><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="132" x="880.5" y="1237.9551">&lt;&lt;Wallet&gt;&gt;</text><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="176" x="858.5" y="1261.2363">Integrated in IDE,</text><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="87" x="903" y="1284.5176">Mallet or</text><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="103" x="898" y="1307.7988">Metamask</text><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="110" x="1166.5" y="168.0801">Blockchain</text><path d="M1206.5,113.5156 C1206.5,103.5156 1224.5,103.5156 1224.5,103.5156 C1224.5,103.5156 1242.5,103.5156 1242.5,113.5156 L1242.5,139.5156 C1242.5,149.5156 1224.5,149.5156 1224.5,149.5156 C1224.5,149.5156 1206.5,149.5156 1206.5,139.5156 L1206.5,113.5156 " fill="#EAE9EB" style="stroke:#333333;stroke-width:1.5;"/><path d="M1206.5,113.5156 C1206.5,123.5156 1224.5,123.5156 1224.5,123.5156 C1224.5,123.5156 1242.5,123.5156 1242.5,113.5156 " fill="none" style="stroke:#333333;stroke-width:1.5;"/><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="110" x="1166.5" y="1230.9551">Blockchain</text><path d="M1206.5,1245.6719 C1206.5,1235.6719 1224.5,1235.6719 1224.5,1235.6719 C1224.5,1235.6719 1242.5,1235.6719 1242.5,1245.6719 L1242.5,1271.6719 C1242.5,1281.6719 1224.5,1281.6719 1224.5,1281.6719 C1224.5,1281.6719 1206.5,1281.6719 1206.5,1271.6719 L1206.5,1245.6719 " fill="#EAE9EB" style="stroke:#333333;stroke-width:1.5;"/><path d="M1206.5,1245.6719 C1206.5,1255.6719 1224.5,1255.6719 1224.5,1255.6719 C1224.5,1255.6719 1242.5,1255.6719 1242.5,1245.6719 " fill="none" style="stroke:#333333;stroke-width:1.5;"/><rect fill="#EAE9EB" height="37.2813" rx="12.5" ry="12.5" style="stroke:#EAE9EB;stroke-width:1.5;" width="138" x="1445.5" y="134.5156"/><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="124" x="1452.5" y="160.0801">Mantis Node</text><rect fill="#EAE9EB" height="37.2813" rx="12.5" ry="12.5" style="stroke:#EAE9EB;stroke-width:1.5;" width="138" x="1445.5" y="1212.3906"/><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="124" x="1452.5" y="1237.9551">Mantis Node</text><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="272" x="1683.5" y="121.5176">&lt;&lt;Blockchain validator&gt;&gt;</text><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="226" x="1709.5" y="144.7988">Stake Pool Operator or</text><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="56" x="1794.5" y="168.0801">Miner</text><ellipse cx="1822.5" cy="49.9531" fill="#747FE4" rx="8" ry="8" style="stroke:#6631A0;stroke-width:2.0;"/><path d="M1822.5,57.9531 L1822.5,84.9531 M1809.5,65.9531 L1835.5,65.9531 M1822.5,84.9531 L1809.5,99.9531 M1822.5,84.9531 L1835.5,99.9531 " fill="none" style="stroke:#6631A0;stroke-width:2.0;"/><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="272" x="1683.5" y="1230.9551">&lt;&lt;Blockchain validator&gt;&gt;</text><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="226" x="1709.5" y="1254.2363">Stake Pool Operator or</text><text fill="#6631A0" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="56" x="1794.5" y="1277.5176">Miner</text><ellipse cx="1822.5" cy="1292.2344" fill="#747FE4" rx="8" ry="8" style="stroke:#6631A0;stroke-width:2.0;"/><path d="M1822.5,1300.2344 L1822.5,1327.2344 M1809.5,1308.2344 L1835.5,1308.2344 M1822.5,1327.2344 L1809.5,1342.2344 M1822.5,1327.2344 L1835.5,1342.2344 " fill="none" style="stroke:#6631A0;stroke-width:2.0;"/><rect fill="#747FE4" height="3" style="stroke:#747FE4;stroke-width:1.0;" width="1966.5" x="0" y="207.4375"/><line style="stroke:#747FE4;stroke-width:2.5;" x1="0" x2="1966.5" y1="207.4375" y2="207.4375"/><line style="stroke:#747FE4;stroke-width:2.5;" x1="0" x2="1966.5" y1="210.4375" y2="210.4375"/><rect fill="#747FE4" height="31.2813" style="stroke:#747FE4;stroke-width:5.0;" width="218" x="874.25" y="192.7969"/><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="198" x="880.25" y="215.3613">Development Stage</text><polygon fill="#747FE4" points="286,259.3594,296,263.3594,286,267.3594,290,263.3594" style="stroke:#747FE4;stroke-width:1.0;"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="58.5" x2="292" y1="263.3594" y2="263.3594"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="65.5" y="256.6426">[1]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="154" x="101.5" y="256.6426">code in Solidity</text><line style="stroke:#747FE4;stroke-width:3.0;" x1="298" x2="340" y1="347.2031" y2="347.2031"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="340" x2="340" y1="347.2031" y2="360.2031"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="299" x2="340" y1="360.2031" y2="360.2031"/><polygon fill="#747FE4" points="309,356.2031,299,360.2031,309,364.2031,305,360.2031" style="stroke:#747FE4;stroke-width:1.0;"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="305" y="317.2051">[2]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="139" x="341" y="293.9238">try to compile</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="213" x="347" y="317.2051">fix compilation errors</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="318" x="347" y="340.4863">translate code to IELE assembly</text><polygon fill="#747FE4" points="934.5,393.4844,944.5,397.4844,934.5,401.4844,938.5,397.4844" style="stroke:#747FE4;stroke-width:1.0;"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="298" x2="940.5" y1="397.4844" y2="397.4844"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="305" y="390.7676">[3]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="220" x="341" y="390.7676">deploy smart contract</text><path d="M303,422.9844 L303,476.9844 A12.5,12.5 0 0 0 315.5,489.4844 L514.5,489.4844 A12.5,12.5 0 0 0 527,476.9844 L527,420.4844 L517,410.4844 L315.5,410.4844 A12.5,12.5 0 0 0 303,422.9844 " fill="#E1DABD" style="stroke:#6631A0;stroke-width:1.0;"/><path d="M517,410.4844 L517,414.2344 A6.25,6.25 0 0 0 523.25,420.4844 L527,420.4844 L517,410.4844 " fill="#E1DABD" style="stroke:#6631A0;stroke-width:1.0;"/><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="194" x="318" y="434.0488">load IELE Assembly</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="162" x="334" y="457.3301">pay commission</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="161" x="334.5" y="480.6113">sign transaction</text><polygon fill="#747FE4" points="957.5,543.8906,947.5,547.8906,957.5,551.8906,953.5,547.8906" style="stroke:#747FE4;stroke-width:1.0;"/><polygon fill="#747FE4" points="1212.5,543.8906,1222.5,547.8906,1212.5,551.8906,1216.5,547.8906" style="stroke:#747FE4;stroke-width:1.0;"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="951.5" x2="1218.5" y1="547.8906" y2="547.8906"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="963.5" y="529.5332">[4]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="173" x="999.5" y="517.8926">send transaction,</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="206" x="1005.5" y="541.1738">receive confirmation</text><polygon fill="#747FE4" points="69.5,581.1719,59.5,585.1719,69.5,589.1719,65.5,585.1719" style="stroke:#747FE4;stroke-width:1.0;"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="63.5" x2="945.5" y1="585.1719" y2="585.1719"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="75.5" y="578.4551">[5]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="167" x="111.5" y="578.4551">contract address</text><rect fill="#747FE4" height="3" style="stroke:#747FE4;stroke-width:1.0;" width="1966.5" x="0" y="617.8125"/><line style="stroke:#747FE4;stroke-width:2.5;" x1="0" x2="1966.5" y1="617.8125" y2="617.8125"/><line style="stroke:#747FE4;stroke-width:2.5;" x1="0" x2="1966.5" y1="620.8125" y2="620.8125"/><rect fill="#747FE4" height="31.2813" style="stroke:#747FE4;stroke-width:5.0;" width="183" x="891.75" y="603.1719"/><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="163" x="897.75" y="625.7363">Execution Stage</text><polygon fill="#747FE4" points="934.5,669.7344,944.5,673.7344,934.5,677.7344,938.5,673.7344" style="stroke:#747FE4;stroke-width:1.0;"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="697.5" x2="940.5" y1="673.7344" y2="673.7344"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="704.5" y="667.0176">[6]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="189" x="740.5" y="667.0176">deposit to contract</text><line style="stroke:#747FE4;stroke-width:3.0;" x1="946.5" x2="988.5" y1="711.0156" y2="711.0156"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="988.5" x2="988.5" y1="711.0156" y2="724.0156"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="947.5" x2="988.5" y1="724.0156" y2="724.0156"/><polygon fill="#747FE4" points="957.5,720.0156,947.5,724.0156,957.5,728.0156,953.5,724.0156" style="stroke:#747FE4;stroke-width:1.0;"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="953.5" y="704.2988">[7]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="170" x="989.5" y="704.2988">write transaction</text><polygon fill="#747FE4" points="1212.5,757.2969,1222.5,761.2969,1212.5,765.2969,1216.5,761.2969" style="stroke:#747FE4;stroke-width:1.0;"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="946.5" x2="1218.5" y1="761.2969" y2="761.2969"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="953.5" y="754.5801">[8]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="167" x="989.5" y="754.5801">send transaction</text><polygon fill="#747FE4" points="1502.5,817.8594,1512.5,821.8594,1502.5,825.8594,1506.5,821.8594" style="stroke:#747FE4;stroke-width:1.0;"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="1224.5" x2="1508.5" y1="821.8594" y2="821.8594"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="1231.5" y="803.502">[9]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="184" x="1267.5" y="791.8613">append new block</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="218" x="1267.5" y="815.1426">(a set of transactions)</text><polygon fill="#747FE4" points="1525.5,855.1406,1515.5,859.1406,1525.5,863.1406,1521.5,859.1406" style="stroke:#747FE4;stroke-width:1.0;"/><line style="stroke:#747FE4;stroke-width:3.0;stroke-dasharray:2.0,2.0;" x1="1519.5" x2="1821.5" y1="859.1406" y2="859.1406"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="46" x="1531.5" y="852.4238">[10]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="146" x="1581.5" y="852.4238">monitor status</text><line style="stroke:#747FE4;stroke-width:3.0;" x1="1514.5" x2="1556.5" y1="896.4219" y2="896.4219"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="1556.5" x2="1556.5" y1="896.4219" y2="909.4219"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="1515.5" x2="1556.5" y1="909.4219" y2="909.4219"/><polygon fill="#747FE4" points="1525.5,905.4219,1515.5,909.4219,1525.5,913.4219,1521.5,909.4219" style="stroke:#747FE4;stroke-width:1.0;"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="46" x="1521.5" y="889.7051">[11]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="209" x="1571.5" y="889.7051">validate transactions</text><line style="stroke:#747FE4;stroke-width:3.0;" x1="1514.5" x2="1556.5" y1="946.7031" y2="946.7031"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="1556.5" x2="1556.5" y1="946.7031" y2="959.7031"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="1515.5" x2="1556.5" y1="959.7031" y2="959.7031"/><polygon fill="#747FE4" points="1525.5,955.7031,1515.5,959.7031,1525.5,963.7031,1521.5,959.7031" style="stroke:#747FE4;stroke-width:1.0;"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="46" x="1521.5" y="939.9863">[12]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="232" x="1571.5" y="939.9863">execute smart contract</text><line style="stroke:#747FE4;stroke-width:3.0;" x1="1514.5" x2="1556.5" y1="1020.2656" y2="1020.2656"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="1556.5" x2="1556.5" y1="1020.2656" y2="1033.2656"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="1515.5" x2="1556.5" y1="1033.2656" y2="1033.2656"/><polygon fill="#747FE4" points="1525.5,1029.2656,1515.5,1033.2656,1525.5,1037.2656,1521.5,1033.2656" style="stroke:#747FE4;stroke-width:1.0;"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="46" x="1521.5" y="1001.9082">[13]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="203" x="1571.5" y="990.2676">create new block to,</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="113" x="1577.5" y="1013.5488">store result</text><line style="stroke:#747FE4;stroke-width:3.0;" x1="1514.5" x2="1556.5" y1="1070.5469" y2="1070.5469"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="1556.5" x2="1556.5" y1="1070.5469" y2="1083.5469"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="1515.5" x2="1556.5" y1="1083.5469" y2="1083.5469"/><polygon fill="#747FE4" points="1525.5,1079.5469,1515.5,1083.5469,1525.5,1087.5469,1521.5,1083.5469" style="stroke:#747FE4;stroke-width:1.0;"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="46" x="1521.5" y="1063.8301">[14]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="222" x="1571.5" y="1063.8301">validated transactions</text><polygon fill="#747FE4" points="1235.5,1116.8281,1225.5,1120.8281,1235.5,1124.8281,1231.5,1120.8281" style="stroke:#747FE4;stroke-width:1.0;"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="1229.5" x2="1513.5" y1="1120.8281" y2="1120.8281"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="46" x="1241.5" y="1114.1113">[15]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="163" x="1291.5" y="1114.1113">validated blocks</text><polygon fill="#747FE4" points="957.5,1154.1094,947.5,1158.1094,957.5,1162.1094,953.5,1158.1094" style="stroke:#747FE4;stroke-width:1.0;"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="951.5" x2="1223.5" y1="1158.1094" y2="1158.1094"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="46" x="963.5" y="1151.3926">[16]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="204" x="1013.5" y="1151.3926">display new balance</text><polygon fill="#747FE4" points="708.5,1191.3906,698.5,1195.3906,708.5,1199.3906,704.5,1195.3906" style="stroke:#747FE4;stroke-width:1.0;"/><line style="stroke:#747FE4;stroke-width:3.0;" x1="702.5" x2="945.5" y1="1195.3906" y2="1195.3906"/><text fill="#333333" font-family="Open Sans" font-size="20" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="46" x="714.5" y="1188.6738">[17]</text><text fill="#333333" font-family="Open Sans" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="127" x="764.5" y="1188.6738">new balance</text><!--MD5=[557eb2e796457c4eaf247be674bdec94]
+@startuml(id=Component)
+scale max 2000x1409
+
+!define TESTNETLIGHT
+!include /home/agarciafdz/exp/PlantUMLStyles/PlantUMLStyles/iohkStyle.puml
+
+ autonumber "<b>[0]"
+ actor Developer
+ !$BG_DEV = "#E1DABD"
+
+ box "Development Environment" $BG_DEV
+   participant "<<Editor>>\n Truffle, \n Remix or,\n Terminal" as Editor
+ end box
+
+ !$BG_USER = "#ABC798"
+ actor User
+ box "User Environment" $BG_USER
+   participant "<<Wallet>>\n Integrated in IDE, \n Mallet or \n Metamask" as Wallet
+ end box
+
+ database Blockchain
+
+
+ title Smart contract interactions (component level)
+
+== Development Stage ==
+  Developer -> Editor: code in Solidity
+  Editor -> Editor: try to compile\n fix compilation errors\n translate code to IELE assembly
+
+  Editor -> Wallet : deploy smart contract
+  note right of Editor $BG_DEV
+    load IELE Assembly
+    pay commission
+    sign transaction
+  end note
+
+  Wallet <-> Blockchain: send transaction,\n receive confirmation
+
+  Wallet -> Developer: contract address
+
+== Execution Stage ==
+
+
+ User -> Wallet : deposit to contract
+ Wallet -> Wallet: write transaction
+ Wallet -> Blockchain: send transaction
+
+ !$BG_NODE = "#028090"
+ box "Validator Environment" $BG_NODE
+   participant "Mantis Node" as Node
+ end box
+ actor "<<Blockchain validator>>\n Stake Pool Operator or\n Miner" as Stakepool
+
+ Blockchain -> Node: append new block \n(a set of transactions)
+ Stakepool - -> Node: monitor status
+ Node -> Node: validate transactions
+ Node -> Node: execute smart contract
+ Node -> Node: create new block to, \n store result
+ Node -> Node: validated transactions
+ Node -> Blockchain: validated blocks
+ Blockchain -> Wallet: display new balance
+ Wallet -> User : new balance
+
+ @enduml
+
+@startuml(id=Component)
+scale max 2000x1409
+
+
+
+
+
+
+skinparam stereotypeCBackgroundColor ACCENTDARK
+skinparam backgroundColor BACKGROUNDCOLOR
+skinparam shadowing false
+skinparam roundCorner 25
+skinparam defaultTextAlignment center
+
+
+
+
+
+
+
+skinparam title{
+  FontColor 747fe4
+  FontName Open Sans
+}
+
+
+skinparam circledCharacter {
+  radius 8
+  fontSize 20
+  fontName Open Sans
+}
+
+skinparam class {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+    arrowColor 747fe4
+  arrowFontName Open Sans
+  arrowFontColor 333
+  arrowFontSize 20
+  ArrowThickness 3
+  LollipopColor 747fe4
+  attributeFontColor eae9eb
+  attributeFontSize 20
+  attributeIconSize 20
+}
+
+skinparam actor {
+    backgroundColor 747fe4
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+  StereotypeFontName 6631a0
+  fontcolor 6631a0 
+  borderColor  6631a0 
+
+  
+}
+
+skinparam participant {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+  BackgroundColor eae9eb
+  BorderColor eae9eb
+  Fontcolor 6631a0 
+}
+
+
+skinparam interface {
+    backgroundColor 747fe4
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+}
+
+skinparam component {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+  BorderColor 747fe4
+  BackgroundColor 333
+  fontColor eae9eb
+  stereotypeFontColor eae9eb
+  BorderThickness 5
+}
+
+skinparam node {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+  BorderColor 747fe4
+  BackgroundColor eae9eb
+  FontName Open Sans
+}
+
+skinparam database {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+  BackgroundColor eae9eb
+  BorderColor 333
+  StereotypeFontName Open Sans
+  stereotypeFontColor 6631a0
+  FontColor 6631a0
+}
+
+skinparam queue {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+}
+
+
+skinparam usecase {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+    arrowColor 747fe4
+  arrowFontName Open Sans
+  arrowFontColor 333
+  arrowFontSize 20
+  ArrowThickness 3
+  LollipopColor 747fe4
+}
+
+skinparam activity {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+    arrowColor 747fe4
+  arrowFontName Open Sans
+  arrowFontColor 333
+  arrowFontSize 20
+  ArrowThickness 3
+  LollipopColor 747fe4
+}
+
+skinparam sequence {
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+    arrowColor 747fe4
+  arrowFontName Open Sans
+  arrowFontColor 333
+  arrowFontSize 20
+  ArrowThickness 3
+  LollipopColor 747fe4
+  lifeLineBorderColor 6631a0
+  LifeLineBorderThickness 3
+  lifeLineBackgroundColor 747fe4
+  DividerBorderColor 747fe4
+  DividerBorderThickness 5
+  DividerFontName Open Sans
+  DividerFontStyle light
+  DividerFontSize 20
+  DividerBackgroundColor 747fe4
+  DividerFontColor 333
+  TitleFontColor 747fe4
+  TitleFontSize 20
+  TitleFontName Open Sans
+  StereotypeFontColor 6631a0
+}
+
+skinparam boundary {
+    backgroundColor 747fe4
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+}
+
+skinparam control {
+    backgroundColor 747fe4
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+}
+
+skinparam entity {
+    backgroundColor 747fe4
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+}
+
+
+skinparam state {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+    arrowColor 747fe4
+  arrowFontName Open Sans
+  arrowFontColor 333
+  arrowFontSize 20
+  ArrowThickness 3
+  LollipopColor 747fe4
+  startColor 747fe4
+  endColor 6631a0
+}
+
+
+skinparam object {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+    arrowColor 747fe4
+  arrowFontName Open Sans
+  arrowFontColor 333
+  arrowFontSize 20
+  ArrowThickness 3
+  LollipopColor 747fe4
+}
+
+skinparam note {
+    backgroundColor 747fe4
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+}
+
+skinparam cloud {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+    arrowColor 747fe4
+  arrowFontName Open Sans
+  arrowFontColor 333
+  arrowFontSize 20
+  ArrowThickness 3
+  LollipopColor 747fe4
+  BackgroundColor 333
+  fontColor eae9eb
+  stereotypeFontColor eae9eb
+  BorderThickness 5
+}
+
+skinparam rectangle {
+  StereotypeFontName Open Sans
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+  BackgroundColor eae9eb
+  BorderColor 333
+  stereotypeFontColor 6631a0
+  FontColor 6631a0
+}
+
+skinparam storage {
+    backgroundColor 6631a0
+  borderColor 6631a0
+    fontColor 333
+  fontName Open Sans
+  fontSize 20
+  stereotypeFontColor 6631a0
+  stereotypeFontSize 20
+  fontStyle lighter
+}
+
+skinparam package {
+  BackgroundColor eae9eb
+  borderColor 747fe4
+  BorderThickness 6
+  FontColor 333
+  stereotypeFontColor 333
+  FontName Open Sans
+}
+
+
+skinparam caption{
+  FontColor 747fe4
+  FontName Open Sans
+}
+
+
+ autonumber "<b>[0]"
+ actor Developer
+
+ box "Development Environment" #E1DABD
+   participant "<<Editor>>\n Truffle, \n Remix or,\n Terminal" as Editor
+ end box
+
+ actor User
+ box "User Environment" #ABC798
+   participant "<<Wallet>>\n Integrated in IDE, \n Mallet or \n Metamask" as Wallet
+ end box
+
+ database Blockchain
+
+
+ title Smart contract interactions (component level)
+
+== Development Stage ==
+  Developer -> Editor: code in Solidity
+  Editor -> Editor: try to compile\n fix compilation errors\n translate code to IELE assembly
+
+  Editor -> Wallet : deploy smart contract
+  note right of Editor #E1DABD
+    load IELE Assembly
+    pay commission
+    sign transaction
+  end note
+
+  Wallet <-> Blockchain: send transaction,\n receive confirmation
+
+  Wallet -> Developer: contract address
+
+== Execution Stage ==
+
+
+ User -> Wallet : deposit to contract
+ Wallet -> Wallet: write transaction
+ Wallet -> Blockchain: send transaction
+
+ box "Validator Environment" #028090
+   participant "Mantis Node" as Node
+ end box
+ actor "<<Blockchain validator>>\n Stake Pool Operator or\n Miner" as Stakepool
+
+ Blockchain -> Node: append new block \n(a set of transactions)
+ Stakepool - -> Node: monitor status
+ Node -> Node: validate transactions
+ Node -> Node: execute smart contract
+ Node -> Node: create new block to, \n store result
+ Node -> Node: validated transactions
+ Node -> Blockchain: validated blocks
+ Blockchain -> Wallet: display new balance
+ Wallet -> User : new balance
+
+ @enduml
+
+PlantUML version 1.2020.21(Mon Nov 30 10:40:11 CST 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
