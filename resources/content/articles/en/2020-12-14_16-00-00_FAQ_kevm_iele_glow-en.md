@@ -36,22 +36,15 @@ Ethereum, Tron, etc.)
 
 A. Our dedicated [devnet site](https://developers.cardano.org/) is now live.
 
-**Q. What is the difference between the current iteration of the devnet and the previous ones?**
-
-A. In 2018, we introduced a testnet with KEVM and IELE support. In the 2020
-iteration, we have upgraded the testnet and included a *third* language,
-[Glow](https://glow-lang.org/), to the list of available options for writing smart contracts.
-
 **Q. How does Mantis interact with the devnets? Why are we using an ETC codebase for this?**
 
 A. The KEVM is 100% compatible with the EVM, so it made sense to plug
 the VM into Mantis, as Mantis was already compatible
-with ETC. Also, Glow is easier to run on top of
-KEVM, and finally, we want to initiate a conversation with the community.
+with ETC. Finally, we want to initiate a conversation with the community.
 
 **Q. How does this relate to [native tokens](https://developers.cardano.org/en/development-environments/native-tokens/native-tokens/)?**
 
-A. In the future, smart contracts written in KEVM, IELE, and Glow will have
+A. In the future, smart contracts written in KEVM and IELE will have
 native tokens exposed as part of the language. This is currently not possible
 because both work streams (native tokens and VMs) work in parallel and will
 converge later with the launch of Goguen.
@@ -155,8 +148,7 @@ to run in a VM (KEVM or IELE).
 
 A. Just like there are many natural languages (English, Spanish, etc.),
 there are many programming languages (Java, C++, Haskell, etc.). There
-also are many smart contract programming languages (Plutus, Solidity,
-Glow, Marlowe, etc.). However, each programming language requires one
+also are many smart contract programming languages (Plutus, Solidity, Marlowe, etc.). However, each programming language requires one
 compiler for every processor (Intel, ARM, M1) on which it is going to
 execute. With a VM such as IELE, only *one* compiler per language is needed,
 since all of the programming languages will execute in the same VM.
