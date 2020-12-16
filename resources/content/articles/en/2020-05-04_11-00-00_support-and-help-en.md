@@ -3,7 +3,7 @@ title: Support and help
 description: KEVM resources
 order: 2
 parent: 2020-05-04_11-00-00_resources
-last_updated: "2020-05-01T09:00:00+01:00"
+last_updated: "2020-12-17T09:00:00+01:00"
 redirects:
   - from: /en/kevm/resources/support/
     type: "301"
