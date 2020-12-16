@@ -82,7 +82,7 @@ Now that you have created and funded your account, you can compile and deploy sm
 
 #### Compiling smart contracts
 
-To deploy your smart contracts on the KEVM testnet you will need to compile to KEVM (K - Ethereum virtual machine) bytecode. You can compile the bytecode directly with using [solc](https://github.com/runtimeverification/solidity), or using an IDE (Integrated development environment) such as  [Remix](https://remix.ethereum.org/) or similar.
+To deploy your smart contracts on the KEVM testnet you will need to compile to KEVM (K - Ethereum virtual machine) bytecode. You can compile the bytecode directly with using [solc](https://github.com/runtimeverification/solidity), or using [Mallet](https://github.com/input-output-hk/mallet/blob/master/README.md)
 
 Disclaimer:  Remix  is just one IDE that you can use to compile the bytecode. There are other IDEs that also perform this function. We have included instructions on using Remix as an example
 
