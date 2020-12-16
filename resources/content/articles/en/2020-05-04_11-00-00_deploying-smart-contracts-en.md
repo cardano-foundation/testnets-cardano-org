@@ -88,7 +88,7 @@ To deploy your smart contracts on the KEVM testnet you will need to compile to K
 
 You can also compile your smart contract using only commandline tools. In that regard you will need to install the ‘[solc](https://github.com/runtimeverification/solidity)’ (soliditiy to KEVM compiler) in you can compile smart contracts directly from your terminal:
 
-### from your terminal NOT inside mallet
+### from your terminal (not inside Mallet)
 
 ```shell
 solc --bin --abi myContract.sol > myContract.bin
