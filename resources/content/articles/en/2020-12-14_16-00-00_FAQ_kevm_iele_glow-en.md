@@ -44,15 +44,15 @@ iteration, we have upgraded the testnet and included a *third* language,
 
 **Q. How does Mantis interact with the devnets? Why are we using an ETC codebase for this?**
 
-The KEVM is 100% compatible with the EVM, so it made sense to plug
+A. The KEVM is 100% compatible with the EVM, so it made sense to plug
 the VM into Mantis, as Mantis was already compatible
 with ETC. Also, Glow is easier to run on top of
 KEVM, and finally, we want to initiate a conversation with the community.
 
 **Q. How does this relate to [native tokens](https://developers.cardano.org/en/development-environments/native-tokens/native-tokens/)?
 
-In the future, smart contracts written in KEVM, IELE, and Glow will have
-native tokens exposed as part of the language. This currently not possible
+A. In the future, smart contracts written in KEVM, IELE, and Glow will have
+native tokens exposed as part of the language. This is currently not possible
 because both work streams (native tokens and VMs) work in parallel and will
 converge later with the launch of Goguen.
 
@@ -102,7 +102,7 @@ As an analogy of how Solidity gets compiled to IELE assembly and
 executed on the IELE VM, think of how Java gets compiled to Java
 byte code (low level) and executed on the Java virtual machine (JVM).
 
-**Q. What is KEVM?
+**Q. What is KEVM?**
 
 A. KEVM is an implementation of the Ethereum virtual machine (EVM)
 developed by [Runtime Verification](https://runtimeverification.com/). It is derived
@@ -143,7 +143,7 @@ for more information.
 
 **Q. What are the differences between IELE, KEVM, Glow, Plutus, and Marlowe?**
 
-A. These products are related but are not the quite the same. Let's classify them:
+A. These products are related but are not quite the same. Let's classify them:
 
 - IELE and KEVM are VMs that execute programs
 - Plutus and Solidity are general purpose *languages* that operate in blockchains
@@ -165,7 +165,7 @@ execute. With a VM such as IELE, only *one* compiler per language is needed,
 since all of the programming languages will execute in the same VM. 
 In the future, you will be able to write smart contracts in *your* favorite language.
 
-**Q. What is the Remix IDE?
+**Q. What is the Remix IDE?**
 
 A. It is an enhanced text editor specialized for writing code in a programming language. 
 The Remix IDE is an open-source IDE that can be used to write smart contracts in
