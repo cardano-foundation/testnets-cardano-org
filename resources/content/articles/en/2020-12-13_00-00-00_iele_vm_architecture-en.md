@@ -31,7 +31,7 @@ Once we understand the goals of each actor in this process we can understand the
 
 It's worth pointing out that, while coding, a developer will actually play the three roles.
 
-![Context level](../../..//summary.svg)
+![Context level](https://ucarecdn.com/aca5fe3d-ec06-49e9-8692-540024c575ff/summary.svg)
 
 ## Container Level
 
@@ -43,7 +43,7 @@ A user uses a wallet and the Mantis node to make transactions which is how a no
 
 A stake pool operator (or miner depending on the blockchain) interacts directly with its node (composed of several software programs) to validate and append transactions to the blockchain.
 
-![Container level](../../../images/container_level.svg)
+![Container level](https://ucarecdn.com/96b7b345-150c-4065-8723-b53460f3cd94/container_level.svg)
 
 ## Component Level
 
@@ -57,7 +57,7 @@ Zooming in once more, we can see in detail what is inside each component.
 
     2.  > has three parts: One is a Mantis node (the same as the user) so that it downloads a copy of the blockchain. It also requires a block validator (commonly known as miner) that validates the new transactions inside a block. When the transaction is one for a smart contract (or the block number has reached a certain point), it executes the smart contract on a virtual machine. That can be either the IELE VM or the KEVM. With the results calculated the block validation process continues as usual.
 
-![Component level](../../../images/component_level.svg)
+![Component level](https://ucarecdn.com/352f0c1a-0fb3-4e18-a9b7-7466dc8cd5d3/component_level.svg)
 
 ## How does it actually look?
 
