@@ -19,14 +19,6 @@ To use the KEVM devnet the following skills are required:
 
 No registration is required to use the testnet.
 
-Before you can run your smart contracts on the testnets, you will need to collect test tokens from the [faucet](/en/more/kevm/tools/faucet/).
+Before you can run your smart contracts on the testnets, you will need to collect test tokens from the [faucet](/en/virtual-machines/kevm/tools/faucet/).
 
 The following are also requirements:
-
-### For the KEVM testnet:
-
-- A Java Virtual Machine (JVM) is needed to run the client. The version must be 1.8.x. The client has not been tested with JVM 1.9.
-- 64 bit output.
-- Appropriate disk space: enough space will be needed for the blockchain to grow. An SSD of at least 35G is recommended.
-- The Mantis client has been tested extensively on Ethereum Classic
-small instances with 2G of RAM. This is sufficient to run the client and the miner.
