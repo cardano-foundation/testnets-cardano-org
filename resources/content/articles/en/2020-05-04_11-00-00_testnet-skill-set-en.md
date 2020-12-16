@@ -28,10 +28,5 @@ The following are also requirements:
 - A Java Virtual Machine (JVM) is needed to run the client. The version must be 1.8.x. The client has not been tested with JVM 1.9.
 - 64 bit output.
 - Appropriate disk space: enough space will be needed for the blockchain to grow. An SSD of at least 35G is recommended.
-- The Mantis client has been tested extensively on Ethereum Classic 
+- The Mantis client has been tested extensively on Ethereum Classic
 small instances with 2G of RAM. This is sufficient to run the client and the miner.
-
-### For the IELE testnet:
-
-- A Java Virtual Machine (JVM) is needed to build the client, as with the KEVM testnet. The version must be 1.8.x. The client has not been tested with JVM 1.9.
-- 230 disk space and 10MB of RAM are recommended.
