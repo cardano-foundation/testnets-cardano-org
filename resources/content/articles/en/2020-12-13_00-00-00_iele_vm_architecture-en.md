@@ -1,8 +1,8 @@
 ---
 title: Smart Contracts with KEVM and IELE Architecture
 description: How does the different components interact in KEVM and IELE
-order: 6
-parent: 2020-05-04_11-00-00_getting-started
+order: 3
+parent: 2020-05-04_11-00-00_about-en
 external_href: ""
 last_updated: "2020-12-15T11:30:00+01:00"
 ---
@@ -37,7 +37,7 @@ It's worth pointing out that, while coding, a developer will actually play the t
 
 Of course, in order to interact with the blockchain each actor requires specialized software. Zooming in the chart, we can see what each actor uses as their main software. These tools include the following:
 
-A developer uses a development environment that can be either: the Remix IDE, the Truffle Suite, or a combination of tools (editor, compiler, and minimal wallet) to deploy the smart contract. Whatever the tools, what is important to remember is that the quality of these programs is paramount since defects in them translate directly to losses in assets.
+A developer uses a development environment that can be either: Truffle Suite, or a combination of tools (editor, compiler, and minimal wallet) to deploy the smart contract. Whatever the tools, what is important to remember is that the quality of these programs is paramount since defects in them translate directly to losses in assets.
 
 A user uses a wallet and the Mantis node to make transactions which is how a normal user interacts with a smart contract.
 
@@ -51,7 +51,7 @@ Zooming in once more, we can see in detail what is inside each component.
 
 1.  > **A Development Environment**
 
-    1.  > is composed of a text editor, a compiler (either to IELE or KEVM), and a wallet (for deploying the smart contract). When using an IDE such as Remix or Truffle all the components are integrated. Whereas, when using a terminal each component is an actual program invoked from the command line.
+    1.  > is composed of a text editor, a compiler (either to IELE or KEVM), and a wallet (for deploying the smart contract). When using an IDE such as Truffle all the components are integrated. Whereas, when using a terminal each component is an actual program invoked from the command line.
 
     > **Stake Pool Node**
 
@@ -67,4 +67,4 @@ In this video [Lars Brünjes](mailto:lars.bruenjes@iohk.io), director of educati
 
 <!-- embed youtube/Tp4Z0RbjSa8 -->
 
-As we have seen, several software elements need to be in place to execute smart contracts. However, the basic interactions between a developer, user, and stake pool operator are very simple. 
+As we have seen, several software elements need to be in place to execute smart contracts. However, the basic interactions between a developer, user, and stake pool operator are very simple.
