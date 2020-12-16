@@ -1,11 +1,13 @@
 ---
 title: Smart Contracts with KEVM and IELE Architecture
 description: How does the different components interact in KEVM and IELE
-order: 4
+order: 6
+parent: 2020-05-04_11-00-00_getting-started
 external_href: ""
+last_updated: "2020-12-15T11:30:00+01:00"
 ---
 
-# Smart Contracts Architecture with KEVM and IELE
+## Smart Contracts Architecture with KEVM and IELE
 
 To execute smart contracts in a blockchain there are many technologies involved. And all the different moving parts can become difficult to understand. Here we look at the big picture first and then drill down, so that the components and their interactions become clearer.
 
@@ -29,7 +31,7 @@ Once we understand the goals of each actor in this process we can understand the
 
 It's worth pointing out that, while coding, a developer will actually play the three roles.
 
-![Context level](../article-images/2020-12-13_00-00-000_iele_vm_architecture/summary.svg)
+![Context level](../../..//summary.svg)
 
 ## Container Level
 
@@ -41,7 +43,7 @@ A user uses a wallet and the Mantis node to make transactions which is how a no
 
 A stake pool operator (or miner depending on the blockchain) interacts directly with its node (composed of several software programs) to validate and append transactions to the blockchain.
 
-![Container level](../article-images/2020-12-13_00-00-000_iele_vm_architecture/container_level.svg)
+![Container level](../../../images/container_level.svg)
 
 ## Component Level
 
@@ -55,14 +57,14 @@ Zooming in once more, we can see in detail what is inside each component.
 
     2.  > has three parts: One is a Mantis node (the same as the user) so that it downloads a copy of the blockchain. It also requires a block validator (commonly known as miner) that validates the new transactions inside a block. When the transaction is one for a smart contract (or the block number has reached a certain point), it executes the smart contract on a virtual machine. That can be either the IELE VM or the KEVM. With the results calculated the block validation process continues as usual.
 
-![Component level](../article-images/2020-12-13_00-00-000_iele_vm_architecture/component_level.svg)
+![Component level](../../../images/component_level.svg)
 
 ## How does it actually look?
 
 How do these components look when a developer is working with them?
 
-In this video [<span class="underline">Lars Brünjes</span>](mailto:lars.bruenjes@iohk.io), director of education at IOHK develops a smart contract using the Solidity to IELE compiler and the Mallet wallet.
+In this video [Lars Brünjes](mailto:lars.bruenjes@iohk.io), director of education at IOHK develops a smart contract using the Solidity to IELE compiler and the Mallet wallet.
 
-[![Mallet tutorial](https://img.youtube.com/vi/Tp4Z0RbjSa8/0.jpg)](https://www.youtube.com/watch?v=Tp4Z0RbjSa8 "")
+<!-- embed youtube/Tp4Z0RbjSa8 -->
 
 As we have seen, several software elements need to be in place to execute smart contracts. However, the basic interactions between a developer, user, and stake pool operator are very simple. 
