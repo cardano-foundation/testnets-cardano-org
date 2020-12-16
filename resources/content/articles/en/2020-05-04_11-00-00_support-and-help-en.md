@@ -12,7 +12,7 @@ redirects:
 
 Thank you for your interest in using KEVM. If you are interested in participating in this program, please fill out [our survey](https://input-output.typeform.com/to/OJsf0XcD) and we will be in touch soon!
 
-You can also [Join IOHK | Devnets on Slack](https://join.slack.com/t/iohkdevnets/shared_invite/zt-jvy74l5h-Bhp5SQajefwjig72BIl73A), were the community and IOG developers hangout to share experiences.
+You can also [Join IOHK | Devnets on Slack](https://join.slack.com/t/iohkdevnets/shared_invite/zt-jvy74l5h-Bhp5SQajefwjig72BIl73A), where the community and IOG developers hangout to share experiences.
 
 Note that over the holiday period, technical support will be extremely limited. Support will be unavailable between the dates of 23rd - 27th December and 31st December - 3rd January, both inclusive.
 
