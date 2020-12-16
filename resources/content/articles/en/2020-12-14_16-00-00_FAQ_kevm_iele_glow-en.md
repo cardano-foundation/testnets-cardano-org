@@ -1,5 +1,5 @@
 ---
-title: FAQ for KEVM, IELE, and GLOW
+title: FAQs for KEVM, IELE, and Glow
 description: Frequently asked questions on KEVM, IELE and Glow
 order: 4
 external_href: ""
@@ -49,7 +49,7 @@ the VM into Mantis, as Mantis was already compatible
 with ETC. Also, Glow is easier to run on top of
 KEVM, and finally, we want to initiate a conversation with the community.
 
-**Q. How does this relate to [native tokens](https://developers.cardano.org/en/development-environments/native-tokens/native-tokens/)?
+**Q. How does this relate to [native tokens](https://developers.cardano.org/en/development-environments/native-tokens/native-tokens/)?**
 
 A. In the future, smart contracts written in KEVM, IELE, and Glow will have
 native tokens exposed as part of the language. This is currently not possible
