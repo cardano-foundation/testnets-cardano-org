@@ -1,8 +1,8 @@
 ---
-title: Smart Contracts with KEVM and IELE Architecture
+title: Smart Contracts Architecture with KEVM and IELE
 description: How does the different components interact in KEVM and IELE
 order: 3
-parent: 2020-05-04_11-00-00_about-en
+parent: 2020-05-04_11-00-00_about
 external_href: ""
 last_updated: "2020-12-15T11:30:00+01:00"
 ---
