@@ -191,7 +191,7 @@ for more information.
 
 **Q. What is Glow?**
 
-[Glow](https://glow-lang.org/) is an open-source,
+A. [Glow](https://glow-lang.org/) is an open-source,
 secure programming language developed by [Mutual Knowledge Systems](https://mukn.io/)
 and designed to create safe decentralized finance (DeFi) applications. 
-Glow's goal is to simplify the writing and verification of —a “JavaScript for Blockchain”.
+Glow's goal is to simplify the writing and verification of DeFi apps —a “JavaScript for Blockchain”.
