@@ -3,7 +3,7 @@ title: Testnet skill set
 description: KEVM about
 parent: 2020-05-04_11-00-00_about
 order: 1
-last_updated: "2020-05-01T09:00:00+01:00"
+last_updated: "2020-12-17T09:00:00+01:00"
 redirects:
   - from: /en/kevm/about/
     type: "301"
@@ -12,7 +12,7 @@ redirects:
 ---
 ## Testnet skill set
 
-To use the KEVM and IELE testnets the following skills are required:
+To use the KEVM devnet the following skills are required:
 
 - Familiarity with writing smart contracts in Solidity. You will need a suite of well-defined smart contracts to use on the testnets.
 - Advanced knowledge of the JSON remote procedure call (RPC) protocol.
