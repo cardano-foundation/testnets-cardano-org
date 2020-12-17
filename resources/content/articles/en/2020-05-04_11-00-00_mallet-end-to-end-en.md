@@ -10,7 +10,7 @@ redirects:
 ---
 
 
-# Prerequisites Installation
+## Prerequisites Installation
 
 On Linux and Mac, you will require Node.js 10.16.3, or the latest
 version, and the Git tools. For Windows, you will also need the Windows
