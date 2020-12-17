@@ -21,4 +21,3 @@ No registration is required to use the testnet.
 
 Before you can run your smart contracts on the testnets, you will need to collect test tokens from the [faucet](/en/virtual-machines/kevm/tools/faucet/).
 
-The following are also requirements:
