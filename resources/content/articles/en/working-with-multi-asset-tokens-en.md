@@ -167,4 +167,3 @@ cardano-cli transaction submit --tx-file  "$TX_FILE_2" --testnet-magic 3
 ```
 
 > Note: Destroying tokens requires both the payment credential for using the UTxO entry with the tokens, *and* a credential for the minting policy script.
-

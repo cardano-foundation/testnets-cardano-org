@@ -153,4 +153,3 @@ cardano-cli shelley query utxo --address "$ADDRESS" --mary-era
 
 
 
-
