@@ -101,7 +101,7 @@ available for it,
 
 **Q. Where are the installation instructions for IELE?**
 
-A. IELE will be launched in 2021, in the mean time we have mostly descriptive information of what IELE is and it's benefits.
+A. IELE will be launched in 2021, in the meantime, you can find general information about IELE and its benefits.
 
 **Q. What is IELE?**
 
