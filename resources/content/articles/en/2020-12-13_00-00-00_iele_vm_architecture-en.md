@@ -1,5 +1,5 @@
 ---
-title: Smart Contracts Architecture with KEVM and IELE
+title: Smart Contracts Architecture
 description: How does the different components interact in KEVM and IELE
 order: 3
 parent: 2020-05-04_11-00-00_about
@@ -7,7 +7,7 @@ external_href: ""
 last_updated: "2020-12-15T11:30:00+01:00"
 ---
 
-## Smart Contracts Architecture with KEVM and IELE
+## Smart Contracts Architecture
 
 To execute smart contracts in a blockchain there are many technologies involved. And all the different moving parts can become difficult to understand. Here we look at the big picture first and then drill down, so that the components and their interactions become clearer.
 
@@ -15,17 +15,14 @@ To execute smart contracts in a blockchain there are many technologies involved.
 
 From a 10,000 ft view the interactions are easy to grasp. There are developers, users, and validators. They all interact with each other indirectly by storing actions in a blockchain. Each one of these actors have different goals:
 
-1.  > **A developer**
+**1. A developer**
+    codifies the smart contract and deploys it \[1,2\].
 
-    1.  > codifies the smart contract and deploys it \[1,2\].
+**2. A user**
+    interacts with the smart contract by transactions stored \[3,4\]
 
-    > **A user**
-
-    2.  > interacts with the smart contract by transactions stored \[3,4\]
-
-    > **A blockchain validator**
-
-    3.  > (aka stake pool operator or miner) is the one responsible for adding blocks and also executing the smart contracts that record the result of the execution in the blockchain. \[5-7\].
+**3. A blockchain validator**
+    (aka stake pool operator or miner) is the one responsible for adding blocks and also executing the smart contracts that record the result of the execution in the blockchain. \[5-7\].
 
 Once we understand the goals of each actor in this process we can understand the needs for different pieces of software.
 
