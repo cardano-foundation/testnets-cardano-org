@@ -3,7 +3,7 @@ title: Deploying smart contracts
 description: KEVM getting started
 parent: 2020-05-04_11-00-00_getting-started
 order: 5
-last_updated: "2020-05-01T09:00:00+01:00"
+last_updated: "2020-12-17T09:00:00+01:00"
 redirects:
   - from: /en/kevm/get-started/deploying-smart-contracts/
     type: "301"
@@ -21,7 +21,7 @@ Once you have  installed Mallet 2.0, follow the tutorial to:
 
 To run Mallet and connect to a testnet:
 
-### Connect to the IELE or KEVM testnet
+### Connect to the KEVM testnet
 
 ```shell
 ./mallet kevm
@@ -36,7 +36,7 @@ Everything typed in the Repl has to be valid JavaScript. Technically speaking, t
 **Create an account**
 
 ```javascript
-mallet> myAccount = newAccount() 
+mallet> myAccount = newAccount()
 Enter password:
 ```
 
@@ -82,32 +82,13 @@ Now that you have created and funded your account, you can compile and deploy sm
 
 #### Compiling smart contracts
 
-To deploy your smart contracts on the KEVM testnet you will need to compile to KEVM (K - Ethereum virtual machine) bytecode. You can compile the bytecode directly with using [solc](https://github.com/runtimeverification/solidity), or using an IDE (Integrated development environment) such as  [Remix](https://remix.ethereum.org/) or similar.
-
-Disclaimer:  Remix  is just one IDE that you can use to compile the bytecode. There are other IDEs that also perform this function. We have included instructions on using Remix as an example
-
-#### Compiling with Remix IDE
-
-The easiest way to compile your smart contract is to use [Remix](https://remix.ethereum.org/):
-
-* Write your code in the Editor window
-* Press [Start to compile] 
-* When the smart contract is compiled click \[Details\]
-* Check the details of the transaction
-* Copy the Runtime Bytecode json
-* Paste it in mallet to an object:
-```javascript
-mallet> runtimeBytecode = {"object": "60806040523480...."}
-mallet> myContract = runtimeBytecode.object
-```
-
-Now that your smart contract is in the my_contract variable jump to the 'Deploying contracts' section.
+To deploy your smart contracts on the KEVM testnet you will need to compile to KEVM (K - Ethereum virtual machine) bytecode. You can compile the bytecode directly with using [solc](https://github.com/runtimeverification/solidity), or using [Mallet](https://github.com/input-output-hk/mallet/blob/master/README.md)
 
 #### Compiling with ‘solc’ (command line)
 
 You can also compile your smart contract using only commandline tools. In that regard you will need to install the ‘[solc](https://github.com/runtimeverification/solidity)’ (soliditiy to KEVM compiler) in you can compile smart contracts directly from your terminal:
 
-### from your terminal NOT inside mallet
+### from your terminal (not inside Mallet)
 
 ```shell
 solc --bin --abi myContract.sol > myContract.bin
@@ -129,14 +110,14 @@ mallet> myContract = fs.readFileSync('myContract.bin', 'utf8')
 
 #### Deploying smart contracts
 
-Now that you have the bytecode either from solc or from Remix, the next step is simply to deploy it:
+Now that you have the bytecode either from solc, the next step is simply to deploy it:
 
 ```javascript
 // prepare the transaction to deploy the contract
 mallet> tx = {
 // gas limit, mandatory
 gas: 470000,
-// the variable with our smart contract binary                      
+// the variable with our smart contract binary
 data: myContract
 };
 
@@ -144,7 +125,7 @@ data: myContract
 mallet> deploymentHash = sendTransaction(tx)
 Enter password:
 
-//you will get back the tx hash on which it was deployed. 
+//you will get back the tx hash on which it was deployed.
 '0x........'
 ```
 
@@ -166,8 +147,8 @@ mallet> myContractAddress = getReceipt(deploymentHash).contractAddress
 To test your contract:
 
 ```javascript
-mallet> sendTransaction({to: myContractAddress, 
-gas:, 
+mallet> sendTransaction({to: myContractAddress,
+gas:,
 arguments: args});
 ```
 
