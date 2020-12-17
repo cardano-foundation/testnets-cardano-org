@@ -74,7 +74,7 @@ Open a terminal window and type in:
 After cloning the repository, execute:
 
     cd mallet
-    
+
     cat .nvmrc
 
     $ $ 10.16.3
@@ -112,7 +112,7 @@ that you can later, deploy to the devnet using Mallet.
 
     sudo npm install -g solc
 
-    
+
     /usr/lib/node_modules/solc/solcjs
     + solc@0.8.0
     updated 1 package in 1.296s
@@ -147,8 +147,8 @@ Create a `myContract.sol` file
     cat << EOF >myContract.sol
     // SPDX-License-Identifier: MIT
     pragma solidity >=0.6.0 <0.9.0;
-    
-    
+
+
     contract HelloWorld {
       function helloWorld() external pure returns (string memory) {
         return "Hello, World!";
@@ -202,7 +202,7 @@ reflects how they are used.
     //execute inthe Mallet Repl
     //mallet kevm -d ./my_data/
     //mallet> .load ../test_smartcontract_deploy.js
-    
+
     myAccount = newAccount()
 
 The `newAccount` command asks your password, and returns your new account
@@ -296,7 +296,7 @@ To save your contract address, create a variable that takes the return value of 
 
 ### Test your smart contract
 
-    sendTransaction({to: myContractAddress,gas:10000,arguments: []})
+    sendTransaction({to: myContractAddress,gas:10000})
 
 
 ## Getting help
@@ -307,4 +307,3 @@ be useful. This opens the **Readme file** in your default web browser:
     help()
 
 Or you can [Join IOHK | Devnets on Slack](https://join.slack.com/t/iohkdevnets/shared_invite/zt-jvy74l5h-Bhp5SQajefwjig72BIl73A), where the community helps each other
-
