@@ -10,7 +10,7 @@ last_updated: "2020-12-15T11:30:00+01:00"
 ## FAQs for KEVM and IELE
 
 Note: At this point in time, we are restarting and accelerating the K
-Ethereum Virtual Machine (KEVM) program *only*. The IELE program will be coming very soon, *but you can learn about IELE's features and benefits in this page.*
+Ethereum Virtual Machine (KEVM) program *only*. The IELE program will be coming very soon, but you can learn about IELE's features and benefits in this page.
 
 ### I’m a Cardano fan
 
