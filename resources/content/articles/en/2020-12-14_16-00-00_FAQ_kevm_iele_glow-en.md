@@ -10,8 +10,7 @@ last_updated: "2020-12-15T11:30:00+01:00"
 ## FAQs for KEVM and IELE
 
 Note: At this point in time, we are restarting and accelerating the K
-Ethereum Virtual Machine (KEVM) program *only*. The IELE program will be
-coming very soon.
+Ethereum Virtual Machine (KEVM) program *only*. The IELE program will be coming very soon, but you can learn about IELE's features and benefits in this page.
 
 ### I’m a Cardano fan
 
@@ -98,10 +97,6 @@ It has been used in the aerospace and automotive industries, and it is now
 being used in the blockchain industry. Once the language is defined, tools
 such as a parser, an interpreter, and even a program verifier are
 available for it,
-
-**Q. Where are the installation instructions for IELE?**
-
-A. IELE will be launched in 2021, in the mean time we have mostly descriptive information of what IELE is and it's benefits.
 
 **Q. What is IELE?**
 
