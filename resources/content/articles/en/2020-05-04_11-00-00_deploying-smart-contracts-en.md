@@ -131,7 +131,7 @@ contact the community in Slack:
 [Join IOHK | Devnets on Slack](https://join.slack.com/t/iohkdevnets/shared_invite/zt-jvy74l5h-Bhp5SQajefwjig72BIl73A)
 
 
-<a id="org172906b"></a>
+<a id="org3c6ae3d"></a>
 
 ## Create a HelloWorld smart contract
 
@@ -249,7 +249,7 @@ deploy smart contracts.
 ## Bring the compiled smart contract into Mallet
 
 Using the `_myContract_HelloWorld.bin` created in the step:
-[1.4](#org172906b)
+[1.4](#org3c6ae3d)
 you can now import it to mallet
 
 
