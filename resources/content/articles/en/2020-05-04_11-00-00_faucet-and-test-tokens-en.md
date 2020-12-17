@@ -12,15 +12,19 @@ redirects:
 
 The faucet is a means of providing test tokens to users so that they can run their smart contracts on the KEVM and IELE testnets.
 
-By using the faucet, users can request test tokens that are automatically supplied to them without needing assistance from developers. Disclaimer: Please do not try to use real cryptocurrency on the testnets. You should take care to ensure that you only use test tokens when running your smart contracts, and these are obtained through the faucet. Instructions on how to receive test tokens are below.
+By using the faucet, users can request test tokens that are automatically supplied to them without assistance from developers. 
+
+>Disclaimer: *Do not* try to use real cryptocurrency on the testnets. You should take care to ensure that you only use test tokens when running your smart contracts, and these are obtained through the faucet. Instructions on how to receive test tokens are below.
 
 ### How to access the devnet faucet from Mallet
+
 The preferred way to access the faucet is directly from Mallet.
-Inside mallet, simply execute the command `requestFunds` and it will give you test tokens in the current account.
+Run the `requestFunds` command in Mallet to request test tokens. 
+
 The following outcomes are possible:
 
-* A success response is returned with the transaction ID and funds are routed to the account. The status of the transaction can be monitored using the blockchain explorer.
-* An error message of type 429 is returned if you have exceeded the amount of requests from a single IP address. You will have to wait for a short interval before trying again.
-* An error message of type 500 is returned if there is a problem with the faucet server.
+* A success response is returned with the transaction ID and funds are routed to the account. The status of the transaction can be monitored using the block explorer.
+* System returns a Type 429 error message. This occurs if you have exceeded the amount of requests from a single IP address. Wait a few minutes before attempting to request funds again.
+* System returns a Type 500 error message. This normally indicates a problem with the faucet server. Wait a few minutes before attempting to request funds again.
 
-For more informaton, please check [requestFunds](https://github.com/input-output-hk/mallet/blob/master/README.md#requestfunds) documentation
+For more information, please check [requestFunds](https://github.com/input-output-hk/mallet/blob/master/README.md#requestfunds) documentation.
