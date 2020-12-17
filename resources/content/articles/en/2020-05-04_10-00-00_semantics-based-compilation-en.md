@@ -3,7 +3,7 @@ title: Semantics based compilation
 description: IELE about
 parent: 2020-05-04_10-00-00_about
 order: 5
-last_updated: "2020-05-01T09:00:00+01:00"
+last_updated: "2020-12-17T09:00:00+01:00"
 redirects:
   - from: /en/iele/about/semantics-based-compilation/
     type: "301"

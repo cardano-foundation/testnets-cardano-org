@@ -10,4 +10,4 @@ redirects:
 ---
 ## Block explorer
 
-The KEVM testnet provides a link to the blockchain explorer. This is a useful tool that displays information about activity on the blockchain. The block explorer shows transaction history and other details, making it easy for users to find information about the cryptocurrency. Importantly, it shows the latest blocks in the chain as well as identifying the first block in the chain.
+The KEVM devnet provides a link to the blockchain explorer. This is a useful tool that displays information about activity on the blockchain. The block explorer shows transaction history and other details, making it easy for users to find information about the cryptocurrency. Importantly, it shows the latest blocks in the chain as well as identifying the first block in the chain.
