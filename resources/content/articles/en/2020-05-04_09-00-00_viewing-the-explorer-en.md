@@ -3,7 +3,7 @@ title: Viewing the explorer
 description: Byron getting started
 order: 3
 parent: 2020-05-04_09-00-00_getting-started
-last_updated: "2020-05-01T09:00:00+01:00"
+last_updated: "2020-12-17T09:00:00+01:00"
 redirects:
   - from: /en/cardano/byron/get-started/viewing-the-explorer/
     type: "301"
