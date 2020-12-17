@@ -1,14 +1,14 @@
 ---
-title: KEVM testnet support
+title: KEVM rationale
 description: KEVM about
 parent: 2020-05-04_11-00-00_about
 order: 2
-last_updated: "2020-05-01T09:00:00+01:00"
+last_updated: "2020-12-17T09:00:00+01:00"
 redirects:
   - from: /en/kevm/about/kevm-testnet-support/
     type: "301"
 ---
-## KEVM testnet support
+## KEVM rationale
 
 The KEVM testnet is based on the K framework, a system for specifying languages and virtual machines and then deriving tools for these languages such as interpreters, type checkers, equivalence checkers, and debuggers.  It can be used to create both static and dynamic analysis tools.
 
