@@ -31,25 +31,25 @@ Follow these steps to install Node.js in Linux and MacOS operating systems.
     sudo apt-get -q install -y nodejs
 
 
-**2. Verify Node.js is installed with:
+**2. Verify Node.js is installed with:**
 
     node --version
 
     v13.14.0
 
 
-**3. Install `nvm` (a version manager for node.js)
+**3. Install `nvm` (a version manager for node.js):**
 
     curl -s -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 
 
-**4. Make the `nvm` command available in the current session
+**4. Make the `nvm` command available in the current session:**
 
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 
-**5. Verify that `nvm` is installed
+**5. Verify that `nvm` is installed:**
 
     nvm --version
 
@@ -61,17 +61,17 @@ Note: Install Mallet only *after* verifying that `nvm` is installed *and* workin
 ### Installing Mallet 2.0
 
 **1. Clone this [repo](<https://github.com/input-output-hk/mallet>) to get the latest version of Mallet, and then
-install it with the `npm` command.
+install it with the `npm` command.**
 
 
-**2. Clone the Mallet git repository
+**2. Clone the Mallet git repository**
 
 Open a terminal window and type:
 
     git clone https://github.com/input-output-hk/mallet
 
 
-**3. Install specific node version for Mallet
+**3. Install specific node version for Mallet**
 
 After cloning the repository, execute:
 
@@ -81,18 +81,18 @@ After cloning the repository, execute:
 
     $ $ 10.16.3
 
-Then install the required node version.
+Then install the required node version:
 
     nvm install 10.16.3
     nvm use --silent
 
 
-**3. Download and install Mallet and its dependencies.
+**4. Download and install Mallet and its dependencies:**
 
     npm install --silent
 
 
-**4. Verify that Mallet was installed correctly
+**5. Verify that Mallet was installed correctly**
 
 Check the integrity of the Mallet installation by using the `version` command:
 
@@ -109,7 +109,7 @@ The `solcjs` compiler takes your source code (written in Solidity) and creates a
 that you can later deploy to the devnet using Mallet.
 
 
-**1. Install `solcjs` with `npm`:
+**1. Install `solcjs` with `npm`:**
 
     sudo npm install -g solc
 
@@ -119,7 +119,7 @@ that you can later deploy to the devnet using Mallet.
     updated 1 package in 1.296s
 
 
-**2. Verify that `solcjs` was installed:
+**2. Verify that `solcjs` was installed:**
 
     solcjs --version
 
@@ -127,9 +127,9 @@ that you can later deploy to the devnet using Mallet.
 
 Smart contracts can only be deployed after the correct version of `solcjs` is installed.
 
-*Note: If you have problems installing any of the prerequisites (node, Mallet or solcjs),
+> Note: If you have problems installing any of the prerequisites (node, Mallet or solcjs),
 contact the community in Slack:
-[Join IOHK | Devnets on Slack](https://join.slack.com/t/iohkdevnets/shared_invite/zt-jvy74l5h-Bhp5SQajefwjig72BIl73A)*
+[Join IOHK | Devnets on Slack](https://join.slack.com/t/iohkdevnets/shared_invite/zt-jvy74l5h-Bhp5SQajefwjig72BIl73A)
 
 
 <a id="orgfd048b1"></a>
@@ -141,7 +141,7 @@ you will need to compile the Solidity code to KEVM (K - Ethereum virtual machine
 You can compile the bytecode directly with using [solcjs](https://github.com/ethereum/solc-js#usage-on-the-command-line).
 
 
-**1. Create a Solidity  file
+**1. Create a Solidity  file**
 
 Create a `myContract.sol` file:
 
@@ -158,12 +158,12 @@ Create a `myContract.sol` file:
     EOF
 
 
-**2. Compile with `solcjs`:
+**2. Compile with `solcjs`:**
 
     solcjs --bin --abi --base-path . ./myContract.sol
 
 
-**3. Verify that the compiled file exists:
+**3. Verify that the compiled file exists:**
 
 If the file was correctly compiled, there should be a `.bin` file in your directory.
 
@@ -179,7 +179,7 @@ transactions, deploy smart contracts, and interact with the IELE and
 KEVM devnets.
 
 
-**1. Connect to the KEVM devnet
+**1. Connect to the KEVM devnet:**
 
     ./mallet kevm -d ./data
 
@@ -198,7 +198,7 @@ reflects how they are used.
 ## Using the faucet
 
 
-**1. Create an account
+**1. Create an account**
 
 Create an account to use this faucet by using this code:
 
@@ -215,7 +215,7 @@ Note that we are assigning the return value of `newAccount` to a variable
 named `myAccount` so we can refer to it later.
 
 
-**2. Select an account
+**2. Select an account**
 
 Activate the account we have just created by using this code:
 
@@ -224,7 +224,7 @@ Activate the account we have just created by using this code:
     '0x45402404f51909b640d03f361c742c38d34bb3e7'
 
 
-**3. Verify the balance of your new account
+**3. Verify the balance of your new account**
 
 Since the account has just been created, its balance should be 0.
 
@@ -234,7 +234,7 @@ If you don't give any argument, this will return the balance of the
 selected account.
 
 
-**3. Request tokens from the faucet with `requestFunds`:
+**3. Request tokens from the faucet with `requestFunds`:**
 
     requestFunds()
 
@@ -243,55 +243,55 @@ Fund transfer might take a few minutes.
 You can now compile and deploy smart contracts as your account is created *and* funded.
 
 
-**4. Check the new balance in the account
+**4. Check the new balance in the account:**
 
     getBalance()
 
 
-**5. Bring the compiled smart contract into Mallet
+**5. Bring the compiled smart contract into Mallet**
 
 Using the `_myContract_HelloWorld.bin` created earlier,
 [1.4](#orgfd048b1),
 you can now import the smart contract into Mallet.
 
 
-**6. Import the `fileSystem` module
+**6. Import the `fileSystem` module:**
 
     fs = require("fs");
 
 
-**7. Read the contents of the binary file
+**7. Read the contents of the binary file:**
 
     myContract = fs.readFileSync('_myContract_sol_HelloWorld.bin', 'utf8');
 
 
 ## Deploying smart contracts
 
-Now that you have the bytecode from `solcjs`, the next step is simply to deploy it:
+Now that you have the bytecode from `solcjs`, the next step is simply to deploy it.
 
 
-**1. Prepare the transaction to deploy the contract
+**1. Prepare the transaction to deploy the contract:**
 
     tx = { gas: 470000, data: myContract}
 
 
-**2. Send a transaction with the smart contract
+**2. Send a transaction with the smart contract:**
 
     deploymentHash = sendTransaction(tx)
 
 This will return the tx hash on which the contract was deployed to.
 
 
-**3. View receipt
+**3. View receipt**
 
 You can view transaction details with the following command:
 
     getReceipt(deploymentHash)
 
 
-**4. Save your contract address
+**4. Save your contract address**
 
-To save your contract address, create a variable that takes the return value of getReceipt().
+To save your contract address, create a variable that takes the return value of getReceipt():
 
     myContractAddress = getReceipt(deploymentHash).contractAddress
 
@@ -301,10 +301,10 @@ To save your contract address, create a variable that takes the return value of 
     sendTransaction({to: myContractAddress,gas:10000})
 
 
-**Getting help
+**Getting help**
 
 The `help` command can be useful When running Mallet in the CLI. This command opens the **Readme file** in your default web browser:
 
     help()
 
-Alternatively, [Join IOHK | Devnets on Slack](https://join.slack.com/t/iohkdevnets/shared_invite/zt-jvy74l5h-Bhp5SQajefwjig72BIl73A), to obtain help from the community.
+Alternatively, [Join IOHK | Devnets on Slack](https://join.slack.com/t/iohkdevnets/shared_invite/zt-jvy74l5h-Bhp5SQajefwjig72BIl73A) to obtain help from the community.
