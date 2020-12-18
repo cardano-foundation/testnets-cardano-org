@@ -12,10 +12,8 @@ redirects:
 
 ## Installation prerequisites
 
-- Linux and MacOS: Node.js 10.16.3 (or the latest
-version), and the Git tools.
-- Windows: Node.js 10.16.3 (or the latest
-version), Git tools, and the Windows
+- Linux and MacOS: Node.js 10.16.3 (recommended), and the Git tools.
+- Windows: Node.js 10.16.3 (recommended), Git tools, and the Windows
 Subsystem for Linux (WSL).
 
 Consult the official [nodejs](https://github.com/nodesource/distributions/blob/master/README.md) documentation for reference.
@@ -34,8 +32,6 @@ Follow these steps to install Node.js in Linux and MacOS operating systems.
 **2. Verify Node.js is installed with:**
 
     node --version
-
-    v13.14.0
 
 
 **3. Install `nvm` (a version manager for node.js):**
