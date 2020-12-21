@@ -111,7 +111,7 @@ that you can later deploy to the devnet using Mallet.
 
 
     /usr/lib/node_modules/solc/solcjs
-    + solc@0.8.0
+    + solc@0.5.1
     updated 1 package in 1.296s
 
 
@@ -119,7 +119,7 @@ that you can later deploy to the devnet using Mallet.
 
     solcjs --version
 
-    0.8.0+commit.c7dfd78e.Emscripten.clang
+    0.5.1+commit.c7dfd78e.Emscripten.clang
 
 Smart contracts can only be deployed after the correct version of `solcjs` is installed.
 
@@ -143,7 +143,7 @@ Create a `myContract.sol` file:
 
     cat << EOF >myContract.sol
     // SPDX-License-Identifier: MIT
-    pragma solidity >=0.6.0 <0.9.0;
+    pragma solidity >=0.5.1 <0.9.0;
 
 
     contract HelloWorld {
@@ -258,7 +258,7 @@ you can now import the smart contract into Mallet.
 
 **7. Read the contents of the binary file:**
 
-    myContract = fs.readFileSync('_myContract_sol_HelloWorld.bin', 'utf8');
+    myContract = "0x" + fs.readFileSync('_myContract_sol_HelloWorld.bin', 'utf8');
 
 
 ## Deploying smart contracts
