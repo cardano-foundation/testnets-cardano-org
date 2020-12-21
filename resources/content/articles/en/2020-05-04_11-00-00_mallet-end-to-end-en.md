@@ -258,7 +258,7 @@ you can now import the smart contract into Mallet.
 
 **7. Read the contents of the binary file:**
 
-    myContract = 0x + fs.readFileSync('_myContract_sol_HelloWorld.bin', 'utf8');
+    myContract = "0x" + fs.readFileSync('_myContract_sol_HelloWorld.bin', 'utf8');
 
 
 ## Deploying smart contracts
