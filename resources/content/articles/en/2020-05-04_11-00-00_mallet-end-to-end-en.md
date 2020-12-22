@@ -132,7 +132,7 @@ If the file was correctly compiled, there should be a `.bin` file in your direct
 
     ls *.bin
 
-    _myContract_sol_HelloWorld.bin
+    HelloWorld.bin
 
 ## Mallet 2.0
 
