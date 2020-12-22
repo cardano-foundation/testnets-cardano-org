@@ -124,7 +124,7 @@ Create a `myContract.sol` file:
 
 To compile with `solc`, you will need to use the Docker command. For this, first install the [Docker Engine](https://docs.docker.com/engine/install/), then run:
 
-    $ docker run -v $(pwd):/sources ethereum/solc:0.5.1 -o /sources --bin --abi /sources/myContract.sol
+    docker run -v $(pwd):/sources ethereum/solc:0.5.1 -o /sources --bin --abi /sources/myContract.sol
 
 
 **3. Verify that the compiled file exists:**
