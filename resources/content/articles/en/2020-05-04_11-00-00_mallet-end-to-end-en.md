@@ -127,9 +127,6 @@ Smart contracts can only be deployed after the correct version of `solcjs` is in
 contact the community in Slack:
 [Join IOHK | Devnets on Slack](https://join.slack.com/t/iohkdevnets/shared_invite/zt-jvy74l5h-Bhp5SQajefwjig72BIl73A)
 
-
-<a id="orgfd048b1"></a>
-
 ## Create a HelloWorld smart contract
 
 To deploy your smart contracts on the KEVM devnet and test Mallet,
