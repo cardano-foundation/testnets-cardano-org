@@ -214,7 +214,7 @@ You can now compile and deploy smart contracts as your account is created *and* 
 
 **5. Bring the compiled smart contract into Mallet**
 
-Using the `_myContract_HelloWorld.bin` created earlier,
+Using the `HelloWorld.bin` created earlier,
 [1.4](#orgfd048b1),
 you can now import the smart contract into Mallet.
 
@@ -226,12 +226,12 @@ you can now import the smart contract into Mallet.
 
 **7. Read the contents of the binary file:**
 
-    myContract = "0x" + fs.readFileSync('_myContract_sol_HelloWorld.bin', 'utf8');
+    myContract = "0x" + fs.readFileSync('HelloWorld.bin', 'utf8');
 
 
 ## Deploying smart contracts
 
-Now that you have the bytecode from `solcjs`, the next step is simply to deploy it.
+Now that you have the bytecode from `solc`, the next step is simply to deploy it.
 
 
 **1. Prepare the transaction to deploy the contract:**
