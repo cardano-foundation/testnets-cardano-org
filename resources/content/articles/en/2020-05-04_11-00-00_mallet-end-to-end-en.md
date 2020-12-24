@@ -258,9 +258,9 @@ To save your contract address, create a variable that takes the return value of 
 
 ### Test your smart contract
 
-    mallet> web3.toAscii(web3.eth.call({to: myContractAddress, data: '0xc605f76c'}))
+    web3.toAscii(web3.eth.call({to: myContractAddress, data: '0xc605f76c'}))
     
-The expected output should contain "Hello , World!". 
+The expected output should contain "Hello, World!". 
 
 
 **Getting help**
