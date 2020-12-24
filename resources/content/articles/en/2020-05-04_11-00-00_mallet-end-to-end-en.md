@@ -12,9 +12,8 @@ redirects:
 
 ## Installation prerequisites
 
-- Linux and MacOS: Node.js 10.16.3 (recommended), and the Git tools.
-- Windows: Node.js 10.16.3 (recommended), Git tools, and the Windows
-Subsystem for Linux (WSL).
+- Linux and MacOS:  Node.js 10.16.3 (recommended), Python (2.7), Curl, Make and Git.
+- Windows: Install the same as above within the Windows Subsystem for Linux (WSL).
 
 Consult the official [nodejs](https://github.com/nodesource/distributions/blob/master/README.md) documentation for reference.
 
@@ -75,7 +74,7 @@ After cloning the repository, execute:
 
     cat .nvmrc
 
-    $ $ 10.16.3
+    10.16.3
 
 Then install the required node version:
 
@@ -98,41 +97,11 @@ Check the integrity of the Mallet installation by using the `version` command:
 
 If the version number displays correctly, the installation was successful.
 
-
-### Installing the `solcjs` compiler
-
-The `solcjs` compiler takes your source code (written in Solidity) and creates a binary file
-that you can later deploy to the devnet using Mallet.
-
-
-**1. Install `solcjs` with `npm`:**
-
-    sudo npm install -g solc
-
-
-    /usr/lib/node_modules/solc/solcjs
-    + solc@0.5.1
-    updated 1 package in 1.296s
-
-
-**2. Verify that `solcjs` was installed:**
-
-    solcjs --version
-
-    0.5.1+commit.c7dfd78e.Emscripten.clang
-
-Smart contracts can only be deployed after the correct version of `solcjs` is installed.
-
-> Note: If you have problems installing any of the prerequisites (node, Mallet or solcjs),
-contact the community in Slack:
-[Join IOHK | Devnets on Slack](https://join.slack.com/t/iohkdevnets/shared_invite/zt-jvy74l5h-Bhp5SQajefwjig72BIl73A)
-
 ## Create a HelloWorld smart contract
 
 To deploy your smart contracts on the KEVM devnet and test Mallet,
 you will need to compile the Solidity code to KEVM (K - Ethereum virtual machine) bytecode.
-You can compile the bytecode directly with using [solcjs](https://github.com/ethereum/solc-js#usage-on-the-command-line).
-
+You can compile the bytecode directly with using [solc](https://hub.docker.com/r/ethereum/solc).
 
 **1. Create a Solidity  file**
 
@@ -150,11 +119,11 @@ Create a `myContract.sol` file:
     }
     EOF
 
+**2. Compile with `solc`:**
 
-**2. Compile with `solcjs`:**
+To compile with `solc`, you will need to use the Docker command. For this, first install the [Docker Engine](https://docs.docker.com/engine/install/), then run:
 
-    solcjs --bin --abi --base-path . ./myContract.sol
-
+    docker run --rm -v $(pwd):/sources ethereum/solc:0.5.1 -o /sources --bin --abi /sources/myContract.sol
 
 **3. Verify that the compiled file exists:**
 
@@ -162,15 +131,13 @@ If the file was correctly compiled, there should be a `.bin` file in your direct
 
     ls *.bin
 
-    _myContract_sol_HelloWorld.bin
-
+    HelloWorld.bin
 
 ## Mallet 2.0
 
 Mallet, the minimal wallet, is the command line interface (CLI) used to send
 transactions, deploy smart contracts, and interact with the IELE and
 KEVM devnets.
-
 
 **1. Connect to the KEVM devnet:**
 
@@ -187,9 +154,11 @@ speaking, the commands are simply functions and properties of Mallet
 object. However, we tend to refer to them as *commands* because that
 reflects how they are used.
 
+> Note: If you have problems installing any of the prerequisites (node or Mallet),
+contact the community in Slack:
+[Join IOHK | Devnets on Slack](https://join.slack.com/t/iohkdevnets/shared_invite/zt-jvy74l5h-Bhp5SQajefwjig72BIl73A)
 
 ## Using the faucet
-
 
 **1. Create an account**
 
@@ -227,7 +196,7 @@ If you don't give any argument, this will return the balance of the
 selected account.
 
 
-**3. Request tokens from the faucet with `requestFunds`:**
+**4. Request tokens from the faucet with `requestFunds`:**
 
     requestFunds()
 
@@ -236,31 +205,29 @@ Fund transfer might take a few minutes.
 You can now compile and deploy smart contracts as your account is created *and* funded.
 
 
-**4. Check the new balance in the account:**
+**5. Check the new balance in the account:**
 
     getBalance()
 
 
-**5. Bring the compiled smart contract into Mallet**
+**6. Bring the compiled smart contract into Mallet**
 
-Using the `_myContract_HelloWorld.bin` created earlier,
-[1.4](#orgfd048b1),
-you can now import the smart contract into Mallet.
+Using the `HelloWorld.bin` created earlier you can import the smart contract into Mallet.
 
 
-**6. Import the `fileSystem` module:**
+**7. Import the `fileSystem` module:**
 
     fs = require("fs");
 
 
-**7. Read the contents of the binary file:**
+**8. Read the contents of the binary file:**
 
-    myContract = "0x" + fs.readFileSync('_myContract_sol_HelloWorld.bin', 'utf8');
+    myContract = "0x" + fs.readFileSync('HelloWorld.bin', 'utf8');
 
 
 ## Deploying smart contracts
 
-Now that you have the bytecode from `solcjs`, the next step is simply to deploy it.
+Now that you have the bytecode from `solc`, the next step is simply to deploy it.
 
 
 **1. Prepare the transaction to deploy the contract:**
@@ -291,7 +258,9 @@ To save your contract address, create a variable that takes the return value of 
 
 ### Test your smart contract
 
-    sendTransaction({to: myContractAddress,gas:10000})
+    web3.toAscii(web3.eth.call({to: myContractAddress, data: '0xc605f76c'}))
+    
+The expected output should contain "Hello, World!". 
 
 
 **Getting help**
