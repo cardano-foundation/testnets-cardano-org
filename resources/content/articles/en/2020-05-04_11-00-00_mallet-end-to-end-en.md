@@ -12,9 +12,8 @@ redirects:
 
 ## Installation prerequisites
 
-- Linux and MacOS: Node.js 10.16.3 (recommended), and the Git tools.
-- Windows: Node.js 10.16.3 (recommended), Git tools, and the Windows
-Subsystem for Linux (WSL).
+- Linux and MacOS:  Node.js 10.16.3 (recommended), Python (2.7), Curl, Make and Git.
+- Windows: Install the same as above within the Windows Subsystem for Linux (WSL).
 
 Consult the official [nodejs](https://github.com/nodesource/distributions/blob/master/README.md) documentation for reference.
 
@@ -75,7 +74,7 @@ After cloning the repository, execute:
 
     cat .nvmrc
 
-    $ $ 10.16.3
+    10.16.3
 
 Then install the required node version:
 
@@ -161,7 +160,6 @@ contact the community in Slack:
 
 ## Using the faucet
 
-
 **1. Create an account**
 
 Create an account to use this faucet by using this code:
@@ -198,7 +196,7 @@ If you don't give any argument, this will return the balance of the
 selected account.
 
 
-**3. Request tokens from the faucet with `requestFunds`:**
+**4. Request tokens from the faucet with `requestFunds`:**
 
     requestFunds()
 
@@ -207,24 +205,22 @@ Fund transfer might take a few minutes.
 You can now compile and deploy smart contracts as your account is created *and* funded.
 
 
-**4. Check the new balance in the account:**
+**5. Check the new balance in the account:**
 
     getBalance()
 
 
-**5. Bring the compiled smart contract into Mallet**
+**6. Bring the compiled smart contract into Mallet**
 
-Using the `HelloWorld.bin` created earlier,
-[1.4](#orgfd048b1),
-you can now import the smart contract into Mallet.
+Using the `HelloWorld.bin` created earlier you can import the smart contract into Mallet.
 
 
-**6. Import the `fileSystem` module:**
+**7. Import the `fileSystem` module:**
 
     fs = require("fs");
 
 
-**7. Read the contents of the binary file:**
+**8. Read the contents of the binary file:**
 
     myContract = "0x" + fs.readFileSync('HelloWorld.bin', 'utf8');
 
@@ -262,7 +258,9 @@ To save your contract address, create a variable that takes the return value of 
 
 ### Test your smart contract
 
-    sendTransaction({to: myContractAddress,gas:10000})
+    mallet> web3.toAscii(web3.eth.call({to: myContractAddress, data: '0xc605f76c'}))
+    
+The expected output should contain "Hello , World!". 
 
 
 **Getting help**
