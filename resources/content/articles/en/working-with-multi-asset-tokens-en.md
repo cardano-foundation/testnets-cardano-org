@@ -168,9 +168,9 @@ cardano-cli transaction submit --tx-file  "$TX_FILE_2" --testnet-magic 3
 
 > Note: Destroying tokens requires both the payment credential for using the UTxO entry with the tokens, *and* a credential for the minting policy script.
 
-# Example: Minting a new native asset
+## Example: Minting a new native asset
 
-## Overview
+### Overview
 
 This section describes how to manually mint a new native asset ('melcoin') using cardano-cli, and send a transaction of this newly minted asset to a new address. The code
 used throughout pertains to the *Mary* Testnet. For the mainnet, replace `--network-magic 3` with `--mainnet` in all commands.
@@ -271,7 +271,7 @@ cardano-cli  query protocol-parameters \
 
 ```
 
-## Start the minting process
+### Start the minting process
 
 1. Create a policy
 
@@ -309,7 +309,7 @@ $ ./cardano-cli transaction policyid --script-file ./policy/policy.script
 
 ```
 
-## Build the raw transaction
+### Build the raw transaction
 
 1. Use this code to build the raw transaction
 
@@ -333,7 +333,7 @@ $ cat matx.raw
 ```
 
 
-## Calculate the minimum fee
+### Calculate the minimum fee
 
 Use this code to calculate the minimum fee required for the transaction.
 ```
@@ -349,7 +349,7 @@ Use this code to calculate the minimum fee required for the transaction.
 
 ```
 
-## Build the transaction again
+### Build the transaction again
 
 The transaction will now include the fee.
 
@@ -373,7 +373,7 @@ $ cat matx.raw
 
 ```
 
-## Sign the transaction
+### Sign the transaction
 
 ```
 ./cardano-cli transaction sign \
@@ -394,7 +394,7 @@ $ cat matx.signed
 
 ```
 
-## Submit the transaction
+### Submit the transaction
 
 ```bash
 ./cardano-cli transaction submit --tx-file  matx.signed --testnet-magic 3
@@ -411,7 +411,7 @@ fd0790f3984348f65ee22f35480b873b4eb9862065514f3e3a9c0f04d0a6ad63     0        99
 
 ```
 
-## Send the new native asset to another address
+### Send the new native asset to another address
 
 1. Generate a recipient address:
 
@@ -477,7 +477,7 @@ Use this code to calculate the minimum fee for the transaction.
              --out-file rec_matx.raw
 ```
 
-## Sign the transaction
+### Sign the transaction
 
 Sign the transaction using the keys generated earlier.
 ```
@@ -488,7 +488,7 @@ Sign the transaction using the keys generated earlier.
          --out-file rec_matx.signed
 ```
 
-## Submit the transaction
+### Submit the transaction
 
 Submit the transaction to the chain.
 ```
@@ -503,7 +503,7 @@ $ cat lpconfig/launchpad-shelley-genesis.json | grep minUTxOValue
 
 ```
 
-## Check the Utxo for address addr_test1vp8s8zu6mr73nvlsjf935k0a38n8xvp3fptkyz2vl8pserqkcx5yz
+### Check the Utxo for address addr_test1vp8s8zu6mr73nvlsjf935k0a38n8xvp3fptkyz2vl8pserqkcx5yz
 
 ```bash
 ./cardano-cli query utxo --address addr_test1vp8s8zu6mr73nvlsjf935k0a38n8xvp3fptkyz2vl8pserqkcx5yz --testnet-magic 3 --mary-era
@@ -516,7 +516,7 @@ f90b8457a2cf6a1aba9c0001ae2c7084f653083c6108826115a0a64e862333a3     0        10
 The recipient address we created now has 10000000 Lovelace and 1 melcoin.
 
 
-## Check the utxo for address addr_test1vqvlku0ytscqg32rpv660uu4sgxlje25s5xrpz7zjqsva3c8pfckz
+### Check the utxo for address addr_test1vqvlku0ytscqg32rpv660uu4sgxlje25s5xrpz7zjqsva3c8pfckz
 
 ```bash
 
@@ -530,7 +530,7 @@ The sender address now has 989643522 Lovelace and 999999999 melcoin.
 
 Important: The testnet ada has not been removed from these addresses. If you are using these addresses for testing purposes, please take just a little ada and send the remainder back to the above addresses, so others can use them.
 
-### Further resources about native assets
+#### Further resources about native assets
 
 [This page](https://developers.cardano.org/en/development-environments/native-tokens/native-tokens/) offers an overview about native assets.
 
