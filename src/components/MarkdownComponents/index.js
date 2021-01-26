@@ -6,6 +6,7 @@ import KEVMFaucet from './KEVMFaucet'
 import OtherAvailableTestnets from './OtherAvailableTestnets'
 import ShelleyHaskellFaucet from './ShelleyHaskellFaucet'
 import ShelleyHaskellStakingCalculator from './ShelleyHaskellStakingCalculator'
+import GetInvolvedCTA from './GetInvolvedCTA'
 
 export default {
   CardanoDownloader,
@@ -15,5 +16,6 @@ export default {
   KEVMFaucet,
   OtherAvailableTestnets,
   ShelleyHaskellFaucet,
-  ShelleyHaskellStakingCalculator
+  ShelleyHaskellStakingCalculator,
+  GetInvolvedCTA
 }
