@@ -57,7 +57,7 @@ download and install GHC:
     rm ghc-8.6.5-x86_64-deb9-linux.tar.xz
     cd ghc-8.6.5
     ./configure
-    sudo make install
+    sudo yum install ncurses-compat-libs
 
 Add ~/.cabal/bin/ and ~/.local/bin/ to the PATH
 
