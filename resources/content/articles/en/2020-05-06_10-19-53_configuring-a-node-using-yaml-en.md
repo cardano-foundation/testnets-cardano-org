@@ -86,5 +86,5 @@ The genesis file is very important, as it sets four key parameters:
 * `MaxLovelaceSupply`: the total amount of lovelaces in the blockchain.
 * `startTime`: the time of slot zero.
 
-For details on using the command line interface, stopping and starting the node, and ensuring the node is connected to the Cardano network, please refer to the [README file](https://github.com/input-output-hk/cardano-node/blob/master/README.md).
+For details on using the command line interface, stopping and starting the node, and ensuring the node is connected to the Cardano network, please refer to the [cardano-node repository](https://github.com/input-output-hk/cardano-node).
 
