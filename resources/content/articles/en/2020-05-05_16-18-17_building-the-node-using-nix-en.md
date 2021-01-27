@@ -13,7 +13,7 @@ redirects:
 
 [Nix](https://nixos.org/) is a purely functional, cross-platform package manager for Linux and Unix systems. It is the package manager of choice for IOHK's internal development teams, and thus the recommended method for building a Cardano node to run on your machine.
 
-**Note:** The following instructions assume you are using Linux and have curl installed. See the [supported platforms](/cardano/about/supported-platforms/) page for more details about supported platforms for the Shelley testnet.
+**Note:** The following instructions assume you are using Linux and have curl installed. See the [supported platforms](https://developers.cardano.org/en/testnets/cardano/about/supported-platforms/) page for more details about supported platforms for the Shelley testnet.
 
 1. Download and install the Nix package manager by running the following commands from a terminal:
 
@@ -31,7 +31,7 @@ chmod +x ./install-nix.sh
 3. Run:
 
 ```shell
-./install-nix.sh --daemon --nix-extra-conf-files nix.conf
+./install-nix.sh --daemon --nix-extra-conf-file nix.conf
 ```
 
 4. Follow the instructions presented as part of the Nix installation process.

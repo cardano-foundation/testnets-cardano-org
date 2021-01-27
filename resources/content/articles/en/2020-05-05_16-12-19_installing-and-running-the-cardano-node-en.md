@@ -9,9 +9,10 @@ redirects:
   - from: /en/shelley/get-started/installing-and-running-the-cardano-node/
     type: "301"
 ---
+
 ## Installing and running a Cardano node
 
-There are a number of ways to install and run a Cardano node on your machine, although which method you choose will depend on your operating system (see [supported platforms](/cardano/about/supported-platforms/)), level of technical expertise, and personal preferences.
+There are a number of ways to install and run a Cardano node on your machine, although which method you choose will depend on your operating system (see [supported platforms](https://developers.cardano.org/en/testnets/cardano/about/supported-platforms/)), level of technical expertise, and personal preferences.
 
 Building the node using Nix is the recommended method, as this is what IOHK's internal development teams use and is considered the most reliable.
 

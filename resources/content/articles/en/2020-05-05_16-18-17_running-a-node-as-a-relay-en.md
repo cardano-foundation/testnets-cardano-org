@@ -20,7 +20,7 @@ If a relay node becomes compromised, you can simply switch it off and use a diff
 
 Nodes (both block-producing and relay nodes), are configured in the topology.json file, which defines the network nodes with which your node can communicate.
 
-The [topology.json](https://github.com/input-output-hk/cardano-tutorials/blob/master/node-setup/understanding-config-files.md#the-topologyjson-file) file must specify at least three parameters:
+The [topology.json](https://github.com/input-output-hk/cardano-node/blob/master/doc/getting-started/understanding-config-files.md#the-topologyjson-file) file must specify at least three parameters:
 
 * `addr` - the IP address of the node that your node should talk to.
 * `port` - the port that you wish that communication to go through.
