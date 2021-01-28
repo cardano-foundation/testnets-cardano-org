@@ -21,4 +21,4 @@ Once the second phase of the testnet has begun, the following additional platfor
 - MacOSX 10.14.0 (Mojave) or later
 - Windows 10
 
-It is also possible to run a testnet node on any platform using a virtual machine or Docker image.
+It is also possible to run a testnet node on any platform using a virtual machine or applicable Docker CPU architecture image.
