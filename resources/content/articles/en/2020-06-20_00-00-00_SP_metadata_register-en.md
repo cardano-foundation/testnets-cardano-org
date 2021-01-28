@@ -64,13 +64,13 @@ cardano-cli shelley transaction build-raw \
 --certificate-file delegation.cert             
 ```
 
-```shell
-cardano-cli shelley transaction sign \
---tx-body-file tx.raw \
---signing-key-file payment.skey \
---signing-key-file payment.skey \
---signing-key-file cold.skey \
---testnet-magic 42 \
+```
+cardano-cli shelley transaction sign
+--tx-body-file tx.raw
+--signing-key-file payment.skey
+--signing-key-file stake.skey
+--signing-key-file cold.skey
+--testnet-magic 42
 --out-file tx.signed
 ```
 
