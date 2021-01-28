@@ -9,7 +9,7 @@ redirects:
   - from: /en/shelley-haskell/get-started/installing-and-running-the-cardano-node/building-the-node-from-source/
     type: "301"
 ---
-## Installing dependancies
+## Installing dependencies
 By building and running a node directly from the source code, you can ensure that you get all the latest code updates.
 
 The following instructions presume that you will be running your node on a Linux system and are using cabal. For more information, see the [supported platforms](https://developers.cardano.org/en/testnets/cardano/about/supported-platforms/) page. You can run a node on any platform by [using a virtual machine](https://developers.cardano.org/en/testnets/cardano/get-started/installing-and-running-the-cardano-node/running-the-node-on-an-aws-instance/).
