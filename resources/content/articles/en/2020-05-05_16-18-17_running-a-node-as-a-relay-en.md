@@ -35,7 +35,8 @@ To create a relay node, follow these steps:
 
 1. Create a folder for the node and copy the configuration files.
 
- ```cd cardano-node
+```
+ cd cardano-node
  mkdir relay
  cp config.yaml genesis.json topology.json block-producing/
  cp config.yaml genesis.json topology.json relay/
@@ -45,24 +46,28 @@ To create a relay node, follow these steps:
 
 relay/topology.json:
 
- `{
+```
+ {
       {
         "addr": "relays-new.cardano-mainnet.iohk.io",
         "port": 8081,
         "valency": 1
       }
-  }`
+  }
+  ```
 
 3. Start the node on the AWS instance, using a terminal multiplexer like tmux. Using tmux enables the aperture of different panes in a single terminal window. 
 
-Install tmux using `sudo yum install tmux -y` and start it with `tmux new`
+Install tmux using `sudo yum install tmux -y` and start it with `tmux new`.
 
 4. Start the relay node with this code:
 
- ```cardano-node run \
+```
+ cardano-node run \
      --topology relay/topology.json \
      --database-path relay/db \
      --socket-path relay/db/node.socket \
      --host-addr 127.0.0.1 \
      --port 8081 \
-     --config relay/config.yaml```
+     --config relay/config.yaml
+```
