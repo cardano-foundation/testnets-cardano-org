@@ -11,7 +11,7 @@ last_updated: 2020-06-20T00:00:00+00:00
 
 To register a stake pool metadata you need to:
 
-1. Create a JSON file for your stake pool metadata and store it in your node, for ejample:
+1. Create a JSON file for your stake pool metadata and store it in your node, for example:
 
  `testPool.json`  
 
@@ -23,7 +23,7 @@ To register a stake pool metadata you need to:
 "homepage": "https://teststakepool.com"
     }
 ```
-Store the file in an url you control. For example [https://teststakepool.com/poolMetadata.json](https://git.io/JJWdJ) You can use a GIST in github, make sure that the URL is less than 65 characters long.
+Store the file in an url you control. For example [https://teststakepool.com/poolMetadata.json](https://git.io/JJWdJ) You can use a GIST in GitHub, but ensure that the URL is less than 65 characters long.
 
 2. Get the hash of your file:
 
@@ -33,7 +33,7 @@ This validates that the JSON fits the required schema, if it does, you will get 
 
     >6bf124f217d0e5a0a8adb1dbd8540e1334280d49ab861127868339f43b3948af
 
-3. Register or re-register the pool on-chain using the node CLI as described in the tutorials ([Stake Pool Registration](https://developers.cardano.org/en/testnets/cardano/get-started/registering-a-stake-pool-on-the-blockchain/)). Provide all the necessary metadata in the registration, including the relay information, the URL for the metadata file and metadata hash, as well as the cost parameters.  
+3. Register or re-register the pool on-chain using the node CLI as described in the ([Stake Pool Registration tutorial](https://developers.cardano.org/en/testnets/cardano/get-started/registering-a-stake-pool-on-the-blockchain/)). Provide all the necessary metadata in the registration, including the relay information, the URL for the metadata file and metadata hash, as well as the cost parameters.  
 
 ```shell
 cardano-cli shelley stake-pool registration-certificate \
