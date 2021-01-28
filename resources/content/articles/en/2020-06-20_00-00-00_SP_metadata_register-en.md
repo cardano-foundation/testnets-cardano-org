@@ -33,7 +33,7 @@ This validates that the JSON fits the required schema, if it does, you will get 
 
     >6bf124f217d0e5a0a8adb1dbd8540e1334280d49ab861127868339f43b3948af
 
-3. Register or re-register the pool on-chain using the node CLI as described in the tutorials (Stake Pool Registration). Provide all the necessary metadata in the registration, including the relay information, the URL for the metadata file and metadata hash, as well as the cost parameters.  
+3. Register or re-register the pool on-chain using the node CLI as described in the tutorials ([Stake Pool Registration](https://developers.cardano.org/en/testnets/cardano/get-started/registering-a-stake-pool-on-the-blockchain/)). Provide all the necessary metadata in the registration, including the relay information, the URL for the metadata file and metadata hash, as well as the cost parameters.  
 
 ```shell
 cardano-cli shelley stake-pool registration-certificate \
@@ -64,13 +64,13 @@ cardano-cli shelley transaction build-raw \
 --certificate-file delegation.cert             
 ```
 
-```
-cardano-cli shelley transaction sign
---tx-body-file tx.raw
---signing-key-file payment.skey
---signing-key-file stake.skey
---signing-key-file cold.skey
---testnet-magic 42
+```shell
+cardano-cli shelley transaction sign \
+--tx-body-file tx.raw \
+--signing-key-file payment.skey \
+--signing-key-file stake.skey \
+--signing-key-file cold.skey \
+--testnet-magic 42 \
 --out-file tx.signed
 ```
 
