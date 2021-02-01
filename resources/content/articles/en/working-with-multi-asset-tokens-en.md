@@ -168,12 +168,17 @@ cardano-cli transaction submit --tx-file  "$TX_FILE_2" --testnet-magic 3
 
 > Note: Destroying tokens requires both the payment credential for using the UTxO entry with the tokens, *and* a credential for the minting policy script.
 
-## Example: Minting a new native asset
+## Examples: Minting a new native asset & Creating a fixed supply token that cannot be burned or have any more tokens minted
 
 ### Overview
 
-This section describes how to manually mint a new native asset ('melcoin') using cardano-cli, and send a transaction of this newly minted asset to a new address. The code
+This section includes two script examples
+
+- How to manually mint a new native asset ('melcoin') using cardano-cli, and send a transaction of this newly minted asset to a new address. The code
 used throughout pertains to the *Mary* Testnet. For the mainnet, replace `--network-magic 3` with `--mainnet` in all commands.
+- Creating a fixed supply token that cannot be burned, or have any more tokens of its type minted.
+
+### Minting a new asset
  
 ### Pre-requisites 
 
@@ -503,7 +508,7 @@ $ cat lpconfig/launchpad-shelley-genesis.json | grep minUTxOValue
 
 ```
 
-### Check the Utxo for address addr_test1vp8s8zu6mr73nvlsjf935k0a38n8xvp3fptkyz2vl8pserqkcx5yz
+### Check the utxo for address addr_test1vp8s8zu6mr73nvlsjf935k0a38n8xvp3fptkyz2vl8pserqkcx5yz
 
 ```bash
 ./cardano-cli query utxo --address addr_test1vp8s8zu6mr73nvlsjf935k0a38n8xvp3fptkyz2vl8pserqkcx5yz --testnet-magic 3 --mary-era
@@ -529,6 +534,27 @@ The sender address now has 989643522 Lovelace and 999999999 melcoin.
 
 
 Important: The testnet ada has not been removed from these addresses. If you are using these addresses for testing purposes, please take just a little ada and send the remainder back to the above addresses, so others can use them.
+
+### Creating a fixed supply token that cannot be burned, or have any more tokens of its type minted
+
+Policy-Script:  assets/fixed_supply.policy.script
+
+```bash
+
+{
+  "type": "all",
+  "scripts": [
+    {
+      "slot": <slot minted>,
+      "type": "before"
+    },
+    {
+      "keyHash": "<key hash>",
+      "type": "sig"
+    }
+  ]
+}
+```
 
 #### Further resources about native assets
 
