@@ -14,14 +14,14 @@ This operations manual is intended to be used by IOG’s Technical Support Desk 
 
 All submissions must comply with a [specific set of parameters](https://github.com/cardano-foundation/goguen-metadata-registry#submission-well-formednessrules) before being accepted into the [metadata registry](https://github.com/cardano-foundation/goguen-metadata-registry).
 
-### How the process works
+## How the process works
 
 - A third party submits one or more metadata files (‘records’) for review. Third parties can submit multiple records to be reviewed, but each record can only contain **one** metadata file *per Pull Request (PR)*.
 - The submitted record undergoes automated testing (using buildkite validation scripts connected to the repo) to determine technical validity.
 - If the metadata is *technically* valid (i.e., the *‘all checks have passed’* message is displayed), the operator commences the manual vetting process.
 
 
-## Automated Testing Process
+### Automated Testing Process
 
 The following is tested: (All tests are automated, .i.e., they require no operator input.)
 
