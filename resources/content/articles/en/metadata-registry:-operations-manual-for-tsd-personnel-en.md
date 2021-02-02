@@ -2,7 +2,7 @@
 title: Metadata Registry: Operations Manual for TSD Personnel
 description: Operations guide for TSD personnel to handle metadata
 parent: native-tokens
-order: 4
+order: 6
 last_updated: "2021-02-01"
 ---
 
