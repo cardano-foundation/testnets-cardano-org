@@ -2,7 +2,7 @@
 title: Metadata Submitter Tool
 description: Tool used to submit metadata
 parent: native-tokens
-order: 4
+order: 5
 last_updated: "2021-02-01"
 ---
 
