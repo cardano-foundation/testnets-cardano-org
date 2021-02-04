@@ -9,7 +9,7 @@ redirects:
   - from: /en/shelley-haskell/get-started/installing-and-running-the-cardano-node/building-the-node-using-nix/
     type: "301"
 ---
-## Building a node using Nix
+## Building the node using Nix
 
 [Nix](https://nixos.org/) is a purely functional, cross-platform package manager for Linux and Unix systems. It is the package manager of choice for IOHK's internal development teams, and thus the recommended method for building a Cardano node to run on your machine.
 
@@ -34,7 +34,9 @@ chmod +x ./install-nix.sh
 ./install-nix.sh --daemon --nix-extra-conf-file nix.conf
 ```
 
-4. Follow the instructions presented as part of the Nix installation process.
+4. Follow the instructions presented as part of the Nix installation process. Ensure that you give the `install-nix.sh` file executable permissions:
+
+    ```$ chmod +x install-nix.sh```
 
 5. Once Nix is installed, open a new `nix-shell` session and enter the following commands, which will clone the Cardano node GitHub repository, open the node file directory, build the node itself, and then run it:
 
