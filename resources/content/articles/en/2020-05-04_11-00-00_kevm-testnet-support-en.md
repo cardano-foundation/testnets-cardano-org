@@ -12,7 +12,7 @@ redirects:
 
 The KEVM devnet is based on the K framework, a system for specifying languages and virtual machines and then deriving tools for these languages such as interpreters, type checkers, equivalence checkers, and debuggers.  It can be used to create both static and dynamic analysis tools.
 
-[KEVM](https://github.com/kframework/evm-semantics/blob/master/README.md) is a specification of the EVM (Etherium Virtual Machine) in K.
+[KEVM](https://github.com/kframework/evm-semantics/blob/master/README.md) is a specification of the EVM (Ethereum Virtual Machine) in K.
 
 KEVM is also an interpreter for EVM, automatically derived from the KEVM specification. You could say that the K specification of EVM is the “source code” for the interpreter. But it is much more than that. KEVM can be used to prove that smart contracts are correct. This is done by specifying a contract’s desired properties in K, combining the contract with the KEVM specification, and then using the [K framework](https://runtimeverification.com/blog/k-framework-an-overview/) to verify those properties. KEVM can be used to check for errors such as integer over and under flows, stack over and under flows, out-of-gas, and other contract generic properties. You can also verify more targeted properties for specific contracts.
 
