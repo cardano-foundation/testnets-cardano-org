@@ -43,7 +43,7 @@ chmod +x ./install-nix.sh
 ```shell
 git clone https://github.com/input-output-hk/cardano-node
 cd cardano-node
-nix-build -A scripts.ff.node -o ff-node-local
+nix-build -A scripts.testnet.node -o testnet-node
 ./ff-node-local
 ```
 
