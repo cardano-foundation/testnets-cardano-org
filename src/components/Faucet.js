@@ -89,6 +89,9 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
 
   const onSubmit = async (e) => {
     e.preventDefault()
+    const endpointParams = { address: values.address, apiKey: values.apiKey }
+    const url = isNativeAssetReq === 'Ada' ? getEndpoint(endpointParams) : getNativeAssetEndpoint(endpointParams)
+
     const newErrors = {}
     if (!values.reCaptcha) newErrors.reCaptcha = content.faucet_content.please_complete_recaptcha
     if (Object.keys(newErrors).length > 0) {
@@ -100,12 +103,9 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
     setServerError('')
     setStatus(statuses.loading)
     try {
-      const endpointParams = { address: values.address, apiKey: values.apiKey }
+      // const endpointParams = { address: values.address, apiKey: values.apiKey }
       if (reCaptcha) endpointParams.reCaptchaResponse = values.reCaptcha
-      const url = (isNativeAssetReq) => {
-        if (isNativeAssetReq === 'Ada') getEndpoint(endpointParams)
-        if (isNativeAssetReq === 'Megacoin') getNativeAssetEndpoint(endpointParams)
-      }
+      // const url = isNativeAssetReq === 'Ada' ? getEndpoint(endpointParams) : getNativeAssetEndpoint(endpointParams)
       const result = await fetch(url, { method: 'POST' })
       const jsonResult = await result.json()
       if (result.status === 200 && jsonResult.success === false) {
@@ -172,7 +172,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
               </Box>
             }
 
-            <FormControl variant='outlined' fullWidth className style={{ marginBottom: '2rem' }}>
+            <FormControl variant='outlined' fullWidth style={{ marginBottom: '2rem' }}>
               <InputLabel id='demo-simple-select-outlined-label'>Choose</InputLabel>
               <Select
                 labelId='demo-simple-select-outlined-label'
