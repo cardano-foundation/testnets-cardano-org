@@ -58,6 +58,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
   const [ isNativeAssetReq, setIsNativeAssetReq ] = useState('Ada')
   const [ status, setStatus ] = useState(statuses.ready)
   const reCaptchaRef = useRef(null)
+  let url
 
   const handleTokenSelectChange = (event) => {
     setIsNativeAssetReq(event.target.value)
@@ -101,7 +102,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
     try {
       const endpointParams = { address: values.address, apiKey: values.apiKey }
       if (reCaptcha) endpointParams.reCaptchaResponse = values.reCaptcha
-      const url = isNativeAssetReq === 'Ada' ? getEndpoint(endpointParams) : getNativeAssetEndpoint(endpointParams)
+      url = isNativeAssetReq === 'Ada' ? getEndpoint(endpointParams) : getNativeAssetEndpoint(endpointParams)
       const result = await fetch(url, { method: 'POST' })
       const jsonResult = await result.json()
       if (result.status === 200 && jsonResult.success === false) {
