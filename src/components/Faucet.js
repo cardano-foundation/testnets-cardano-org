@@ -82,7 +82,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
       !isNaN(result.amount) &&
       result.amount > 0
     ) {
-      return `${Math.round(result.amount / 1e6)} ADA`
+      return `${Math.round(result.amount / 1e6)} ${isNativeAssetReq}`
     } else {
       return content.faucet_content.funds
     }
