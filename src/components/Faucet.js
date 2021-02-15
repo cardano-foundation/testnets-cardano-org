@@ -75,16 +75,20 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
   }
 
   const getTransactionAmount = () => {
-    if (
-      result &&
-      result.amount &&
-      typeof result.amount === 'number' &&
-      !isNaN(result.amount) &&
-      result.amount > 0
-    ) {
-      return `${Math.round(result.amount / 1e6)} Ada`
+    if (result && result.unit && result.unit === 'lovelace') {
+      if (
+        result &&
+        result.amount &&
+        typeof result.amount === 'number' &&
+        !isNaN(result.amount) &&
+        result.amount > 0
+      ) {
+        return `${Math.round(result.amount / 1e6)} Ada`
+      } else {
+        return content.faucet_content.funds
+      }
     } else {
-      return content.faucet_content.funds
+      return `your Native Asset`
     }
   }
 
