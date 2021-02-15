@@ -113,7 +113,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
         setServerError(jsonResult.message || content.faucet_content.server_error)
         setStatus(statuses.ready)
       } else if (result.status === 200) {
-        setResult({ txid: jsonResult.txid, amount: jsonResult.amount })
+        setResult({ txid: jsonResult.txid, amount: jsonResult.amount, unit: jsonResult.unit })
         setStatus(statuses.success)
       } else {
         switch (result.status) {
