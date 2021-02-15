@@ -82,11 +82,14 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
       !isNaN(result.amount) &&
       result.amount > 0
     ) {
-      return `${Math.round(result.amount / 1e6)} ${isNativeAssetReq}`
+      return `${Math.round(result.amount / 1e6)} Ada`
     } else {
       return content.faucet_content.funds
     }
   }
+
+  // Add condition for multiple assets based on state value (Ada, Megacoin) and dont use the 1e6 for anything other than Lovelace
+  // Check the result.unit.. in the Ada case it is 'lovelace' as a string
 
   const onSubmit = async (e) => {
     e.preventDefault()
@@ -180,6 +183,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
               >
                 <MenuItem value='Ada'>tAda</MenuItem>
                 <MenuItem value='Megacoin'>Megacoin</MenuItem>
+                value=newthing
               </Select>
             </FormControl>
 
@@ -236,6 +240,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
           <Markdown
             source={content.faucet_content.transaction_successful.replace(/{{\samount\s}}/g, getTransactionAmount()).replace(/{{\saddress\s}}/, values.address)}
           />
+          {console.log('values', values)}
           {result.txid && getTransactionURL &&
             <Fragment>
               <p>{content.faucet_content.verify_transaction_hash}</p>
