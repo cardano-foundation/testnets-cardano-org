@@ -92,9 +92,6 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
     }
   }
 
-  // Add condition for multiple assets based on state value (Ada, Megacoin) and dont use the 1e6 for anything other than Lovelace
-  // Check the result.unit.. in the Ada case it is 'lovelace' as a string
-
   const onSubmit = async (e) => {
     e.preventDefault()
     const newErrors = {}
