@@ -88,7 +88,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
         return content.faucet_content.funds
       }
     } else {
-      return `your ${result.amount} ${nativeToken}`
+      return `your ${result.amount === 'number' ? result.amount.toString() : result.amount} ${nativeToken}`
     }
   }
 
