@@ -88,7 +88,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
         return content.faucet_content.funds
       }
     } else {
-      return `your Native Asset`
+      return `your Native Token`
     }
   }
 
