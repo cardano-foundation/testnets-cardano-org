@@ -241,7 +241,6 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
           <Markdown
             source={content.faucet_content.transaction_successful.replace(/{{\samount\s}}/g, getTransactionAmount()).replace(/{{\saddress\s}}/, values.address)}
           />
-          {console.log('result', result)}
           {result.txid && getTransactionURL &&
             <Fragment>
               <p>{content.faucet_content.verify_transaction_hash}</p>
