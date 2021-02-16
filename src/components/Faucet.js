@@ -60,6 +60,23 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
   const reCaptchaRef = useRef(null)
   let url
 
+  const tokens = [
+    {
+      nice_name: 'Megacoin',
+      id: '6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7'
+    }
+  ]
+
+  const matchedName = (unit) => {
+    const name = tokens.filter(token => token.id === unit)
+    return name.nice_name
+  }
+
+  // map through array, compare ids, if match, return name for matching id
+  // var matchedName = tokenIdMap.reduce(function (match, token) {
+  //   return (match.id === result.unit) ? match.name : null
+  // }, {})
+
   const handleTokenSelectChange = (event) => {
     setNativeToken(event.target.value)
   }
@@ -88,7 +105,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
         return content.faucet_content.funds
       }
     } else {
-      return `your ${result.amount === 'number' ? result.amount.toString() : result.amount} ${nativeToken}`
+      return `your ${result.amount === 'number' ? result.amount.toString() : result.amount} ${matchedName(result.unit)}`
     }
   }
 
