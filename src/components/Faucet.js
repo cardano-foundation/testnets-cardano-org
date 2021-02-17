@@ -1,6 +1,10 @@
 import React, { useState, Fragment, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import FormControl from '@material-ui/core/FormControl'
+import InputLabel from '@material-ui/core/InputLabel'
+import MenuItem from '@material-ui/core/MenuItem'
+import Select from '@material-ui/core/Select'
 import Box from '@material-ui/core/Box'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
@@ -46,13 +50,23 @@ const statuses = {
   success: 'success'
 }
 
-const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCaptcha }) => {
+const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCaptcha, getNativeAssetEndpoint }) => {
   const [ values, setValues ] = useState(DEFAULT_VALUES)
   const [ errors, setErrors ] = useState(DEFAULT_ERRORS)
   const [ serverError, setServerError ] = useState('')
   const [ result, setResult ] = useState(null)
+  const [ nativeToken, setNativeToken ] = useState('Ada')
   const [ status, setStatus ] = useState(statuses.ready)
   const reCaptchaRef = useRef(null)
+  let url
+
+  const tokens = {
+    '6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7': 'Megacoin'
+  }
+
+  const handleTokenSelectChange = (event) => {
+    setNativeToken(event.target.value)
+  }
 
   const valueOnChange = (key) => (e) => {
     if (key === 'reCaptcha') {
@@ -65,16 +79,20 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
   }
 
   const getTransactionAmount = () => {
-    if (
-      result &&
-      result.amount &&
-      typeof result.amount === 'number' &&
-      !isNaN(result.amount) &&
-      result.amount > 0
-    ) {
-      return `${Math.round(result.amount / 1e6)} ADA`
+    if (result && result.unit && result.unit === 'lovelace') {
+      if (
+        result &&
+        result.amount &&
+        typeof result.amount === 'number' &&
+        !isNaN(result.amount) &&
+        result.amount > 0
+      ) {
+        return `${Math.round(result.amount / 1e6)} Ada`
+      } else {
+        return content.faucet_content.funds
+      }
     } else {
-      return content.faucet_content.funds
+      return `${result.amount === 'number' ? result.amount.toString() : result.amount} ${tokens[result.unit]}`
     }
   }
 
@@ -86,14 +104,13 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
       setErrors(newErrors)
       return
     }
-
     setErrors(DEFAULT_ERRORS)
     setServerError('')
     setStatus(statuses.loading)
     try {
       const endpointParams = { address: values.address, apiKey: values.apiKey }
       if (reCaptcha) endpointParams.reCaptchaResponse = values.reCaptcha
-      const url = getEndpoint(endpointParams)
+      url = nativeToken === 'Ada' ? getEndpoint(endpointParams) : getNativeAssetEndpoint(endpointParams)
       const result = await fetch(url, { method: 'POST' })
       const jsonResult = await result.json()
       if (result.status === 200 && jsonResult.success === false) {
@@ -101,7 +118,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
         setServerError(jsonResult.message || content.faucet_content.server_error)
         setStatus(statuses.ready)
       } else if (result.status === 200) {
-        setResult({ txid: jsonResult.txid, amount: jsonResult.amount })
+        setResult({ txid: jsonResult.txid, amount: jsonResult.amount, unit: jsonResult.unit })
         setStatus(statuses.success)
       } else {
         switch (result.status) {
@@ -159,6 +176,22 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
                 <Typography color='error'><strong>{serverError}</strong></Typography>
               </Box>
             }
+
+            <FormControl variant='outlined' fullWidth style={{ marginBottom: '2rem' }}>
+              <InputLabel id='demo-simple-select-outlined-label'>Choose</InputLabel>
+              <Select
+                labelId='demo-simple-select-outlined-label'
+                id='demo-simple-select-outlined'
+                value={nativeToken}
+                onChange={handleTokenSelectChange}
+                label='Token Type'
+              >
+                <MenuItem value='Ada'>tAda</MenuItem>
+                <MenuItem value='Megacoin'>Megacoin</MenuItem>
+                value=newthing
+              </Select>
+            </FormControl>
+
             <Box marginBottom={2}>
               <TextField
                 value={values.address}
@@ -238,6 +271,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
 FaucetInner.propTypes = {
   content: PropTypes.object.isRequired,
   getEndpoint: PropTypes.func.isRequired,
+  getNativeAssetEndpoint: PropTypes.func.isRequired,
   hasApiKey: PropTypes.bool.isRequired,
   getTransactionURL: PropTypes.func,
   reCaptcha: PropTypes.shape({
@@ -246,7 +280,7 @@ FaucetInner.propTypes = {
   })
 }
 
-const Faucet = ({ getEndpoint, hasApiKey, getTransactionURL, reCaptcha }) => (
+const Faucet = ({ getEndpoint, getNativeAssetEndpoint, hasApiKey, getTransactionURL, reCaptcha }) => (
   <GlobalContentQuery
     render={content => (
       <FaucetInner
@@ -255,6 +289,7 @@ const Faucet = ({ getEndpoint, hasApiKey, getTransactionURL, reCaptcha }) => (
         hasApiKey={hasApiKey}
         getTransactionURL={getTransactionURL}
         reCaptcha={reCaptcha}
+        getNativeAssetEndpoint={getNativeAssetEndpoint}
       />
     )}
   />
@@ -262,6 +297,7 @@ const Faucet = ({ getEndpoint, hasApiKey, getTransactionURL, reCaptcha }) => (
 
 Faucet.propTypes = {
   getEndpoint: PropTypes.func.isRequired,
+  getNativeAssetEndpoint: PropTypes.func.isRequired,
   hasApiKey: PropTypes.bool.isRequired,
   getTransactionURL: PropTypes.func,
   reCaptcha: PropTypes.shape({
