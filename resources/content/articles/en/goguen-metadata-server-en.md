@@ -98,8 +98,6 @@ Currently, stake pool metadata is handled by a metadata aggregation server (SMAS
 
 #### Token metadata
 
-### Token metadata
-
 In a multi-asset support environment, token holders will need to see easy-to-understand ('human-readable') names for their tokens, rather than hash strings. 
 
 In this same environment, metadata can also include logos, units (decimal places), or policy scripts.
