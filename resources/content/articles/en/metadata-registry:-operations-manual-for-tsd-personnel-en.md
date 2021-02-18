@@ -10,7 +10,7 @@ last_updated: "2021-02-01T09:00:00+01:00"
 
 **Overview** 
 
-This operations manual is intended to be used by IOG’s Technical Support Desk (TSD) personnel, who are responsible for reviewing every metadata submission on the IOG’s registry, and determine whether submissions can be accepted or rejected, based on the results of the automated tests that occur prior to operator review, and the [Usage Policy](https://github.com/cardano-foundation/incentivized-testnet-stakepool-registry/blob/master/USAGE_POLICY.md].
+This operations manual is intended to be used by IOG’s Technical Support Desk (TSD) personnel, who are responsible for reviewing every metadata submission on the IOG’s registry, and determine whether submissions can be accepted or rejected, based on the results of the automated tests that occur prior to operator review, and the [Usage Policy](https://github.com/cardano-foundation/incentivized-testnet-stakepool-registry/blob/master/USAGE_POLICY.md).
 
 All submissions must comply with a [specific set of parameters](https://github.com/cardano-foundation/goguen-metadata-registry#submission-well-formednessrules) before being accepted into the [metadata registry](https://github.com/cardano-foundation/goguen-metadata-registry).
 
