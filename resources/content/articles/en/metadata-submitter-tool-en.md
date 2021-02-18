@@ -10,7 +10,9 @@ last_updated: "2021-02-01"
 
 **Overview** 
 
-The metadata associated with  token and smart contract scripts submitted to the IOHK registry needs to be validated to ensure it contains no objectionable material (profanity, propaganda, or any other questionable material.) The metadata will go through a rigorous testing procedure involving both automated checks and manual vetting before it is approved and added to the Metadata Registry.
+The Metadata Submitter is a tool that enables users to submit metadata to the server.
+
+The metadata associated with token and smart contract scripts submitted to the IOHK registry needs to be validated to ensure it contains no objectionable material (profanity, propaganda, or any other questionable material.) The metadata will go through a rigorous testing procedure involving both automated checks and manual vetting before it is approved and added to the Metadata Registry.
 
 Third parties creating tokens or smart contracts will use a command line interface (CLI)-based tool called *metadata submitter* to generate their signed metadata record for validation. The submitter tool creates metadata file entries for the Metadata Registry. 
 
@@ -25,7 +27,7 @@ The metadata submitter tool includes two major components:
 
 A metadata record includes two types of cryptographic information:
 
-- **Attestation signatures** - These digital signatures attest to the authenticity of some, or all of the fields. An attestation signature includes the public key that is attesting to that particular metadata, and its connection to that particular record.
+- **Attestation signatures** - These digital signatures attest to the authenticity of some, or all of the fields. An attestation signature includes the public key that is attesting to that particular metadata, and the signature of that key on that metadata record.
 - **Owner keys** - These indicate who is allowed to submit modifications to the record. 
 
 **Metadata Record Generation and Signing**
