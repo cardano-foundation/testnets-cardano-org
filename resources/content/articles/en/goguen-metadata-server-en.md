@@ -8,9 +8,11 @@ last_updated: "2021-02-01"
 
 ## Goguen Metadata Server
 
-### Metadata server in the Goguen environment
+### What problem does a metadata server address?
 
-The Goguen era of Cardano focuses on functionality to support smart contracts and custom token issuance, which will turn Cardano into a more interoperable and scalable platform to satisfy business needs, while further providing Cardano users with the power of decentralized governance and decision-making.
+The introduction of a new metadata server for the Goguen environment addresses one fundamental problem: Mapping opaque on-chain identifiers (typically, hashes representing output locking scripts, token forging policies, or public key hashes) to metadata suitable for human consumption and registering this metadata off-chain.
+
+### Metadata API
 
 A metadata-server exposes the functionality of a key-value store. Users and applications can query metadata entries in a database (key:value store) through a [RESTful API](https://api.cardano.org/staging/metadata).
 
@@ -22,9 +24,6 @@ The following HTTP methods are available:
 - GET metadata/{subject}/properties/{property}: Returns the value for the given property associated with the subject.        
 [Example](https://api.cardano.org/staging/metadata/3ea0944c0f67d241f65ff239445b31c1030e11b2c5ce35908c71d1520bb932d9/properties/description)
 
-### What problem does a metadata server address?
-
-The introduction of a new metadata server for the Goguen environment addresses one fundamental problem: Mapping opaque on-chain identifiers (typically, hashes representing output locking scripts, token forging policies, or public key hashes) to metadata suitable for human consumption and registering this metadata off-chain.
 
 ### Why we don't store metadata on-chain
 
@@ -42,7 +41,7 @@ There are a number of reasons why we don’t want to store metadata on-chain:
 
 Blockchain data is usually represented in forms that are not very human- or user-friendly. Long strings of hashes or other types of obscure identifiers often pose a challenge for the human user who's used to clearer and more logical methods of interpreting and understanding data. 
 
-The blockchain contains a lot of personal information in the form of metadata, which is hashed for security and privacy purposes. This hashed metadata is, by design, unintelligible and unreadable by human eyes, so a method is required to map the information contained in on-chain identifiers -such as hashes- to metadata suitable for human understanding. 
+The blockchain contains a lot of personal information in the form of metadata, hashed for space-saving and indexing. This hashed metadata is, by design, unintelligible and unreadable by human eyes, so a method is required to map the information contained in on-chain identifiers -such as hashes- to metadata suitable for human understanding. 
 
 Much of the metadata which we want to store is not determined by the chain, so we propose a system that is independent from blockchain. A case exists to develop a metadata distribution system that includes several features that would benefit many aspects of the IOG environment: Plutus, for example, multi-asset support, and some of the existing Cardano infrastructure, to name but a few. 
 
@@ -75,12 +74,9 @@ Some of our applications might also require the provision of other metadata:
 - Creator information (contact details, etc.)
 - Human-readable names.
 
-The latter would be particularly useful in the multi-asset support environment, as token holders will need to see easy-to-understand names for their tokens, rather than hash strings.
-
-
 #### Datum hashes
 
-In the Extended UTxO model, datums are provided by hash, and the spending party must provide the full value, which is inconvenient since the spending party needs to find out what the datum is. A metadata server quick enough to register new entries might provide a convenient off-chain channel for datum communication.
+In the Extended UTxO (EUTXO) model, datums are provided by hash, and the spending party must provide the full value, which is inconvenient since the spending party needs to find out what the datum is. A metadata server quick enough to register new entries might provide a convenient off-chain channel for datum communication.
 
 #### Public key hashes
 
@@ -99,3 +95,12 @@ Currently, stake pool metadata is handled by a metadata aggregation server (SMAS
 - The implementation cost for a metadata server is not extremely high, as it mostly consists of a database with a small HTTP API.
 - The stakepool metadata has different restrictions on content. For instance, the size limit of stake pool MD is much smaller than what we would reasonably limit a script size by.
 - Types of metadata in Cardano
+
+#### Token metadata
+
+### Token metadata
+
+In a multi-asset support environment, token holders will need to see easy-to-understand ('human-readable') names for their tokens, rather than hash strings. 
+
+In this same environment, metadata can also include logos, units (decimal places), or policy scripts.
+
