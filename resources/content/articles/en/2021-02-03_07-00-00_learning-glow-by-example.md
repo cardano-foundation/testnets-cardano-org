@@ -1,14 +1,14 @@
 ---
-title: Learning Glow by Example
-description: Study Glow by looking at code examples
+title: Learn Glow by Example
+description: Study Glow using code examples
 order: 2
 parent: 2020-05-04_06-00-00_glow
 last_updated: "2021-02-03T07:00:00+01:00"
 hasNoChildContent: true
 ---
 ---
-title: Learning Glow by Example
-description: Study Glow by looking at code examples
+title: Learn Glow by Example
+description: Study Glow using code examples
 order: 1
 parent: 2020-05-04_06-00-00_glow
 last_updated: "2021-02-03T07:00:00+01:00"
@@ -16,9 +16,11 @@ hasNoChildContent: true
 ---
 
 
-# Learning Glow by Example
+# Learn Glow by Example
 
-In 2007, Joel Spolsky was pondering What technology was going to win in the browser development:
+We are at a crossroads in smart contract development technology and Glow provides a new portable language where you don't need to know about the low level details of blockchain, but can develop smart contracts easily.
+
+In 2007, Joel Spolsky was pondering What technology was going to win in browser development:
 
 > What's going to happen?
 > The winners are going to do what worked at Bell Labs in 1978:
@@ -30,7 +32,7 @@ In 2007, Joel Spolsky was pondering What technology was going to win in the brow
 
 We are probably at the same crossroads in smart contract development technology.
 As Joel puts it, the "winners" are going to be the ones that create a portable language.
-In that regard, Glow is a programming language tailored to the challenges of smart contract development,
+Glow is a programming language tailored to the challenges of smart contract development,
 so that you don't have to worry about the low-level details of the blockchain implementation.
 It takes ReasonML's syntax (itself a safe subset of javascript),
 couples it with a powerful compiler that has added support for:
@@ -42,36 +44,36 @@ couples it with a powerful compiler that has added support for:
 
 To create a language in which describing smart contracts is *easy and safe*.
 
-In this article, we are going to analyze the glow sample programs provided in the distribution to learn
-How they work, and how could we apply them to our own needs.
+In this article, we are going to analyze the sample Glow programs that are provided in the distribution to learn
+how they work, and how could we apply them to our own needs.
 
 
 # Buy Signature ([buy<sub>sig.glow</sub>](https://gitlab.com/mukn/glow/-/blob/master/future/buy_sig.glow))?
 
-Let's imagine you want to have your Testament notarized. What would you do?
+Let's imagine you want to have your testament notarized. What would you do?
 
-> Probably you will write your Testament,
-> And pay a Notary to stamp it,
+> Probably you will write your testament,
+> And pay a notary to stamp it,
 > and store a copy for future reference.
 
 If we think about it, there are many interactions in the world that follow that same process:
 
 -   When you have your diploma certified by your university.
--   When you renew your Driver's license, there is no test, just a new stamp on it.
+-   When you renew your driver's license, there is no test, just a new stamp on it.
 
 We could generalize the  process as:
 
-> A Buyer (you in this case)
-> Pays a Seller
-> Takes something, or better yet, a representation of the thing, a Digest
-> to a Seller.
-> So that the Seller Signs the Digest.
-> And everyone can see that the Digest was Signed.
+> A buyer (you in this case)
+> Pays a seller
+> Takes something, or better yet, a representation of the thing, a digest
+> to a seller.
+> So that the seller signs the digest.
+> And everyone can see that the digest was signed.
 
-Well this is the interaction that the `buy_sig.glow` contract codifies.
+This is the interaction that the `buy_sig.glow` contract codifies.
 
 
-## Visualizing the Buyer / Seller interactions
+## Visualizing the Buyer and Seller interactions
 
 ![img](../article-images/2021-02-03_07-00-00_learning-glow-by-example/buy_sig.png)
 
@@ -88,19 +90,19 @@ Well this is the interaction that the `buy_sig.glow` contract codifies.
     8      withdraw! Seller <- price;
     9    }
 
-2.  Buyer and Seller have agreed to the terms of this sale. Know what the signature is about, and they want to conduct this sale.
-3.  The Digest of the message to sign is a parameter of the interaction, as is the convened price.
-4.  The Buyer deposits the money according to the price.
-5.  Seller signs. But it's private only to the Seller
-6.  The signature is made for public for everyone to see.
-7.  the signature is verified by everyone in a way that the contract enforces.
-8.  Finally, the money is transferred to the Seller.
+2.  Buyer and seller have agreed to the terms of this sale. They both know what the signature is about, and they want to conduct this sale.
+3.  The digest of the message to sign is a parameter of the interaction, as is the convened price.
+4.  The buyer deposits the money according to the price.
+5.  The seller signs, but it is private only to the seller.
+6.  The signature is made public for everyone to see.
+7.  The signature is verified by everyone in a way that the contract enforces.
+8.  Finally, the money is transferred to the seller.
 
-There several things to notice:
+There are several things to notice:
 
-1.  The code looks a lot like the sequence diagram we created before
+1.  The code looks a lot like the sequence diagram we created before.
 2.  The lines of code with @Seller annotation are private.
-3.  The language itself takes care of requirements. If the Buyer never deposits, then the Seller never will be able to sign.
+3.  The language itself takes care of requirements. If the buyer never deposits, then the seller never will be able to sign.
 
 
 ## Lessons learned
@@ -417,10 +419,10 @@ a price to buy it immediately `buyItNowPrice`.
 
 # How does Crowdfunding.glow work?
 
-In this day and age, crowdfunding campaigns are known.
-Platforms like kickstarter.com and GoFund.me have made the crowdfunding model known in the world
+In this day and age, crowdfunding campaigns are well known.
+Platforms like kickstarter.com and GoFund.me have made the crowdfunding model well known across the world
 as an excellent way to pull together the resources of several parties that don't know each other
-and yet are willing to contribute a little bit of their money towards a goal.
+and yet are willing to contribute some money towards a goal.
 
 
 ## Glow code
@@ -472,28 +474,28 @@ and yet are willing to contribute a little bit of their money towards a goal.
 
 Now three things can happen:
 
--   There is a new Pledge
--   Or the campaign was a successor
--   A pledger reclaims a refund.
+-   There is a new pledge
+-   The campaign was a successor
+-   A pledger reclaims a refund
 
 Let's look at all three in detail.
 
 
-### There is a new Pledge
+### Dealing with a new pledge
 
 Any participant can pledge 14.
 The `NewPledger` must `deposit!` her amount to the contract 18.
 And the pledge is stored in the `Ledger` 20.
 
 
-### campaign is successful
+### Campaign is successful
 
 23 When the organizer declares the campaign a success.
 24 We must make sure the deadline for the campaign has passed and
 25 The `totalPledged` surpassed the `target`.
 
 
-### Pledger requests a reimbursement.
+### Pledger requests a reimbursement
 
 When a pledger requests a reimbursement 30.
 We check that the expiration date has passed 32 and
@@ -511,9 +513,9 @@ We return the amount to the Pledger and remove it from the Ledger.
 
 ## Challenge
 
-Could you write a version of this contract that
-a) Given the timeout automatically decides if the campaign was successful or not
-b) It reimburses all the Pledges automatically.
+Can you write a version of this contract that does the following:
+a) Automatically decides if the campaign was successful or not (given the timeout).
+b) Reimburses all the pledges automatically.
 
 
 # Challenge: Translate a Solidity smart contract to Glow
@@ -665,7 +667,7 @@ Get the name of the winning proposal
 
 ## Visualization
 
-By reading the previous contract, we can identify the following actors and flow.
+By reading the previous contract, we can identify the following actors and flow:
 The `Chairman` creates a contract with a defined number of options.
 Then gives names to each option.
 And grants voting rights to voters.
@@ -676,15 +678,15 @@ Then everyone can ask who is winning by the one that has more votes.
 ![img](../article-images/2021-02-03_07-00-00_learning-glow-by-example/ballot.png)
 
 
-## How does the same contract look in Glow?
+## How does the contract look in Glow?
 
-Now is your turn. How does the previous smart contract look in Glow?
+Now it is your turn. How does the previous smart contract look in Glow?
 
-Here are few ideas on how you could start to think of such a program:
+Here are a few ideas on how you could get started with such a program:
 
--   One Known Proposal, One known Voter
--   Multiple known proposals, One known Voter
--   Multiple Known Proposals, Three known voters
--   Multiple Known Proposals, Three known voters, With Delegation
--   Multiple Known Proposals, unknown voters, With Delegation
--   Multiple Known Proposals, unknown voters, With Delegation, with giving voting rights
+-   One known proposal, one known voter
+-   Multiple known proposals, One known voter
+-   Multiple known proposals, Three known voters
+-   Multiple known proposals, Three known voters, with delegation
+-   Multiple known proposals, unknown voters, with delegation
+-   Multiple known proposals, unknown voters, with delegation, with giving voting rights
