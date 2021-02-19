@@ -280,17 +280,17 @@ const Inputs = styled.div`
 
 const DEFAULT_VALUES = {
   ada: '10000',
-  stakePoolControl: 1 / 250,
-  operatorsStake: '10000',
-  stakePoolMargin: 0.03,
+  stakePoolControl: 1 / 500, // 1 / 250
+  operatorsStake: '30000',
+  stakePoolMargin: 0.025,
   stakePoolPerformance: 1,
-  totalStakePools: 150,
+  totalStakePools: 500,
   totalADA: 45e9,
-  totalADAInCirculation: 31112483745,
+  totalADAInCirculation: 32167734340,
   epochDurationInDays: 5,
   treasuryRate: 0.20,
   influenceFactor: 0.3,
-  transactionFeesPerEpoch: '0',
+  transactionFeesPerEpoch: '20000',
   currentEpoch: 1,
   expansionRate: 0.003
 }
