@@ -18,11 +18,8 @@ A metadata-server exposes the functionality of a key-value store. Users and appl
 
 The following HTTP methods are available:
 
-- GET metadata/{subject}: Returns the value for all properties associated with the subject.
-[Example](https://api.cardano.org/staging/metadata/3ea0944c0f67d241f65ff239445b31c1030e11b2c5ce35908c71d1520bb932d9)
-
-- GET metadata/{subject}/properties/{property}: Returns the value for the given property associated with the subject.        
-[Example](https://api.cardano.org/staging/metadata/3ea0944c0f67d241f65ff239445b31c1030e11b2c5ce35908c71d1520bb932d9/properties/description)
+- GET metadata/{subject}: Returns the value for all properties associated with the subject. [Example](https://api.cardano.org/staging/metadata/3ea0944c0f67d241f65ff239445b31c1030e11b2c5ce35908c71d1520bb932d9)
+- GET metadata/{subject}/properties/{property}: Returns the value for the given property associated with the subject. [Example](https://api.cardano.org/staging/metadata/3ea0944c0f67d241f65ff239445b31c1030e11b2c5ce35908c71d1520bb932d9/properties/description)
 
 
 ### Why we don't store metadata on-chain
@@ -30,7 +27,6 @@ The following HTTP methods are available:
 There are a number of reasons why we don’t want to store metadata on-chain:
 
 - The trust model for metadata is different than the one used by the ledger and transactions. The only trust we have (and can expect to have) in the metadata is that it is signed by a particular key, regardless of the purpose or nature of the data. For instance, when posting a script, there is no explicit association between the script and the signing key other than the owner of the key choosing to post it.
-
 - The metadata is precisely that: metadata. While it is about the chain, it does not directly affect ledger state transitions, and therefore we should not require it to be associated with a specific transaction.
 - Higher cost to users for modifications and storage
 - Increases in the UTXO size
@@ -46,11 +42,8 @@ The blockchain contains a lot of personal information in the form of metadata, h
 Much of the metadata which we want to store is not determined by the chain, so we propose a system that is independent from blockchain. A case exists to develop a metadata distribution system that includes several features that would benefit many aspects of the IOG environment: Plutus, for example, multi-asset support, and some of the existing Cardano infrastructure, to name but a few. 
 
 - The identification of the hash's preimage (the script corresponding to an output locked by a script hash, and the public key corresponding to a public key hash)
-
 - Inclusion of human- and user-friendly metadata, like the name of the metadata's creator, website address, avatars, icons, etc.
-
 - The integration of the metadata into the UI of IOG's applications. An example of this would be the naming convention of a currency. The name should be displayed on the UI, rather than the hash that contains the name's cyphered form.
-
 - A solid security model for the metadata.
 
 ### What metadata is used for: Use cases
@@ -101,4 +94,3 @@ Currently, stake pool metadata is handled by a metadata aggregation server (SMAS
 In a multi-asset support environment, token holders will need to see easy-to-understand ('human-readable') names for their tokens, rather than hash strings. 
 
 In this same environment, metadata can also include logos, units (decimal places), or policy scripts.
-
