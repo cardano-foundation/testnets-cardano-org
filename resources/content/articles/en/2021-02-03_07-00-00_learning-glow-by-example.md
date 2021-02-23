@@ -1,5 +1,5 @@
 ---
-title: Learn Glow by Example
+title: Glow Tutorial
 description: Study Glow using code examples
 order: 2
 parent: 2020-05-04_06-00-00_glow
@@ -7,8 +7,8 @@ last_updated: "2021-02-03T07:00:00+01:00"
 hasNoChildContent: true
 ---
 ---
-title: Learn Glow by Example
-description: Study Glow using code examples
+title: Glow Tutorial
+description: Learn Glow using code examples
 order: 1
 parent: 2020-05-04_06-00-00_glow
 last_updated: "2021-02-03T07:00:00+01:00"
@@ -16,7 +16,7 @@ hasNoChildContent: true
 ---
 
 
-# Learn Glow by Example
+# Glow Tutorial
 
 We are at a crossroads in smart contract development technology and Glow provides a new portable language where you don't need to know about the low level details of blockchain, but can develop smart contracts easily.
 
