@@ -81,7 +81,7 @@ Users offering tokens for sale and exchange can lock them in contracts that spec
 
 #### Stake pool metadata
 
-Currently, stake pool metadata is handled by a metadata aggregation server (SMASH) because:
+Currently, stake pool metadata is handled by a [metadata aggregation server (SMASH)](https://docs.cardano.org/projects/smash/en/latest/getting-started/how-to-install-smash.html) because:
 
 - The stake pool metadata system does have to monitor the chain, since the metadata is fetched from URLs posted to the chain.
 - The stake pool metadata system is “pull-based”: it must monitor a large number of stake pool metadata URLs for updates. 
