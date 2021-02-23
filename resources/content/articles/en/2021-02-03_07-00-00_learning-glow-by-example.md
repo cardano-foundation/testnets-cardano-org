@@ -18,59 +18,34 @@ hasNoChildContent: true
 
 # Glow Tutorial
 
-We are at a crossroads in smart contract development technology and Glow provides a new portable language where you don't need to know about the low level details of blockchain, but can develop smart contracts easily.
+Glow is a language for developing secure decentralized apps (DApps) that can run on different blockchains. 
 
-In 2007, Joel Spolsky was pondering What technology was going to win in browser development:
-
-> What's going to happen?
-> The winners are going to do what worked at Bell Labs in 1978:
-> build a programming language, like C, that's portable and efficient.
-> It should compile down to "native" code (native code being JavaScript and DOMs)
-> with different backends for different target platforms,
-> where the compiler writers obsess about performance so you don't have to.
-> &#x2013; Joel Spolsky: [Strategy Letter VI](https://www.joelonsoftware.com/2007/09/18/strategy-letter-vi/)
-
-We are probably at the same crossroads in smart contract development technology.
-As Joel puts it, the "winners" are going to be the ones that create a portable language.
-Glow is a programming language tailored to the challenges of smart contract development,
-so that you don't have to worry about the low-level details of the blockchain implementation.
-It takes ReasonML's syntax (itself a safe subset of javascript),
-couples it with a powerful compiler that has added support for:
-
--   Game-Theoretic Safety
--   Asynchronous communication
--   Multi-Party Computation
--   Consensual Asset Control
-
-To create a language in which describing smart contracts is *easy and safe*.
-
-In this article, we are going to analyze the sample Glow programs that are provided in the distribution to learn
-how they work, and how could we apply them to our own needs.
+In this tutorial, we analyze the sample programs that are provided in the Glow distribution to learn
+how they work, and how could they can be applied to smart contract and DApp development.
 
 
 # Buy Signature ([buy<sub>sig.glow</sub>](https://gitlab.com/mukn/glow/-/blob/master/future/buy_sig.glow))?
 
 Let's imagine you want to have your testament notarized. What would you do?
 
-> Probably you will write your testament,
-> And pay a notary to stamp it,
-> and store a copy for future reference.
+> You first write your testament
+> You pay a notary to stamp it
+> You store a copy for future reference
 
-If we think about it, there are many interactions in the world that follow that same process:
+If you think about it, there are many interactions in the world that follow that same process:
 
--   When you have your diploma certified by your university.
--   When you renew your driver's license, there is no test, just a new stamp on it.
+-   When your diploma is certified by your University.
+-   When you renew your driver's license, there is no test, just a renewal stamp.
 
 We could generalize the  process as:
 
 > A buyer (you in this case)
 > Pays a seller
-> Takes something, or better yet, a representation of the thing, a digest
-> to a seller.
-> So that the seller signs the digest.
-> And everyone can see that the digest was signed.
+> Takes something, or better yet, a representation of the item (a digest) to a seller.
+> The seller can now sign the digest.
+> All parties can see that the digest was signed.
 
-This is the interaction that the `buy_sig.glow` contract codifies.
+This is the interaction that the `buy_sig.glow` contract represents.
 
 
 ## Visualizing the Buyer and Seller interactions
@@ -98,7 +73,7 @@ This is the interaction that the `buy_sig.glow` contract codifies.
 7.  The signature is verified by everyone in a way that the contract enforces.
 8.  Finally, the money is transferred to the seller.
 
-There are several things to notice:
+There are several things to note:
 
 1.  The code looks a lot like the sequence diagram we created before.
 2.  The lines of code with @Seller annotation are private.
@@ -114,15 +89,15 @@ When an instruction is annotated with the participant's name, that value is priv
 -   There are clear instructions for `deposit!` and `withdraw!`
 
 
-# How can we flip a coin in Glow? (coinflip.glow)
+# How can you flip a coin in Glow? (coinflip.glow)
 
 Flipping a coin is a game as old as, well, coins.
 Alice throws the coin *in the air*,
-And Bob calls whatever he thinks is going to come out.
-And the loser pays the winner. Whatever the amount was.
+Bob calls whatever he thinks is going to be the outcome.
+The loser pays the winner the agreed amount.
 
-However, in the blockchain, there is no such thing as *in the air*.
-So how could we have something random that has a 50 / 50 chance for Alice?
+However, on blockchain, there is no such thing as *in the air*.
+So, how can we have something random that has a 50 / 50 chance for Alice?
 
 For example, Alice flips her coin.
 Bob flips his coin
@@ -138,7 +113,7 @@ Both outcomes have a 50 / 50 chance of happening.
 
 ## Glow code
 
-So to represent the previous interaction in Glow.
+The following Glow code exmaple represents the previous interaction:
 
      1  #lang glow
      2  @interaction([A, B])
@@ -159,25 +134,25 @@ So to represent the previous interaction in Glow.
     17      }
     18  };
 
-1.  Every glow program starts with the #lang glow identification
+1.  Every Glow program starts with the #lang glow identification
 2.  We know that two actors, A and B (Alice and Bob), are going to participate in this contract
-3.  coinFlip requires to know the amount each player is going to bet to get started.
+3.  coinFlip needs to know the amount each player is going to bet to get started.
 4.  Alice needs to be assured that there is a state where she can win. Ie. `assert!` makes sure that the program can reach the label `A_wins`
 5.  Alice draws random numbers between 0 and 2<sup>256</sup>. Approx. 78 decimal digits.
-6.  Alice stores in the commitment value the Digest of the random number she generated.
-7.  She publishes her commitment in the blockchain and deposits her wager.
+6.  Alice stores in the commitment value the digest of the random number she generated.
+7.  She publishes her commitment on the blockchain and deposits her wager.
 
-Now is Bob's turn
+Now it is Bob's turn:
 
-8.  Bob makes sure that it's possible to get to the `B_wins` label to know that he can win.
-9.  Bob flips a coin. i.e., Draw a random number between 0 and 2<sup>256</sup>.
-10. Bob publishes the coin that he flipped and deposits his wager
+8.  Bob makes sure that it is possible to get to the `B_wins` label to know that he can win.
+9.  Bob flips a coin. i.e., draws a random number between 0 and 2<sup>256</sup>.
+10. Bob publishes the coin that he flipped and deposits his wager.
 11. Alice publishes the coin that she threw.
 12. We `verify!` that the commitment matches the coin that she threw.
 13. By doing a bitwise XOR of the random numbers thrown by Alice and Bob, we find that they match
 14. Alice wins and withdraws two times the wager
-15. but, If the `xor` doesn't match, Bob wins and
-16. Gets double the bet.
+15. However, If the `xor` doesn't match, Bob wins
+16. In addition, Bob gets double the bet.
 
 
 ## Lessons learned
@@ -189,16 +164,16 @@ Now is Bob's turn
 
 # Playing Rock, Paper, Scissors (rps-min.glow)?
 
-Rock, Paper, Scissors is the classic children game where both kids show at the same time what they have picked.
-And decide who won based on the following rules:
+Rock, paper, scissors is the classic children's game where each child shows what they have chosen at the same time.
+The decision on who has won is based on the following rules:
 
 -   Both selected the same: Draw
--   Rock beats Scissors
--   Paper beats Rock
--   Scissors beats Paper
+-   Rock beats scissors
+-   Paper beats rock
+-   Scissors beats paper
 
-But how con we codify this in Glow if there is not at the *same time*.
-And How a player communicates its pick to the blockchain during the game?
+How con you code this in Glow if there is no *at the same time*.
+How does a player communicate their choice to the blockchain during the game?
 
 
 ## Visualization
@@ -235,8 +210,8 @@ And How a player communicates its pick to the blockchain during the game?
     25        | Draw => withdraw! A <- wagerAmount; withdraw! B <- wagerAmount }}
 
 2.  A `Hand` can only be `Rock, Paper or Scissors`
-3.  There are only three possible `Outcome` either `B_wins`, `A_wins` or its a `Draw`
-4.  Now define a function `winner`, that given two hands can determine the `Outcome`
+3.  There are only three possible `Outcome` either `B_wins`, `A_wins`, or its a `Draw`
+4.  Now define a function `winner`, that when given two hands can determine the `Outcome`
 5.  This is an arithmetic trick that translates each of the nine possible hand combinations to three possible outcomes
 6.
 
@@ -272,20 +247,12 @@ And How a player communicates its pick to the blockchain during the game?
 
 # How to create a deadman switch works?
 
-Let's suppose a millionaire uncle is about to die,
-and he has called for you because he will give you the password to all his fortune.
-However, while you are traveling to see your dear uncle;
-He passes away, and only he knew the password for the safe!
+Let's suppose a millionaire unlce has called you because he will give you the password to all his fortune.
+However, while you are traveling to see your relative he passes away, and only he knew the password for the safe!
 
-Heartbroken because of the loss of your uncle, you return to a boring job.
-
-However, six months later, you get an email with the password for the safe!
-It turns out your uncle had a *dead man switch* that would automatically reveal the password.
-
-You knew it! Your uncle always was super smart.
+Six months later, you get an email with the password for the safe and it turns out that your uncle had a *dead man switch* that would automatically reveal the password.
 
 In this contract, we are going to see how your uncle implemented that contract in Glow.
-
 
 ## Visualization
 
@@ -327,8 +294,8 @@ In this contract, we are going to see how your uncle implemented that contract i
 -   15 It renews the *dead man switch* with a new deadline.
 -   16 When the `@heir` signals on the blockchain that is ready to inherit.
 
-The contract checks if the current block is over the expiration day.
-If it is, releases the funds to the `heir`.
+The contract checks if the current block is past the expiration day.
+If this is the case, the funds are released to the `heir`.
 
 
 ## Lessons learned
@@ -339,9 +306,9 @@ If it is, releases the funds to the `heir`.
 
 # How does the Simple Auction (auction.glow) contract work?
 
-Imagine an auction like in the movies where each one of the bidders tries to outbid the previous one.
-However, in a blockchain auction, each bidder has to put the money first in order to get to be the top bidder.
-And then they get their money back when they are outbid.
+Imagine an auction where each one of the bidders tries to outbid the previous bidder.
+However, in a blockchain auction, each bidder has to declare the money first to become the top bidder.
+They get their money back when they are outbid.
 
 
 ## Visualization
@@ -391,9 +358,9 @@ And then they get their money back when they are outbid.
 -   4 Only the Seller can create an auction
 -   **5:** In order to create an auction, a Seller must provide:
 
-the `Goods` that could be anything that can be codified as an asset,
+The `Goods` that could be anything that can be represented as an asset,
 an `expirationTime` at which point the auction is over and
-a price to buy it immediately `buyItNowPrice`.
+a price at which to buy it immediately `buyItNowPrice`.
 
 -   8 The Seller must deposit the goods in the smart contract. This could, for example, a photograph.
 -   34 The real auction begins at 0, and the "first bidder" is the Seller himself.
@@ -413,16 +380,16 @@ a price to buy it immediately `buyItNowPrice`.
 ## Lessons learned
 
 -   Recursive function definitions
--   How to involve participants that aren't known beforehand.
--   How to have an expiration date
+-   How to involve participants that are not known beforehand.
+-   How to use an expiration date
 
 
 # How does Crowdfunding.glow work?
 
 In this day and age, crowdfunding campaigns are well known.
 Platforms like kickstarter.com and GoFund.me have made the crowdfunding model well known across the world
-as an excellent way to pull together the resources of several parties that don't know each other
-and yet are willing to contribute some money towards a goal.
+as an excellent way to bring together the resources of several parties that do not know each other
+and yet are willing to contribute some money towards a common goal.
 
 
 ## Glow code
