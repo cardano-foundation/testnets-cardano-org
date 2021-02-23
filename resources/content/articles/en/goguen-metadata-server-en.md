@@ -87,7 +87,6 @@ Currently, stake pool metadata is handled by a metadata aggregation server (SMAS
 - The stake pool metadata system is “pull-based”: it must monitor a large number of stake pool metadata URLs for updates. 
 - The implementation cost for a metadata server is not extremely high, as it mostly consists of a database with a small HTTP API.
 - The stakepool metadata has different restrictions on content. For instance, the size limit of stake pool MD is much smaller than what we would reasonably limit a script size by.
-- Types of metadata in Cardano
 
 #### Token metadata
 
