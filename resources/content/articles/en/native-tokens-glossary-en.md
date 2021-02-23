@@ -37,9 +37,9 @@ last_updated: "2020-12-10T09:00:00+01:00"
 **Multi-asset (MA)**
 
 > Ledgers that support accounting or transaction of more than one type
-> of asset are considered to have \'multi-asset\' functionality. These
+> of asset are considered to have 'multi-asset' functionality. These
 > ledgers can include blockchains, wallets, cryptocurrencies, or banking
-> platforms, for example. Multi-assets usually include a platform\'s
+> platforms, for example. Multi-assets usually include a platform's
 > primary currency and multiple, user-defined assets.
 
 **Multisig**
