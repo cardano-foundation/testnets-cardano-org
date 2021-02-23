@@ -39,11 +39,11 @@ Blockchain data is usually represented in forms that are not very human- or user
 
 The blockchain contains a lot of personal information in the form of metadata, hashed for space-saving and indexing. This hashed metadata is, by design, unintelligible and unreadable by human eyes, so a method is required to map the information contained in on-chain identifiers -such as hashes- to metadata suitable for human understanding. 
 
-Much of the metadata which we want to store is not determined by the chain, so we propose a system that is independent from blockchain. A case exists to develop a metadata distribution system that includes several features that would benefit many aspects of the IOG environment: Plutus, for example, multi-asset support, and some of the existing Cardano infrastructure, to name but a few. 
+Much of the metadata which we want to store is not determined by the chain, so we propose a system that is independent from blockchain. A case exists to develop a metadata distribution system that includes several features that would benefit many aspects of the IOHK environment: Plutus, for example, multi-asset support, and some of the existing Cardano infrastructure, to name but a few. 
 
 - The identification of the hash's preimage (the script corresponding to an output locked by a script hash, and the public key corresponding to a public key hash)
 - Inclusion of human- and user-friendly metadata, like the name of the metadata's creator, website address, avatars, icons, etc.
-- The integration of the metadata into the UI of IOG's applications. An example of this would be the naming convention of a currency. The name should be displayed on the UI, rather than the hash that contains the name's cyphered form.
+- The integration of the metadata into the UI of IOHK's applications. An example of this would be the naming convention of a currency. The name should be displayed on the UI, rather than the hash that contains the name's cyphered form.
 - A solid security model for the metadata.
 
 ### What metadata is used for: Use cases
