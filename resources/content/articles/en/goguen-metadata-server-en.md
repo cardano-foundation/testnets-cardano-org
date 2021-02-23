@@ -69,7 +69,7 @@ Some of our applications might also require the provision of other metadata:
 
 #### Datum hashes
 
-In the Extended UTxO (EUTXO) model, datums are provided by hash, and the spending party must provide the full value, which is inconvenient since the spending party needs to find out what the datum is. A metadata server quick enough to register new entries might provide a convenient off-chain channel for datum communication.
+In the Extended UTXO (EUTXO) model, datums are provided by hash, and the spending party must provide the full value, which is inconvenient since the spending party needs to find out what the datum is. A metadata server quick enough to register new entries might provide a convenient off-chain channel for datum communication.
 
 #### Public key hashes
 
@@ -77,7 +77,7 @@ A perennial problem faced by communication via public keys is that people want t
 
 #### Distributed exchange address listing
 
-Users offering tokens for sale and exchange can lock them in contracts that specify "you can spend this UTxO if you send x amount of tokens to y address". In this context, an output constitutes an "offer", which can be considered as metadata about the output, and could be managed by a metadata server.
+Users offering tokens for sale and exchange can lock them in contracts that specify "you can spend this UTXO if you send x amount of tokens to y address". In this context, an output constitutes an "offer", which can be considered as metadata about the output, and could be managed by a metadata server.
 
 #### Stake pool metadata
 
