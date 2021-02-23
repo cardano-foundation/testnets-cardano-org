@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { Location, Router } from '@reach/router'
+import { Helmet } from 'react-helmet'
 import Language from '@input-output-hk/front-end-core-components/components/Language'
 import Theme from '@input-output-hk/front-end-core-components/components/Theme'
 import IOHKLink, { Provider as LinkProvider } from '@input-output-hk/front-end-core-components/components/Link'
@@ -20,7 +21,7 @@ import Search from './state/Search'
 import Header from './components/Header'
 import Style from './components/Style'
 
-// Default route uses SSR from "pages"
+// Default route uses SSR from 'pages'
 const DefaultRoute = ({ element }) => element
 DefaultRoute.propTypes = { element: PropTypes.node.isRequired }
 
@@ -183,6 +184,9 @@ const App = ({ element }) => {
                                 }
                               }}
                             >
+                              <Helmet>
+                                <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' />
+                              </Helmet>
                               <Styles theme={originalTheme.config} />
                               <Style />
                               <Header />

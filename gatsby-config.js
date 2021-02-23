@@ -39,6 +39,7 @@ module.exports = {
         pure: true
       }
     },
-    'gatsby-plugin-offline'
+    'gatsby-plugin-offline',
+    `gatsby-plugin-react-helmet`
   ]
 }
