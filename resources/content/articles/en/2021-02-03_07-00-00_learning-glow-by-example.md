@@ -6,25 +6,16 @@ parent: 2020-05-04_06-00-00_glow
 last_updated: "2021-02-03T07:00:00+01:00"
 hasNoChildContent: true
 ---
----
-title: Glow Tutorial
-description: Learn Glow using code examples
-order: 1
-parent: 2020-05-04_06-00-00_glow
-last_updated: "2021-02-03T07:00:00+01:00"
-hasNoChildContent: true
----
-
 
 # Glow Tutorial
 
-Glow is a language for developing secure decentralized apps (DApps) that can run on different blockchains. 
+Glow is a language for developing secure decentralized apps (DApps) that can run on different blockchains.
 
 In this tutorial, we analyze the sample programs that are provided in the Glow distribution to learn
 how they work, and how could they can be applied to smart contract and DApp development.
 
 
-# Buy Signature ([buy<sub>sig.glow</sub>](https://gitlab.com/mukn/glow/-/blob/master/future/buy_sig.glow))?
+# Buy Signature ([buy_sig.glow](https://gitlab.com/mukn/glow/-/blob/master/future/buy_sig.glow))?
 
 Let's imagine you want to have your testament notarized. What would you do?
 
@@ -59,7 +50,7 @@ This is the interaction that the `buy_sig.glow` contract represents.
     2    @interaction([Buyer, Seller])
     3    let payForSignature = (digest : Digest, price : Assets) => {
     4      deposit! Buyer -> price;
-    5      @verifiably(Seller) let signature = sign(digest);
+    5      @verifiably!(Seller) let signature = sign(digest);
     6      publish! Seller -> signature;
     7      verify! signature;
     8      withdraw! Seller <- price;
@@ -84,7 +75,7 @@ There are several things to note:
 
 -   Identify the participants of a contract with `@interaction`
 
-When an instruction is annotated with the participant's name, that value is private for the participant. Like `@verifiably(Seller)`
+When an instruction is annotated with the participant's name, that value is private for the participant. Like `@verifiably!(Seller)`
 
 -   There are clear instructions for `deposit!` and `withdraw!`
 
@@ -120,7 +111,7 @@ The following Glow code exmaple represents the previous interaction:
      3  let coinFlip = (wagerAmount) => {
      4      @A assert! canReach(A_wins);
      5      @A let randA = randomUInt256();
-     6      @verifiably(A) let commitment = digest(randA);
+     6      @verifiably!(A) let commitment = digest(randA);
      7      publish! A -> commitment; deposit! A -> wagerAmount;
      8      @B assert! canReach(B_wins);
      9      @B let randB = randomUInt256();
@@ -194,7 +185,7 @@ How does a player communicate their choice to the blockchain during the game?
      9      @A assert! canReach(end, end.outcome == A_Wins);
     10      @A let handA = Hand.input("First player, pick your hand");
     11      @A let salt = randomUInt256();
-    12      @verifiably(A) let commitment = digest([salt, handA]);
+    12      @verifiably!(A) let commitment = digest([salt, handA]);
     13      publish! A -> commitment; deposit! A -> wagerAmount;
     14
     15      @B assert! canReach(end, end.outcome == B_Wins);
@@ -245,7 +236,7 @@ How does a player communicate their choice to the blockchain during the game?
 -   You can use `switch` to do pattern matching
 
 
-# How to create a deadman switch works?
+# How to create a deadman switch?
 
 Let's suppose a millionaire unlce has called you because he will give you the password to all his fortune.
 However, while you are traveling to see your relative he passes away, and only he knew the password for the safe!
