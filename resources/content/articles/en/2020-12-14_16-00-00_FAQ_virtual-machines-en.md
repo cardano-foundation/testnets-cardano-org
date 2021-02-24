@@ -7,7 +7,7 @@ parent: "2020-05-04_07-00-00_virtual-machines"
 last_updated: "2021-02-25T11:30:00+01:00"
 ---
 
-## FAQs for KEVM and IELE
+## FAQs for Virtual Machines
 
 Note: At this point in time, we are restarting and accelerating the K
 Ethereum Virtual Machine (KEVM) program *only*. The IELE program will be coming very soon, but you can learn about IELE's features and benefits in this page.
