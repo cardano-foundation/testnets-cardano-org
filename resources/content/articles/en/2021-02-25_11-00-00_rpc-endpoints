@@ -1,0 +1,37 @@
+---
+title: RPC Endpoints
+description: RPC endpoints for KEVM
+order: 0
+parent: 2021-02-25_11-00-00_resources
+last_updated: "2020-12-22T09:00:00+01:00"
+---
+## RPC Endpoints
+
+The following is a list of API calls that are supported.
+
+```json
+eth_accounts
+eth_blockNumber
+eth_call
+eth_estimateGas
+eth_gasPrice
+eth_getBalance
+eth_getblockByHash
+eth_getBlockByNumber
+eth_getBlockTransactionCountByHash
+eth_getBlockTransactionCountByNumber
+eth_getTransactionReceipt
+eth_getCode
+eth_getLogs
+eth_getStorageAt
+eth_getTransactionByHash
+eth_getTransactionCount
+eth_getUncleCountByBlockHash
+eth_getUncleCountByNumber
+eth_getWork
+eth_mining
+eth_protocolVersion
+eth_syncing
+```
+
+This list is not exclusive and additional calls or further changes may be made to extend this list.
