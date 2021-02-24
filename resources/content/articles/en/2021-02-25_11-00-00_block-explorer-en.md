@@ -1,7 +1,7 @@
 ---
 title: Block explorer
 description: EVM getting started
-parent: 2021-02-25_11-00-00_getting-started-en
+parent: 2021-02-25_11-00-00_getting-started
 order: 6
 last_updated: "2020-12-17T09:00:00+01:00"
 
