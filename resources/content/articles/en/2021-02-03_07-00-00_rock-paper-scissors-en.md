@@ -22,7 +22,7 @@ How does a player communicate their choice to the blockchain during the game?
 
 ## Visualization
 
-![img](../article-images/2021-02-03_07-00-00_learning-glow-by-example/rps-min.png)
+![img](https://ucarecdn.com/d5dde20b-63c6-4cd7-b774-6694f4080cc8/rpsmin.png)
 
 
 ## Glow code
