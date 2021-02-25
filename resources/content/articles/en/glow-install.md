@@ -1,9 +1,9 @@
 ---
 title: Installing Glow
-description: 
-parent: 
-order: 1
-last_updated: "2020-05-01T09:00:00+01:00"
+description: Installing Glow
+parent: 2021-02-03_07-00-00_getting-started
+order: 3
+last_updated: "2021-02-25T09:00:00+01:00"
 ---
 ## Installing Glow
 
