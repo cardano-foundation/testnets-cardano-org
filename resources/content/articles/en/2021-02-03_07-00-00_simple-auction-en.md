@@ -14,7 +14,7 @@ They get their money back when they are outbid.
 
 ## Visualization
 
-![img](../article-images/2021-02-03_07-00-00_learning-glow-by-example/auction.png)
+![img](https://ucarecdn.com/ba79de1d-e526-466f-9d4f-b1747c7ad3b8/auction.png)
 
 
 ## Glow code
