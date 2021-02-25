@@ -9,6 +9,11 @@ const SearchWrap = styled.form`
   > span {
     display:inline  !important;
   }
+  .algolia-autocomplete .ds-dropdown-menu {
+    min-width:320px;
+    max-width: 70vw;
+    width:70vw;
+  }
 `
 
 const Input = styled.input`
