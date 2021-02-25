@@ -1,10 +1,10 @@
 ---
-parent: 2021-02-03_07-00-00_glow000
+parent: 2021-02-03_07-00-00_getting-started
 title: Rock, Paper Scissors
 description: Playing Rock, Paper, Scissors (rps-min.glow)?
 order: 4
 ---
-# Playing Rock, Paper, Scissors (rps-min.glow)?
+# Playing Rock, Paper, Scissors (rps-min.glow)
 
 Rock, paper, scissors is the classic children's game where each child shows what they have chosen at the same time.
 The decision on who has won is based on the following rules:
