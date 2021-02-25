@@ -3,6 +3,7 @@ parent: 2021-02-03_07-00-00_getting-started
 title: Simple Auction
 description: How does the Simple Auction (auction.glow) contract work?
 order: 6
+last_updated: "2021-02-25T09:00:00+01:00"
 ---
 # How does the Simple Auction (auction.glow) contract work?
 
