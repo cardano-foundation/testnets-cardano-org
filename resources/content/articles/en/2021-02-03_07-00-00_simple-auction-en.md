@@ -1,5 +1,5 @@
 ---
-parent: 2021-02-03_07-00-00_getting-started
+parent: 2021-02-03_07-00-00_glow-tutorial-en.md
 title: Simple Auction
 description: How does the Simple Auction (auction.glow) contract work?
 order: 6
