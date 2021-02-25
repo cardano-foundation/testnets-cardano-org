@@ -13,6 +13,10 @@ const SearchWrap = styled.form`
     min-width:320px;
     max-width: 70vw;
     width:70vw;
+    @media(max-width:950px) {
+      height: 500px;
+      overflow-y: scroll;
+    }
   }
 `
 

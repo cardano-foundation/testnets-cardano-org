@@ -10,7 +10,6 @@ import { Location } from '@reach/router'
 import TinyColor from '@ctrl/tinycolor'
 import { MdMenu, MdClose, MdSearch } from 'react-icons/md'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import SearchField from './SearchField'
 import SelectLanguage from './SelectLanguage'
 import LogoImage from '../../resources/images/logo.svg'
 import GlobalContentQuery from '../queries/GlobalContentQuery'
@@ -18,6 +17,7 @@ import { APP_BAR_OFFSET, NAV_OFFSET } from '../constants'
 import Container from './Container'
 import config from '../config'
 import AlgoliaSearch from './AlgoliaSearchField'
+import { useMediaQuery } from 'react-responsive'
 
 const Bar = styled(AppBar)`
   background-color: ${({ theme }) => new TinyColor(theme.palette.background.default).lighten(5).toString()};
@@ -121,11 +121,11 @@ const MobileSiteTitle = styled(Column)`
   }
 `
 
-// const SearchFieldContainer = styled(Column)`
-//   ${({ theme }) => theme.breakpoints.down('sm')} {
-//     display: none;
-//   }
-// `
+const SearchFieldContainer = styled(Column)`
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    display: none;
+  }
+`
 
 const MobileNavContainer = styled(Column)`
   font-size: 160%;
@@ -342,6 +342,8 @@ const MobileMenuScrollContainer = styled.div`
 `
 
 export default () => {
+  const isLarge = useMediaQuery({ query: '(min-width: 951px)' })
+
   const navigationRef = useRef(null)
   const mobileSearchBarRef = useRef(null)
   const rootRef = useRef(null)
@@ -477,10 +479,9 @@ export default () => {
                   </Logo>
                 </Box>
                 <Box flex={1} display='flex' justifyContent='flex-end'>
-                  <AlgoliaSearch />
-                  {/* <SearchFieldContainer marginRight={2}>
-                    <SearchField />
-                  </SearchFieldContainer> */}
+                  <SearchFieldContainer marginRight={2}>
+                    {isLarge && <AlgoliaSearch />}
+                  </SearchFieldContainer>
                   {config.availableLanguages.length > 1 &&
                     <Column>
                       <SelectLanguage />
@@ -528,7 +529,7 @@ export default () => {
                   ariaLabel='Search bar'
                 >
                   <MUIContainer maxWidth='xs'>
-                    <SearchField onSearch={() => setMobileSearchBarOpen(false)} />
+                    {!isLarge && <AlgoliaSearch />}
                   </MUIContainer>
                 </MobileSearchBar>
               </CSSTransition>

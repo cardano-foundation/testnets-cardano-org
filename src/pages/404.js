@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import Markdown from '@input-output-hk/front-end-core-components/components/Markdown'
 import Container from '../components/Container'
 import Layout from '../components/Layout'
-import SearchField from '../components/SearchField'
 import NotFoundPageQuery from '../queries/NotFoundPageQuery'
+import AlgoliaSearch from '../components/AlgoliaSearchField'
 
 const Wrapper = styled.div`
   text-align: center;
@@ -27,7 +27,7 @@ export default () => (
             <h1>{content.title}</h1>
             <Markdown source={content.body_content} />
             <SearchContainer>
-              <SearchField />
+              <AlgoliaSearch />
             </SearchContainer>
           </Wrapper>
         </Container>
