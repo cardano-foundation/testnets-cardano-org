@@ -16,7 +16,7 @@ In this contract, we are going to see how your uncle implemented that contract i
 
 ## Visualization
 
-![img](../article-images/2021-02-03_07-00-00_learning-glow-by-example/deadmanswitch.png)
+![img](https://ucarecdn.com/8b0ba880-443f-4b43-991d-ed5ac2dd2350/deadmanswitch.png)
 
 
 ## Glow Code
