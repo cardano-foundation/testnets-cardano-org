@@ -2,7 +2,7 @@
 title: Setting up the Test Network
 description: Setting up the Test Network
 parent: 2021-02-03_07-00-00_getting-started
-order: 3
+order: 2
 last_updated: "2021-02-25T09:00:00+01:00"
 ---
 ## Setting up the Test Network
