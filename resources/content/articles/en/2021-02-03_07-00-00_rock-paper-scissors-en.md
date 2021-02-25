@@ -3,6 +3,8 @@ parent: 2021-02-03_07-00-00_getting-started
 title: Rock, Paper Scissors
 description: Playing Rock, Paper, Scissors (rps-min.glow)?
 order: 4
+last_updated: "2021-02-25T09:00:00+01:00"
+
 ---
 # Playing Rock, Paper, Scissors (rps-min.glow)
 
