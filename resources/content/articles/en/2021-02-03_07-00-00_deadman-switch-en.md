@@ -3,6 +3,7 @@ parent: 2021-02-03_07-00-00_getting-started
 title: Deadman switch
 description: How to create a deadman switch?
 order: 5
+last_updated: "2021-02-25T09:00:00+01:00"
 ---
 # How to create a deadman switch?
 
