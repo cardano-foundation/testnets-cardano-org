@@ -1,5 +1,5 @@
 ---
-title: Get started
+title: Getting started
 description: Study Glow using code examples
 order: 2
 parent: 2020-05-04_06-00-00_glow
