@@ -61,7 +61,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
   let url
 
   const tokens = {
-    '6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7': 'Megacoin'
+    '6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7': 'Testcoin'
   }
 
   const handleTokenSelectChange = (event) => {
@@ -187,8 +187,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
                 label='Token Type'
               >
                 <MenuItem value='Ada'>tAda</MenuItem>
-                <MenuItem value='Megacoin'>Megacoin</MenuItem>
-                value=newthing
+                <MenuItem value='Testcoin'>Testcoin</MenuItem>
               </Select>
             </FormControl>
 
