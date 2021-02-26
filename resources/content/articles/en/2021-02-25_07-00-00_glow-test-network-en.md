@@ -207,7 +207,7 @@ Send the handshake below to the other participant:
 {"agreement":{"glow-version":"Glow v0.0-894-g575c859","interaction":"mukn/glow/examples/buy_sig#payForSignature","participants":{"Buyer":"0xa71CEb0990dD1f29C2a064c29392Fe66baf05aE1","Seller":"0xb0bb1ed229f5Ed588495AC9739eD1555f5c3aabD"},"parameters":{"digest":"0x07887c5873ad098e96297f041eb0736ed50d33cf7010f1786f63cddf3b0b8b20","price":"0xde0b6b3a7640000"},"reference":{},"options":{"blockchain":"Private Ethereum Testnet","timeoutInBlocks":"0x1f4","maxInitialBlock":"0x1f4"},"code-digest":"0x16c5659f6e3c70f0c53ac5abf3977e658093f1f5880bd478de8d3a87c92d9607"},"contract-config":{"contract-address":"0x9533A6610DBd92fa5C9E46364b2b36b8D37C1874","code-hash":"0x30e92fcb774f9f205242dce3f112025f999f18c6d45971f4fc48ed8fa807c1d9","creation-hash":"0xb9a04dea24f5fee9b7cbb3f4446d124bc884e869195e9d91e975ad2e3bc2a30b","creation-block":"0x16de"},"published-data":"0x"}
 ```
 
-#### Running the Alicea and Bob Interaction
+#### Running the Alice and Bob Interaction
 
 All Bob has left to do is paste the handshake when prompted and the runtime will handle everything from there. First by generating a signature of the digest and then publishing it on-chain. Alice’s runtime will then watch the network for transactions against the contract to see Bob’s move, and both runtimes should run to completion without requiring any more user input.
 
