@@ -100,19 +100,22 @@ This section outlines how you should configure the contract interactions of Alic
 One of the two participants writes a document for the other to sign. For example, Alice prepares the following document and sends it to Bob for review:
 
 ``` shellsession
-echo “Bob sells BLAH to Alice” > document.txt
+$ echo "This is a test. Bob sells, Alice buys." > document.txt
 ```
 
 When both agree on the document, they should each compute its digest with:
 
 ``` shellsession
-glow digest document.txt
+$ glow digest document.txt
+0x82082c8c9c193135a1ae6c9d8612682363ca34ba5ce87dd81d92e6e8a75c9dfe
 ```
 
 Now, Alice can sign the interaction. In the scenario where you are running the interactions on the same machine, you should specify a database so the two users will not conflict with each other’s data; the extra database specification is not necessary if the users are running on different machines or even in different directories on the same machine (different `$HOME` or at least different `$XDG_CONFIG_HOME`).
 
 ``` shellsession
-glow start-interaction --database Alice
+$ glow start-interaction --database Alice
+Connecting to the Cardano EVM Devnet at https://rpc-evm.portal.dev.cardano.org/ ...
+Choose application:
 ```
 
 The CLI will then prompt Alice to select an application, choose which identity to use for the interaction, which role they will play in it, assign addresses to roles of the other identities, enter the interaction parameters, and finally, print the interaction agreement for Alice to send to Bob, so that he can configure his side of the interaction with the same parameters.
@@ -130,7 +133,8 @@ Enter number
 
 ``` shellsession
 Choose your identity:
-1) Alice - 0xa71CEb0990dD1f29C2a064c29392Fe66baf05aE1
+1) alice - 0x579E786dE324FC811839e9f6959C8d9EaCdEAa0c
+2) bob - 0x04F0B988FE46E83D74336e370E1f24B975019868
 Enter number
 > 1
 ```
@@ -146,47 +150,52 @@ Enter number
 ``` shellsession
 Assign roles
 Select address for Seller:
-1) Bob - 0xb0bb1ed229f5Ed588495AC9739eD1555f5c3aabD
+1) alice - 0x579E786dE324FC811839e9f6959C8d9EaCdEAa0c
+2) bob - 0x04F0B988FE46E83D74336e370E1f24B975019868
 Enter number
-> 1
+> 2
 ```
 
 ``` shellsession
 Define parameters
 Enter digest
-> 0x07887c5873ad098e96297f041eb0736ed50d33cf7010f1786f63cddf3b0b8b20
+> 0x82082c8c9c193135a1ae6c9d8612682363ca34ba5ce87dd81d92e6e8a75c9dfe
 Enter price
-> 1000000000000000000
+> 987654321
 ```
-
-Note that the price here was in tokens (wei), so we specified 10**18 to have 1 ether.
-This will probably change in the near future, with an amended interface
-that will specify amounts in ether instead.
+Note that the price here was in test tokens.
+This will probably change in the near future, with an amended interface.
 
 ``` shellsession
-Max initial block [ Current block number is 350 ]
-> 500
+Max initial block [ Current block number is 36074 ]
+> 36100
 ```
 
+#### Alice will start
 One line command for other participants to generate the same agreement:
 
 ``` shellsession
-glow start-interaction --agreement '{"glow-version":"Glow v0.0-894-g575c859","interaction":"mukn/glow/examples/buy_sig#payForSignature","participants":{"Buyer":"0xa71CEb0990dD1f29C2a064c29392Fe66baf05aE1","Seller":"0xb0bb1ed229f5Ed588495AC9739eD1555f5c3aabD"},"parameters":{"digest":"0x07887c5873ad098e96297f041eb0736ed50d33cf7010f1786f63cddf3b0b8b20","price":"0xde0b6b3a7640000"},"reference":{},"options":{"blockchain":"Private Ethereum Testnet","timeoutInBlocks":"0x1f4","maxInitialBlock":"0x1f4"},"code-digest":"0x16c5659f6e3c70f0c53ac5abf3977e658093f1f5880bd478de8d3a87c92d9607"}'
+$ glow start-interaction --agreement '{"glow-version":"Glow v0.1.0","interaction":"mukn/glow/dapps/buy_sig#payForSignature","participants":{"Buyer":"0x579E786dE324FC811839e9f6959C8d9EaCdEAa0c","Seller":"0x04F0B988FE46E83D74336e370E1f24B975019868"},"parameters":{"digest":"0x82082c8c9c193135a1ae6c9d8612682363ca34ba5ce87dd81d92e6e8a75c9dfe","price":"0x3ade68b1"},"reference":{},"options":{"blockchain":"Cardano EVM Devnet","timeoutInBlocks":"0x3e8","maxInitialBlock":"0x8d04"},"code-digest":"0x16c5659f6e3c70f0c53ac5abf3977e658093f1f5880bd478de8d3a87c92d9607"}'
+Executing code block begin0 ...
+(add-to-deposit price)
+(@debug-label dlb1)
 ```
-
+And will send Bob the command to start-interaction
 
 #### Setting up Bob’s Interaction
 Bob’s interaction does not require as many steps since the agreement contains all of the parameters already. He just needs to verify and accept the agreement, then specify which identity and role he is going to use in the interaction. Note also the database option that was appended to separate Bob’s database from Alice’s, when running both participants on the same machine with the same `$HOME`.
 
 ``` shellsession
-glow start-interaction --agreement '{"glow-version":"Glow v0.0-894-g575c859","interaction":"mukn/glow/examples/buy_sig#payForSignature","participants":{"Buyer":"0xa71CEb0990dD1f29C2a064c29392Fe66baf05aE1","Seller":"0xb0bb1ed229f5Ed588495AC9739eD1555f5c3aabD"},"parameters":{"digest":"0x07887c5873ad098e96297f041eb0736ed50d33cf7010f1786f63cddf3b0b8b20","price":"0xde0b6b3a7640000"},"reference":{},"options":{"blockchain":"Private Ethereum Testnet","timeoutInBlocks":"0x1f4","maxInitialBlock":"0x1f4"},"code-digest":"0x16c5659f6e3c70f0c53ac5abf3977e658093f1f5880bd478de8d3a87c92d9607"}' --database Bob
+$ glow start-interaction --agreement '{"glow-version":"Glow v0.1.0","interaction":"mukn/glow/dapps/buy_sig#payForSignature","participants":{"Buyer":"0x579E786dE324FC811839e9f6959C8d9EaCdEAa0c","Seller":"0x04F0B988FE46E83D74336e370E1f24B975019868"},"parameters":{"digest":"0x82082c8c9c193135a1ae6c9d8612682363ca34ba5ce87dd81d92e6e8a75c9dfe","price":"0x3ade68b1"},"reference":{},"options":{"blockchain":"Cardano EVM Devnet","timeoutInBlocks":"0x3e8","maxInitialBlock":"0x8d04"},"code-digest":"0x16c5659f6e3c70f0c53ac5abf3977e658093f1f5880bd478de8d3a87c92d9607"}' --database Bob
+Connecting to the Cardano EVM Devnet at https://rpc-evm.portal.dev.cardano.org/ ...
 ```
 
 ``` shellsession
 Choose your identity:
-1) Bob - 0xb0bb1ed229f5Ed588495AC9739eD1555f5c3aabD
+1) alice - 0x579E786dE324FC811839e9f6959C8d9EaCdEAa0c
+2) bob - 0x04F0B988FE46E83D74336e370E1f24B975019868
 Enter number
-> 1
+> 2
 ```
 
 ``` shellsession
@@ -197,18 +206,88 @@ Enter number
 > 2
 ```
 
-#### Starting Alice’s Interaction
+#### Alice generates the handshake
 
 After setting up the interaction, the *Glow* runtime component will deploy an EVM smart contract to the configured network and generate a handshake to send to Bob. The handshake is for Bob to verify that the on-chain contract corresponds to everything that is specified in the agreement.
 
 Send the handshake below to the other participant:
 
 ``` json
-{"agreement":{"glow-version":"Glow v0.0-894-g575c859","interaction":"mukn/glow/examples/buy_sig#payForSignature","participants":{"Buyer":"0xa71CEb0990dD1f29C2a064c29392Fe66baf05aE1","Seller":"0xb0bb1ed229f5Ed588495AC9739eD1555f5c3aabD"},"parameters":{"digest":"0x07887c5873ad098e96297f041eb0736ed50d33cf7010f1786f63cddf3b0b8b20","price":"0xde0b6b3a7640000"},"reference":{},"options":{"blockchain":"Private Ethereum Testnet","timeoutInBlocks":"0x1f4","maxInitialBlock":"0x1f4"},"code-digest":"0x16c5659f6e3c70f0c53ac5abf3977e658093f1f5880bd478de8d3a87c92d9607"},"contract-config":{"contract-address":"0x9533A6610DBd92fa5C9E46364b2b36b8D37C1874","code-hash":"0x30e92fcb774f9f205242dce3f112025f999f18c6d45971f4fc48ed8fa807c1d9","creation-hash":"0xb9a04dea24f5fee9b7cbb3f4446d124bc884e869195e9d91e975ad2e3bc2a30b","creation-block":"0x16de"},"published-data":"0x"}
+{"agreement":{"glow-version":"Glow v0.1.0","interaction":"mukn/glow/dapps/buy_sig#payForSignature","participants":{"Buyer":"0x579E786dE324FC811839e9f6959C8d9EaCdEAa0c","Seller":"0x04F0B988FE46E83D74336e370E1f24B975019868"},"parameters":{"digest":"0x82082c8c9c193135a1ae6c9d8612682363ca34ba5ce87dd81d92e6e8a75c9dfe","price":"0x3ade68b1"},"reference":{},"options":{"blockchain":"Cardano EVM Devnet","timeoutInBlocks":"0x3e8","maxInitialBlock":"0x8d04"},"code-digest":"0x16c5659f6e3c70f0c53ac5abf3977e658093f1f5880bd478de8d3a87c92d9607"},"contract-config":{"contract-address":"0x5Cf4788Beb41B737bd86BFA34a013df05640c1Ce","code-hash":"0xb891d1c6c8b794c6b64094a16c3f6ed7b916602e42e8a05c6c4ad172fb0941a4","creation-hash":"0xe6fb35787bf51e9bc3cb255ef717791127724819db32ea835a4340d7b22d24e2","creation-block":"0x8ceb"},"published-data":"0x"}
 ```
 
-#### Running the Alice and Bob Interaction
+Waiting for Seller to make a move ...
+
+Alice sends Bob the handshake via email/messenger/etc
+
+#### Bob captures the handshake
 
 All Bob has left to do is paste the handshake when prompted and the runtime will handle everything from there. First by generating a signature of the digest and then publishing it on-chain. Alice’s runtime will then watch the network for transactions against the contract to see Bob’s move, and both runtimes should run to completion without requiring any more user input.
 
+
+``` json
+{"agreement":{"glow-version":"Glow v0.1.0","interaction":"mukn/glow/dapps/buy_sig#payForSignature","participants":{"Buyer":"0x579E786dE324FC811839e9f6959C8d9EaCdEAa0c","Seller":"0x04F0B988FE46E83D74336e370E1f24B975019868"},"parameters":{"digest":"0x82082c8c9c193135a1ae6c9d8612682363ca34ba5ce87dd81d92e6e8a75c9dfe","price":"0x3ade68b1"},"reference":{},"options":{"blockchain":"Cardano EVM Devnet","timeoutInBlocks":"0x3e8","maxInitialBlock":"0x8d04"},"code-digest":"0x16c5659f6e3c70f0c53ac5abf3977e658093f1f5880bd478de8d3a87c92d9607"},"contract-config":{"contract-address":"0x5Cf4788Beb41B737bd86BFA34a013df05640c1Ce","code-hash":"0xb891d1c6c8b794c6b64094a16c3f6ed7b916602e42e8a05c6c4ad172fb0941a4","creation-hash":"0xe6fb35787bf51e9bc3cb255ef717791127724819db32ea835a4340d7b22d24e2","creation-block":"0x8ceb"},"published-data":"0x"}
+```
+
+
+
+``` shellsession
+# CONTRACT executes
+Executing code block begin0 ...
+(expect-deposited price)
+(@debug-label dlb1)
+Executing code block cp0 ...
+(set-participant Seller)
+(def signature (sign digest0))
+(add-to-publish 'signature signature)
+(def tmp (@app isValidSignature Seller digest0 signature))
+(require! tmp)
+(@debug-label dlb2)
+(participant:withdraw Seller price)
+(return (@tuple))
+(@label end0)
+```
+
+#### Bob receives confirmation that contract has finished
+
 The last thing the runtime does is print all the variables that were bound during execution of the contract, with the signature being purchased highlighted for both participants.
+
+``` shellsession
+mukn/glow/dapps/buy_sig#payForSignature interaction finished
+Final environment:
+Buyer => (address<-0x "0x579E786dE324FC811839e9f6959C8d9EaCdEAa0c")
+Seller => (address<-0x "0x04F0B988FE46E83D74336e370E1f24B975019868")
+digest => (bytes<-0x "0x82082c8c9c193135a1ae6c9d8612682363ca34ba5ce87dd81d92e6e8a75c9dfe")
+price => 987654321
+signature => (<-json Signature "812b6ef8e26e83e9b247ac31c798e5dc50ca102b349d83f16a97d582f1710b711a15125c1b80a081eb670c0552344790d32c207c8be115cd6d59e41a8a6bbdf91b")
+
+```
+
+#### Meanwhile Alice waits for Bob to submit the handshake
+
+
+``` shellsession
+Executing code block cp0 ...
+(set-participant Seller)
+(def signature (expect-published 'signature))
+(def tmp (@app isValidSignature Seller digest0 signature))
+(require! tmp)
+(@debug-label dlb2)
+(participant:withdraw Seller price)
+(return (@tuple))
+(@label end0)
+
+```
+
+#### Alice receives confirmation that contract has finished
+
+``` shellsession
+mukn/glow/dapps/buy_sig#payForSignature interaction finished
+Final environment:
+Buyer => (address<-0x "0x579E786dE324FC811839e9f6959C8d9EaCdEAa0c")
+Seller => (address<-0x "0x04F0B988FE46E83D74336e370E1f24B975019868")
+digest => (bytes<-0x "0x82082c8c9c193135a1ae6c9d8612682363ca34ba5ce87dd81d92e6e8a75c9dfe")
+price => 987654321
+signature => (<-json Signature "812b6ef8e26e83e9b247ac31c798e5dc50ca102b349d83f16a97d582f1710b711a15125c1b80a081eb670c0552344790d32c207c8be115cd6d59e41a8a6bbdf91b")
+
+```
