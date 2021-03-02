@@ -1,5 +1,5 @@
 ---
-parent: 2021-02-03_07-00-00_glow-tutorial-en.md
+parent: 2021-02-03_07-00-00_glow-tutorial
 title: Rock, Paper Scissors
 description: Playing Rock, Paper, Scissors in Glow?
 order: 4
