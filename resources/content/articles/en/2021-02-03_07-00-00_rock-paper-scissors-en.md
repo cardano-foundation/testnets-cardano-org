@@ -2,11 +2,11 @@
 parent: 2021-02-03_07-00-00_glow-tutorial
 title: Rock, Paper Scissors
 description: Playing Rock, Paper, Scissors in Glow?
-order: 3
+order: 4
 last_updated: "2021-02-25T09:00:00+01:00"
 
 ---
-# Playing Rock, Paper, Scissors ([rps.glow](https://gitlab.com/mukn/glow/-/blob/master/dapps/rps.glow))
+## Playing Rock, Paper, Scissors ([rps.glow](https://gitlab.com/mukn/glow/-/blob/master/dapps/rps.glow))
 
 Rock, paper, scissors is the classic children's game where each child shows what they have chosen at the same time.
 The decision on who has won is based on the following rules:
