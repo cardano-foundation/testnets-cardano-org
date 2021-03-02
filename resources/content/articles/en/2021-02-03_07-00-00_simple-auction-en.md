@@ -55,27 +55,27 @@ They get their money back when they are outbid.
     34     @interaction([Seller, Seller]) auction(0);
     35  }
 
--   2 Declares the possible commands that could be performed on this contract
--   4 Only the Seller can create an auction
--   5 In order to create an auction, a Seller must provide:
+-    Declares the possible commands that could be performed on this contract
+-    Only the Seller can create an auction
+-    In order to create an auction, a Seller must provide:
 
 The `Goods` that could be anything that can be represented as an asset,
 an `expirationTime` at which point the auction is over and
 a price at which to buy it immediately `buyItNowPrice`.
 
--   8 The Seller must deposit the goods in the smart contract. This could, for example, a photograph.
--   34 The real auction begins at 0, and the "first bidder" is the Seller himself.
--   10 The real auction is an interaction between the Seller and the Current bidder.
--   11 This function is recursive, so it can call itself.
--   12 A sanity check, let's make sure that the amount deposited to the contract is the goods plus the current bidder.
--   14 This is key in this contract; anyone that bids may become a participant.
--   15 The contract as the new participant for their bid.
--   16 The new bid should be public and it's deposited into the contract.
--   19 The new bid must be bigger than the current one in order to replace it.
--   21 The previous highest bidder gets its money back since it has been replaced by the new bid.
--   22 Now the auction may continue, recursively, with a new highest bidder.
--   23 If the new bidder, reaches the *buy it now* price. Then the auction is settled right now.
--   29 If the expiration time is reached, then the auction is settled.
+-    The Seller must deposit the goods in the smart contract. This could, for example, a photograph.
+-    The real auction begins at 0, and the "first bidder" is the Seller himself.
+-    The real auction is an interaction between the Seller and the Current bidder.
+-    This function is recursive, so it can call itself.
+-    A sanity check, let's make sure that the amount deposited to the contract is the goods plus the current bidder.
+-    This is key in this contract; anyone that bids may become a participant.
+-    The contract as the new participant for their bid.
+-    The new bid should be public and it's deposited into the contract.
+-    The new bid must be bigger than the current one in order to replace it.
+-    The previous highest bidder gets its money back since it has been replaced by the new bid.
+-    Now the auction may continue, recursively, with a new highest bidder.
+-    If the new bidder, reaches the *buy it now* price. Then the auction is settled right now.
+-    If the expiration time is reached, then the auction is settled.
 
 
 ## Lessons learned
