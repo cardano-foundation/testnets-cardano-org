@@ -43,16 +43,16 @@ In this contract, we are going to see how your uncle implemented that contract i
     20      loop(now() + expirationdelay);
     21    }
 
--   5 on this contract, there are only two actions, either withdraw or inherit.
--   7 and there are only two participants, the Owner of the fortune and you.
--   8 When creating the contract, the Owner must say how often he wants it to renew. For example, every six months.
--   20 The first time we go into the loop, it starts
--   9 Now the `loop` is a function that can call itself (recursive).
--   10 Is like pattern matching but based on whom performs the action
--   11 If there is a deposit, the contract continues.
--   13 In order to show that it's still alive, the Owner publishes on the blockchain that he wants to withdraw a little bit of the funds in the contract.
--   15 It renews the *dead man switch* with a new deadline.
--   16 When the `@heir` signals on the blockchain that is ready to inherit.
+-    on this contract, there are only two actions, either withdraw or inherit.
+-    and there are only two participants, the Owner of the fortune and you.
+-    When creating the contract, the Owner must say how often he wants it to renew. For example, every six months.
+-    The first time we go into the loop, it starts
+-    Now the `loop` is a function that can call itself (recursive).
+-    Is like pattern matching but based on whom performs the action
+-    If there is a deposit, the contract continues.
+-    In order to show that it's still alive, the Owner publishes on the blockchain that he wants to withdraw a little bit of the funds in the contract.
+-    It renews the *dead man switch* with a new deadline.
+-    When the `@heir` signals on the blockchain that is ready to inherit.
 
 The contract checks if the current block is past the expiration day.
 If this is the case, the funds are released to the `heir`.
