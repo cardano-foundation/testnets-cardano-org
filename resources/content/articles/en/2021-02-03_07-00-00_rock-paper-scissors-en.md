@@ -6,7 +6,7 @@ order: 4
 last_updated: "2021-02-25T09:00:00+01:00"
 
 ---
-# Playing Rock, Paper, Scissors ([rps.glow](https://gitlab.com/mukn/glow/-/blob/master/dapps/rps.glow))
+## Playing Rock, Paper, Scissors ([rps.glow](https://gitlab.com/mukn/glow/-/blob/master/dapps/rps.glow))
 
 Rock, paper, scissors is the classic children's game where each child shows what they have chosen at the same time.
 The decision on who has won is based on the following rules:
@@ -84,30 +84,30 @@ How does a player communicate their choice to the blockchain during the game?
     55
     56  outcome };
 
-- 2  A `Hand` can only be `Rock, Paper or Scissors`
-- 3  There are only three possible `Outcomes` either `B_wins`, `A_wins`, or its a `Draw`
-- 4  Now define a function `winner`, that when given two hands can determine the `Outcome`
-- 5  This is an arithmetic trick that translates each of the nine possible hand combinations to three possible outcomes
+-   A `Hand` can only be `Rock, Paper or Scissors`
+-   There are only three possible `Outcomes` either `B_wins`, `A_wins`, or its a `Draw`
+-   Now define a function `winner`, that when given two hands can determine the `Outcome`
+-   This is an arithmetic trick that translates each of the nine possible hand combinations to three possible outcomes
 
-- 34  Alice and Bob use this contract
-- 35  Declare the `rockPaperScissors` contract that has the `wagerAmount`
-- 36  `@Alice` makes sure (`assert!`) that it's possible to reach the `end:` label
-- 37  `@Alice` asks (`input`) and stores the value of her Hand.
-- 38  `@Alice` creates a random value (`salt`) that will be used to obfuscate her Hand
-- 39  `@Alice` store the obfuscated value of her Hand in a `verifiably` commitment
-- 40  `@Alice` makes her commitment public and `deposit!` her wage.
+-   Alice and Bob use this contract
+-   Declare the `rockPaperScissors` contract that has the `wagerAmount`
+-   `@Alice` makes sure (`assert!`) that it's possible to reach the `end:` label
+-   `@Alice` asks (`input`) and stores the value of her Hand.
+-   `@Alice` creates a random value (`salt`) that will be used to obfuscate her Hand
+-   `@Alice` store the obfuscated value of her Hand in a `verifiably` commitment
+-   `@Alice` makes her commitment public and `deposit!` her wage.
 
-- 15 `@Bob` makes sure he can reach the `end.outcome` where he wins
-- 16 `@Bob` can `input` what hand he chooses to play
-- 17 `@Bob` publishes his Hand and deposits his wager
+-  `@Bob` makes sure he can reach the `end.outcome` where he wins
+-  `@Bob` can `input` what hand he chooses to play
+-  `@Bob` publishes his Hand and deposits his wager
 
-- 46 Now it's possible to publish the `salt` and in the next step, use it to
-- 47 `verify!` that the `commitment` was obfuscated with the salt
-- 48 now we calculate the `outcome` as the result of evaluating the `winner` function with both hands.
-- 51 `switch` for pattern matching, it's possible to select the appropriate outcome.
-- 52 if `outcome` is `A_wins` `withdraw` to Alice both wages.
-- 53 if `outcome` is `B_wins` `withdraw` to Bob both wages.
-- 54 if `outcome` is `Draw` `withdraw` to give back their money to Alice and Bob.
+-  Now it's possible to publish the `salt` and in the next step, use it to
+-  `verify!` that the `commitment` was obfuscated with the salt
+-  now we calculate the `outcome` as the result of evaluating the `winner` function with both hands.
+-  `switch` for pattern matching, it's possible to select the appropriate outcome.
+-  if `outcome` is `A_wins` `withdraw` to Alice both wages.
+-  if `outcome` is `B_wins` `withdraw` to Bob both wages.
+-  if `outcome` is `Draw` `withdraw` to give back their money to Alice and Bob.
 
 ## Lessons learned
 
