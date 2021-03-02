@@ -5,7 +5,7 @@ description: How does the Simple Auction (auction.glow) contract work?
 order: 6
 last_updated: "2021-02-25T09:00:00+01:00"
 ---
-# How does the Simple Auction ([auction.glow](https://gitlab.com/mukn/glow/-/blob/master/future/auction.glow)) contract work?
+## How does the Simple Auction ([auction.glow](https://gitlab.com/mukn/glow/-/blob/master/future/auction.glow)) contract work?
 
 Imagine an auction where each one of the bidders tries to outbid the previous bidder.
 However, in a blockchain auction, each bidder has to declare the money first to become the top bidder.
