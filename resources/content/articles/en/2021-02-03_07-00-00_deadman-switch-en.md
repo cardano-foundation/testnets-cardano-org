@@ -5,7 +5,7 @@ description: How to create a deadman switch?
 order: 5
 last_updated: "2021-02-25T09:00:00+01:00"
 ---
-# How to create a [deadman switch](https://gitlab.com/mukn/glow/-/blob/master/future/deadmanswitch.glow)?
+## How to create a [deadman switch](https://gitlab.com/mukn/glow/-/blob/master/future/deadmanswitch.glow)?
 
 Let's suppose a millionaire unlce has called you because he will give you the password to all his fortune.
 However, while you are traveling to see your relative he passes away, and only he knew the password for the safe!
