@@ -3,7 +3,7 @@ title: Setting up the Test Network
 description: Setting up the Test Network
 parent: 2021-02-03_07-00-00_getting-started
 order: 2
-last_updated: "2021-02-26T02:50:21-05:00"
+last_updated: "2021-03-02T12:03:24-05:00"
 ---
 ## Setting up the Test Network
 
@@ -12,10 +12,10 @@ By default, *Glow* will use the Cardano EVM Devnet (“ced”)—a public networ
 For faster local-only tests with confirmations in a couple of seconds, you can instead run your own private Ethereum test network (“pet”) on your computer with the instructions as follows. You should then add the flags `--evm-network pet` to your invocations of `glow` that talk to the network.
 
 ``` shell
-git clone https://github.com/fare/gerbil-ethereum.git
-cd gerbil-ethereum
-./scripts/run-ethereum-test-net.ss
+run-ethereum-test-net
 ```
+
+You can use the `help` command of the `run-ethereum-test-net` executable to explore some options offered. Note that this will create data files under `~/.local/share/gerbil-ethereum/` and log files under `~/.local/share/log/gerbil-ethereum/`, though this can be redirected via the `XDG_DATA_HOME` environment variable as per the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html).
 
 ### Creating Keys
 Each participant must first generate their own identity on their own machine, with their own secret key, as follows:
