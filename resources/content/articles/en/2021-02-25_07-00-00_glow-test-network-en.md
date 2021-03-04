@@ -38,13 +38,13 @@ After creating your key, you must share it with the other participant in the int
 
 First, each participant lists their address using:
 
-``` shellsession
+``` shell
 glow list-identities
 ```
 
 The listed addresses will appear in the following format (these are examples):
 
-``` shellsession
+``` shell
 Alice [ 0xa71CEb0990dD1f29C2a064c29392Fe66baf05aE1 ]
 Bob [ 0xb0bb1ed229f5Ed588495AC9739eD1555f5c3aabD ]
 ```
@@ -53,21 +53,21 @@ Each participant then uses a copy and paste function to share their address with
 
 Alice would add Bob’s address to her contact list with a command as follows:
 
-``` shellsession
+``` shell
 bobs_address=0xb0bb1ed229f5Ed588495AC9739eD1555f5c3aabD
 glow add-contact --nickname Bob --address ${bobs_address}
 ```
 
 Alice would add Alice’s address to her contact list with a command as follows:
 
-``` shellsession
+``` shell
 alices_address=0xa71CEb0990dD1f29C2a064c29392Fe66baf05aE1
 glow add-contact --nickname Alice --address ${alices_address}
 ```
 
 After adding a contact, you can see it in you list of contacts:
 
-``` shellsession
+``` shell
 glow list-contacts
 Alice [ 0xa71CEb0990dD1f29C2a064c29392Fe66baf05aE1 ]
 Bob [ 0xb0bb1ed229f5Ed588495AC9739eD1555f5c3aabD ]
@@ -79,13 +79,13 @@ As your address is a new address it does not have any tokens to spend, or to use
 
 Alice runs:
 
-``` shellsession
+``` shell
 glow faucet --to Alice
 ```
 
 Bob runs:
 
-``` shellsession
+``` shell
 glow faucet --to Bob
 ```
 
@@ -99,20 +99,20 @@ This section outlines how you should configure the contract interactions of Alic
 
 One of the two participants writes a document for the other to sign. For example, Alice prepares the following document and sends it to Bob for review:
 
-``` shellsession
+``` shell
 $ echo "This is a test. Bob sells, Alice buys." > document.txt
 ```
 
 When both agree on the document, they should each compute its digest with:
 
-``` shellsession
+``` shell
 $ glow digest document.txt
 0x82082c8c9c193135a1ae6c9d8612682363ca34ba5ce87dd81d92e6e8a75c9dfe
 ```
 
 Now, Alice can sign the interaction. In the scenario where you are running the interactions on the same machine, you should specify a database so the two users will not conflict with each other’s data; the extra database specification is not necessary if the users are running on different machines or even in different directories on the same machine (different `$HOME` or at least different `$XDG_CONFIG_HOME`).
 
-``` shellsession
+``` shell
 $ glow start-interaction --database Alice
 Connecting to the Cardano EVM Devnet at https://rpc-evm.portal.dev.cardano.org/ ...
 Choose application:
@@ -122,7 +122,7 @@ The CLI will then prompt Alice to select an application, choose which identity t
 
 Here is an example of what the setup should look like from Alice’s side:
 
-``` shellsession
+``` shell
 Choose application:
 1) coin_flip
 2) buy_sig
@@ -131,7 +131,7 @@ Enter number
 > 2
 ```
 
-``` shellsession
+``` shell
 Choose your identity:
 1) alice - 0x579E786dE324FC811839e9f6959C8d9EaCdEAa0c
 2) bob - 0x04F0B988FE46E83D74336e370E1f24B975019868
@@ -139,7 +139,7 @@ Enter number
 > 1
 ```
 
-``` shellsession
+``` shell
 Choose your role:
 1) Buyer
 2) Seller
@@ -147,7 +147,7 @@ Enter number
 > 1
 ```
 
-``` shellsession
+``` shell
 Assign roles
 Select address for Seller:
 1) alice - 0x579E786dE324FC811839e9f6959C8d9EaCdEAa0c
@@ -156,7 +156,7 @@ Enter number
 > 2
 ```
 
-``` shellsession
+``` shell
 Define parameters
 Enter digest
 > 0x82082c8c9c193135a1ae6c9d8612682363ca34ba5ce87dd81d92e6e8a75c9dfe
@@ -166,7 +166,7 @@ Enter price
 Note that the price here was in test tokens.
 This will probably change in the near future, with an amended interface.
 
-``` shellsession
+``` shell
 Max initial block [ Current block number is 36074 ]
 > 36100
 ```
@@ -174,7 +174,7 @@ Max initial block [ Current block number is 36074 ]
 #### Alice will start
 One line command for other participants to generate the same agreement:
 
-``` shellsession
+``` shell
 $ glow start-interaction --agreement '{"glow-version":"Glow v0.1.0","interaction":"mukn/glow/dapps/buy_sig#payForSignature","participants":{"Buyer":"0x579E786dE324FC811839e9f6959C8d9EaCdEAa0c","Seller":"0x04F0B988FE46E83D74336e370E1f24B975019868"},"parameters":{"digest":"0x82082c8c9c193135a1ae6c9d8612682363ca34ba5ce87dd81d92e6e8a75c9dfe","price":"0x3ade68b1"},"reference":{},"options":{"blockchain":"Cardano EVM Devnet","timeoutInBlocks":"0x3e8","maxInitialBlock":"0x8d04"},"code-digest":"0x16c5659f6e3c70f0c53ac5abf3977e658093f1f5880bd478de8d3a87c92d9607"}'
 Executing code block begin0 ...
 (add-to-deposit price)
@@ -185,12 +185,12 @@ And will send Bob the command to start-interaction
 #### Setting up Bob’s Interaction
 Bob’s interaction does not require as many steps since the agreement contains all of the parameters already. He just needs to verify and accept the agreement, then specify which identity and role he is going to use in the interaction. Note also the database option that was appended to separate Bob’s database from Alice’s, when running both participants on the same machine with the same `$HOME`.
 
-``` shellsession
+``` shell
 $ glow start-interaction --agreement '{"glow-version":"Glow v0.1.0","interaction":"mukn/glow/dapps/buy_sig#payForSignature","participants":{"Buyer":"0x579E786dE324FC811839e9f6959C8d9EaCdEAa0c","Seller":"0x04F0B988FE46E83D74336e370E1f24B975019868"},"parameters":{"digest":"0x82082c8c9c193135a1ae6c9d8612682363ca34ba5ce87dd81d92e6e8a75c9dfe","price":"0x3ade68b1"},"reference":{},"options":{"blockchain":"Cardano EVM Devnet","timeoutInBlocks":"0x3e8","maxInitialBlock":"0x8d04"},"code-digest":"0x16c5659f6e3c70f0c53ac5abf3977e658093f1f5880bd478de8d3a87c92d9607"}' --database Bob
 Connecting to the Cardano EVM Devnet at https://rpc-evm.portal.dev.cardano.org/ ...
 ```
 
-``` shellsession
+``` shell
 Choose your identity:
 1) alice - 0x579E786dE324FC811839e9f6959C8d9EaCdEAa0c
 2) bob - 0x04F0B988FE46E83D74336e370E1f24B975019868
@@ -198,7 +198,7 @@ Enter number
 > 2
 ```
 
-``` shellsession
+``` shell
 Choose your role:
 1) Buyer
 2) Seller
@@ -231,7 +231,7 @@ All Bob has left to do is paste the handshake when prompted and the runtime will
 
 
 
-``` shellsession
+``` shell
 # CONTRACT executes
 Executing code block begin0 ...
 (expect-deposited price)
@@ -252,7 +252,7 @@ Executing code block cp0 ...
 
 The last thing the runtime does is print all the variables that were bound during execution of the contract, with the signature being purchased highlighted for both participants.
 
-``` shellsession
+``` shell
 mukn/glow/dapps/buy_sig#payForSignature interaction finished
 Final environment:
 Buyer => (address<-0x "0x579E786dE324FC811839e9f6959C8d9EaCdEAa0c")
@@ -266,7 +266,7 @@ signature => (<-json Signature "812b6ef8e26e83e9b247ac31c798e5dc50ca102b349d83f1
 #### Meanwhile Alice waits for Bob to submit the handshake
 
 
-``` shellsession
+``` shell
 Executing code block cp0 ...
 (set-participant Seller)
 (def signature (expect-published 'signature))
@@ -281,7 +281,7 @@ Executing code block cp0 ...
 
 #### Alice receives confirmation that contract has finished
 
-``` shellsession
+``` shell
 mukn/glow/dapps/buy_sig#payForSignature interaction finished
 Final environment:
 Buyer => (address<-0x "0x579E786dE324FC811839e9f6959C8d9EaCdEAa0c")

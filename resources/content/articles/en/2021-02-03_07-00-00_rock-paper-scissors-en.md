@@ -88,7 +88,6 @@ How does a player communicate their choice to the blockchain during the game?
 -   There are only three possible `Outcomes` either `B_wins`, `A_wins`, or its a `Draw`
 -   Now define a function `winner`, that when given two hands can determine the `Outcome`
 -   This is an arithmetic trick that translates each of the nine possible hand combinations to three possible outcomes
-
 -   Alice and Bob use this contract
 -   Declare the `rockPaperScissors` contract that has the `wagerAmount`
 -   `@Alice` makes sure (`assert!`) that it's possible to reach the `end:` label
@@ -96,11 +95,9 @@ How does a player communicate their choice to the blockchain during the game?
 -   `@Alice` creates a random value (`salt`) that will be used to obfuscate her Hand
 -   `@Alice` store the obfuscated value of her Hand in a `verifiably` commitment
 -   `@Alice` makes her commitment public and `deposit!` her wage.
-
 -  `@Bob` makes sure he can reach the `end.outcome` where he wins
 -  `@Bob` can `input` what hand he chooses to play
 -  `@Bob` publishes his Hand and deposits his wager
-
 -  Now it's possible to publish the `salt` and in the next step, use it to
 -  `verify!` that the `commitment` was obfuscated with the salt
 -  now we calculate the `outcome` as the result of evaluating the `winner` function with both hands.
