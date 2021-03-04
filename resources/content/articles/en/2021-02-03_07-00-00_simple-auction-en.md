@@ -5,6 +5,9 @@ description: How does the Simple Auction (auction.glow) contract work?
 order: 6
 last_updated: "2021-02-25T09:00:00+01:00"
 ---
+
+*Warning:* This contract will compile on the /future/ Glow release.
+
 ## How does the Simple Auction ([auction.glow](https://gitlab.com/mukn/glow/-/blob/master/future/auction.glow)) contract work?
 
 Imagine an auction where each one of the bidders tries to outbid the previous bidder.

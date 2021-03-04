@@ -5,12 +5,18 @@ description: How to create a deadman switch?
 order: 5
 last_updated: "2021-02-25T09:00:00+01:00"
 ---
+
+*Warning:* This contract will compile on the /future/ Glow release.
+
+
 ## How to create a [deadman switch](https://gitlab.com/mukn/glow/-/blob/master/future/deadmanswitch.glow)?
 
 Let's suppose a millionaire unlce has called you because he will give you the password to all his fortune.
-However, while you are traveling to see your relative he passes away, and only he knew the password for the safe!
+However, while you are traveling he passes away, and only he knew the password for the safe!
 
-Six months later, you get an email with the password for the safe and it turns out that your uncle had a *dead man switch* that would automatically reveal the password.
+Six months later, you get an email with the password.
+It turns out that your uncle had a *dead man switch* that would automatically,
+reveal the information after six months of inactivity.
 
 In this contract, we are going to see how your uncle implemented that contract in Glow.
 
