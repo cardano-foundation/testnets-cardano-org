@@ -97,41 +97,6 @@ Check the integrity of the Mallet installation by using the `version` command:
 
 If the version number displays correctly, the installation was successful.
 
-## Create a HelloWorld smart contract
-
-To deploy your smart contracts on the KEVM devnet and test Mallet,
-you will need to compile the Solidity code to KEVM (K - Ethereum virtual machine) bytecode.
-You can compile the bytecode directly with using [solc](https://hub.docker.com/r/ethereum/solc).
-
-**1. Create a Solidity  file**
-
-Create a `myContract.sol` file:
-
-    cat << EOF >myContract.sol
-    // SPDX-License-Identifier: MIT
-    pragma solidity >=0.5.1 <0.9.0;
-
-
-    contract HelloWorld {
-      function helloWorld() external pure returns (string memory) {
-        return "Hello, World!";
-      }
-    }
-    EOF
-
-**2. Compile with `solc`:**
-
-To compile with `solc`, you will need to use the Docker command. For this, first install the [Docker Engine](https://docs.docker.com/engine/install/), then run:
-
-    docker run --rm -v $(pwd):/sources ethereum/solc:0.5.1 -o /sources --bin --abi /sources/myContract.sol
-
-**3. Verify that the compiled file exists:**
-
-If the file was correctly compiled, there should be a `.bin` file in your directory.
-
-    ls *.bin
-
-    HelloWorld.bin
 
 ## Mallet 2.0
 
@@ -158,7 +123,6 @@ reflects how they are used.
 contact the community in Slack:
 [Join IOHK | Devnets on Slack](https://join.slack.com/t/iohkdevnets/shared_invite/zt-jvy74l5h-Bhp5SQajefwjig72BIl73A)
 
-## Using the faucet
 
 **1. Create an account**
 
@@ -202,66 +166,37 @@ selected account.
 
 Fund transfer might take a few minutes.
 
-You can now compile and deploy smart contracts as your account is created *and* funded.
-
 
 **5. Check the new balance in the account:**
 
     getBalance()
 
 
-**6. Bring the compiled smart contract into Mallet**
+**6 Send funds to another account
+  
+    sendTransaction({to: '0x0.....', gas: 1000000, gasPrice: 5, value: 99999})
 
-Using the `HelloWorld.bin` created earlier you can import the smart contract into Mallet.
+After entering your password as required, this will return a Transaction hash 
 
-
-**7. Import the `fileSystem` module:**
-
-    fs = require("fs");
-
-
-**8. Read the contents of the binary file:**
-
-    myContract = "0x" + fs.readFileSync('HelloWorld.bin', 'utf8');
-
-
-## Deploying smart contracts
-
-Now that you have the bytecode from `solc`, the next step is simply to deploy it.
-
-
-**1. Prepare the transaction to deploy the contract:**
-
-    tx = { gas: 470000, data: myContract}
-
-
-**2. Send a transaction with the smart contract:**
-
-    deploymentHash = sendTransaction(tx)
-
-This will return the tx hash on which the contract was deployed to.
-
-
-**3. View receipt**
-
-You can view transaction details with the following command:
-
-    getReceipt(deploymentHash)
-
-
-**4. Save your contract address**
-
-To save your contract address, create a variable that takes the return value of getReceipt():
-
-    myContractAddress = getReceipt(deploymentHash).contractAddress
-
-
-### Test your smart contract
-
-    web3.toAscii(web3.eth.call({to: myContractAddress, data: '0xc605f76c'}))
+    Enter password:
+    '0x73caee480d8ce11fd0e2987c4f35c3ae78697acf0fb766932a2a8a60d5cf5319'
     
-The expected output should contain "Hello, World!". 
+  
+**7 Check Transaction Hash
 
+    getReceipt('0x73caee480d8ce11fd0e2987c4f35c3ae78697acf0fb766932a2a8a60d5cf5319')
+    
+    { transactionHash:
+     '0x73caee480d8ce11fd0e2987c4f35c3ae78697acf0fb766932a2a8a60d5cf5319',
+    transactionIndex: 0,
+    blockNumber: 12345,
+    blockHash:
+     '0x841b3078d9cfeca290fb3a478d4c2f7210990f0e93491a947467657bb47d2b5c',
+    cumulativeGasUsed: 21000,
+    gasUsed: 21000,
+    logs: [] }
+   
+This hash can also be verified via the Explorer, as can the balance of an account.
 
 **Getting help**
 
