@@ -124,13 +124,13 @@ contact the community in Slack:
 [Join IOHK | Devnets on Slack](https://join.slack.com/t/iohkdevnets/shared_invite/zt-jvy74l5h-Bhp5SQajefwjig72BIl73A)
 
 
-**1. Create an account**
+**2. Create an account**
 
 Create an account to use this faucet by using this code:
 
     //execute inthe Mallet Repl
     //mallet kevm -d ./my_data/
-    //mallet> .load ../test_smartcontract_deploy.js
+   
 
     myAccount = newAccount()
 
@@ -141,7 +141,7 @@ Note that we are assigning the return value of `newAccount` to a variable
 named `myAccount` so we can refer to it later.
 
 
-**2. Select an account**
+**3. Select an account**
 
 Activate the account we have just created by using this code:
 
@@ -150,7 +150,7 @@ Activate the account we have just created by using this code:
     '0x45402404f51909b640d03f361c742c38d34bb3e7'
 
 
-**3. Verify the balance of your new account**
+**4. Verify the balance of your new account**
 
 Since the account has just been created, its balance should be 0.
 
@@ -160,19 +160,19 @@ If you don't give any argument, this will return the balance of the
 selected account.
 
 
-**4. Request tokens from the faucet with `requestFunds`:**
+**5. Request tokens from the faucet with `requestFunds`:**
 
     requestFunds()
 
 Fund transfer might take a few minutes.
 
 
-**5. Check the new balance in the account:**
+**6. Check the new balance in the account:**
 
     getBalance()
 
 
-**6 Send funds to another account
+**7 Send funds to another account
   
     sendTransaction({to: '0x0.....', gas: 1000000, gasPrice: 5, value: 99999})
 
@@ -182,7 +182,7 @@ After entering your password as required, this will return a Transaction hash
     '0x73caee480d8ce11fd0e2987c4f35c3ae78697acf0fb766932a2a8a60d5cf5319'
     
   
-**7 Check Transaction Hash
+**8 Check Transaction Hash
 
     getReceipt('0x73caee480d8ce11fd0e2987c4f35c3ae78697acf0fb766932a2a8a60d5cf5319')
     
