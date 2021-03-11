@@ -172,7 +172,7 @@ Fund transfer might take a few minutes.
     getBalance()
 
 
-**7 Send funds to another account
+**7. Send funds to another account
   
     sendTransaction({to: '0x0.....', gas: 1000000, gasPrice: 5, value: 99999})
 
@@ -182,7 +182,7 @@ After entering your password as required, this will return a Transaction hash
     '0x73caee480d8ce11fd0e2987c4f35c3ae78697acf0fb766932a2a8a60d5cf5319'
     
   
-**8 Check Transaction Hash
+**8. Check Transaction Hash
 
     getReceipt('0x73caee480d8ce11fd0e2987c4f35c3ae78697acf0fb766932a2a8a60d5cf5319')
     
