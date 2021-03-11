@@ -10,4 +10,4 @@ last_updated: "2021-03-11T09:00:00+01:00"
 
 This short video walkthrough shows you how to launch Mallet, create an account, request funds from the faucet, check balances, view transactions, check tx hash / receipt in mallet, send funds between two accounts and verify all of the above in the explorer.
 
-<!-- embed youtube/6utib2mqEIM -->
+<!-- embed youtube/bPkecndG57U -->
