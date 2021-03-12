@@ -16,10 +16,10 @@ You will need some initial funds to start testing stake pools and delegating sta
 We have applied an initial daily faucet limit of 1000 test ada a day for each testnet user to ensure everyone has access to funds.
 
 When you have finished using your test tokens, please return them to the faucet so that other members of the community can use them. Please return your test tokens to this address: 
-`addr1qxky0xztxlvsc0rkktpyavew43hutkkfvulau882tg53jn4264wuq6dunvqpm6twlph2fx56hgfye3gx2y6ncleh3ylq54nt60`
+`addr_test1qqr585tvlc7ylnqvz8pyqwauzrdu0mxag3m7q56grgmgu7sxu2hyfhlkwuxupa9d5085eunq2qywy7hvmvej456flknswgndm3`
 
 If you have an API key and prefer to use the cli, you can use the following command:
 
 ```bash
-curl -v -XPOST "https://faucet.cardano-testnet.iohk.io/send-money/$YOURADDRESS?apiKey=$APIKEY"
+curl -v -XPOST "https://faucet.cardano-testnet.iohkdev.io/send-money/$YOURADDRESS?apiKey=$APIKEY"
 ```
