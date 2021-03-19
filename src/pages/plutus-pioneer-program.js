@@ -5,11 +5,10 @@ import Markdown from '@input-output-hk/front-end-core-components/components/Mark
 import Link from '@input-output-hk/front-end-core-components/components/Link'
 import Layout from '../components/Layout'
 import Container from '../components/Container'
-import IndexPageQuery from '../queries/IndexPageQuery'
+import PlutusPioneerPageQuery from '../queries/PlutusPioneerPageQuery'
 import TestnetBackground from '../../resources/images/cardano-testnet-header-hyperspace.png'
 import { TinyColor } from '@ctrl/tinycolor'
-import AnnouncementBanner from '../components/AnnouncementBanner'
-
+import HubSpotForm from '../components/HubSpotForm'
 const HeroContainer = styled(Container)`
   position: relative;
 `
@@ -57,24 +56,11 @@ const TechnicalSupportContainer = styled.div`
   background-color: ${({ theme }) => new TinyColor(theme.palette.background.default).lighten(4).toString()};
 `
 
-const TechnicalSupport = styled.div`
-  padding: 8rem 0;
-  text-align: center;
-  max-width: 100rem;
-  margin: 0 auto;
-  display: block;
-`
-
-const TechnicalSupportCTA = styled.div`
-  padding-top: 4rem;
-`
-
 export default () => (
-  <IndexPageQuery
+  <PlutusPioneerPageQuery
     render={(content) => (
       <Layout>
         <Hero>
-          <AnnouncementBanner />
           <HeroContainer>
             <HeroBackground />
             <HeroContent>
@@ -94,21 +80,9 @@ export default () => (
           </HeroContainer>
         </Hero>
         <TechnicalSupportContainer>
-          <Container>
-            <TechnicalSupport>
-              <Markdown source={content.tecnhical_support_content} />
-              <TechnicalSupportCTA>
-                <Button
-                  component={Link}
-                  href={content.technical_support_cta_href}
-                  variant='contained'
-                  color='primary'
-                  tracking={{ category: 'home_page', label: 'technical_support_cta' }}
-                >
-                  {content.technical_support_cta_label}
-                </Button>
-              </TechnicalSupportCTA>
-            </TechnicalSupport>
+          <Container id='plutus'>
+            <h2>Register for the Plutus Pioneer Program</h2>
+            <HubSpotForm />
           </Container>
         </TechnicalSupportContainer>
       </Layout>
