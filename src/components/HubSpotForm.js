@@ -1,7 +1,35 @@
 /* eslint-disable react/jsx-closing-tag-location */
 import React, { useState } from 'react'
+import TinyColor from '@ctrl/tinycolor'
+import styled from 'styled-components'
+import Button from '@material-ui/core/Button'
 // portalId: "8848114",
 // formId: "21dc6180-37b5-4dcf-8f57-596656b726a2"
+
+const Input = styled.input`
+  width: 100%;
+  border: 0.1rem solid ${({ theme }) => new TinyColor(theme.palette.text.primary).lighten(70).toString()};
+  background: transparent;
+  height: 3.8rem;
+  padding: 0 2rem;
+  border-radius: 1.9rem 1.9rem;
+  vertical-align: middle;
+  color: ${({ theme }) => theme.palette.text.primary};
+
+  &::placeholder {
+    color: ${({ theme }) => theme.palette.text.primary};
+  }
+
+  &:focus{
+    background: ${({ theme }) => theme.palette.common.white};
+    color: ${({ theme }) => theme.palette.common.black};
+    outline: none;
+
+    &::placeholder {
+      color: ${({ theme }) => theme.palette.common.black};
+    }
+  }
+`
 
 // eslint-disable-next-line no-unused-vars
 const initialFormState = {
@@ -10,14 +38,10 @@ const initialFormState = {
 }
 
 const HubSpotForm = () => {
-  const [ firstname, setFormName ] = useState('')
-  const [ email, setFormEmail ] = useState('')
-  const [ submitted, setSubmitted ] = useState(false)
-  const handleSubmit = e => {
-    e.preventDefault()
+  const SendToHubspotAPI = () => {
     // eslint-disable-next-line no-undef
     const xhr = new XMLHttpRequest()
-    const url = 'https://api.hsforms.com/submissions/v3/integration/submit/8848114/21dc6180-37b5-4dcf-8f57-596656b726a2'
+    const url = 'https://api.hsforms.com/submissions/v3/integration/submit/8848114/ad1b4485-b52e-498a-aab7-c902711d7d53'
     // Example request JSON:
     const data = {
       submittedAt: Date.now(),
@@ -32,7 +56,7 @@ const HubSpotForm = () => {
         }
       ],
       context: {
-        pageUri: 'sign-up',
+        pageUri: 'plutus-pioneer-program',
         pageName: 'Signed up'
       }
     }
@@ -56,47 +80,48 @@ const HubSpotForm = () => {
     // Sends the request
     xhr.send(final_data)
   }
+  const [ firstname, setFormName ] = useState('')
+  const [ email, setFormEmail ] = useState('')
+  const [ submitted, setSubmitted ] = useState(false)
+  const handleSubmit = e => {
+    e.preventDefault()
+    SendToHubspotAPI()
+  }
 
   return (
     <div>
       {!submitted
         ? <form method='POST' action='/sign-up/' onSubmit={handleSubmit}>
           <label>
-            <p>Name:</p>
-            <input
+            <p>Name<span style={{ color: 'red' }}>*</span> </p>
+            <Input
               type='text'
               id='firstname'
               name='firstname'
-              placeholder='Your name here...'
+              placeholder='Your name'
               value={firstname}
               onChange={e => setFormName(e.target.value)}
-              required='required'
+              required
             />
           </label>
           <label>
-            <p>Email:</p>
-            <input
-              type='text'
+            <p>Email<span style={{ color: 'red' }}>*</span> </p>
+            <Input
+              type='email'
               id='email'
               name='email'
-              placeholder='Your email address*'
+              placeholder='Your email'
               value={email}
               onChange={e => setFormEmail(e.target.value)}
-              required='required'
+              required
             />
           </label>
-          <button type='submit'>Submit</button>
-
-          <h4>
-            {firstname}
-          </h4>
-          <h4>
-            {email}
-          </h4>
+          <br /><br />
+          <Button type='submit' variant='contained' color='primary'>Submit</Button>
         </form>
-        : <h2>
-          Thankyou for signing up!
-        </h2>
+        : <p style={{ color: 'green' }}>
+          Thank you for signing up for the Plutus Pioneers Program!
+        </p>
       }
     </div>
   )
