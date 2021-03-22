@@ -1,12 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import Button from '@material-ui/core/Button'
 import Markdown from '@input-output-hk/front-end-core-components/components/Markdown'
-import Link from '@input-output-hk/front-end-core-components/components/Link'
 import Layout from '../components/Layout'
 import Container from '../components/Container'
 import PlutusPioneerPageQuery from '../queries/PlutusPioneerPageQuery'
-import TestnetBackground from '../../resources/images/cardano-testnet-header-hyperspace.png'
+import TestnetBackground from '../../resources/images/header_press.png'
 import { TinyColor } from '@ctrl/tinycolor'
 import HubSpotForm from '../components/HubSpotForm'
 const HeroContainer = styled(Container)`
@@ -47,11 +45,6 @@ const HeroContent = styled.div`
   }
 `
 
-const HeroCTA = styled.div`
-  max-width: 60rem;
-  padding-top: 4rem;
-`
-
 const TechnicalSupportContainer = styled.div`
   background-color: ${({ theme }) => new TinyColor(theme.palette.background.default).lighten(4).toString()};
 `
@@ -65,17 +58,6 @@ export default () => (
             <HeroBackground />
             <HeroContent>
               <Markdown source={content.hero_content} />
-              <HeroCTA>
-                <Button
-                  color='default'
-                  variant='contained'
-                  component={Link}
-                  href={content.hero_cta_href}
-                  tracking={{ category: 'home_page_hero_cta', label: content.hero_cta_href }}
-                >
-                  {content.hero_cta_label}
-                </Button>
-              </HeroCTA>
             </HeroContent>
           </HeroContainer>
         </Hero>
