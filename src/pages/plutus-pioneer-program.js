@@ -62,6 +62,9 @@ export default () => (
           </HeroContainer>
         </Hero>
         <TechnicalSupportContainer>
+          <Container>
+            <Markdown source={content.page_content} />
+          </Container>
           <Container id='plutus'>
             <h2>Register for the Plutus Pioneer Program</h2>
             <HubSpotForm />

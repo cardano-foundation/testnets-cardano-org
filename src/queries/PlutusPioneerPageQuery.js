@@ -18,6 +18,7 @@ const PlutusPioneerPageQuery = ({ render }) => (
                       hero_content
                       hero_cta_label
                       hero_cta_href
+                      page_content
                       available_testnets
                       tecnhical_support_content
                       technical_support_cta_label
