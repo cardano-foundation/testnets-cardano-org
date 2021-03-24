@@ -69,7 +69,8 @@ export default () => (
             <Markdown source={content.page_content} />
           </Container>
           <Container id='plutus'>
-            <h2>Register for the Plutus pioneer program</h2>
+            <h2>Yes, I'm interested!</h2>
+            <p>Please share your details and we will be in touch soon</p>
             <HubSpotForm />
           </Container>
         </TechnicalSupportContainer>

@@ -21,6 +21,8 @@ content:
 
     This course is not for coding beginners. While you do not need to be an expert in formal methods, programming  experience and a general aptitude for logical and mathematical thinking are highly desirable. Some prior knowledge of Haskell or functional programming is also recommended, as Plutus is heavily based on Haskell and includes advanced features like Template Haskell, type-level programming, and effect systems. We recommend that you read the [Learn You a Haskell guide](http://learnyouahaskell.com/) before the course.
 
+    The course will begin in mid-April. Please register your interest using the form below and we shall get back to you.
+
     What can I expect to learn?
     ---------------------------
 
