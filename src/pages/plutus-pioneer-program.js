@@ -47,6 +47,9 @@ const HeroContent = styled.div`
 
 const TechnicalSupportContainer = styled.div`
   background-color: ${({ theme }) => new TinyColor(theme.palette.background.default).lighten(4).toString()};
+  h2 {
+    text-transform: none;
+  }
 `
 
 export default () => (
