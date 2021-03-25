@@ -43,6 +43,9 @@ const HeroContent = styled.div`
   a span {
     color: ${({ theme }) => theme.palette.primary.main};
   }
+  h3 {
+    color: #fff;
+  }
 `
 
 const TechnicalSupportContainer = styled.div`
