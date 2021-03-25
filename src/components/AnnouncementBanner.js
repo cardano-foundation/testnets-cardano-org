@@ -6,7 +6,7 @@ const Announcement = styled.div`
 width:100%;
 text-align: center;
 padding: 1rem 0;
-background: green;
+background: #fb7575;
 color: white;
 h5 {
   margin: 0;
