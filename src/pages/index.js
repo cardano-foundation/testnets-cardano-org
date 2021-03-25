@@ -8,6 +8,7 @@ import Container from '../components/Container'
 import IndexPageQuery from '../queries/IndexPageQuery'
 import TestnetBackground from '../../resources/images/cardano-testnet-header-hyperspace.png'
 import { TinyColor } from '@ctrl/tinycolor'
+import AnnouncementBanner from '../components/AnnouncementBanner'
 
 const HeroContainer = styled(Container)`
   position: relative;
@@ -73,6 +74,7 @@ export default () => (
     render={(content) => (
       <Layout>
         <Hero>
+          <AnnouncementBanner />
           <HeroContainer>
             <HeroBackground />
             <HeroContent>
