@@ -120,7 +120,7 @@ const HubSpotForm = () => {
           <Button type='submit' variant='contained' color='primary'>Submit</Button>
         </form>
         : <p style={{ color: 'green' }}>
-          Thank you for signing up for the Plutus Pioneers Program!
+          Thanks for expressing your interest in the Plutus Pioneer Program
         </p>
       }
     </div>
