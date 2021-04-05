@@ -5,11 +5,11 @@ content:
   hero_content: |
     # Plutus Pioneer Program
 
-    Join our new training program and become a certified pioneer for Plutus! 
+    Plutus pioneer is our new training program that brings together developers on a learning journey to help stress test our code before the official Plutus release. 
 
-    We are now launching our Plutus pioneer program. We are looking for developers to join us on a learning journey and then help us stress test our code before we officially release Plutus to the world!
+    Thank you to those who joined us! 
 
-    ### Starts April 5th
+    ### Plutus pioneer is now live
 
   hero_cta_label: Register
   hero_cta_href: '/plutus-pioneer-program/#plutus'
