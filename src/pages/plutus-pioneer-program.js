@@ -73,7 +73,7 @@ export default () => (
           </Container>
           <Container id='plutus'>
             <h2>Yes, I'm interested!</h2>
-            <p>Please share your details and we will be in touch soon</p>
+            <p>Please share your details and we will be in touch when we have fresh course dates to offer.</p>
             <HubSpotForm />
           </Container>
         </TechnicalSupportContainer>
