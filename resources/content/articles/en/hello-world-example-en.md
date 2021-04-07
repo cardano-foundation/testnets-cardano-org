@@ -15,7 +15,7 @@ Follow these steps to create a *HelloWorld* smart contract.
 
 Create a `myContract.sol` file:
 ```
-    $cat << EOF >myContract.sol
+    $ cat << EOF >myContract.sol
     // SPDX-License-Identifier: MIT
     pragma solidity >=0.5.1 <0.9.0;
     contract HelloWorld {
@@ -30,14 +30,14 @@ Create a `myContract.sol` file:
 
 Use the Docker command to compile with `solc`: (Assumes Docker has been installed.)
 
-`$docker run --rm -v $(pwd):/sources ethereum/solc:0.5.1 -o /sources --bin --abi /sources/myContract.sol`
+`$ docker run --rm -v $(pwd):/sources ethereum/solc:0.5.1 -o /sources --bin --abi /sources/myContract.sol`
     
 **3. Verify that the compiled file exists:**
 
 If the file was correctly compiled, there should be a `HelloWorld.bin` file in your directory.
   
 ```
-  $ls *.bin
+  $ ls *.bin
   HelloWorld.bin
 ```
        
@@ -45,7 +45,7 @@ If the file was correctly compiled, there should be a `HelloWorld.bin` file in y
 
 Before deploying the contract, import the compiled smart contract into Mallet using the `HelloWorld.bin` file. 
 
-**Note**: The commands below *must* be run in Mallet.
+**Note**: Run all commands below in Mallet.
 
 **1. Import the `fileSystem` module:**
 
