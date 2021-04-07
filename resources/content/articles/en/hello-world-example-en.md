@@ -8,7 +8,7 @@ last_updated: "2021-04-07T15:00:00+01:00"
 
 
 
-# Creating, Deploying, and Testing a HelloWorld smart contract
+## Creating, Deploying, and Testing a HelloWorld smart contract
 
 ### Pre-requisites
 
