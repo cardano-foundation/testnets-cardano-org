@@ -2,7 +2,7 @@
 title: Block explorer
 description: KEVM getting started
 parent: 2020-05-04_11-00-00_getting-started
-order: 6
+order: 7
 last_updated: "2020-12-17T09:00:00+01:00"
 redirects:
   - from: /en/kevm/get-started/block-explorer/
