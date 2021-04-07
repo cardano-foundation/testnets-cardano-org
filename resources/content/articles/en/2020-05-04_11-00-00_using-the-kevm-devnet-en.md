@@ -17,3 +17,12 @@ The KEVM is a high quality, formally-verified smart contract virtual machine. Th
 The KEVM is a stack-based machine, as opposed to a register-based machine. The primary difference between these two architectures is in the way in which operands and their results are stored and retrieved.
 
 To get up and running you need to install Mallet  and start compiling your smart contracts. Then you can start experimenting and identify any weak spots in your smart contracts.
+
+### Known issues
+
+There currently are four known issues:
+
+- Only supports up to EVM version `Byzantium`. Therefore, Solidity compiler 0.5.1 is recommended.
+- RPC `eth_logs` does not return any logs.
+- RPC `eth_estimateGas` is inaccurate, it always returns 21000.
+- `eth_getWork` is not returning expected values.
