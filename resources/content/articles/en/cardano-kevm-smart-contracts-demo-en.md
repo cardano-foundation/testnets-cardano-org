@@ -12,4 +12,4 @@ This video walkthrough demonstrates how to compile, deploy, and interact with tw
 
 The first contract shows how to increment integer state variables and query the values of these variables, and the second one shows how to deposit funds to the contract address and query the contract account balance.
 
-<!-- embed youtube/p3ee19mJUOA&t=241s -->
+<!-- embed youtube/p3ee19mJUOA -->
