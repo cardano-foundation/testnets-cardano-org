@@ -19,7 +19,7 @@ h5 {
 
 const AnnouncementBanner = () => (
   <Announcement>
-    <h5>New Plutus Pioneer Program - <Link href='/plutus-pioneer-program/'>Register Interest Now</Link></h5>
+    <h5>Want to learn to write Plutus smart contracts? Check out our <Link href='/plutus-pioneer-program/'>Plutus Pioneer Program!</Link></h5>
   </Announcement>
 )
 
