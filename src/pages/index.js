@@ -40,6 +40,9 @@ const HeroContent = styled.div`
   max-width: 60rem;
   position: relative;
   padding: 8rem 0 12rem;
+  a {
+    color: #fb7575
+  }
   h1, p {
     color: ${({ theme }) => theme.palette.primary.contrastText};
   }
