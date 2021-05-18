@@ -3,7 +3,6 @@ parent: erc20-using-converter
 title: Setting up the receiving  Cardano address
 description: Setting up the receiving Cardano address
 order: 3
-last_updated: 2021-05-18T13:11:20+01:00
 ---
 
 To start converting or minting tokens in the ERC20 converter, you should be connected to your Metamask account to configure your receiving Cardano address.
