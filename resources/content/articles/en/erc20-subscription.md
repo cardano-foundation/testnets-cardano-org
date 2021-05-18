@@ -3,7 +3,6 @@ parent: erc20-using-converter
 title: Subscribing to notifications
 description: Subscribing to notifications
 order: 1
-last_updated: 2021-05-18T12:56:20+01:00
 ---
 
 Subscription is the feature that notifies you when a certain token is available for migration to Cardano.
