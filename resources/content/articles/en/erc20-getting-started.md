@@ -46,7 +46,7 @@ Image 4
 Image 5
 
 4. To get testnet AGIX, copy your account address from the Metamask wallet.
-5. Go to the [Singularitynet faucet](https://faucet.singularitynet.io/) and log in with your GitHub account.
+5. Go to the [SingularityNET faucet](https://faucet.singularitynet.io/) and log in with your GitHub account.
 6. Select the ‘Kovan’ option, paste your wallet address, and click ‘Submit’.
 
 Image 6
