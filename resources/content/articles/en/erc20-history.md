@@ -3,13 +3,12 @@ parent: erc20-using-converter
 title: Exploring transaction history
 description: Exploring transaction history
 order: 5
-last_updated: 2021-05-18T13:32:20+01:00
 ---
 
 You can explore the transaction history to see the status of your recent transactions.
 
-1. Click ‘Transactions’ on the top bar and you will see a list of processed transactions.
-2.  You can search for details by transaction ID, date, or token symbol.
+1. Click ‘Transactions’ on the main menu where you can see a list of processed transactions.
+2.  You can search for individual transactions using transaction ID, date, or token symbol.
 
 Image
 
