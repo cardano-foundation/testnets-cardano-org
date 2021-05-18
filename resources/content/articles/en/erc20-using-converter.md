@@ -1,7 +1,7 @@
 ---
 parent: erc20-converter
-title: Using ERC20 converter
-description: Ways of using ERC20 converter
+title: Using the ERC20 converter
+description: Ways of using the ERC20 converter
 order: 3
 last_updated: 2021-05-18T12:56:20+01:00
 ---
