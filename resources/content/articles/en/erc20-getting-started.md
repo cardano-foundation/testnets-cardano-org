@@ -3,7 +3,6 @@ parent: erc20-converter
 title: Getting started
 description: Getting started with ERC20 converter
 order: 2
-last_updated: 2021-05-18T12:26:20+01:00
 ---
 
 > Note: the current ERC20 converter is the testnet version and there are some known issues that we are working on to be improved in gradual upgrades. 
