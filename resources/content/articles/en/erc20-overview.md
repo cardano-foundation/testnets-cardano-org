@@ -3,7 +3,6 @@ parent: erc20-converter
 title: Overview
 description: ERC20 converter
 order: 1
-last_updated: 2021-05-18T09:00:00+01:00
 hasNoChildContent: true
 ---
 
