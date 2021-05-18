@@ -51,4 +51,4 @@ Image 5
 
 Image 6
 
-7. You should be able to receive 10 testnet AGIX. In case you do not receive testnet tokens, you can [request help from the support team](https://iohk.zendesk.com/hc/en-us/requests/new).
+7. You should receive 10 testnet AGIX. If you do not receive these testnet tokens, you can [request help from the support team](https://iohk.zendesk.com/hc/en-us/requests/new).
