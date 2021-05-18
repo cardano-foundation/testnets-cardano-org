@@ -3,7 +3,6 @@ parent: erc20-using-converter
 title: Migrating a new token to Cardano
 description: Migrating a new token to Cardano
 order: 2
-last_updated: 2021-05-18T13:02:20+01:00
 ---
 
 If you are a blockchain project or a company that is interested in migrating your ERC20 tokens to Cardano (and they are not on the list), you can apply for a new token migration.
