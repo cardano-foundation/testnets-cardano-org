@@ -5,9 +5,11 @@ description: Resources
 order: 4
 ---
 
+## Resources
+
 DRAFT
 
-Link to the demo
-Interview
-Blog post
++ Link to the demo
++ Interview
++ Blog post
 
