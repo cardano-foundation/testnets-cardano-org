@@ -30,4 +30,4 @@ To start converting or minting tokens in the ERC20 converter, you should be conn
 > After switching the network, you will have to reload the web page.
 > 
 > If the connection modal is closed without a configured Cardano address, you will see a warning message at the top, inviting you to set up your Cardano wallet as follows:
-> *‘You need to set up your Cardano wallet. [Click here].’*
+> *‘You need to set up your Cardano wallet. Click here.’*
