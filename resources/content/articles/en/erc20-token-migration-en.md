@@ -5,6 +5,8 @@ description: Migrating Ethereum tokens to Cardano
 order: 4
 ---
 
+## Migrating Ethereum tokens to Cardano
+
 To start converting your ERC20 tokens, you can either:
 
 + Click Dashboard and then click ‘Select’ on the token card you want to convert.
@@ -13,13 +15,11 @@ or
 
 + Click the ‘Token balance’ for the token you want to convert on the main menu. 
 
-Image
-
 Note that you can see your available token balance and its equivalent price in USD.
 
 1. Click ‘Select’ on a token card to open the conversion window. 	
 
-Image
+![15-convert](https://ucarecdn.com/d334fe50-64d7-45be-8b63-744114c4ad7c/)
 
 You will see your available balance and your Cardano address that was configured earlier. Please ensure that you fill in the amount details. The amount for conversion cannot be less than zero or higher than the available balance.  
 
@@ -28,4 +28,4 @@ You will see your available balance and your Cardano address that was configured
 
 Note that the total amount of converted tokens is reflected on each token card on the Dashboard or Convert pages for information purposes, as follows:
 
-Image
+![16-total-amount](https://ucarecdn.com/e1b80f96-70f9-4f7c-b4a1-a49562bf69f4/)
