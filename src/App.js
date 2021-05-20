@@ -13,12 +13,13 @@ import { analytics, theme } from '@input-output-hk/front-end-core-libraries'
 import Zendesk from 'react-zendesk'
 import { navigate, Link as GatsbyLink } from 'gatsby'
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import { atomOneDark, atomOneLight } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import config from './config'
 import { getThemes } from './themes'
 import Search from './state/Search'
 import Header from './components/Header'
 import Style from './components/Style'
+import Code from './components/Code'
 
 // Default route uses SSR from "pages"
 const DefaultRoute = ({ element }) => element
@@ -92,11 +93,7 @@ const PreWrap = styled.div`
 `
 
 const LightCodeRenderer = ({ value = '', language }) => (
-  <PreWrap>
-    <SyntaxHighlighter language={language} style={atomOneLight}>
-      {value}
-    </SyntaxHighlighter>
-  </PreWrap>
+  <Code codeString={value} language={language} />
 )
 
 LightCodeRenderer.propTypes = {
