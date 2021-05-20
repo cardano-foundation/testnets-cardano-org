@@ -14,6 +14,7 @@ import Zendesk from 'react-zendesk'
 import { navigate, Link as GatsbyLink } from 'gatsby'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import vsLight from 'prism-react-renderer/themes/vsLight'
 import config from './config'
 import { getThemes } from './themes'
 import Search from './state/Search'
@@ -93,7 +94,7 @@ const PreWrap = styled.div`
 `
 
 const LightCodeRenderer = ({ value = '', language }) => (
-  <Code codeString={value} language={language} />
+  <Code codeString={value} language={language} theme={vsLight} />
 )
 
 LightCodeRenderer.propTypes = {

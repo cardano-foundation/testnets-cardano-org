@@ -43,18 +43,17 @@ const CopyButton = styled(Button)`
       margin: 8px;
       padding: 8px 12px;
       background: #E2E8F022;
-      color: white;
+      color: #0033ad;
       border-radius: 8px;
       cursor: pointer;
-      color: #E2E8F0;
       font-size: 14px;
       font-family: sans-serif;
       line-height: 1;
 `
 const Pre = styled.pre`
       padding: 2rem;
+      background: #f9f9f9;
       position: relative;
-      background: black;
       overflow-x: auto;
       white-space: pre-wrap;
       white-space: -moz-pre-wrap;
@@ -75,7 +74,7 @@ const copyToClipboard = str => {
   document.body.removeChild(el)
 }
 
-const Code = ({ codeString, language }) => {
+const Code = ({ codeString, language, theme }) => {
   const [ isCopied, setIsCopied ] = React.useState(false)
 
   return (
@@ -84,6 +83,7 @@ const Code = ({ codeString, language }) => {
         {...defaultProps}
         code={codeString}
         language={language}
+        theme={theme}
       >
         {({ className, tokens, getLineProps, getTokenProps }) => (
           <Pre
@@ -118,7 +118,8 @@ const Code = ({ codeString, language }) => {
 
 Code.propTypes = {
   codeString: PropTypes.string.isRequired,
-  language: PropTypes.string
+  language: PropTypes.string,
+  theme: PropTypes.string
 }
 
 export default Code
