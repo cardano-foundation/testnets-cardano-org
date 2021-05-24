@@ -1,11 +1,11 @@
 ---
-parent: erc20-converter
-title: Support
-description: Support
-order: 5
+parent: erc20-resources-en
+title: Support and help
+description: Support and help
+order: 2
 ---
 
-## Support
+## Support and help
 
 Your feedback is important because it helps us improve the ERC20 converter testnet. We have a dedicated **support page** to help you with your issues and questions. To contact IOHK Technical Support, please **submit a request** using the Submit a request form.
 
