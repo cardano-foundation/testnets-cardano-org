@@ -1,5 +1,5 @@
 ---
-parent: erc20-resources-en
+parent: erc20-resources
 title: Support and help
 description: Support and help
 order: 2
