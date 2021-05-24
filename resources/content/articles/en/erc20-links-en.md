@@ -1,5 +1,5 @@
 ---
-parent: erc20-resources-en
+parent: erc20-resources
 title: Links
 description: Links
 order: 1
