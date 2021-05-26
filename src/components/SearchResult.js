@@ -109,9 +109,6 @@ const SearchResult = ({ result, query }) => {
           <div className='body'>
             {highlightMatch(result.content, query, { surroundingContext: true, limit: 1 })}
           </div>
-          <LastUpdated marginTop={1}>
-            <small>{content.last_updated}: <em>{result.lastUpdatedFormatted}</em></small>
-          </LastUpdated>
         </ResultWrap>
       )}
     />
