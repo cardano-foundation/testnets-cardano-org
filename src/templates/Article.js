@@ -239,11 +239,13 @@ const ReportAnIssueLink = styled.a`
   display: flex;
 `
 
+/*
 const LastUpdated = styled.div`
   p {
     margin: 0;
   }
 `
+*/
 
 const ExternalLink = styled.a`
   display: inline-block;
