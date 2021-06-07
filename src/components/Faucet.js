@@ -50,7 +50,7 @@ const statuses = {
   success: 'success'
 }
 
-const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCaptcha, getNativeAssetEndpoint }) => {
+const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCaptcha, getNativeAssetEndpoint, singular }) => {
   const [ values, setValues ] = useState(DEFAULT_VALUES)
   const [ errors, setErrors ] = useState(DEFAULT_ERRORS)
   const [ serverError, setServerError ] = useState('')
@@ -187,7 +187,7 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
                 label='Token Type'
               >
                 <MenuItem value='Ada'>tAda</MenuItem>
-                <MenuItem value='Testcoin'>Testcoin</MenuItem>
+                {singular ? '' : <MenuItem value='Testcoin'>Testcoin</MenuItem>}
               </Select>
             </FormControl>
 
@@ -272,6 +272,7 @@ FaucetInner.propTypes = {
   getEndpoint: PropTypes.func.isRequired,
   getNativeAssetEndpoint: PropTypes.func.isRequired,
   hasApiKey: PropTypes.bool.isRequired,
+  singular: PropTypes.bool,
   getTransactionURL: PropTypes.func,
   reCaptcha: PropTypes.shape({
     version: PropTypes.number.isRequired,
@@ -279,13 +280,14 @@ FaucetInner.propTypes = {
   })
 }
 
-const Faucet = ({ getEndpoint, getNativeAssetEndpoint, hasApiKey, getTransactionURL, reCaptcha }) => (
+const Faucet = ({ getEndpoint, getNativeAssetEndpoint, hasApiKey, getTransactionURL, reCaptcha, singular }) => (
   <GlobalContentQuery
     render={content => (
       <FaucetInner
         content={content}
         getEndpoint={getEndpoint}
         hasApiKey={hasApiKey}
+        singular={singular}
         getTransactionURL={getTransactionURL}
         reCaptcha={reCaptcha}
         getNativeAssetEndpoint={getNativeAssetEndpoint}
@@ -298,6 +300,7 @@ Faucet.propTypes = {
   getEndpoint: PropTypes.func.isRequired,
   getNativeAssetEndpoint: PropTypes.func.isRequired,
   hasApiKey: PropTypes.bool.isRequired,
+  singular: PropTypes.bool,
   getTransactionURL: PropTypes.func,
   reCaptcha: PropTypes.shape({
     version: PropTypes.number.isRequired,

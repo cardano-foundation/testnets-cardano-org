@@ -1,0 +1,35 @@
+---
+parent: 2020-05-04_05-00-00_tools
+title: Alonzo Faucet
+description: Cardano tools
+order: 5
+last_updated: 2021-06-07T13:41:00.000Z
+---
+
+### What is the Faucet?
+
+The faucet is a web-based service that provides test ada to users of the testnet. While these tokens have no 'real world' value, they enable users to experiment with Cardano testnet features, without having to spend real ada on the mainnet.
+
+#### To request tokens using the faucet:
+
+1. Enter the address of the account where you want to top up funds.
+1. If you have been issued with an API key, please enter this to access any additional funds you may have been allocated
+1. Click **Request**.
+1. Funds will be in the testnet account you specified within a few minutes
+
+_We have applied a daily faucet limit of 1000 test ada a day for each testnet user to ensure everyone has access to funds._
+
+##### Please note:
+
+**Due to the Mary hardfork we now have Native Token functionality ready to test.**
+
+- Default funds are in tAda (test Ada).
+- If you'd like to test the Native Token functionality, please choose another token (currently **Testcoin**) from the dropdown menu.
+
+## Alonzo Faucet
+
+<!-- include components/AlonzoFaucet -->
+
+_When you have finished using your test tokens, please return them to the faucet so that other members of the community can use them. Please return your test tokens to this address:_
+
+**addr_test1qqr585tvlc7ylnqvz8pyqwauzrdu0mxag3m7q56grgmgu7sxu2hyfhlkwuxupa9d5085eunq2qywy7hvmvej456flknswgndm3**
