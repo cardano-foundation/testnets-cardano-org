@@ -12,6 +12,7 @@ module.exports = async function (connection) {
       useUnifiedTopology: true
     })
 
+    // TODO fix the date as it's always being set to when the DB connection is opened!
     connection.model(
       'Address',
       new mongoose.Schema({
