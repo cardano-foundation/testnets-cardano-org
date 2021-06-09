@@ -3,6 +3,13 @@ const dbConnect = require('./helpers/dbConnect')
 // Initialize outside of handler so it can be cached between invokations
 let connection
 
+// Allow Cors
+const headers = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+}
+
 exports.handler = async function (event, context) {
   // Grab the address from the request body
   let address
@@ -30,11 +37,13 @@ exports.handler = async function (event, context) {
   // Return the save adddress object and 201 status
   return {
     statusCode: 201,
-    body: JSON.stringify(savedAddress)
+    body: JSON.stringify(savedAddress),
+    headers
   }
 }
 
 const requestError = (message, status = 400) => ({
   statusCode: status,
-  body: message
+  body: message,
+  headers
 })
