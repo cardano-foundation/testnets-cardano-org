@@ -20,8 +20,8 @@ exports.handler = async function (event, context) {
   }
 
   // Validate the provided address
-  if (!address || address.length !== 103) {
-    return requestError('Please provide a valid ADA receive address')
+  if (!address || address.length !== 108) {
+    return requestError('Please provide a valid Alonzo receive address')
   }
 
   // Connect to DB and intitialize the model
@@ -32,7 +32,7 @@ exports.handler = async function (event, context) {
   const Address = connection.model('Address')
 
   // Save the address to the database
-  const savedAddress = await new Address({ address }).save()
+  const savedAddress = await new Address({ address, date: Date.now() }).save()
 
   // Return the save adddress object and 201 status
   return {
