@@ -9,7 +9,7 @@ order: 3
 
 To start converting or minting tokens in the ERC20 converter, you should be connected to your Metamask account to configure your receiving Cardano address.
 
-1. In the converter, click ‘Connect’ ‒ on the top-bar menu. 
+1. In the converter, click ‘Connect’ on the top-bar menu. 
 2. A window is displayed with possible options for connecting your wallet. Click ‘Connect’ under the Metamask option, as follows:
 
 ![12-metamask-connect](https://ucarecdn.com/d0286e22-e915-4648-9a1a-2b2e29f53835/)
