@@ -12,28 +12,28 @@ const commonTheme = {
       fontWeight: 700,
       lineHeight: 1.1,
       letterSpacing: 0,
-      textTransform: 'capitalize'
+      textTransform: 'none'
     },
     h2: {
       fontSize: 1.8,
       fontWeight: 700,
       letterSpacing: 0.05,
       lineHeight: 1.2,
-      textTransform: 'capitalize'
+      textTransform: 'none'
     },
     h3: {
       fontSize: 1.44,
       fontWeight: 700,
       lineHeight: 1.2,
       letterSpacing: 0.05,
-      textTransform: 'capitalize'
+      textTransform: 'none'
     },
     h4: {
       fontSize: 1.1,
       fontWeight: 700,
       letterSpacing: 0.05,
       lineHeight: 1.2,
-      textTransform: 'capitalize'
+      textTransform: 'none'
     },
     h5: {
       fontSize: 0.7,

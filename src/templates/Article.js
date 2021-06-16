@@ -239,11 +239,13 @@ const ReportAnIssueLink = styled.a`
   display: flex;
 `
 
+/*
 const LastUpdated = styled.div`
   p {
     margin: 0;
   }
 `
+*/
 
 const ExternalLink = styled.a`
   display: inline-block;
@@ -573,7 +575,7 @@ const Article = ({ pageContext }) => {
                     <MarkdownContent>
                       {!pageContext.hasNoChildContent && (pageContext.previous || pageContext.next) &&
                         <Box display='flex' flexDirection='row' justifyContent='space-between' width='100%'>
-                          {pageContext.previous &&
+                          {pageContext.previous && pageContext.previous.path !== '/testnets/cardano/' &&
                             <Link href={pageContext.previous.path} title={pageContext.previous.title}>&larr; {content.previous}</Link>
                           }
                           {pageContext.next &&
@@ -583,11 +585,6 @@ const Article = ({ pageContext }) => {
                       }
                     </MarkdownContent>
                     <Box marginTop={2} marginBottom={2}>
-                      {pageContext.lastUpdatedFormatted &&
-                        <LastUpdated>
-                          <p><small><em>{content.last_updated}: {pageContext.lastUpdatedFormatted}</em></small></p>
-                        </LastUpdated>
-                      }
                       {config.gitHubRepository &&
                         <Box display='flex'>
                           <ReportAnIssueLink
