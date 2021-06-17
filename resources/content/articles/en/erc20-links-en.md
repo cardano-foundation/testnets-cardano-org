@@ -9,7 +9,7 @@ order: 1
 
 The following resources about the ERC20 converter are available:
 
-**Videos**
+**Videos:**
 
  -   [A demo of the ERC20 converter](https://bit.ly/3i0pNrC) by Francisco Landino: a step-by-step converter setup process explained.
 
