@@ -2,7 +2,7 @@
 parent: erc20-using-converter
 title: Exploring transaction history
 description: Exploring transaction history
-order: 5
+order: 4
 ---
 
 ## Exploring transaction history
