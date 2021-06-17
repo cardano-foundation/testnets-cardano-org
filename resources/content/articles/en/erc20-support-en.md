@@ -7,7 +7,6 @@ order: 2
 
 ## Support and help
 
-Your feedback is important because it helps us improve the ERC20 converter testnet. We have a dedicated **support page** to help you with your issues and questions. To contact IOHK Technical Support, please [submit a request](https://iohk.zendesk.com/hc/en-us/requests/new) using the Submit a request form.
+Your feedback is important because it helps us improve the ERC20 converter testnet. To contact IOHK Technical Support, please [submit a request](https://iohk.zendesk.com/hc/en-us/requests/new) using the Submit a request form.
 
 You can also open Menu (...) in the ERC20 converter (on the main menu) and navigate to the ‘Support’ button, which will open the support page.
-
