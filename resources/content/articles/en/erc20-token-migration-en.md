@@ -15,11 +15,13 @@ or
 
 + Click the ‘Token balance’ for the token you want to convert on the main menu. 
 
+![token-selection](https://ucarecdn.com/a36e5e29-85fe-48e3-a5dd-ff47108173ed/)
+
 Note that you can see your available token balance and its equivalent price in USD.
 
 1. Click ‘Select’ on a token card to open the conversion window. 	
 
-![token-selection](https://ucarecdn.com/a36e5e29-85fe-48e3-a5dd-ff47108173ed/)
+![conversion-window](https://ucarecdn.com/884ec85b-4b7f-4c24-a872-51ab458bb593/)
 
 You will see your available balance and your Cardano address that was configured earlier. Please ensure that you fill in the amount details. The amount for conversion cannot be less than zero or higher than the available balance.  
 
