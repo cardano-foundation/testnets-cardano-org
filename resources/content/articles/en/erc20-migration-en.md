@@ -2,7 +2,7 @@
 parent: erc20-using-converter
 title: Migrating a new token to Cardano
 description: Migrating a new token to Cardano
-order: 2
+order: 1
 ---
 
 ## Migrating a new token to Cardano
