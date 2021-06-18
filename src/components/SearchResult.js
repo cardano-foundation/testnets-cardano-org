@@ -33,14 +33,16 @@ const ResultWrap = styled.li`
   }
 `
 
-const LastUpdated = styled.div`
-  margin-top: 0.5rem;
-  padding-top: 0.5rem;
-  border-top: 0.1rem solid ${({ theme }) => new TinyColor(theme.palette.text.primary).setAlpha(0.2).toString()};
-  display: inline-block;
-  font-size: 90%;
-  opacity: 0.8;
-`
+/*
+  const LastUpdated = styled.div`
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 0.1rem solid ${({ theme }) => new TinyColor(theme.palette.text.primary).setAlpha(0.2).toString()};
+    display: inline-block;
+    font-size: 90%;
+    opacity: 0.8;
+  `
+*/
 
 const SearchResult = ({ result, query }) => {
   const highlightMatch = (text, query, { indexes = [], limit = null, surroundingContext = false } = {}) => {
@@ -88,7 +90,7 @@ const SearchResult = ({ result, query }) => {
 
   return (
     <SearchPageQuery
-      render={content => (
+      render={() => (
         <ResultWrap className='item'>
           <strong className='title'>
             <Link
@@ -109,9 +111,6 @@ const SearchResult = ({ result, query }) => {
           <div className='body'>
             {highlightMatch(result.content, query, { surroundingContext: true, limit: 1 })}
           </div>
-          <LastUpdated marginTop={1}>
-            <small>{content.last_updated}: <em>{result.lastUpdatedFormatted}</em></small>
-          </LastUpdated>
         </ResultWrap>
       )}
     />
