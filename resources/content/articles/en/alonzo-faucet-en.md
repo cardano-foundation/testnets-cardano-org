@@ -14,21 +14,20 @@ The faucet is a web-based service that provides test ADA to users of the testnet
 
 1. Enter the address of the account where you want to top up funds.
 1. If you have been issued with an API key, please enter this to access any additional funds you may have been allocated
-1. Click **Request**.
+1. Click **Request Funds**.
 1. Funds should be in the testnet account you specified within a few minutes
 
 ##### Please note:
 
 - Funds are in tAda (test ADA) only
-- Make sure your address is for a payment address on the Alonzo Testnet:
-  **addr_test1qqr585tvlc7ylnqvz8pyqwauzrdu0mxag3m7q56grgmgu7sxu2hyfhlkwuxupa9d5085eunq2qywy7hvmvej456flknswgndm3**
+- Make sure your address is for a payment address on the Alonzo Testnet: **addr_test1qpn55p5tahpxjnjlj45tyv9ry863lragx9gd3nlldkknjxa8zn736rdnypuky4uj7d4a2nqe4lq2wkhupeayuxff7zmstxcgj6**
 - This is a limited-capability faucet (no wallet support yet, restricted funds, no native token support)
 - Please do not request more funds than you actually require for your own use
-
-_In addition, please update the return address listed underneath the form to:_
-
-**addr_test1qpn55p5tahpxjnjlj45tyv9ry863lragx9gd3nlldkknjxa8zn736rdnypuky4uj7d4a2nqe4lq2wkhupeayuxff7zmstxcgj6** 
 
 ## Alonzo Faucet
 
 <!-- include components/AlonzoFaucet -->
+
+_When you have finished using your test tokens, please return them to the faucet so that other members of the community can use them. Please return your test tokens to this address:_
+
+**addr_test1qpn55p5tahpxjnjlj45tyv9ry863lragx9gd3nlldkknjxa8zn736rdnypuky4uj7d4a2nqe4lq2wkhupeayuxff7zmstxcgj6**
