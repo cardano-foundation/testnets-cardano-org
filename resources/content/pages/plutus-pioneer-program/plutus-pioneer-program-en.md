@@ -7,7 +7,7 @@ content:
 
     We have successfully completed the first in our series of Plutus pioneer programs and the feedback has been very positive. Thanks to all the pioneers who completed the course and supported this program. 
 
-We are now recruiting for the second course and are looking for new developers to join us on this learning journey and help us stress test our code before we officially release Plutus to the world! 
+    We are now recruiting for the second course and are looking for new developers to join us on this learning journey and help us stress test our code before we officially release Plutus to the world!
 
   hero_cta_label: Register
   hero_cta_href: '/plutus-pioneer-program/#plutus'
