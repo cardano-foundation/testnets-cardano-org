@@ -105,6 +105,18 @@ const Layout = ({ children, headData = {}, template = Main }) => {
                           url={process.env.GATSBY_URL}
                         >
                           {theme.typography.googleFontsURL && <link rel='stylesheet' type='text/css' href={theme.typography.googleFontsURL} />}
+                          <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' />
+                          <script
+                            type='text/javascript'
+                            src='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
+                            onLoad='docsearch({
+                              apiKey: "25626fae796133dc1e734c6bcaaeac3c",
+                              indexName: "docsearch",
+                              inputSelector: ".doc-search-input",
+                              debug: true
+                            })'
+                            async
+                          />
                         </Head>
                       )
                     }}
