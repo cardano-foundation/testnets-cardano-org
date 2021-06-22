@@ -30,33 +30,26 @@ const Bar = styled(AppBar)`
 
 const MobileSearchBar = styled.div`
   position: fixed;
-  top: 5.2rem;
+  top:0;
+  /* &.mobile-search-open {
+    top: 5.2rem;
+  } */
   z-index: 10;
   padding: 1.6rem 0 0.8rem;
   left: 0;
   right: 0;
   background-color: ${({ theme }) => theme.palette.background.default};
   transform: translate(0, 0);
+  &.mobile-search-open {
+    transform: translateY(90%);
+  }
   transition: transform 0.3s ease-in-out;
-
-  &.mobile-search-bar-enter {
-    transform: translate(0, -100%);
-  }
-
-  &.mobile-search-bar-enter-active {
-    transform: translate(0, 0);
-  }
-
-  &.mobile-search-bar-exit {
-    transform: translate(0, 0);
-  }
-
-  &.mobile-search-bar-exit-active {
-    transform: translate(0, -100%);
-  }
 
   ${({ theme }) => theme.breakpoints.up('md')} {
     display: none;
+  }
+  input#doc-search-input {
+    width:130%;
   }
 `
 
@@ -141,7 +134,6 @@ const MobileNavContainer = styled(Column)`
 
 const MobileSearchIconContainer = styled(Column)`
   font-size: 160%;
-
 
   a {
     display: flex;
@@ -344,6 +336,7 @@ export default () => {
   const navigationRef = useRef(null)
   const mobileSearchBarRef = useRef(null)
   const rootRef = useRef(null)
+  const [ smallScreen, setSmallScreen ] = useState()
   const [ mobileMenuOpen, setMobileMenuOpen ] = useState(false)
   const [ mobileSearchBarOpen, setMobileSearchBarOpen ] = useState(false)
   const [ navigationPosition, setNavigationPosition ] = useState('static')
@@ -416,6 +409,12 @@ export default () => {
     }
   }, [ mobileSearchBarOpen, mobileSearchBarRef, navigationRef, navigationPosition, mobileMenuOpen, rootRef ])
 
+  useEffect(() => {
+    if (window.innerWidth <= 959) {
+      setSmallScreen(true)
+    }
+  }, [])
+
   function getActiveIndex ({ navigation, path }) {
     let activeIndex = false
     let index = 0
@@ -477,7 +476,7 @@ export default () => {
                 </Box>
                 <Box flex={1} display='flex' justifyContent='flex-end'>
                   <SearchFieldContainer marginRight={2}>
-                    <SearchField />
+                    {!smallScreen && <SearchField />}
                   </SearchFieldContainer>
                   {config.availableLanguages.length > 1 &&
                     <Column>
@@ -513,25 +512,16 @@ export default () => {
               </Box>
             </Container>
           </Bar>
-          <TransitionGroup>
-            {mobileSearchBarOpen &&
-              <CSSTransition
-                key='mobile-search-bar'
-                timeout={300}
-                classNames='mobile-search-bar'
-              >
-                <MobileSearchBar
-                  ref={mobileSearchBarRef}
-                  aria-labelledby='mobile-search-bar'
-                  ariaLabel='Search bar'
-                >
-                  <MUIContainer maxWidth='xs'>
-                    <SearchField onSearch={() => setMobileSearchBarOpen(false)} />
-                  </MUIContainer>
-                </MobileSearchBar>
-              </CSSTransition>
-            }
-          </TransitionGroup>
+          <MobileSearchBar
+            ref={mobileSearchBarRef}
+            aria-labelledby='mobile-search-bar'
+            ariaLabel='Search bar'
+            className={`${mobileSearchBarOpen && `mobile-search-open`}`}
+          >
+            <MUIContainer maxWidth='xs'>
+              {smallScreen && <SearchField />}
+            </MUIContainer>
+          </MobileSearchBar>
           <BarOffset />
           <Location>
             {({ location }) => (

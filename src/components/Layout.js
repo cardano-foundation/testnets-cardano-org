@@ -112,7 +112,7 @@ const Layout = ({ children, headData = {}, template = Main }) => {
                             onLoad='docsearch({
                               apiKey: "25626fae796133dc1e734c6bcaaeac3c",
                               indexName: "docsearch",
-                              inputSelector: ".doc-search-input",
+                              inputSelector: "#doc-search-input",
                               debug: true
                             })'
                             async

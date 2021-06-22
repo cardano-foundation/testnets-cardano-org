@@ -1,17 +1,14 @@
 import React, { Fragment } from 'react'
-// import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FiSearch } from 'react-icons/fi'
-// import { navigate } from 'gatsby'
 import TinyColor from '@ctrl/tinycolor'
-// import Language from '@input-output-hk/front-end-core-components/components/Language'
-// import { analytics } from '@input-output-hk/front-end-core-libraries'
-// import Search from '../state/Search'
+import Language from '@input-output-hk/front-end-core-components/components/Language'
 import GlobalContentQuery from '../queries/GlobalContentQuery'
 
 const Form = styled.form`
   width: 100%;
   display: block;
+  position:relative;
 `
 
 const Input = styled.input`
@@ -51,72 +48,39 @@ const Submit = styled.button`
   color: ${({ theme }) => theme.palette.text.primary};
   font-weight: 600;
   border-radius: 0 1.9rem 1.9rem 0;
-  position: relative;
+  position: absolute;
+  top:0;
+  right:0;
+
 `
 
 const SearchField = () => {
-  // const onFormSubmit = (search, lang, setSearch) => (e) => {
-  //   e.preventDefault()
-  //   analytics.capture({ category: 'form', action: 'submit_search', label: search })
-  //   onSearch && onSearch(search)
-  //   setSearch('')
-  //   navigate(`/${lang}/search/?query=${encodeURIComponent(search)}&page=1`)
-  // }
-
   return (
     <GlobalContentQuery
       render={globalContent => (
-        // <Language.Consumer>
-        //   {({ key: lang }) => (
-        //     <Search.Consumer>
-        //       {({ search, setSearch }) => (
-        //         <Form
-        //           onSubmit={onFormSubmit(search, lang, setSearch)}
-        //           aria-label={globalContent.search_form_aria_label}
-        //         >
-        //           <Input
-        //             type='text'
-        //             name='search-field'
-        //             placeholder={globalContent.search}
-        //             value={search}
-        //             onChange={(e) => setSearch(e.target.value)}
-        //             aria-label={globalContent.search_form_aria_label}
-        //           />
-        //           <Submit
-        //             type='submit'
-        //             onClick={(e) => analytics.click({ category: 'form', label: 'search_submit', event: e })}
-        //             aria-label={globalContent.search_form_submit_aria_label}
-        //           >
-        //             <FiSearch />
-        //           </Submit>
-        //         </Form>
-        //       )}
-        //     </Search.Consumer>
-        //   )}
-        // </Language.Consumer>
-        <Fragment>
-          <Form
-            // onSubmit={onFormSubmit(search, lang, setSearch)}
-            aria-label={globalContent.search_form_aria_label}
-          >
-            <Input
-              className='doc-search-input'
-              type='text'
-              name='search-field'
-              placeholder={globalContent.search}
-              // value={search}
-              // onChange={(e) => setSearch(e.target.value)}
-              aria-label={globalContent.search_form_aria_label}
-            />
-            <Submit
-              type='submit'
-              // onClick={(e) => analytics.click({ category: 'form', label: 'search_submit', event: e })}
-              aria-label={globalContent.search_form_submit_aria_label}
-            >
-              <FiSearch />
-            </Submit>
-          </Form>
-        </Fragment>
+        <Language.Consumer>
+          {({ key: lang }) => (// eslint-disable-line no-unused-vars
+            <Fragment>
+              <Form
+                aria-label={globalContent.search_form_aria_label}
+              >
+                <Input
+                  id='doc-search-input'
+                  type='text'
+                  name='search-field'
+                  placeholder={globalContent.search}
+                  aria-label={globalContent.search_form_aria_label}
+                />
+                <Submit
+                  type='submit'
+                  aria-label={globalContent.search_form_submit_aria_label}
+                >
+                  <FiSearch />
+                </Submit>
+              </Form>
+            </Fragment>
+          )}
+        </Language.Consumer>
       )}
     />
   )

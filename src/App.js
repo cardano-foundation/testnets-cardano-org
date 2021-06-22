@@ -17,7 +17,6 @@ import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import vsLight from 'prism-react-renderer/themes/vsLight'
 import config from './config'
 import { getThemes } from './themes'
-import Search from './state/Search'
 import Header from './components/Header'
 import Style from './components/Style'
 import Code from './components/Code'
@@ -143,9 +142,9 @@ const App = ({ element }) => {
 
   return (
     <Location>
-      {({ location: { pathname, search, hash } }) => (
+      {({ location: { pathname, hash } }) => (
         <Language.Provider
-          location={{ pathname, search, hash }}
+          location={{ pathname, hash }}
           availableLanguages={config.availableLanguages}
           alternativeLanguages={config.alternativeLanguages}
           onUpdate={languageOnUpdate}
@@ -158,46 +157,44 @@ const App = ({ element }) => {
             onUpdate={themeOnUpdate}
             transformTheme={({ config }) => theme.convertThemeToMaterial(config)}
           >
-            <Search.Provider>
-              <Theme.Consumer>
-                {({ theme, originalTheme }) => (
-                  <MaterialUIThemeProvider theme={theme}>
-                    <StyledThemeProvider theme={theme}>
-                      <Language.Consumer>
-                        {({ key: lang }) => (
-                          <LinkProvider
-                            lang={lang}
-                            component={Link}
-                            isStatic={href => {
-                              if (href.match(/^blob:/)) return true
-                              return false
+            <Theme.Consumer>
+              {({ theme, originalTheme }) => (
+                <MaterialUIThemeProvider theme={theme}>
+                  <StyledThemeProvider theme={theme}>
+                    <Language.Consumer>
+                      {({ key: lang }) => (
+                        <LinkProvider
+                          lang={lang}
+                          component={Link}
+                          isStatic={href => {
+                            if (href.match(/^blob:/)) return true
+                            return false
+                          }}
+                        >
+                          <MarkdownProvider
+                            markdownProps={{
+                              renderers: {
+                                code: theme.type === 'dark' ? DarkCodeRenderer : LightCodeRenderer,
+                                link: IOHKLink
+                              }
                             }}
                           >
-                            <MarkdownProvider
-                              markdownProps={{
-                                renderers: {
-                                  code: theme.type === 'dark' ? DarkCodeRenderer : LightCodeRenderer,
-                                  link: IOHKLink
-                                }
-                              }}
-                            >
-                              <Styles theme={originalTheme.config} />
-                              <Style />
-                              <Header />
-                              <Router>
-                                {getRoutes(lang)}
-                                <DefaultRoute default element={element} />
-                              </Router>
-                              <Zendesk zendeskKey={config.zendeskKey} color={{ theme: theme.colors.primary.main }} />
-                            </MarkdownProvider>
-                          </LinkProvider>
-                        )}
-                      </Language.Consumer>
-                    </StyledThemeProvider>
-                  </MaterialUIThemeProvider>
-                )}
-              </Theme.Consumer>
-            </Search.Provider>
+                            <Styles theme={originalTheme.config} />
+                            <Style />
+                            <Header />
+                            <Router>
+                              {getRoutes(lang)}
+                              <DefaultRoute default element={element} />
+                            </Router>
+                            <Zendesk zendeskKey={config.zendeskKey} color={{ theme: theme.colors.primary.main }} />
+                          </MarkdownProvider>
+                        </LinkProvider>
+                      )}
+                    </Language.Consumer>
+                  </StyledThemeProvider>
+                </MaterialUIThemeProvider>
+              )}
+            </Theme.Consumer>
           </Theme.Provider>
         </Language.Provider>
       )}
