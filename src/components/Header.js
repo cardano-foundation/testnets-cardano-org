@@ -518,9 +518,11 @@ export default () => {
             ariaLabel='Search bar'
             className={`${mobileSearchBarOpen && `mobile-search-open`}`}
           >
-            <MUIContainer maxWidth='xs'>
-              {smallScreen && <SearchField />}
-            </MUIContainer>
+            {smallScreen &&
+              <MUIContainer maxWidth='xs'>
+                <SearchField />
+              </MUIContainer>
+            }
           </MobileSearchBar>
           <BarOffset />
           <Location>
