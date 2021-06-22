@@ -31,9 +31,6 @@ const Bar = styled(AppBar)`
 const MobileSearchBar = styled.div`
   position: fixed;
   top:0;
-  /* &.mobile-search-open {
-    top: 5.2rem;
-  } */
   z-index: 10;
   padding: 1.6rem 0 0.8rem;
   left: 0;
