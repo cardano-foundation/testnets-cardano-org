@@ -5,9 +5,9 @@ content:
   hero_content: |
     # Plutus Pioneer Program
 
-    We have successfully completed the first in our series of Plutus pioneer programs and the feedback has been very positive. Thanks to all the pioneers who completed the course and supported this program. 
+    We have recently launched our new program to train developers as certified Plutus pioneers!
 
-    We are now recruiting for the second course and are looking for new developers to join us on this learning journey and help us stress test our code before we officially release Plutus to the world!
+    Applications for the first cohort of the program are now closed. However, we continue welcoming applications from developers for future courses we shall be running later this year.
 
   hero_cta_label: Register
   hero_cta_href: '/plutus-pioneer-program/#plutus'
@@ -43,15 +43,15 @@ content:
 
     As with all learning experiences, the more you put in the more you will get out!
 
-    When does the second course start?
+    When does it start?
     -------------------
 
-    The second course is an eight week programme over the summer period that will start on July 1st and run through to August 26th. It will involve approximately ten hours a week of your time and efforts. 
+    Our first ten-week program started in early April and will run through to mid-June. Depending on demand, we plan to open up a second cohort this summer, so please register your interest today to hear more in due course. 
 
     How can I register for the Plutus pioneer program?
     --------------------------------------------------
 
-    If you are interested in joining the second round of this program, please complete the registration form below. You will receive a short application form, and we will be in touch in due course.
+    If you are interested in joining a future cohort of the program, please complete the registration form below. You will receive a short application form, and we will be in touch in due course.
 
     Will I be certified?
     --------------------
