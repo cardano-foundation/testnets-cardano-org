@@ -7,7 +7,6 @@ content:
 
     Applications for the second cohort of the program are now closed. However, we continue welcoming applications from developers for future courses we will be running later this year.
 
-
   hero_cta_label: Register
   hero_cta_href: '/plutus-pioneer-program/#plutus'
   page_content: |
