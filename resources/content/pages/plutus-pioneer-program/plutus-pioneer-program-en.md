@@ -20,7 +20,7 @@ content:
 
     This course is not for coding beginners. While you do not need to be an expert in formal methods, programming experience and a general aptitude for logical and mathematical thinking are highly desirable. Some prior knowledge of Haskell or functional programming is also recommended, as Plutus is heavily based on Haskell and includes advanced features like Template Haskell, type-level programming, and effect systems. We recommend that you read the [Learn You a Haskell guide](http://learnyouahaskell.com/) before taking the course.
 
-    Please register your interest using the form below and we will be in touch when we have fresh course dates to offer.
+    Please register your interest using the form below and we will be in touch.
 
     What can I expect to learn?
     ---------------------------
@@ -44,12 +44,12 @@ content:
     When can I join?
     -------------------
 
-    Our second course started in early July and will run through to the end of August. Depending on demand, we plan to open up a third cohort later in the autumn, so please register your interest today to hear more in due course.
+    Our second course started in early July and will run through to the end of August. Depending on demand, we plan to open up a third cohort later in the autumn, so please register your interest to hear more in due course.
 
     How can I register for the Plutus pioneer program?
     --------------------------------------------------
 
-    If you are interested in joining the second round of this program, please complete the registration form below. You will receive a short application form, and we will be in touch.
+    If you are interested in joining the third round of this program, please complete the registration form below. You will receive a short application form, and we will be in touch when we have fresh course dates to offer.
 
     Will I be certified?
     --------------------
