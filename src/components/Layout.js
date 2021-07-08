@@ -110,8 +110,8 @@ const Layout = ({ children, headData = {}, template = Main }) => {
                             type='text/javascript'
                             src='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
                             onLoad='docsearch({
-                              apiKey: "25626fae796133dc1e734c6bcaaeac3c",
-                              indexName: "docsearch",
+                              apiKey: "eb3acf86bdce3b2704ab43f267ef5032",
+                              indexName: "cardano",
                               inputSelector: "#doc-search-input",
                               debug: true
                             })'
