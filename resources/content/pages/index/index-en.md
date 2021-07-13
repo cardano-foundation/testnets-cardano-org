@@ -3,7 +3,7 @@
 title: en (English) Home page content
 content:
   hero_content: |
-    # Develop with Cardano
+    # Cardano Testnets
 
     _Cardano is a third-generation proof-of-stake blockchain platform and home to the ada cryptocurrency. The Cardano testnet sits at the vanguard of the network's development. It provides a sandboxed environment for continuing innovation, harnessing the power of our community to iterate and improve._
 
