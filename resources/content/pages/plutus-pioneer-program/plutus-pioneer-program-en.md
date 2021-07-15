@@ -51,7 +51,7 @@ content:
 
     If you are interested in joining the third round of this program, please complete the registration form below. You will receive a short application form, and we will be in touch when we have fresh course dates to offer.
 
-    Will I be certified?
+    Will I be certified? 
     --------------------
 
     Yes, we will be awarding certificates to those pioneers who successfully complete the entire program. Certificates will be represented as non-fungible tokens (NFTs) (on the testnet) and locked by a Plutus contract. Pioneers can demonstrate their qualification by constructing an appropriate transaction to unlock their individual token.
