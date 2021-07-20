@@ -4,19 +4,19 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Box from '@material-ui/core/Box'
 
-export default function SimpleFaucet() {
+export default function SimpleFaucet () {
   const {
     value: address,
     bind: bindAddress,
-    reset: resetAddress,
+    reset: resetAddress
   } = useInput('')
-  const [submitted, setSubmitted] = useState(false)
-  const [error, setError] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [ submitted, setSubmitted ] = useState(false)
+  const [ error, setError ] = useState(false)
+  const [ loading, setLoading ] = useState(false)
 
   const requestOptions = {
     method: 'POST',
-    body: JSON.stringify({ address: `${address}` }),
+    body: JSON.stringify({ address: `${address}` })
   }
   const handleSubmit = (evt) => {
     evt.preventDefault()
@@ -37,10 +37,10 @@ export default function SimpleFaucet() {
     })
   }
   return (
-    <Box maxWidth="40rem" marginTop={4} marginBottom={4} position="relative">
+    <Box maxWidth='40rem' marginTop={4} marginBottom={4} position='relative'>
       <form onSubmit={handleSubmit}>
         <Box marginBottom={2}>
-          <TextField required label="Address" fullWidth {...bindAddress} />
+          <TextField required label='Address' fullWidth {...bindAddress} />
         </Box>
         {submitted && (
           <div style={{ color: 'green' }}>
@@ -52,12 +52,12 @@ export default function SimpleFaucet() {
             There was a problem with the address input
           </span>
         )}
-        <Box display="flex" justifyContent="flex-end">
+        <Box display='flex' justifyContent='flex-end'>
           <Button
-            value="submit"
-            type="submit"
-            color="primary"
-            variant="contained"
+            value='submit'
+            type='submit'
+            color='primary'
+            variant='contained'
             disabled={loading}
           >
             {loading ? 'Loading...' : 'Request funds'}
