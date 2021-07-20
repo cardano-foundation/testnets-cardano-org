@@ -21,6 +21,8 @@ export default function SimpleFaucet () {
   const handleSubmit = (evt) => {
     evt.preventDefault()
     setLoading(true)
+    setSubmitted(false)
+    setError(false)
     fetch(
       'https://testnets.cardano.org/api/submit-address',
       requestOptions
