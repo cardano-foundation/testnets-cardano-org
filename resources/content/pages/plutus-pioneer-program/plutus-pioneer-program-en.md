@@ -5,9 +5,7 @@ content:
   hero_content: |
     # Plutus Pioneer Program
 
-    We have recently launched our new program to train developers as certified Plutus pioneers!
-
-    Applications for the first cohort of the program are now closed. However, we continue welcoming applications from developers for future courses we shall be running later this year.
+    Applications for the second cohort of the program are now closed. However, we continue welcoming applications from developers for future courses we will be running later this year.
 
   hero_cta_label: Register
   hero_cta_href: '/plutus-pioneer-program/#plutus'
@@ -22,7 +20,7 @@ content:
 
     This course is not for coding beginners. While you do not need to be an expert in formal methods, programming experience and a general aptitude for logical and mathematical thinking are highly desirable. Some prior knowledge of Haskell or functional programming is also recommended, as Plutus is heavily based on Haskell and includes advanced features like Template Haskell, type-level programming, and effect systems. We recommend that you read the [Learn You a Haskell guide](http://learnyouahaskell.com/) before taking the course.
 
-    Please register your interest using the form below.
+    Please register your interest using the form below and we will be in touch.
 
     What can I expect to learn?
     ---------------------------
@@ -43,17 +41,17 @@ content:
 
     As with all learning experiences, the more you put in the more you will get out!
 
-    When does it start?
+    When can I join?
     -------------------
 
-    Our first ten-week program started in early April and will run through to mid-June. Depending on demand, we plan to open up a second cohort this summer, so please register your interest today to hear more in due course. 
+    Our second course started in early July and will run through to the end of August. Depending on demand, we plan to open up a third cohort later in the autumn, so please register your interest to hear more in due course.
 
     How can I register for the Plutus pioneer program?
     --------------------------------------------------
 
-    If you are interested in joining a future cohort of the program, please complete the registration form below. You will receive a short application form, and we will be in touch in due course.
+    If you are interested in joining the third round of this program, please complete the registration form below. You will receive a short application form, and we will be in touch when we have fresh course dates to offer.
 
-    Will I be certified?
+    Will I be certified? 
     --------------------
 
     Yes, we will be awarding certificates to those pioneers who successfully complete the entire program. Certificates will be represented as non-fungible tokens (NFTs) (on the testnet) and locked by a Plutus contract. Pioneers can demonstrate their qualification by constructing an appropriate transaction to unlock their individual token.
