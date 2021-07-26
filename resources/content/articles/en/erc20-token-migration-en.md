@@ -25,6 +25,8 @@ Note that you can see your available token balance and its equivalent price in U
 
 You will see your available balance and your Cardano address that was configured earlier. Please ensure that you fill in the amount details. The amount for conversion cannot be less than zero or higher than the available balance.  
 
+> Note, that the balance reflected is the same as in your configured Cardano address, i.e. the same as in your Daedalus testnet wallet.
+
 2. Click ‘Convert’, and then confirm the transaction in Metamask. You will receive a notification that indicates if the conversion was  successful or unsuccessful.
 3. When the transaction is processed on Ethereum, you will receive a notification indicating that your funds have been converted from Ethereum. When the transaction is processed on Cardano, you will receive a notification with your new total balance.
 
