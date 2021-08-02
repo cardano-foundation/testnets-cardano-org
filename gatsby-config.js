@@ -12,8 +12,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Cardano Developers',
-        short_name: 'Cardano Devs',
+        name: 'Cardano Testnets',
+        short_name: 'Cardano Testnets',
         start_url: '/',
         icon: 'resources/images/manifest-icon.png',
         background_color: '#121326',

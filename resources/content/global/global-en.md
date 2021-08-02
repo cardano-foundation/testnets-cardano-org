@@ -1,8 +1,8 @@
 ---
 title: en (English) Global translations
 content:
-  main_title: Cardano Developers
-  main_title_aria_label: Cardano Developers Home
+  main_title: Cardano Testnets
+  main_title_aria_label: Cardano Testnets Home
   select_language: Select language
   select_theme: Select theme
   last_updated: Last updated
@@ -10,14 +10,14 @@ content:
   search: Search
   previous: Previous
   next: Next
-  search_form_aria_label: Search Cardano Developers
+  search_form_aria_label: Search Cardano Testnets
   search_form_submit_aria_label: Perform search
   open_search_bar: Open search bar
   close_search_bar: Close search bar
   main_navigation_label: Main
   close_main_navigation: Close main navigation menu
   open_main_navigation: Open main navigation menu
-  logo_alt: Cardano Developers Logo
+  logo_alt: Cardano Testnets Logo
   staking_calculator:
     saturation: Pool saturation
     select_a_calculator: Select a calculator
