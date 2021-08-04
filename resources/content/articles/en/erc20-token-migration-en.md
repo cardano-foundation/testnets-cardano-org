@@ -21,7 +21,7 @@ Note that you can see your available token balance and its equivalent price in U
 
 1. Click ‘Select’ on a token card to open the conversion window. 	
 
-![conversion-window](https://ucarecdn.com/884ec85b-4b7f-4c24-a872-51ab458bb593/)
+![conversion-window](https://ucarecdn.com/0d1fc062-0049-4c8b-9150-0543e7fdae8d/-/crop/1027x1092/51,20/-/preview/)
 
 You will see your available balance and your Cardano address that was configured earlier. Please ensure that you fill in the amount details. The amount for conversion cannot be less than zero or higher than the available balance.  
 
