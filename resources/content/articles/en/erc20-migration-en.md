@@ -18,7 +18,7 @@ If you are a blockchain project or a company that is interested in migrating you
 
 + Mandatory fields: E-mail, Name, Surname, Organization, Contract hash.
 + Mandatory field values are validated once ‘Submit request’ is clicked.
-+ Contract hash field: add the contract hash of your Ethereum mainnet ERC20 token. 
++ Contract hash field: add the contract hash of your Ethereum mainnet ERC20 token and click ‘Enter’.  
 
 For example, in CoinGecko: 
 
