@@ -32,9 +32,9 @@ To make a deposit, go to your Daedalus testnet version.
 
 1. Click ‘Send’ and paste the Cardano address (that you copied earlier) in the receiver field.
 2. Indicate the amount of ada to cover the transaction fee (minimum 1 ada).
-3. Select the Cardano-based token you would like to migrate back to Ethereum (AGIX, for example) and indicate the amount for migration. Note that it shouldn’t exceed the amount that you have earlier indicated in the converter.
+3. Select the Cardano-based token you would like to migrate back to Ethereum (AGIX, for example) and indicate the amount for migration. 
 
-![daedalus-token-deposit](https://ucarecdn.com/8448d3f2-5fca-4935-9930-5a68e2e09373/)
+![daedalus-token-deposit](https://ucarecdn.com/080c276b-a774-4fcc-adfd-4f6a2d5b544a/-/crop/1600x1060/0,149/-/preview/)
 
 4. Click ‘Send’.
 5. Go back to the ‘Transaction history’ in the converter. You will see the updated status of your transaction - ‘Deposited’. When confirmed on the Cardano blockchain, the burning process will start automatically and the status will change to ‘Burned’, which means that tokens are burnt on Cardano.
