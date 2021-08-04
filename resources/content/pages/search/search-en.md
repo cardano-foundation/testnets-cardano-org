@@ -5,5 +5,5 @@ content:
   showing_results: Showing {{ from }} - {{ to }} of {{ total }} results for {{ query }}
   no_results: No matching results for {{ query }}
   last_updated: Last updated
-  meta_title_prefix: Cardano Developers - Search Results
+  meta_title_prefix: Cardano Testnets - Search Results
 ---    
