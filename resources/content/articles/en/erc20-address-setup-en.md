@@ -15,12 +15,8 @@ To start converting or minting tokens in the ERC20 converter, you should be conn
 ![12-metamask-connect](https://ucarecdn.com/d0286e22-e915-4648-9a1a-2b2e29f53835/)
 
 3. The Metamask extension will open automatically. You can connect your wallet by clicking ‘Next’ > ‘Connect’. If your wallet was already connected to Metamask, you will only have to enter your password.
-4. To configure your Cardano address, paste your **testnet** Daedalus or Yoroi public key and click ‘Save’:
+4. To configure your Cardano address, paste your **Daedalus Testnet address** and click ‘Save’, as follows:
   
-    a. You can find your Daedalus wallet public key in More >> Settings>> Wallet public key.
-    
-    b. You can get your Yoroi wallet public key from Settings >> Wallet >> Export public key.
-
 ![13-cardano-address](https://ucarecdn.com/be10618c-d38e-4f95-8544-b79223652e50/)
 
 5. You can configure your wallets by clicking ‘Menu’ (...) > ‘Configure your wallet’. You can also disconnect your wallet if needed.
