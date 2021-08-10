@@ -19,7 +19,7 @@ This process involves activities both in the converter and in the testnet Daedal
 3. Indicate the amount of tokens you would like to migrate back to Ethereum and click ‘Convert’.
 4. You will then see a notification that explains the two-step process of sending your tokens and executing the smart contract. You will see the fees charged for tokens migration, which includes Cardano fees and also Ethereum fees. Note that fees might change in the future, as we are now working in the testnet environment:
 
-![notification-window](https://ucarecdn.com/8f5d7d44-0789-4c9b-be01-c64817147b00/)
+![conversion-window](https://ucarecdn.com/54b7fcaf-4c33-41ec-a414-ea05e1b7bc1e/)
 
 In the notification, you will see the Cardano address where you should send your AGIX tokens to continue the process. 
 
