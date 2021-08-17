@@ -26,7 +26,7 @@ To start using the ERC20 converter, you first need to go through the initial set
 
 ### Using the faucet
 
-To start testing the ERC20 converter, you can get some testnet Ethers (KETH) and testnet SingularityNET tokens (AGIX) from the faucet.
+To start testing the ERC20 converter, you can get some testnet Ethers (KETH), testnet SingularityNET tokens (AGIX), and testnet ada (tADA) from the faucet. 
 
 **Getting KETH** 
 
@@ -53,3 +53,13 @@ To start testing the ERC20 converter, you can get some testnet Ethers (KETH) and
 ![6-agi-faucet](https://ucarecdn.com/2b55b413-41e5-48fe-a734-158dd589c8a3/)
 
 7. You should receive 10 testnet AGIX. If you do not receive these testnet tokens, you can [request help from the support team](https://iohk.zendesk.com/hc/en-us/requests/new).
+
+**Getting testnet ada (tADA)**
+
+You will need testnet ada at later stages to be able to pay the fee for migrating your tokens from Cardano to Ethereum. Note that ada is not required when migrating Ethereum tokens to Cardano, as you will be paying testnet Ethers for transaction fees. 
+
+1. First, make sure to download and install the testnet Cardano wallet - [testnet Daedalus](https://testnets.cardano.org/en/testnets/cardano/get-started/wallet/) or [Yoroi Nightly](https://chrome.google.com/webstore/detail/yoroi-nightly/poonlenmfdfbjfeeballhiibknlknepo).
+2. Go to the [faucet](https://testnets.cardano.org/en/testnets/cardano/tools/faucet/) for requesting tADA.
+3. Enter the address of the account where you want to top up funds.
+4. If you have been issued with an API key, please enter this to access any additional funds you may have been allocated.
+5. Click ‘Request funds’. Funds will be in the testnet account you specified within a few minutes.
