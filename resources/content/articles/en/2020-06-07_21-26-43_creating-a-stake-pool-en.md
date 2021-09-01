@@ -35,7 +35,7 @@ Anyone can register a stake pool, although it requires an individual or team wit
 **Minimum requirements for running a stake pool**
 
 In terms of hardware, you should have the following available:
-* 4 GB of RAM
+* at least 8 GB of RAM (optimally 10GB)
 * 24 GB of hard disk space
 * a good network connection and about 1 GB of bandwidth per hour
 * a public IP4 address
