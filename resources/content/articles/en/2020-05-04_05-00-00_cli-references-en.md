@@ -7,25 +7,27 @@ last_updated: 2020-05-01T08:00:00.000Z
 ---
 ## CLI Reference
 
-The Cardano command line interface (CLI) provides a collection of tools for key generation, transaction construction, certificate creation and other important tasks. It is organized in a hierarchy of subcommands, and each level comes with its own built-in documentation of command syntax and options.
+The Cardano command line interface (CLI) provides a collection of tools for key generation, transaction construction, certificate creation, and other important tasks. It is organized in a hierarchy of subcommands, and each level comes with its own built-in documentation of command syntax and options.
 
-This section provides a reference of the core `cardano-cli shelley` commands and their associated sub commands:
+This section provides a reference of the core `cardano-cli` commands and their associated sub commands:
 
-*cardano-cli shelley*
-The set of `cardano-cli shelley` commands include:
-* `address`: Shelley payment address commands
-* `stake-address`: Shelley stake address commands
-* `transaction`: Shelley transaction commands
-* `node`: Shelley node operation commands
-* `stake-pool`: Shelley stake pool commands
-* `query`: Shelley node query commands. This queries the local node whose Unix domain socket is obtained from the CARDANO_NODE_SOCKET-PATH environment variable. 
-* `block`: Shelley block commands
-* `system`: Shelley system commands
-* `genesis`: Shelley genesis block commands
-* `text-view`: commands for dealing with Shelley text view files that are stored on disk such as transactions or addresses
-* `governance`: Shelley governance commands
+*cardano-cli*
 
-*cardano-cli shelley address*
+The set of top level `cardano-cli` commands include:
+* `address`: Payment address commands
+* `stake-address`: Stake address commands
+* `transaction`: Transaction commands
+* `node`: Node operation commands
+* `stake-pool`: Stake pool commands
+* `query`: Node query commands. This queries the local node whose Unix domain socket is obtained from the CARDANO_NODE_SOCKET-PATH environment variable. 
+* `block`: block commands
+* `system`: system commands
+* `genesis`: Genesis block commands
+* `governance`: Governance commands
+* `text-view`: Commands for dealing with Shelley TextView files. Transactions and addresses are stored on disk such as TextView files.
+
+*cardano-cli address*
+
 The `address` command contains the following sub commands:
 * `key-gen`: creates a single address key pair
 * `key-hash`: prints the hash of an address to stdout
@@ -33,7 +35,8 @@ The `address` command contains the following sub commands:
 * `build-multisig`: builds a Shelley payment multi-sig address.
 * `info`: prints details about the address
 
-*cardano-cli shelley stake-address*
+*cardano-cli stake-address*
+
 The `stake-address` command contains the following sub commands:
 * `key-gen`: creates a single address key pair
 * `build`: builds a stake address
@@ -44,9 +47,11 @@ The `stake-address` command contains the following sub commands:
 * `delegation-certificate`: creates a stake address delegation certificate
 * `deregistration-certificate`: creates a de-registration certificate
 
-*cardano-cli shelley transaction*
+*cardano-cli transaction*
+
 The `transaction` command contains the following sub commands:
 * `build-raw`: builds a low-level transaction
+* `build`: builds a transaction
 * `sign`: signs the transaction
 * `witness`: witnesses a transaction
 * `sign-witness`: signs and witnesses a transaction
@@ -55,14 +60,16 @@ The `transaction` command contains the following sub commands:
 * `calculate-min-fee`: calculates the minimum fee for the transaction
 * `info`: prints information about the transaction
 
-*cardano-cli shelley node*
+*cardano-cli node*
+
 The `node` command contains the following sub commands:
 * `key-gen`: creates a key pair for a node operator’s offline key and a new certificate issue counter
 * `key-gen-KES`: creates a key pair for a node KES operational key
 * `key-gen-VRF`: creates a key pair for a node VRF operational key
 * `issue-op-cert`: issues a node operational certificate
 
-*cardano-cli shelley stake-pool*
+*cardano-cli stake-pool*
+
 The `stake-pool` command contains the following sub commands:
 * `register`: registers a stake pool
 * `re-register`: re-registers a stake pool
@@ -71,7 +78,8 @@ The `stake-pool` command contains the following sub commands:
 * `de-registration-certificate`: creates a stake pool de-registration certificate
 * `id`:  builds pool id from the offline key
 
-*cardano-cli shelley query*
+*cardano-cli query*
+
 The `query` command contains the following sub commands:
 * `pool-id`: retrieves the node’s pool ID
 * `protocol-parameters`: retrieves the node’s current pool parameters
@@ -82,24 +90,32 @@ The `query` command contains the following sub commands:
 * `ledger-state`:  dumps the current state of the node
 * `stake-address-info`: get the current delegations and reward accounts filtered by stake address.
 * `stake-distribution`: get the node's current aggregated stake distribution
+* `pool-params`: Queries the pool parameters
+* `query stake-snapshot`: Queries the stake snap shot
+* `query protocol-state`: Queries the protocol state
+* `query ledger-state`: Queries the ledger state
 
-*cardano-cli shelley block*
+*cardano-cli block*
+
 The `block` command contains the following sub command:
 * `info`: retrieves the pool ID that produced a particular block.
 
-*cardano-cli shelley system*
+*cardano-cli system*
+
 The `system` command contains the following sub commands:
 * `start`: starts the system
 * `stop`: stops the system
 
-*cardano-cli shelley governance*
+*cardano-cli governance*
+
 The `governance` command contains the following sub commands:
 * `create-mir-certificate`: creates an MIR (move instantaneous rewards) certificate
 * `create-update-proposal`: creates an update proposal
 * `protocol-update`: performs a protocol update
 * `cold-keys`: retrieves the cold keys
 
-*cardano-cli shelley genesis*
+*cardano-cli genesis*
+
 The `genesis` command contains the following sub commands:
 * `key-gen-genesis`: creates a Shelley genesis key pair
 * `key-gen-delegate`: creates a Shelley genesis delegate key pair
@@ -110,6 +126,7 @@ The `genesis` command contains the following sub commands:
 * `initial-txin`: gets the transaction ID for an initial UTxO based on the verification key. 
 * `create`: creates a Shelley genesis file from a genesis template, as well as genesis keys, delegation keys, and spending keys. 
 
-*cardano-cli shelley text-view*
+*cardano-cli text-view*
+
 The `text-view` command contains the following sub command:
 * `decode-cbor`: prints a text view file, as decoded CBOR. 
