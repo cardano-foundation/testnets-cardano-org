@@ -58,7 +58,7 @@ bobs_address=0xb0bb1ed229f5Ed588495AC9739eD1555f5c3aabD
 glow add-contact --nickname Bob --address ${bobs_address}
 ```
 
-Alice would add Alice’s address to her contact list with a command as follows:
+Bob would add Alice’s address to her contact list with a command as follows:
 
 ``` shell
 alices_address=0xa71CEb0990dD1f29C2a064c29392Fe66baf05aE1
