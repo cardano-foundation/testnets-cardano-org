@@ -14,9 +14,6 @@ redirects:
 
 There are a number of ways to install and run a Cardano node on your machine, although which method you choose will depend on your operating system (see [supported platforms](https://developers.cardano.org/en/testnets/cardano/about/supported-platforms/)), level of technical expertise, and personal preferences.
 
-Building the node using Nix is the recommended method, as this is what IOHK's internal development teams use and is considered the most reliable.
+Building the node using Nix is the recommended method, as this is what IOHK's internal development teams use and is considered the most reliable. A Docker image is also available for your convenience.
 
-- [Building a node using Nix](/testnets/cardano/get-started/installing-and-running-the-cardano-node/building-the-node-using-nix/)
-- [Building a node from source](/testnets/cardano/get-started/installing-and-running-the-cardano-node/building-the-node-from-source/)
-- [Running a node using Docker](/testnets/cardano/get-started/installing-and-running-the-cardano-node/running-the-node-using-docker/)
-- [Running a node on an AWS instance](/testnets/cardano/get-started/installing-and-running-the-cardano-node/running-the-node-on-an-aws-instance/)
+For more information on the various installation options including, see the [Cardano node installation instructions](https://docs.cardano.org/getting-started/installing-the-cardano-node). 
