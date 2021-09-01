@@ -3,12 +3,13 @@ parent: 2020-05-05_16-12-19_installing-and-running-the-cardano-node
 title: Running Cardano node as a relay
 description: Running Cardano node as a relay
 order: 3
-external_href: ""
+external_href: ''
 last_updated: 2020-06-08T12:08:02.000Z
 ---
+
 ## Running Cardano node as a relay
 
-Within the Cardano environment, there are two types of nodes: Block-producing nodes, and relay nodes, which are nodes with no operational certificates. 
+Within the Cardano environment, there are two types of nodes: Block-producing nodes, and relay nodes, which are nodes with no operational certificates.
 
 Relay nodes do not have any keys, so they cannot produce blocks. Instead, relays act as proxies between the core network nodes and the internet, establishing a security perimeter around the core, block-producing network nodes. Since external nodes cannot communicate with block-producing nodes directly, relay nodes ensure that the integrity of the core nodes and the blockchain remains intact, even if one or more relays become compromised.
 
@@ -22,10 +23,9 @@ Nodes (both block-producing and relay nodes), are configured in the topology.jso
 
 The [topology.json](https://github.com/input-output-hk/cardano-node/blob/master/doc/getting-started/understanding-config-files.md#the-topologyjson-file) file must specify at least three parameters:
 
-* `addr` - the IP address of the node that your node should talk to.
-* `port` - the port that you wish that communication to go through.
-* `valency` - defines how many open connections your node should have. This parameter only affects dns addresses. If a dns address is provided, `valency` determines the number of resolved IP addresses that the node should maintain an active connection with. For IP addresses, `valency` is a boolean value where `0` means that the address should be ignored.
-
+- `addr` - the IP address of the node that your node should talk to.
+- `port` - the port that you wish that communication to go through.
+- `valency` - defines how many open connections your node should have. This parameter only affects dns addresses. If a dns address is provided, `valency` determines the number of resolved IP addresses that the node should maintain an active connection with. For IP addresses, `valency` is a boolean value where `0` means that the address should be ignored.
 
 **Configuring a relay node via the Cardano CLI**
 
@@ -54,9 +54,9 @@ relay/topology.json:
         "valency": 1
       }
   }
-  ```
+```
 
-3. Start the node on the AWS instance, using a terminal multiplexer like tmux. Using tmux enables the aperture of different panes in a single terminal window. 
+3. Start the node on the AWS instance, using a terminal multiplexer like tmux. Using tmux enables the aperture of different panes in a single terminal window.
 
 Install tmux using `sudo yum install tmux -y` and start it with `tmux new`.
 
