@@ -19,6 +19,8 @@ To start converting or minting tokens in the ERC20 converter, you should be conn
   
 ![13-cardano-address](https://ucarecdn.com/be10618c-d38e-4f95-8544-b79223652e50/)
 
+To copy your Cardano receiving address, open your wallet, then go to the ‘Receive’ tab, and copy one of the available addresses. 
+
 5. You can configure your wallets by clicking ‘Menu’ (...) > ‘Configure your wallet’. You can also disconnect your wallet if needed.
 
 > **Important**
