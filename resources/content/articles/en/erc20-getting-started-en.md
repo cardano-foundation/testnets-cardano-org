@@ -38,6 +38,8 @@ To start testing the ERC20 converter, you can get some testnet Ethers (KETH), te
 
 ![4-KETH](https://ucarecdn.com/5d314a3e-880d-48d4-9188-0118a9c125a2/)
 
+> Note: The Kovan faucet might not always work. Alternatively, go to [this Kovan faucet chat](https://gitter.im/kovan-testnet/faucet) and paste your Metamask wallet address there to receive some KETH tokens.
+
 **Getting testnet AGIX**  
 
 1. First, you need to add AGIX tokens to the Metamask wallet. Click ‘Add token’ at the bottom of your Metamask wallet.
