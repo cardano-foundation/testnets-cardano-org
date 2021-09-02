@@ -9,7 +9,7 @@ order: 1
 
 If you are a blockchain project or a company that is interested in migrating your ERC20 tokens to Cardano (and they are not on the list), you can apply for a new token migration.
 
-1. On the home page click ‘. . .’ to display the menu, then click ‘Migrate tokens’.
+1. Go to the [ERC20 converter](http://kovan-bridge.singularitynet.io/). On the home page click ‘. . .’ to display the menu, then click ‘Migrate tokens’.
 2. Fill in the details on the form and click ‘Submit request’:
 
 ![8-migrate-token](https://ucarecdn.com/72716798-0b36-4264-8239-e38651b30ff2/)
