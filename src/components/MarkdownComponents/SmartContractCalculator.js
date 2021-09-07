@@ -29,11 +29,13 @@ export default function SmartContractCalculator() {
   }, [adaPrice])
 
   const txPrice = (t) =>
-    (perByteCost * t.txSize +
-      perStepCost * t.cpuSteps +
-      perMemUnitCost * t.memUnits +
-      perTransactionCost) /
-    1000000
+    (
+      ((perByteCost || 0) * (t.txSize || 0) +
+        (perStepCost || 0) * (t.cpuSteps || 0) +
+        (perMemUnitCost || 0) * (t.memUnits || 0) +
+        (perTransactionCost || 0)) /
+      1000000
+    ).toFixed(6)
 
   const dappFee = () => {
     let fee = 0
@@ -53,8 +55,10 @@ export default function SmartContractCalculator() {
             Per Byte Cost
             <input
               type="number"
+              min="0"
               value={perByteCost}
               onChange={(e) => setPerByteCost(parseInt(e.target.value))}
+              onBlur={(e) => !e.target.value && setPerByteCost(0)}
             />
           </label>
 
@@ -62,8 +66,10 @@ export default function SmartContractCalculator() {
             Per Step Cost
             <input
               type="number"
+              min="0"
               value={perStepCost}
               onChange={(e) => setPerStepCost(parseInt(e.target.value))}
+              onBlur={(e) => !e.target.value && setPerStepCost(0)}
             />
           </label>
 
@@ -71,8 +77,10 @@ export default function SmartContractCalculator() {
             Per Mem Unit Cost
             <input
               type="number"
+              min="0"
               value={perMemUnitCost}
               onChange={(e) => setMemUnitCost(parseInt(e.target.value))}
+              onBlur={(e) => !e.target.value && setMemUnitCost(0)}
             />
           </label>
 
@@ -80,8 +88,10 @@ export default function SmartContractCalculator() {
             Per Transaction Cost
             <input
               type="number"
+              min="0"
               value={perTransactionCost}
               onChange={(e) => setPerTransactionCost(parseInt(e.target.value))}
+              onBlur={(e) => !e.target.value && setPerTransactionCost(0)}
             />
           </label>
         </>
@@ -100,9 +110,19 @@ export default function SmartContractCalculator() {
             <input
               type="number"
               value={t.txSize}
+              max="16384"
+              min="0"
               onChange={(e) => {
                 let txs = transactions
-                txs[i].txSize = parseInt(e.target.value)
+                const input = parseInt(e.target.value)
+
+                txs[i].txSize = input > 16384 ? 16384 : input
+                setTransactions([...txs])
+              }}
+              onBlur={(e) => {
+                if (e.target.value) return null
+                let txs = transactions
+                txs[i].txSize = 0
                 setTransactions([...txs])
               }}
             />
@@ -116,9 +136,19 @@ export default function SmartContractCalculator() {
               value={t.cpuSteps}
               onChange={(e) => {
                 let txs = transactions
-                txs[i].cpuSteps = parseInt(e.target.value)
+                const input = parseInt(e.target.value)
+                txs[i].cpuSteps = input > 10000000000 ? 10000000000 : input
+
                 setTransactions([...txs])
               }}
+              onBlur={(e) => {
+                if (e.target.value) return null
+                let txs = transactions
+                txs[i].cpuSteps = 0
+                setTransactions([...txs])
+              }}
+              min="0"
+              max="10000000000"
             />
           </label>
           <br />
@@ -130,9 +160,17 @@ export default function SmartContractCalculator() {
               value={t.memUnits}
               onChange={(e) => {
                 let txs = transactions
-                txs[i].memUnits = parseInt(e.target.value)
+                const input = parseInt(e.target.value)
+                txs[i].memUnits = input > 10000000 ? 10000000 : input
                 setTransactions([...txs])
               }}
+              onBlur={(e) => {
+                if (e.target.value) return null
+                let txs = transactions
+                txs[i].memUnits = 0
+                setTransactions([...txs])
+              }}
+              max="10000000"
             />
           </label>
           <br />
