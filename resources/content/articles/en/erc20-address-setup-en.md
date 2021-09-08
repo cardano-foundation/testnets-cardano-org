@@ -10,16 +10,14 @@ order: 2
 To start converting or minting tokens in the ERC20 converter, you should be connected to your Metamask account to configure your receiving Cardano address.
 
 1. In the converter, click ‘Connect’ on the top-bar menu. 
-2. A window is displayed with possible options for connecting your wallet. Click ‘Connect’ under the Metamask option, as follows:
+2. Click ‘Connect’ under the Metamask option, as follows:
 
-![12-metamask-connect](https://ucarecdn.com/d0286e22-e915-4648-9a1a-2b2e29f53835/)
+![address-setup](https://ucarecdn.com/33780c7a-a050-46c9-8b88-665ba8f0541f/)
 
 3. The Metamask extension will open automatically. You can connect your wallet by clicking ‘Next’ > ‘Connect’. If your wallet was already connected to Metamask, you will only have to enter your password.
-4. To configure your Cardano address, paste your **testnet** Daedalus or Yoroi address and click ‘Save’, as follows:
+4. To configure your Cardano address, paste your **testnet** Daedalus public key and click ‘Save’. You can find your Daedalus wallet public key in more >> settings>> wallet public key.
   
-![13-cardano-address](https://ucarecdn.com/be10618c-d38e-4f95-8544-b79223652e50/)
-
-To copy your Cardano receiving address, open your wallet, then go to the ‘Receive’ tab, and copy one of the available addresses. 
+![cardano-address](https://ucarecdn.com/502b907f-6b84-4e72-babf-f34b3856a921/)
 
 5. You can configure your wallets by clicking ‘Menu’ (...) > ‘Configure your wallet’. You can also disconnect your wallet if needed.
 
