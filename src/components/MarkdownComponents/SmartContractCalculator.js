@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { MdVisibility, MdVisibilityOff, MdRotateLeft } from 'react-icons/md'
-import InputAdornment from '@material-ui/core/InputAdornment'
+import {
+  MdVisibility,
+  MdVisibilityOff,
+  MdRotateLeft,
+  MdClear,
+} from 'react-icons/md'
 import TextField from '@material-ui/core/TextField'
 
 export default function SmartContractCalculator() {
@@ -100,11 +104,6 @@ export default function SmartContractCalculator() {
               min={0}
               onChange={(e) => setPerByteCost(parseInt(e.target.value))}
               onBlur={(e) => !e.target.value && setPerByteCost(0)}
-              /* InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">₳</InputAdornment>
-              ),
-            }} */
             />
           </div>
 
@@ -117,11 +116,6 @@ export default function SmartContractCalculator() {
               value={perStepCost}
               onChange={(e) => setPerStepCost(parseInt(e.target.value))}
               onBlur={(e) => !e.target.value && setPerStepCost(0)}
-              /* InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">₳</InputAdornment>
-              ),
-            }} */
             />
           </div>
 
@@ -134,11 +128,6 @@ export default function SmartContractCalculator() {
               value={perMemUnitCost}
               onChange={(e) => setMemUnitCost(parseInt(e.target.value))}
               onBlur={(e) => !e.target.value && setMemUnitCost(0)}
-              /* InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">₳</InputAdornment>
-              ),
-            }} */
             />
           </div>
 
@@ -151,109 +140,105 @@ export default function SmartContractCalculator() {
               value={perTransactionCost}
               onChange={(e) => setPerTransactionCost(parseInt(e.target.value))}
               onBlur={(e) => !e.target.value && setPerTransactionCost(0)}
-              /* InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">₳</InputAdornment>
-              ),
-            }} */
             />
           </div>
         </Params>
       )}
-      <h2>Transactions:</h2>
-      {transactions.map((t, i) => (
-        <div>
-          Transaction {i + 1}:{' '}
-          <button
-            onClick={() => {
-              let txs = transactions
-              txs.splice(i, 1)
-              console.log(txs)
-              setTransactions([...txs])
-            }}
-          >
-            Remove Transaction
-          </button>
-          <br />
-          <label>
-            {' '}
-            Transaction Size:
-            <input
-              type="number"
-              value={t.txSize}
-              max="16384"
-              min="0"
-              onChange={(e) => {
-                let txs = transactions
-                const input = parseInt(e.target.value)
+      <Transactions>
+        {transactions.map((t, i) => (
+          <Transaction>
+            <Title>
+              <span>Transaction {i + 1}</span>
+              <button
+                onClick={() => {
+                  let txs = transactions
+                  txs.splice(i, 1)
+                  console.log(txs)
+                  setTransactions([...txs])
+                }}
+              >
+                <MdClear />
+              </button>
+            </Title>
 
-                txs[i].txSize = input > 16384 ? 16384 : input
-                setTransactions([...txs])
-              }}
-              onBlur={(e) => {
-                if (e.target.value) return null
-                let txs = transactions
-                txs[i].txSize = 0
-                setTransactions([...txs])
-              }}
-            />
-          </label>
-          <br />
-          <label>
-            {' '}
-            CPU Steps:
-            <input
-              type="number"
-              value={t.cpuSteps}
-              onChange={(e) => {
-                let txs = transactions
-                const input = parseInt(e.target.value)
-                txs[i].cpuSteps = input > 10000000000 ? 10000000000 : input
+            <Fields>
+              <div>
+                <TextField
+                  label="Transaction Size"
+                  helperText="Transaction Size"
+                  type="number"
+                  min="0"
+                  value={t.txSize}
+                  max="16384"
+                  min="0"
+                  onChange={(e) => {
+                    let txs = transactions
+                    const input = parseInt(e.target.value)
 
-                setTransactions([...txs])
-              }}
-              onBlur={(e) => {
-                if (e.target.value) return null
-                let txs = transactions
-                txs[i].cpuSteps = 0
-                setTransactions([...txs])
-              }}
-              min="0"
-              max="10000000000"
-            />
-          </label>
-          <br />
-          <label>
-            {' '}
-            Memory Units:
-            <input
-              type="number"
-              value={t.memUnits}
-              onChange={(e) => {
-                let txs = transactions
-                const input = parseInt(e.target.value)
-                txs[i].memUnits = input > 10000000 ? 10000000 : input
-                setTransactions([...txs])
-              }}
-              onBlur={(e) => {
-                if (e.target.value) return null
-                let txs = transactions
-                txs[i].memUnits = 0
-                setTransactions([...txs])
-              }}
-              max="10000000"
-            />
-          </label>
-          <br />
-          <strong>
-            Estimated Transaction Price (ADA):
-            {txPrice(t)}
-          </strong>
-          <br />
-          <br />
-        </div>
-      ))}
-      <button
+                    txs[i].txSize = input > 16384 ? 16384 : input
+                    setTransactions([...txs])
+                  }}
+                  onBlur={(e) => {
+                    if (e.target.value) return null
+                    let txs = transactions
+                    txs[i].txSize = 0
+                    setTransactions([...txs])
+                  }}
+                />
+              </div>
+
+              <div>
+                <TextField
+                  label="CPU Steps"
+                  helperText="CPU Steps"
+                  type="number"
+                  value={t.cpuSteps}
+                  onChange={(e) => {
+                    let txs = transactions
+                    const input = parseInt(e.target.value)
+                    txs[i].cpuSteps = input > 10000000000 ? 10000000000 : input
+
+                    setTransactions([...txs])
+                  }}
+                  onBlur={(e) => {
+                    if (e.target.value) return null
+                    let txs = transactions
+                    txs[i].cpuSteps = 0
+                    setTransactions([...txs])
+                  }}
+                  min="0"
+                  max="10000000000"
+                />
+              </div>
+
+              <div>
+                <TextField
+                  label="Memory Units"
+                  helperText="Memory Units"
+                  type="number"
+                  type="number"
+                  value={t.memUnits}
+                  onChange={(e) => {
+                    let txs = transactions
+                    const input = parseInt(e.target.value)
+                    txs[i].memUnits = input > 10000000 ? 10000000 : input
+                    setTransactions([...txs])
+                  }}
+                  onBlur={(e) => {
+                    if (e.target.value) return null
+                    let txs = transactions
+                    txs[i].memUnits = 0
+                    setTransactions([...txs])
+                  }}
+                  max="10000000"
+                />
+              </div>
+            </Fields>
+            <strong>Estimated Transaction Price (ADA): ₳{txPrice(t)}</strong>
+          </Transaction>
+        ))}
+      </Transactions>
+      <RoundedButton
         onClick={() =>
           setTransactions([
             ...transactions,
@@ -266,7 +251,7 @@ export default function SmartContractCalculator() {
         }
       >
         Add Transaction
-      </button>
+      </RoundedButton>
       <h2>Total Estimated Dapp Fee</h2>
       {dappFee()} ADA <br />
       <br />${dappFee() * adaPrice} USD (1ADA = {adaPrice}{' '}
@@ -290,8 +275,7 @@ export default function SmartContractCalculator() {
 
 const Controls = styled.div`
   display: flex;
-  border-top: 0.1rem solid rgba(29, 30, 33, 0.3);
-  padding-top: 30px;
+  padding: 30px 0;
 `
 
 const RoundedButton = styled.button`
@@ -315,7 +299,14 @@ const RoundedButton = styled.button`
   color: #0a38a6;
   border: 1px solid #0033ad;
   background-color: #fff;
-  margin: 0 20px;
+
+  &:first-of-type {
+    margin-right: 10px;
+  }
+
+  &:nth-of-type(2) {
+    margin-left: 10px;
+  }
 
   &:hover {
     background-color: rgba(0, 51, 173, 0.04);
@@ -331,13 +322,64 @@ const RoundedButton = styled.button`
 const Params = styled.div`
   display: flex;
   flex-wrap: wrap;
+  padding: 10px 0 25px 0;
 
   > div {
     width: 50%;
-    padding: 20px;
+    padding: 0 20px 20px 20px;
   }
 
   .MuiTextField-root {
     width: 100%;
+  }
+`
+
+const Transactions = styled.div`
+  font-size: 16px;
+`
+
+const Transaction = styled.div`
+  border-top: 0.1rem solid rgba(29, 30, 33, 0.3);
+  padding: 45px 20px;
+`
+
+const Fields = styled.div`
+  display: flex;
+  padding: 10px 0;
+  justify-content: space-between;
+  padding-top: 15px;
+  margin: 5px 0 20px 0;
+`
+
+const Title = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    font-weight: bold;
+    font-size: 22px;
+  }
+
+  button {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    outline: 0;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+      box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+      border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 40px;
+    color: #0a38a6;
+    border: 1px solid #0033ad;
+    background-color: #fff;
+    height: 30px;
+    width: 30px;
+
+    &:hover {
+      background-color: rgba(0, 51, 173, 0.04);
+    }
   }
 `
