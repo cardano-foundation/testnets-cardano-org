@@ -462,10 +462,10 @@ const Results = styled.div`
     }
 
     input {
-      width: 50px;
+      width: 60px;
       font-size: 14px;
       border: 1px solid rgba(0, 0, 0, 0.42);
-      padding: 0 3px;
+      padding-left: 0 3px;
       margin-left: 5px;
     }
   }
