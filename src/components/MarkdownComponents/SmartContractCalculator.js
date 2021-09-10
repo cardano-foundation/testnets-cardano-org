@@ -173,7 +173,6 @@ export default function SmartContractCalculator() {
             >
               <MdClear />
             </DeleteButton>
-            ad
             <Fields>
               <div>
                 <TextField
