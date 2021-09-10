@@ -104,8 +104,12 @@ export default function SmartContractCalculator() {
               helperText="Cost of each byte"
               value={perByteCost}
               type="number"
-              min={0}
-              onChange={(e) => setPerByteCost(parseInt(e.target.value))}
+              min="0"
+              onChange={(e) => {
+                let input = parseInt(e.target.value)
+                if (input < 0) input = 0
+                setPerByteCost(input)
+              }}
               onBlur={(e) => !e.target.value && setPerByteCost(0)}
             />
           </div>
@@ -117,7 +121,11 @@ export default function SmartContractCalculator() {
               type="number"
               min="0"
               value={perStepCost}
-              onChange={(e) => setPerStepCost(parseInt(e.target.value))}
+              onChange={(e) => {
+                let input = parseInt(e.target.value)
+                if (input < 0) input = 0
+                setPerStepCost(input)
+              }}
               onBlur={(e) => !e.target.value && setPerStepCost(0)}
             />
           </div>
@@ -129,7 +137,11 @@ export default function SmartContractCalculator() {
               type="number"
               min="0"
               value={perMemUnitCost}
-              onChange={(e) => setMemUnitCost(parseInt(e.target.value))}
+              onChange={(e) => {
+                let input = parseInt(e.target.value)
+                if (input < 0) input = 0
+                setMemUnitCost(input)
+              }}
               onBlur={(e) => !e.target.value && setMemUnitCost(0)}
             />
           </div>
@@ -161,7 +173,7 @@ export default function SmartContractCalculator() {
             >
               <MdClear />
             </DeleteButton>
-
+            ad
             <Fields>
               <div>
                 <TextField
@@ -174,9 +186,11 @@ export default function SmartContractCalculator() {
                   min="0"
                   onChange={(e) => {
                     let txs = transactions
-                    const input = parseInt(e.target.value)
+                    let input = parseInt(e.target.value)
+                    if (input < 0) input = 0
 
                     txs[i].txSize = input > 16384 ? 16384 : input
+
                     setTransactions([...txs])
                   }}
                   onBlur={(e) => {
@@ -196,7 +210,8 @@ export default function SmartContractCalculator() {
                   value={t.cpuSteps}
                   onChange={(e) => {
                     let txs = transactions
-                    const input = parseInt(e.target.value)
+                    let input = parseInt(e.target.value)
+                    if (input < 0) input = 0
                     txs[i].cpuSteps = input > 10000000000 ? 10000000000 : input
 
                     setTransactions([...txs])
@@ -221,7 +236,8 @@ export default function SmartContractCalculator() {
                   value={t.memUnits}
                   onChange={(e) => {
                     let txs = transactions
-                    const input = parseInt(e.target.value)
+                    let input = parseInt(e.target.value)
+                    if (input < 0) input = 0
                     txs[i].memUnits = input > 10000000 ? 10000000 : input
                     setTransactions([...txs])
                   }}
@@ -363,7 +379,12 @@ const Transaction = styled.div`
 const Fields = styled.div`
   display: flex;
   padding: 20px 0 40px 0;
+  margin-right: 10px;
   justify-content: space-between;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
 `
 
 const Title = styled.h4`
