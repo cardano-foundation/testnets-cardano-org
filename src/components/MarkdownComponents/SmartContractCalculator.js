@@ -378,11 +378,14 @@ const Transaction = styled.div`
 const Fields = styled.div`
   display: flex;
   padding: 20px 0 40px 0;
-  margin-right: 10px;
   justify-content: space-between;
 
-  &:last-of-type {
-    margin-right: 0;
+  div {
+    padding-right: 20px;
+
+    &:last-of-type {
+      padding-right: 0;
+    }
   }
 `
 
