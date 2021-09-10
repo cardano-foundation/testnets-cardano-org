@@ -8,6 +8,8 @@ import {
 } from 'react-icons/md'
 import TextField from '@material-ui/core/TextField'
 
+import CardanoLogo from '../ShelleyHaskellStakingCalculator/CardanoLogo'
+
 export default function SmartContractCalculator() {
   const [perByteCost, setPerByteCost] = useState(44)
   const [perStepCost, setPerStepCost] = useState(0.0000721)
@@ -18,7 +20,7 @@ export default function SmartContractCalculator() {
   const [adaPrice, setAdaPrice] = useState()
   const [initialized, setInitialized] = useState(false)
   const [unableToGetPrice, setUnableToGetPrice] = useState(false)
-  const [adaPriceScenario, setAdaPriceScenario] = useState(5)
+  const [adaPriceScenario, setAdaPriceScenario] = useState(0)
 
   const [transactions, setTransactions] = useState([
     {
@@ -37,6 +39,7 @@ export default function SmartContractCalculator() {
         const data = await res.json()
         const price = data?.market_data?.current_price?.usd
         setAdaPrice(price)
+        setAdaPriceScenario(price)
         setInitialized(true)
       } catch (e) {
         setUnableToGetPrice(true)
@@ -98,7 +101,7 @@ export default function SmartContractCalculator() {
           <div>
             <TextField
               label="Per Byte Cost"
-              helperText="Per Byte Cost"
+              helperText="Cost of each byte"
               value={perByteCost}
               type="number"
               min={0}
@@ -110,7 +113,7 @@ export default function SmartContractCalculator() {
           <div>
             <TextField
               label="Per Step Cost"
-              helperText="Per Step Cost"
+              helperText="Cost of each step"
               type="number"
               min="0"
               value={perStepCost}
@@ -122,7 +125,7 @@ export default function SmartContractCalculator() {
           <div>
             <TextField
               label="Per Mem Unit Cost"
-              helperText="Per Mem Unit Cost"
+              helperText="Cost of each mem unit"
               type="number"
               min="0"
               value={perMemUnitCost}
@@ -147,25 +150,23 @@ export default function SmartContractCalculator() {
       <Transactions>
         {transactions.map((t, i) => (
           <Transaction>
-            <Title>
-              <span>Transaction {i + 1}</span>
-              <button
-                onClick={() => {
-                  let txs = transactions
-                  txs.splice(i, 1)
-                  console.log(txs)
-                  setTransactions([...txs])
-                }}
-              >
-                <MdClear />
-              </button>
-            </Title>
+            <Title>Transaction {i + 1}</Title>
+            <DeleteButton
+              onClick={() => {
+                let txs = transactions
+                txs.splice(i, 1)
+                console.log(txs)
+                setTransactions([...txs])
+              }}
+            >
+              <MdClear />
+            </DeleteButton>
 
             <Fields>
               <div>
                 <TextField
                   label="Transaction Size"
-                  helperText="Transaction Size"
+                  helperText="Size of transaction"
                   type="number"
                   min="0"
                   value={t.txSize}
@@ -190,7 +191,7 @@ export default function SmartContractCalculator() {
               <div>
                 <TextField
                   label="CPU Steps"
-                  helperText="CPU Steps"
+                  helperText="Number of CPU steps"
                   type="number"
                   value={t.cpuSteps}
                   onChange={(e) => {
@@ -214,7 +215,7 @@ export default function SmartContractCalculator() {
               <div>
                 <TextField
                   label="Memory Units"
-                  helperText="Memory Units"
+                  helperText="Number of mem units"
                   type="number"
                   type="number"
                   value={t.memUnits}
@@ -234,7 +235,10 @@ export default function SmartContractCalculator() {
                 />
               </div>
             </Fields>
-            <strong>Estimated Transaction Price (ADA): ₳{txPrice(t)}</strong>
+            <TxPrice>
+              <span>₳ {txPrice(t)}</span>
+              Estimated Transaction Price in ADA
+            </TxPrice>
           </Transaction>
         ))}
       </Transactions>
@@ -252,21 +256,30 @@ export default function SmartContractCalculator() {
       >
         Add Transaction
       </RoundedButton>
-      <h2>Total Estimated Dapp Fee</h2>
-      {dappFee()} ADA <br />
-      <br />${dappFee() * adaPrice} USD (1ADA = {adaPrice}{' '}
-      {!unableToGetPrice && `Rate supplied by CoinGecko`})
-      <br />
-      If the price of ADA was $
-      <input
-        type="number"
-        min="0"
-        value={adaPriceScenario}
-        onChange={(e) => setAdaPriceScenario(e.target.value)}
-      />{' '}
-      USD The Dapp fee would be ${dappFee() * adaPriceScenario}
-      <br />
-      <br />
+      <FeeTitle>Total Estimated Dapp Fee:</FeeTitle>
+      <Results>
+        <div>
+          <Price>${(dappFee() * adaPrice).toFixed(2)} USD</Price>
+          <PriceInfo>
+            When 1 ADA = ${adaPrice}
+            {!unableToGetPrice && <span>Rate supplied by CoinGecko</span>}
+          </PriceInfo>
+          <CardanoLogo active={true} />
+        </div>
+        <div>
+          <Price>${(dappFee() * adaPriceScenario).toFixed(2)} USD</Price>
+          <PriceInfo>
+            When 1 ADA = $
+            <input
+              type="number"
+              min="0"
+              value={adaPriceScenario}
+              onChange={(e) => setAdaPriceScenario(e.target.value)}
+            />
+          </PriceInfo>
+          <CardanoLogo active={false} />
+        </div>
+      </Results>
     </>
   ) : (
     <div>Loading...</div>
@@ -339,47 +352,142 @@ const Transactions = styled.div`
 `
 
 const Transaction = styled.div`
-  border-top: 0.1rem solid rgba(29, 30, 33, 0.3);
-  padding: 45px 20px;
+  border: 0.1rem solid rgba(29, 30, 33, 0.3);
+  padding: 30px;
+  background-color: rgba(0, 51, 173, 0.04);
+  border-radius: 1.8rem;
+  position: relative;
+  margin-bottom: 30px;
 `
 
 const Fields = styled.div`
   display: flex;
-  padding: 10px 0;
+  padding: 20px 0 40px 0;
   justify-content: space-between;
-  padding-top: 15px;
-  margin: 5px 0 20px 0;
 `
 
-const Title = styled.div`
+const Title = styled.h4`
+  font-size: 18px;
+  margin: 0 0 10px 0;
+`
+
+const DeleteButton = styled.button`
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  cursor: pointer;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  outline: 0;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 40px;
+  color: #0a38a6;
+  border: 1px solid #0033ad;
+  background-color: #fff;
+  height: 30px;
+  width: 30px;
+
+  &:hover {
+    background-color: rgba(0, 51, 173, 0.04);
+  }
+`
+
+const TxPrice = styled.span`
+  font-size: 14px;
 
   span {
-    font-weight: bold;
     font-size: 22px;
+    display: block;
+  }
+`
+
+const Results = styled.div`
+  display: flex;
+  margin-bottom: 70px;
+
+  @media screen and (max-width: 600px) {
+    display: block;
   }
 
-  button {
+  > div {
+    flex: 1;
+    overflow: hidden;
     position: relative;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    outline: 0;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-      box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-      border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    border-radius: 40px;
-    color: #0a38a6;
+    border-radius: 0.4rem;
+    height: 200px;
     border: 1px solid #0033ad;
-    background-color: #fff;
-    height: 30px;
-    width: 30px;
 
-    &:hover {
-      background-color: rgba(0, 51, 173, 0.04);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 18px;
+
+    &:first-of-type {
+      margin-right: 10px;
+      background-color: #0033ad;
+      color: #fff;
     }
+
+    &:nth-of-type(2) {
+      margin-left: 20px;
+    }
+
+    > div {
+      position: absolute;
+      bottom: 0;
+
+      svg {
+        height: 130px;
+        margin-bottom: 1rem;
+      }
+    }
+
+    &:first-of-type > div {
+      left: 0;
+      transform: translate(-45%, 45%);
+    }
+
+    &:last-of-type > div {
+      right: 0;
+      transform: translate(45%, 45%);
+    }
+
+    @media screen and (max-width: 600px) {
+      margin: 0 0 20px 0 !important;
+    }
+
+    input {
+      width: 50px;
+      font-size: 14px;
+      border: 1px solid rgba(0, 0, 0, 0.42);
+      padding: 0 3px;
+      margin-left: 5px;
+    }
+  }
+`
+
+const FeeTitle = styled.h4`
+  margin: 55px 0 25px 0;
+`
+
+const Price = styled.span`
+  font-size: 38px;
+  font-weight: 300;
+  display: block;
+`
+
+const PriceInfo = styled.span`
+  display: block;
+  text-align: center;
+  font-size: 14px;
+
+  span {
+    display: block;
+    font-size: 11px;
   }
 `
