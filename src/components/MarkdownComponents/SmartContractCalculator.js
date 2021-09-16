@@ -38,8 +38,8 @@ export default function SmartContractCalculator() {
         )
         const data = await res.json()
         const price = data?.market_data?.current_price?.usd
-        setAdaPrice(price)
-        setAdaPriceScenario(price)
+        setAdaPrice(parseFloat(price))
+        setAdaPriceScenario(parseFloat(price))
         setInitialized(true)
       } catch (e) {
         setUnableToGetPrice(true)
@@ -54,13 +54,11 @@ export default function SmartContractCalculator() {
   const txPrice = (t) =>
     !t.txSize && !t.cpuSteps && !t.memUnits
       ? 0
-      : (
-          ((perByteCost || 0) * (t.txSize || 0) +
-            (perStepCost || 0) * (t.cpuSteps || 0) +
-            (perMemUnitCost || 0) * (t.memUnits || 0) +
-            (perTransactionCost || 0)) /
-          1000000
-        ).toFixed(6)
+      : ((perByteCost || 0) * (t.txSize || 0) +
+          (perStepCost || 0) * (t.cpuSteps || 0) +
+          (perMemUnitCost || 0) * (t.memUnits || 0) +
+          (perTransactionCost || 0)) /
+        1000000
 
   const dappFee = () => {
     let fee = 0
@@ -70,32 +68,6 @@ export default function SmartContractCalculator() {
 
   return initialized ? (
     <>
-      <Controls>
-        <RoundedButton onClick={() => setShowParams(!showParams)}>
-          {showParams ? 'Hide' : 'Show'} network parameters
-          <span>{showParams ? <MdVisibilityOff /> : <MdVisibility />}</span>
-        </RoundedButton>
-        <RoundedButton
-          onClick={() => {
-            setPerByteCost(44)
-            setPerStepCost(0.0000721)
-            setMemUnitCost(0.0577)
-            setPerTransactionCost(155381)
-            setTransactions([
-              {
-                txSize: 0,
-                cpuSteps: 0,
-                memUnits: 0,
-              },
-            ])
-          }}
-        >
-          Reset All{' '}
-          <span>
-            <MdRotateLeft />
-          </span>
-        </RoundedButton>
-      </Controls>
       {showParams && (
         <Params>
           <div>
@@ -251,29 +223,62 @@ export default function SmartContractCalculator() {
               </div>
             </Fields>
             <TxPrice>
-              <span>₳ {txPrice(t)}</span>
+              <span>₳ {txPrice(t).toFixed(6)}</span>
               Estimated Transaction Price in ADA
             </TxPrice>
           </Transaction>
         ))}
       </Transactions>
-      <RoundedButton
-        onClick={() =>
-          setTransactions([
-            ...transactions,
-            {
-              txSize: 0,
-              cpuSteps: 0,
-              memUnits: 0,
-            },
-          ])
-        }
-      >
-        Add Transaction
-      </RoundedButton>
+
+      <Controls>
+        {/*
+        <RoundedButton
+          onClick={() => setShowParams(!showParams)}
+        >
+          {showParams ? 'Hide' : 'Show'} network parameters
+          <span>{showParams ? <MdVisibilityOff /> : <MdVisibility />}</span>
+        </RoundedButton>
+        */}
+        <RoundedButton
+          onClick={() =>
+            setTransactions([
+              ...transactions,
+              {
+                txSize: 0,
+                cpuSteps: 0,
+                memUnits: 0,
+              },
+            ])
+          }
+        >
+          Add Transaction
+        </RoundedButton>
+        <RoundedButton
+          onClick={() => {
+            setPerByteCost(44)
+            setPerStepCost(0.0000721)
+            setMemUnitCost(0.0577)
+            setPerTransactionCost(155381)
+            setTransactions([
+              {
+                txSize: 0,
+                cpuSteps: 0,
+                memUnits: 0,
+              },
+            ])
+          }}
+        >
+          Reset All{' '}
+          <span>
+            <MdRotateLeft />
+          </span>
+        </RoundedButton>
+      </Controls>
+
       <FeeTitle>Total Estimated Dapp Fee:</FeeTitle>
       <Results>
         <div>
+          {' '}
           <Price>${(dappFee() * adaPrice).toFixed(2)} USD</Price>
           <PriceInfo>
             When 1 ADA = ${adaPrice}
@@ -303,7 +308,6 @@ export default function SmartContractCalculator() {
 
 const Controls = styled.div`
   display: flex;
-  padding: 30px 0;
 `
 
 const RoundedButton = styled.button`
@@ -364,6 +368,7 @@ const Params = styled.div`
 
 const Transactions = styled.div`
   font-size: 16px;
+  padding: 30px 0 0 0;
 `
 
 const Transaction = styled.div`
