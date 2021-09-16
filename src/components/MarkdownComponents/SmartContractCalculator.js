@@ -7,6 +7,7 @@ import {
   MdClear,
 } from 'react-icons/md'
 import TextField from '@material-ui/core/TextField'
+import ReactTooltip from 'react-tooltip'
 
 import CardanoLogo from '../ShelleyHaskellStakingCalculator/CardanoLogo'
 
@@ -68,6 +69,7 @@ export default function SmartContractCalculator() {
 
   return initialized ? (
     <>
+      <ReactTooltip />
       {showParams && (
         <Params>
           <div>
@@ -146,7 +148,7 @@ export default function SmartContractCalculator() {
               <MdClear />
             </DeleteButton>
             <Fields>
-              <div>
+              <FieldContainer>
                 <TextField
                   label="Transaction Size"
                   helperText="Size of transaction"
@@ -171,9 +173,16 @@ export default function SmartContractCalculator() {
                     setTransactions([...txs])
                   }}
                 />
-              </div>
+                <Tooltip
+                  data-tip="The size in bytes of the on-chain transaction. It can be
+                  derived<br/> from the transaction that has been prepared on-disk."
+                  data-multiline={true}
+                >
+                  ?
+                </Tooltip>
+              </FieldContainer>
 
-              <div>
+              <FieldContainer>
                 <TextField
                   label="CPU Steps"
                   helperText="Number of CPU steps"
@@ -196,9 +205,15 @@ export default function SmartContractCalculator() {
                   min="0"
                   max="10000000000"
                 />
-              </div>
+                <Tooltip
+                  data-tip="This is an abstraction of how long the transaction will take to<br/> execute on a reference computer."
+                  data-multiline={true}
+                >
+                  ?
+                </Tooltip>
+              </FieldContainer>
 
-              <div>
+              <FieldContainer>
                 <TextField
                   label="Memory Units"
                   helperText="Number of mem units"
@@ -220,7 +235,13 @@ export default function SmartContractCalculator() {
                   }}
                   max="10000000"
                 />
-              </div>
+                <Tooltip
+                  data-tip="This is measured in bytes of memory that<br/> are allocated by the transaction"
+                  data-multiline={true}
+                >
+                  ?
+                </Tooltip>
+              </FieldContainer>
             </Fields>
             <TxPrice>
               <span>₳ {txPrice(t).toFixed(6)}</span>
@@ -385,7 +406,7 @@ const Fields = styled.div`
   padding: 20px 0 40px 0;
   justify-content: space-between;
 
-  div {
+  > div {
     padding-right: 20px;
 
     &:last-of-type {
@@ -518,4 +539,26 @@ const PriceInfo = styled.span`
     display: block;
     font-size: 11px;
   }
+`
+
+const FieldContainer = styled.div`
+  position: relative;
+  padding: 0;
+`
+
+const Tooltip = styled.div`
+  background-color: #7e98d4;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 18px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 20px;
 `
