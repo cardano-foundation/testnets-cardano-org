@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import {
-  MdVisibility,
-  MdVisibilityOff,
-  MdRotateLeft,
-  MdClear,
-} from 'react-icons/md'
+import { MdRotateLeft, MdClear } from 'react-icons/md'
 import TextField from '@material-ui/core/TextField'
 import ReactTooltip from 'react-tooltip'
 
