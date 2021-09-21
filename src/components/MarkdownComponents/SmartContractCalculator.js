@@ -174,8 +174,7 @@ export default function SmartContractCalculator() {
                   }}
                 />
                 <Tooltip
-                  data-tip="The size in bytes of the on-chain transaction. It can be
-                  derived<br/> from the transaction that has been prepared on-disk."
+                  data-tip="The size of an on-chain transaction in bytes, which can be derived<br/> from the transaction prepared on-disk. Size varies depending on transaction content.<br/> A typical transaction for a smart contract will be between 3KB-5KB."
                   data-multiline={true}
                 >
                   ?
@@ -206,7 +205,7 @@ export default function SmartContractCalculator() {
                   max="10000000000"
                 />
                 <Tooltip
-                  data-tip="This is an abstraction of how long the transaction will take to<br/> execute on a reference computer."
+                  data-tip="A variable abstraction of the time a transaction takes to execute<br/> on a reference computer. More complex contracts require more CPU steps."
                   data-multiline={true}
                 >
                   ?
@@ -236,7 +235,7 @@ export default function SmartContractCalculator() {
                   max="10000000"
                 />
                 <Tooltip
-                  data-tip="This is measured in bytes of memory that<br/> are allocated by the transaction"
+                  data-tip="Memory allocated by the transaction, in bytes.<br/> More complex contracts usually require higher memory allocation."
                   data-multiline={true}
                 >
                   ?
@@ -321,6 +320,15 @@ export default function SmartContractCalculator() {
           <CardanoLogo active={false} />
         </div>
       </Results>
+      <h5>How have the costs here been set/calculated?</h5>
+      <p>
+        Primitive Plutus operations (the internal building blocks) are evaluated
+        on a reference architecture and protocol-parameterized. Costs accumulate
+        for a smart contract based on how many types of primitives are used.
+        <br />
+        <br />
+        <br />
+      </p>
     </>
   ) : (
     <div>Loading...</div>
