@@ -246,7 +246,7 @@ export default function SmartContractCalculator() {
       </Transactions>
 
       <Controls>
-        {/*
+        {/* temporarily removed
         <RoundedButton
           onClick={() => setShowParams(!showParams)}
         >
