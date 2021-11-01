@@ -10,8 +10,8 @@ last_updated: '2021-01-22T09:00:00+01:00'
 
 To help you get started we have written a set of tutorials:
 
-- [Compiling and testing a Plutus App in the Plutus Playground](https://plutus.readthedocs.io/en/latest/plutus/tutorials/plutus-playground.html)
-- [Writing a basic Plutus app in the Plutus Playground](https://plutus.readthedocs.io/en/latest/plutus/tutorials/basic-apps.html)
+- [Compiling and testing a Plutus App in the Plutus Playground](https://plutus-apps.readthedocs.io/en/latest/plutus/tutorials/plutus-playground.html)
+- [Writing a basic Plutus app in the Plutus Playground](https://plutus-apps.readthedocs.io/en/latest/plutus/tutorials/basic-apps.html#writing-a-basic-plutus-app-in-the-plutus-playground)
 
 **Plutus Beta Playground**
 
