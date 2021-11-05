@@ -2,7 +2,7 @@
 parent: erc20-using-converter
 title: Setting up the receiving  Cardano address
 description: Setting up the receiving Cardano address
-order: 2
+order: 1
 ---
 
 ## Setting up the receiving Cardano address
