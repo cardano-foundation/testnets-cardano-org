@@ -2,7 +2,7 @@
 parent: erc20-using-converter
 title: Migrating Ethereum tokens to Cardano
 description: Migrating Ethereum tokens to Cardano
-order: 3
+order: 2
 ---
 
 ## Migrating Ethereum tokens to Cardano
