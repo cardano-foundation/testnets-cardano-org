@@ -15,7 +15,7 @@ or
 
 + Click the ‘Token balance’ for the token you want to convert on the main menu. 
 
-![token-selection](https://ucarecdn.com/a36e5e29-85fe-48e3-a5dd-ff47108173ed/)
+![token-selection](https://ucarecdn.com/29dec476-caee-4c05-a2b2-1ed1fd75fc86/)
 
 Note that you can see your available token balance and its equivalent price in USD.
 
