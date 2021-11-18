@@ -1,15 +1,15 @@
 ---
 parent: erc20-converter
 title: Getting started
-description: Getting started with ERC20 converter
+description: Getting started with the converter
 order: 2
 ---
 
 ## Getting started
 
-> Note: the current ERC20 converter is the testnet version and there are some known issues that we are working on to be improved in gradual upgrades. 
+> Note: the current AGIX ERC20 converter is the testnet version and there are some known issues that we are working on to be improved in gradual upgrades. 
 
-To start using the ERC20 converter, you first need to go through the initial setup and registration.
+To start using the converter, you first need to go through the initial setup and registration.
 
 ### Setting up your Metamask account
 
@@ -26,7 +26,7 @@ To start using the ERC20 converter, you first need to go through the initial set
 
 ### Using the faucet
 
-To start testing the ERC20 converter, you can get some testnet Ethers (KETH), testnet SingularityNET tokens (AGIX), and testnet ada (tADA) from the faucet. 
+To start testing the converter, you can get some testnet Ethers (KETH), testnet SingularityNET tokens (AGIX), and testnet ada (tADA) from the faucet. 
 
 **Getting KETH** 
 
