@@ -10,8 +10,8 @@ order: 4
 You can explore the transaction history to see the status of your recent transactions.
 
 1. Click ‘Transactions’ on the main menu where you can see a list of processed transactions.
-2.  You can search for individual transactions using transaction ID, date, or token symbol.
-3.  You will also see the status of your transaction: pending deposit, deposited, burned, etc.
+2. You can search for individual transactions using transaction ID, date, or token symbol.
+3. You will also see the status of your transaction: pending deposit, deposited, burned, etc.
 
 ![tx-history](https://ucarecdn.com/911a902d-1459-4f12-b960-0824a834c814/)
 
