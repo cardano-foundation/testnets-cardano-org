@@ -32,7 +32,7 @@ To make a deposit, go to your Daedalus testnet version.
 
 1. Click ‘Send’ and paste the Cardano address (that you copied earlier) in the receiver field.
 2. Indicate the amount of ada to cover the transaction fee (minimum 1 ada).
-3. Select the Cardano-based token you would like to migrate back to Ethereum (AGIX, for example) and indicate the amount for migration. 
+3. Select the AGIX token you would like to migrate back to Ethereum and indicate the amount for migration. 
 
 ![daedalus-token-deposit](https://ucarecdn.com/080c276b-a774-4fcc-adfd-4f6a2d5b544a/-/crop/1600x1060/0,149/-/preview/)
 
@@ -42,7 +42,7 @@ To make a deposit, go to your Daedalus testnet version.
 
 ![continue-process](https://ucarecdn.com/a0819a8f-3690-417e-ac2e-74850615543b/)
 
-7. By clicking the ‘Continue process’ button, you will execute the smart contract and unlock ERC20-based tokens. Once the smart contract is executed, you will receive tokens at your Metamask address. 
+7. By clicking the ‘Continue process’ button, you will execute the smart contract and unlock AGIX tokens. Once the smart contract is executed, you will receive tokens at your Metamask address. 
 
 > Note that you can send multiple transactions under one conversion. Just send an additional transaction with Cardano-based tokens.
 
