@@ -12,7 +12,7 @@ Blockchain interoperability is key to boosting technology adoption and growth fo
 
 [SingularityNET](https://singularitynet.io/) is our first partner to offer the migration of ERC20 SingularityNET (AGIX) tokens to Cardano and back to the source network. 
 
-In this initial testnet version, users can assess the converter functionality testing the migration of AGIX tokens and benefit from a higher capacity of transaction processing, lower fees, and increased security guaranteed by the Ouroboros proof-of-stake consensus protocol. This means that token users, DeFi investors, and application developers can all enjoy the benefits of Cardano’s solid and secure ecosystem while being given the opportunity to send, receive, and build applications using Ethereum-based AGIX tokens. 
+In this initial testnet version, users can assess the AGIX ERC20 converter functionality testing the migration of tokens and benefit from a higher capacity of transaction processing, lower fees, and increased security guaranteed by the Ouroboros proof-of-stake consensus protocol. This means that token users, DeFi investors, and application developers can all enjoy the benefits of Cardano’s solid and secure ecosystem while being given the opportunity to send, receive, and build applications using Ethereum-based AGIX tokens. 
 
 
 
