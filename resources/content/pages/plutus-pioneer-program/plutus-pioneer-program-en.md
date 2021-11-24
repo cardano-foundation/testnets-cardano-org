@@ -5,7 +5,7 @@ content:
   hero_content: |
     # Plutus Pioneer Program
 
-    Applications for the second cohort of the program are now closed. However, we continue welcoming applications from developers for future courses we will be running later this year.
+    The second round of this program is now finished. However, we continue welcoming applications from developers for future courses we will be running over the coming months.
 
   hero_cta_label: Register
   hero_cta_href: '/plutus-pioneer-program/#plutus'
@@ -44,7 +44,7 @@ content:
     When can I join?
     -------------------
 
-    Our second course started in early July and will run through to the end of August. Depending on demand, we plan to open up a third cohort later in the autumn, so please register your interest to hear more in due course.
+    Our second course finished at the end of August. Depending on demand, we plan to open up a third cohort soon, so please register your interest to hear more in due course.
 
     How can I register for the Plutus pioneer program?
     --------------------------------------------------
