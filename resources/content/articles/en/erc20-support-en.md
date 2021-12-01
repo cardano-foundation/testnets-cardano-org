@@ -1,14 +1,14 @@
 ---
 parent: erc20-resources
-title: Support and help
-description: Support and help
+title: Support and feedback
+description: Support and feedback
 order: 2
 ---
 
-## Support and help
+## Support and feedback
 
-Your feedback is important because it helps us improve the converter testnet. To contact IOHK Technical Support, please [submit a request](https://iohk.zendesk.com/hc/en-us/requests/new) using the Submit a request form.
+Your feedback is important because it helps us improve the converter testnet. To leave your feedback, navigate to the ‘Provide feedback’ button at the right bottom of the converter. You can also open Menu (...) and choose the ‘Provide feedback' option. 
 
-You can also open Menu (...) in the converter (on the main menu) and navigate to the ‘Support’ button, which will open the support page.
+To contact IOHK Technical Support, please [submit a request](https://iohk.zendesk.com/hc/en-us/requests/new) using the Submit a request form. You can also open Menu (...) in the converter (on the main menu) and navigate to the ‘Support’ button, which will open the support page.
 
-![support](https://ucarecdn.com/77283c6d-e34a-4601-b906-e53e56eaf79a/)
+
