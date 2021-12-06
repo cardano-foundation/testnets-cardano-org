@@ -34,11 +34,7 @@ To start testing the converter, you can get some testnet Ethers (KETH), testnet 
 
 ![3-copy-address](https://ucarecdn.com/a7786cfa-fce2-4d03-8a4f-4da4631a3474/)
 
-2. Go to the [Kovan faucet](https://faucet.kovan.network/) and log in with your GitHub account. Then, paste your Metamask wallet address and click ‘Send me KETH!’:  
-
-![4-KETH](https://ucarecdn.com/5d314a3e-880d-48d4-9188-0118a9c125a2/)
-
-> Note: The Kovan faucet might not always work. Alternatively, go to [this Kovan faucet chat](https://gitter.im/kovan-testnet/faucet) or [this Chainlink faucet](https://linkfaucet.protofire.io/kovan) and paste your Metamask wallet address there to receive some KETH tokens.
+2. Go to the [Kovan faucet chat](https://gitter.im/kovan-testnet/faucet) or [the Chainlink faucet](https://linkfaucet.protofire.io/kovan) and paste your Metamask wallet address there to receive some KETH tokens.
 
 **Getting testnet AGIX**  
 
