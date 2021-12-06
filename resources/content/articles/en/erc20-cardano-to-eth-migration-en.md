@@ -14,16 +14,16 @@ This process involves activities both in the converter and in the testnet Daedal
 1. To convert your migrated tokens from Cardano back to Ethereum, go to the token card and click ‘Select’.
 2. You will see the conversion arrow, which indicates from which blockchain you are migrating your tokens. Switch the arrow to migrate tokens from Cardano to Ethereum:
 
-![cardano-eth-migration](https://ucarecdn.com/6a650d91-d7ab-4599-832a-2c6eb0a84139/-/crop/1061x1066/41,24/-/preview/)
+![cardano-eth-migration](https://ucarecdn.com/b3465aef-c840-41d5-8789-afbb9aa6f0c8/)
 
 3. Indicate the amount of tokens you would like to migrate back to Ethereum and click ‘Convert’.
 4. You will then see a notification that explains the two-step process of sending your tokens and executing the smart contract. You will see the fees charged for tokens migration, which includes Cardano fees and also Ethereum fees. Note that fees might change in the future, as we are now working in the testnet environment:
 
-![conversion](https://ucarecdn.com/9886e8c0-76d7-466d-a19c-342cc2e5d34a/)
+![conversion](https://ucarecdn.com/00e6ca3e-5153-4463-baed-82c026340bd7/)
 
 In the notification, you will see the Cardano address where you should send your AGIX tokens to continue the process. 
 
-5. Copy the Cardano address (from the notification window), then click ‘Understand’ to proceed with token migration. 
+5. Copy the Cardano address (from the notification window), then click ‘Copy the address & go to the Dashboard’ to proceed with token migration. 
 6. Go to the ‘Transaction history’. You will see the status of your transaction as ‘Pending deposit’. Now, we need to make the deposit. 
 
 ### Stage 2: depositing tokens from Daedalus
