@@ -32,4 +32,4 @@ You will see your available balance and your Cardano address that was configured
 
 Note that the total amount of converted tokens is reflected on the token card on the Dashboard or Convert pages for information purposes, as follows:
 
-![16-total-amount](https://ucarecdn.com/e1b80f96-70f9-4f7c-b4a1-a49562bf69f4/)
+![16-total-amount](https://ucarecdn.com/24ba8da9-1f45-4c51-93e3-a581298cb86c/)
