@@ -9,7 +9,7 @@ order: 2
 
 > Note: the current AGIX ERC20 converter is the testnet version and there are some known issues that we are working on to be improved in gradual upgrades. 
 
-To start using the converter, you first need to go through the initial setup and registration.
+To start using [the converter](https://testnet.agix-converter.iohk.io/), you first need to go through the initial setup and registration.
 
 ### Setting up your Metamask account
 
