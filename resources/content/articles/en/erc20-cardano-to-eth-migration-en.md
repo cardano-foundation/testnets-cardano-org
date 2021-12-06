@@ -28,7 +28,15 @@ In the notification, you will see the Cardano address where you should send your
 
 ### Stage 2: depositing tokens from Daedalus
 
-To make a deposit, go to your Daedalus testnet version.
+Go to your Daedalus testnet version. Please note that in Daedalus you will need to set up token decimal places based on recommendations provided in the wallet. To set decimal places, which will reflect the correct token amount, go to the ‘Tokens’ tab, find an AGIX token, expand its view, and click ‘Settings’:
+
+![decimals-setup](https://ucarecdn.com/dab39335-5ec2-4b8b-a361-fe6c7623fc95/)
+
+Set the number of decimal places to 8 and click ‘Save’:
+
+![decimals-setup-8](https://ucarecdn.com/5bbc53a6-1c35-4992-898c-955e0ad53992/)
+
+Then, make a deposit:
 
 1. Click ‘Send’ and paste the Cardano address (that you copied earlier) in the receiver field.
 2. Indicate the amount of ada to cover the transaction fee (minimum 1 ada).
