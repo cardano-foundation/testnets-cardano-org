@@ -17,7 +17,7 @@ To start converting or minting tokens in the converter, you should be connected 
 3. The Metamask extension will open automatically. You can connect your wallet by clicking ‘Next’ > ‘Connect’. If your wallet was already connected to Metamask, you will only have to enter your password.
 4. To configure your Cardano address, paste your **testnet** Daedalus receiving address and click ‘Save’. 
 
-![cardano-address](https://ucarecdn.com/4842ee8c-0d37-4d16-8d39-8738171c31db/)
+![cardano-address](https://ucarecdn.com/66378051-f060-467e-904c-1434fcda6019/)
 
 5. You can configure your wallets by clicking ‘Menu’ (...) > ‘Configure your wallet’. You can also disconnect your wallet if needed.
 
