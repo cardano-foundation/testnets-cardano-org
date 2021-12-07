@@ -23,7 +23,7 @@ This process involves activities both in the converter and in the testnet Daedal
 
 In the notification, you will see the Cardano address where you should send your AGIX tokens to continue the process. 
 
-5. Copy the Cardano address (from the notification window), then click ‘Copy the address & go to the Dashboard’ to proceed with token migration. 
+5. Click ‘Copy the address & go to the Dashboard’ to proceed with token migration. 
 6. Go to the ‘Transaction history’. You will see the status of your transaction as ‘Pending deposit’. Now, we need to make the deposit. 
 
 ### Stage 2: depositing tokens from Daedalus
@@ -38,7 +38,7 @@ Set the number of decimal places to 8 and click ‘Save’:
 
 Then, make a deposit:
 
-1. Click ‘Send’ and paste the Cardano address (that you copied earlier) in the receiver field.
+1. Click ‘Send’ and *paste the Cardano address (that you copied earlier)* in the receiver field.
 2. Indicate the amount of ada to cover the transaction fee (minimum 1 ada).
 3. Select the AGIX token you would like to migrate back to Ethereum and indicate the amount for migration. 
 
