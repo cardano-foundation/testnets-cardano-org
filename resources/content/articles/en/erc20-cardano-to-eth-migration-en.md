@@ -48,7 +48,7 @@ Then, make a deposit:
 5. Go back to the ‘Transaction history’ in the converter. You will see the updated status of your transaction - ‘Deposited’. When confirmed on the Cardano blockchain, the burning process will start automatically and the status will change to ‘Burned’, which means that tokens are burnt on Cardano.
 6. Once tokens are burnt, click ‘Continue process’ on the Dashboard page:
 
-![continue-process](https://ucarecdn.com/a0819a8f-3690-417e-ac2e-74850615543b/)
+![continue-process](https://ucarecdn.com/e71117a2-b090-42b0-8b43-051d5cdf9faf/)
 
 7. By clicking the ‘Continue process’ button, you will execute the smart contract and unlock AGIX tokens. Once the smart contract is executed, you will receive tokens at your Metamask address. 
 
