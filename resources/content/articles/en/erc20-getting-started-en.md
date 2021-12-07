@@ -7,7 +7,8 @@ order: 2
 
 ## Getting started
 
-> Note: the current AGIX ERC20 converter is the testnet version and there are some known issues that we are working on to be improved in gradual upgrades. 
+> Note: the current AGIX ERC20 converter is the testnet version and there are some known issues that we are working on to be improved in gradual upgrades. While the user flow and UI for the testnet converter will likely be very similar on mainnet, the current build is not yet optimized for performance. The testnet phase is an essential part of this process, gathering user data – particularly at times of high network saturation – will help us address this and improve throughput as we get closer to the mainnet launch.
+
 
 To start using [the converter](https://testnet.agix-converter.iohk.io/), you first need to go through the initial setup and registration.
 
