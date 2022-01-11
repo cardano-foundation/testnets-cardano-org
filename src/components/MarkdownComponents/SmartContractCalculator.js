@@ -6,12 +6,12 @@ import ReactTooltip from 'react-tooltip'
 
 import CardanoLogo from '../ShelleyHaskellStakingCalculator/CardanoLogo'
 
-export default function SmartContractCalculator() {
+export default function SmartContractCalculator () {
   const [perByteCost, setPerByteCost] = useState(44)
   const [perStepCost, setPerStepCost] = useState(0.0000721)
   const [perMemUnitCost, setMemUnitCost] = useState(0.0577)
   const [perTransactionCost, setPerTransactionCost] = useState(155381)
-  const [showParams, setShowParams] = useState(false)
+  const [showParams, _setShowParams] = useState(false)
 
   const [adaPrice, setAdaPrice] = useState()
   const [initialized, setInitialized] = useState(false)
@@ -22,8 +22,8 @@ export default function SmartContractCalculator() {
     {
       txSize: 0,
       cpuSteps: 0,
-      memUnits: 0,
-    },
+      memUnits: 0
+    }
   ])
 
   useEffect(() => {
@@ -33,6 +33,7 @@ export default function SmartContractCalculator() {
           'https://api.coingecko.com/api/v3/coins/cardano'
         )
         const data = await res.json()
+        // eslint-disable-next-line camelcase
         const price = data?.market_data?.current_price?.usd
         setAdaPrice(parseFloat(price))
         setAdaPriceScenario(parseFloat(price))
@@ -130,11 +131,11 @@ export default function SmartContractCalculator() {
       )}
       <Transactions>
         {transactions.map((t, i) => (
-          <Transaction>
+          <Transaction key={i}>
             <Title>Transaction {i + 1}</Title>
             <DeleteButton
               onClick={() => {
-                let txs = transactions
+                const txs = transactions
                 txs.splice(i, 1)
                 console.log(txs)
                 setTransactions([...txs])
@@ -145,15 +146,14 @@ export default function SmartContractCalculator() {
             <Fields>
               <FieldContainer>
                 <TextField
-                  label="Transaction Size"
-                  helperText="Size of transaction"
                   type="number"
                   min="0"
-                  value={t.txSize}
                   max="16384"
-                  min="0"
+                  value={t.txSize}
+                  label="Size (bytes)"
+                  helperText="max 16KB (16384B)"
                   onChange={(e) => {
-                    let txs = transactions
+                    const txs = transactions
                     let input = parseInt(e.target.value)
                     if (input < 0) input = 0
 
@@ -163,14 +163,14 @@ export default function SmartContractCalculator() {
                   }}
                   onBlur={(e) => {
                     if (e.target.value) return null
-                    let txs = transactions
+                    const txs = transactions
                     txs[i].txSize = 0
                     setTransactions([...txs])
                   }}
                 />
                 <Tooltip
                   data-tip="The size of an on-chain transaction in bytes, which can be derived<br/> from the transaction prepared on-disk. Size varies depending on transaction content.<br/> A typical transaction for a smart contract will be between 3KB-5KB."
-                  data-multiline={true}
+                  data-multiline
                 >
                   ?
                 </Tooltip>
@@ -178,12 +178,14 @@ export default function SmartContractCalculator() {
 
               <FieldContainer>
                 <TextField
-                  label="CPU Steps"
-                  helperText="Number of CPU steps"
                   type="number"
+                  min="0"
+                  max="10000000000"
                   value={t.cpuSteps}
+                  label="CPU Steps"
+                  helperText="max 10000000000"
                   onChange={(e) => {
-                    let txs = transactions
+                    const txs = transactions
                     let input = parseInt(e.target.value)
                     if (input < 0) input = 0
                     txs[i].cpuSteps = input > 10000000000 ? 10000000000 : input
@@ -192,16 +194,14 @@ export default function SmartContractCalculator() {
                   }}
                   onBlur={(e) => {
                     if (e.target.value) return null
-                    let txs = transactions
+                    const txs = transactions
                     txs[i].cpuSteps = 0
                     setTransactions([...txs])
                   }}
-                  min="0"
-                  max="10000000000"
                 />
                 <Tooltip
                   data-tip="A variable abstraction of the time a transaction takes to execute<br/> on a reference computer. More complex contracts require more CPU steps."
-                  data-multiline={true}
+                  data-multiline
                 >
                   ?
                 </Tooltip>
@@ -209,13 +209,14 @@ export default function SmartContractCalculator() {
 
               <FieldContainer>
                 <TextField
-                  label="Memory Units"
-                  helperText="Number of mem units"
-                  type="number"
-                  type="number"
+                  min="0"
+                  max="10000000"
                   value={t.memUnits}
+                  label="Memory Units (bytes)"
+                  helperText="max 10000000B"
+                  type="number"
                   onChange={(e) => {
-                    let txs = transactions
+                    const txs = transactions
                     let input = parseInt(e.target.value)
                     if (input < 0) input = 0
                     txs[i].memUnits = input > 10000000 ? 10000000 : input
@@ -223,15 +224,14 @@ export default function SmartContractCalculator() {
                   }}
                   onBlur={(e) => {
                     if (e.target.value) return null
-                    let txs = transactions
+                    const txs = transactions
                     txs[i].memUnits = 0
                     setTransactions([...txs])
                   }}
-                  max="10000000"
                 />
                 <Tooltip
                   data-tip="Memory allocated by the transaction, in bytes.<br/> More complex contracts usually require higher memory allocation."
-                  data-multiline={true}
+                  data-multiline
                 >
                   ?
                 </Tooltip>
@@ -261,8 +261,8 @@ export default function SmartContractCalculator() {
               {
                 txSize: 0,
                 cpuSteps: 0,
-                memUnits: 0,
-              },
+                memUnits: 0
+              }
             ])
           }
         >
@@ -278,8 +278,8 @@ export default function SmartContractCalculator() {
               {
                 txSize: 0,
                 cpuSteps: 0,
-                memUnits: 0,
-              },
+                memUnits: 0
+              }
             ])
           }}
         >
@@ -299,7 +299,7 @@ export default function SmartContractCalculator() {
             When 1 ADA = ${adaPrice}
             {!unableToGetPrice && <span>Rate supplied by CoinGecko</span>}
           </PriceInfo>
-          <CardanoLogo active={true} />
+          <CardanoLogo active />
         </div>
         <div>
           <Price>${(dappFee() * adaPriceScenario).toFixed(2)} USD</Price>
@@ -405,16 +405,19 @@ const Transaction = styled.div`
 `
 
 const Fields = styled.div`
-  display: flex;
   padding: 20px 0 40px 0;
-  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  --margin: 1rem;
+  --multiplier: calc(720px - 100%);
+  margin: calc(var(--margin) * -1); /* excess margin removed */
 
-  > div {
-    padding-right: 20px;
-
-    &:last-of-type {
-      padding-right: 0;
-    }
+  & > * {
+    min-width: calc(33% - (var(--margin) * 2)); /* remove from both sides */
+    max-width: 100%;
+    flex-grow: 1;
+    flex-basis: calc(var(--multiplier) * 999);
+    margin: var(--margin);
   }
 `
 
