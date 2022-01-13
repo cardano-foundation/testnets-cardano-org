@@ -47,11 +47,11 @@ To start testing the converter, you can get some testnet Ethers (KETH), testnet 
 
 4. To get testnet AGIX, copy your account address from the Metamask wallet.
 5. Go to the [SingularityNET faucet](https://faucet.singularitynet.io/) and log in with your GitHub account.
-6. Select the ‘Kovan’ option, paste your wallet address, and click ‘Submit’.
+6. Select the ‘Kovan’ option, paste your wallet address, and click ‘Submit’. Note: Once you click 'Submit', you won’t be able to request new funds for 24 hours.  
 
 ![6-agi-faucet](https://ucarecdn.com/2b55b413-41e5-48fe-a734-158dd589c8a3/)
 
-7. You should receive 10 testnet AGIX. If you do not receive these testnet tokens, you can [request help from the support team](https://iohk.zendesk.com/hc/en-us/requests/new).
+7. You should receive 10 testnet AGIX. If you do not receive these testnet tokens, you can [request help from the SingularityNET's support team](https://info-bridge.singularitynet.io/).
 
 **Getting testnet ada (tADA)**
 
