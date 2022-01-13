@@ -5,12 +5,13 @@ content:
   hero_content: |
     # Plutus Pioneer Program
 
-    We are now recruiting for the third cohort of this program and are looking for new developers to join us on this learning journey in early 2022. Please register your interest using the form below.
+    Applications for the third cohort of the program are now closed. However, we continue welcoming applications from developers for future courses we will be running later this year.
 
   hero_cta_label: Register
   hero_cta_href: '/plutus-pioneer-program/#plutus'
   page_content: |
-    What is the Plutus pioneer program?
+   
+   What is the Plutus pioneer program?
     -----------------------------------
 
     It is a program to recruit and train developers in Plutus for the Cardano ecosystem. When you join this program, you will become part of a group with access to a set of courses that teach you the core principles of how to code in both Haskell and Plutus. It will be highly interactive, with weekly videos, exercises, and Q&A sessions, along with exclusive access to the creators and key experts in the language. You will also be able to join a dedicated community channel, created to help pioneers connect to each other as you learn.
@@ -42,16 +43,16 @@ content:
 
     As with all learning experiences, the more you put in the more you will get out!
 
-    When does the third course start?
+    When can I join?
     -------------------
 
-    The third course is an eight week programme that will start in early January 2022 and run through to early March. It will involve approximately ten hours a week of your time and efforts. 
+    Our third course has just started and will run through to the end of March. Depending on demand, we plan to open up a fourth cohort later in the summer, so please register your interest today to hear more in due course.
 
 
     How can I register for the Plutus pioneer program?
     --------------------------------------------------
 
-    If you are interested in joining the third round of this program, please complete the registration form below. You will receive a short application form, and we will be in touch when we have fresh course dates to offer.
+    If you are interested in joining a future cohort of this program, please complete the registration form below. You will receive a short application form, and we will be in touch when we have fresh course dates to offer.
 
     Will I be certified? 
     --------------------
