@@ -35,7 +35,7 @@ content:
       * State machines
       * The Plutus application framework (PAF)
       * Fundamentals of the Plutus application backend (PAB)
-      * some cases studies and practical exercises 
+      * Some cases studies and practical exercises 
 
     As with all learning experiences, the more you put in the more you will get out!
 
