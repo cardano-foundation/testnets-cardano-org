@@ -213,7 +213,7 @@ export default function SmartContractCalculator () {
                   max="11250000"
                   value={t.memUnits}
                   label="Memory Units (bytes)"
-                  helperText="max 11250000"
+                  helperText="max 11250000B"
                   type="number"
                   onChange={(e) => {
                     const txs = transactions
