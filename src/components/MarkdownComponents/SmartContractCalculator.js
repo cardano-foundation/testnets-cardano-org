@@ -210,16 +210,16 @@ export default function SmartContractCalculator () {
               <FieldContainer>
                 <TextField
                   min="0"
-                  max="10000000"
+                  max="11250000"
                   value={t.memUnits}
                   label="Memory Units (bytes)"
-                  helperText="max 10000000B"
+                  helperText="max 11250000"
                   type="number"
                   onChange={(e) => {
                     const txs = transactions
                     let input = parseInt(e.target.value)
                     if (input < 0) input = 0
-                    txs[i].memUnits = input > 10000000 ? 10000000 : input
+                    txs[i].memUnits = input > 11250000 ? 11250000 : input
                     setTransactions([...txs])
                   }}
                   onBlur={(e) => {
