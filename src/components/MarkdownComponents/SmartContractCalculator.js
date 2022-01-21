@@ -317,9 +317,7 @@ export default function SmartContractCalculator () {
       </Results>
       <h5>How are the costs calculated?</h5>
       <p>
-        Primitive Plutus operations (the internal building blocks) are evaluated
-        on a reference architecture and are protocol-parameterized. Costs accumulate
-        for a smart contract based on how many types of primitives are used.
+        Primitive Plutus operations (the internal building blocks) are evaluated on a reference architecture to give the costs for each primitive in terms of the basic CPU and memory units that it uses.  These are scaled based on the number of each different primitive that is used by a smart contract, and overall costs for a smart contract are calculated based on the current costs for each CPU and memory unit, plus the size of the transaction (including the size of the script, plus any datums that it needs).
         <br />
         <br />
         <br />
