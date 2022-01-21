@@ -6,6 +6,12 @@
   to = "https://docs.cardano.org/en/latest/native-tokens/getting-started-with-native-tokens.html"
   status = 301
 
+  from = "/en/testnets/cardano/tools/2021-09-06__12-00-00_plutus-fee-estimator.md/"
+  to = "https://testnets.cardano.org/en/testnets/cardano/tools/plutus-fee-estimator/"
+  status = 301
+
+  
+
 [build]
   functions = "functions"
 [[redirects]]
