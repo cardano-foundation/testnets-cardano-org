@@ -550,6 +550,10 @@ const PriceInfo = styled.span`
 const FieldContainer = styled.div`
   position: relative;
   padding: 0;
+
+  label {
+    font-size: 20px;
+  }
 `
 
 const Tooltip = styled.div`
