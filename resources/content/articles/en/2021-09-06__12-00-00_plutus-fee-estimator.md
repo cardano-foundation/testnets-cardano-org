@@ -14,7 +14,7 @@ The fee estimator needs three simple pieces of information:
 
 -   **The total on-chain transaction size in bytes**: a simple transaction, for example, is around 300 bytes, one with metadata is around 650 bytes, and Plutus scripts are typically 4,000-8,000 bytes (future optimizations and improvements will reduce this).
 -   **The number of computational (CPU) steps** that the script uses: each step represents 1 picosecond of execution time on a benchmark machine. Typical scripts should consume less than 1,000,000,000 (1 millisecond).
-- **The number of memory units** that the script uses: this represents the number of bytes that the script allocates. Typical scripts should consume less than 11,250,000 memory units.
+- **The number of memory units** that the script uses: this represents the number of bytes that the script allocates. Typical scripts should consume less than 1,000,000 memory units (1MB of memory allocation).
 
 
 It calculates the cost for the corresponding transaction using current mainnet parameter settings, providing results both ada and in US dollars.
