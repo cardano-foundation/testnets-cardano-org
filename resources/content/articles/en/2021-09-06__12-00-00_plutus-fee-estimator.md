@@ -22,9 +22,8 @@ It calculates the cost for the corresponding transaction using current mainnet p
 The information that the fee estimator uses can either be obtained:
 
 -   directly from a specific Plutus transaction using the Cardano node
--   from information that the Plutus system provides
--   approximate values can be used
+-   from information that the Plutus system provides.
 
-This allows a range of possible fee estimates to be obtained prior to or during smart contract development, which facilitates experimentation with alternative implementation decisions.
+Users may also provide estimated values if they want to explore what-if scenarios. This allows a range of possible fee estimates to be obtained prior to or during smart contract development, which facilitates experimentation with alternative implementation decisions.
 
 <!-- include components/SmartContractCalculator -->
