@@ -22,8 +22,8 @@ The information that the fee estimator uses can either be obtained:
 
 -   directly from a specific Plutus transaction using the Cardano node
 -   from information that the Plutus system provides
--   approximate values can be used.
-   
+-   approximate values can be used
+
 This allows a range of possible fee estimates to be obtained prior to or during smart contract development, which facilitates experimentation with alternative implementation decisions.
 
 <!-- include components/SmartContractCalculator -->

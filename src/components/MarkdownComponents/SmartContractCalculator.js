@@ -315,10 +315,10 @@ export default function SmartContractCalculator () {
           <CardanoLogo active={false} />
         </div>
       </Results>
-      <h5>How have the costs here been set/calculated?</h5>
+      <h5>How are the costs calculated?</h5>
       <p>
         Primitive Plutus operations (the internal building blocks) are evaluated
-        on a reference architecture and protocol-parameterized. Costs accumulate
+        on a reference architecture and are protocol-parameterized. Costs accumulate
         for a smart contract based on how many types of primitives are used.
         <br />
         <br />
