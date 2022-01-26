@@ -6,7 +6,7 @@ import Container from '../components/Container'
 import PlutusPioneerPageQuery from '../queries/PlutusPioneerPageQuery'
 import TestnetBackground from '../../resources/images/header_press.png'
 import { TinyColor } from '@ctrl/tinycolor'
-import HubSpotForm from '../components/HubSpotForm'
+import Button from '@material-ui/core/Button'
 const HeroContainer = styled(Container)`
   position: relative;
 `
@@ -71,10 +71,12 @@ export default () => (
           <Container>
             <Markdown source={content.page_content} />
           </Container>
-          <Container id='plutus'>
+          <Container id="plutus">
             <h2>Yes, I'm interested!</h2>
             <p>Please share your details and we will be in touch.</p>
-            <HubSpotForm />
+            <a href="https://input-output.typeform.com/to/au0XDcBP" target="_blank" rel="noopener noreferrer">
+              <Button variant="contained" color="primary">Register Now</Button>
+            </a>
           </Container>
         </TechnicalSupportContainer>
       </Layout>
