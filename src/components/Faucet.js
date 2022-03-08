@@ -23,10 +23,6 @@ const Container = styled(Box)`
     }
   }
 `
-const ErrorMessage = styled.p`
-  color: red;
-  font-weight: bold;
-`
 
 const LoadingContainer = styled.div`
   position: absolute;
@@ -167,10 +163,6 @@ const FaucetInner = ({ content, getEndpoint, hasApiKey, getTransactionURL, reCap
 
   return (
     <Fragment>
-      <ErrorMessage>
-        We are curently experiencing techincal issues with the faucet. Please
-        bear with us while we get this sorted
-      </ErrorMessage>
       {[ statuses.ready, statuses.loading ].includes(status) &&
         <Container className={status === statuses.loading ? 'loading' : ''} maxWidth='40rem' marginTop={4} marginBottom={4} position='relative'>
           {status === statuses.loading &&
