@@ -150,7 +150,7 @@ content:
         1. Import the IOHK key:
           - File -> Lookup on Server
           - Allow network access to 'dirmngr', if the prompt arises
-          - Search for signing.authority@iohk.io 
+          - Search for signing.authority@iohk.io
           - Import the key
           - Do not certify the key just yet
           - Right-click on the key, and choose "Details"
@@ -257,7 +257,7 @@ content:
           - Supply an user ID (real name and email) that suit you personally
           - Choose a passphrase to protect your personal key (NOTE: the passphrase can be empty, but it is not recommended if you intend to use this key and GNUPG in future)
         - Import the IOHK key:
-          - `gpg2 --keyserver hkp://pool.sks-keyservers.net --search-keys signing.authority@iohk.io`
+          - `gpg2 --keyserver hkp://keys.openpgp.org --search-keys signing.authority@iohk.io`
           - In the selection dialogue, choose the key with fingerprint 966E5CB9CBFAA9BA
         - Sign the IOHK key (this designates trust and is required for the next step):
           - `gpg2 --lsign D32587D4090FE461CAEE0FF4966E5CB9CBFAA9BA`
