@@ -1,4 +1,10 @@
-import React, { Fragment, useRef, useEffect, useState, useCallback } from 'react'
+import React, {
+  Fragment,
+  useRef,
+  useEffect,
+  useState,
+  useCallback,
+} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Location } from '@reach/router'
@@ -8,7 +14,14 @@ import Theme from '@input-output-hk/front-end-core-components/components/Theme'
 import Box from '@material-ui/core/Box'
 import TinyColor from '@ctrl/tinycolor'
 import YouTube from 'react-youtube'
-import { FaChevronRight, FaChevronDown, FaEllipsisH, FaChevronUp, FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
+import {
+  FaChevronRight,
+  FaChevronDown,
+  FaEllipsisH,
+  FaChevronUp,
+  FaGithub,
+  FaExternalLinkAlt,
+} from 'react-icons/fa'
 import Link from '@input-output-hk/front-end-core-components/components/Link'
 import Layout from '../components/Layout'
 import Blank from './Blank'
@@ -34,29 +47,36 @@ const SideNavigationContainer = styled(Box)`
     font-size: 1.6rem;
   }
   position: relative;
-  z-index:0;
+  z-index: 0;
   padding: 2rem 0;
   flex-basis: 20%;
-  border-right: 0.1rem solid ${({ theme }) => new TinyColor(theme.palette.text.primary).setAlpha(0.2).toString()};
-  min-height: ${({ navigationheights }) => (navigationheights.min || 0) / 10 + 4}rem;
+  border-right: 0.1rem solid
+    ${({ theme }) =>
+      new TinyColor(theme.palette.text.primary).setAlpha(0.2).toString()};
+  min-height: ${({ navigationheights }) =>
+    (navigationheights.min || 0) / 10 + 4}rem;
 
   > div {
-    max-height: ${({ navigationheights }) => navigationheights.max ? `${navigationheights.max / 10}rem` : 'none'};
+    max-height: ${({ navigationheights }) =>
+      navigationheights.max ? `${navigationheights.max / 10}rem` : 'none'};
     overflow-y: auto;
     scrollbar-width: thin;
     padding-right: 2rem;
-    max-width: ${({ maxWidth }) => maxWidth === null ? 'none' : `${maxWidth / 10}rem`};
+    max-width: ${({ maxWidth }) =>
+      maxWidth === null ? 'none' : `${maxWidth / 10}rem`};
 
     &::-webkit-scrollbar {
       width: 0.7rem;
     }
 
     &::-webkit-scrollbar-track {
-      background: ${({ theme }) => new TinyColor(theme.palette.text.primary).setAlpha(0.2).toString()};
+      background: ${({ theme }) =>
+        new TinyColor(theme.palette.text.primary).setAlpha(0.2).toString()};
     }
 
     &::-webkit-scrollbar-thumb {
-      background: ${({ theme }) => new TinyColor(theme.palette.text.primary).setAlpha(0.5).toString()};
+      background: ${({ theme }) =>
+        new TinyColor(theme.palette.text.primary).setAlpha(0.5).toString()};
       border-radius: 0.35rem;
     }
   }
@@ -86,13 +106,13 @@ const SideNavigationContainer = styled(Box)`
   &:before {
     content: '';
     position: absolute;
-    z-index:-1;
-    top:0;
-    left:-25vw;
-    width:calc(100% + 25vw);
-    height:100%;
+    z-index: -1;
+    top: 0;
+    left: -25vw;
+    width: calc(100% + 25vw);
+    height: 100%;
     background: ${({ theme }) => theme.palette.primary.main};
-    opacity:0.05;
+    opacity: 0.05;
   }
 `
 
@@ -136,7 +156,7 @@ const Accordion = styled.div`
 const Nav = styled.ul`
   list-style: none;
   margin: 0;
-  
+
   &.position-top {
     position: static;
   }
@@ -165,7 +185,9 @@ const Nav = styled.ul`
     ul {
       margin-left: 1rem;
       padding-left: 1rem;
-      border-left: 0.1rem solid ${({ theme }) => new TinyColor(theme.palette.text.primary).setAlpha(0.2).toString()};
+      border-left: 0.1rem solid
+        ${({ theme }) =>
+          new TinyColor(theme.palette.text.primary).setAlpha(0.2).toString()};
     }
   }
 `
@@ -192,12 +214,14 @@ const MarkdownContent = styled.article`
   word-break: break-word;
   max-width: 80rem;
   display: block;
-  overflow: hidden;
+  // overflow: hidden;
 
   blockquote {
     margin: 1rem 1rem 1rem 2rem;
     padding: 0 0 0 2rem;
-    border-left: 0.1rem solid ${({ theme }) => new TinyColor(theme.palette.text.primary).setAlpha(0.4).toString()};
+    border-left: 0.1rem solid
+      ${({ theme }) =>
+        new TinyColor(theme.palette.text.primary).setAlpha(0.4).toString()};
 
     ${({ theme }) => theme.breakpoints.down('xs')} {
       margin-left: 1rem;
@@ -251,20 +275,38 @@ const ExternalLink = styled.a`
   display: inline-block;
 `
 
-const NavigationTree = ({ items, lang, path, ariaLabel, currentPathname, id = '', isRoot = true, position, setPosition, navigationHeights, setNavigationHeights, autoScroll = true, maxWidth, setMaxWidth }) => {
+const NavigationTree = ({
+  items,
+  lang,
+  path,
+  ariaLabel,
+  currentPathname,
+  id = '',
+  isRoot = true,
+  position,
+  setPosition,
+  navigationHeights,
+  setNavigationHeights,
+  autoScroll = true,
+  maxWidth,
+  setMaxWidth,
+}) => {
   const rootRef = useRef(null)
-  const [ expanded, setExpanded ] = useState(getDefaultExpanded())
+  const [expanded, setExpanded] = useState(getDefaultExpanded())
 
-  function isActive (path) {
+  function isActive(path) {
     const resolvedPath = lang ? `/${lang}${path}` : path
-    if (currentPathname.substring(0, resolvedPath.length) === resolvedPath) return true
+    if (currentPathname.substring(0, resolvedPath.length) === resolvedPath)
+      return true
     return false
   }
 
-  function getDefaultExpanded () {
+  function getDefaultExpanded() {
     const expanded = {}
-    const itemsWithChildren = items.filter(({ children }) => children.length > 0)
-    itemsWithChildren.forEach(item => {
+    const itemsWithChildren = items.filter(
+      ({ children }) => children.length > 0
+    )
+    itemsWithChildren.forEach((item) => {
       expanded[item.path] = isActive(item.path)
     })
 
@@ -276,14 +318,16 @@ const NavigationTree = ({ items, lang, path, ariaLabel, currentPathname, id = ''
     const { min, max } = navigationHeights
     const newMax = window.innerHeight - FIXED_HEADER_OFFSET - 40
     const newMin = Math.min(Math.abs(top - bottom), newMax)
-    if (min !== newMin || max !== newMax) setNavigationHeights({ min: newMax, max: newMax })
-  }, [ navigationHeights, rootRef ])
+    if (min !== newMin || max !== newMax)
+      setNavigationHeights({ min: newMax, max: newMax })
+  }, [navigationHeights, rootRef])
 
   const updateMaxWidth = useCallback(() => {
-    const { left, right } = rootRef.current.parentElement.parentElement.getBoundingClientRect()
+    const { left, right } =
+      rootRef.current.parentElement.parentElement.getBoundingClientRect()
     const newMaxWidth = Math.abs(right - left)
     if (maxWidth !== newMaxWidth) setMaxWidth(newMaxWidth)
-  }, [ maxWidth, rootRef ])
+  }, [maxWidth, rootRef])
 
   const toggleAccordion = (item) => (e) => {
     if (item.hasContent) return
@@ -291,13 +335,15 @@ const NavigationTree = ({ items, lang, path, ariaLabel, currentPathname, id = ''
     if (isActive(item.path)) return
     setExpanded({
       ...expanded,
-      [item.path]: !expanded[item.path]
+      [item.path]: !expanded[item.path],
     })
   }
 
   const onScroll = useCallback(() => {
-    const { top, bottom } = rootRef.current.parentElement.parentElement.getBoundingClientRect()
-    const { bottom: navBottom, top: navTop } = rootRef.current.getBoundingClientRect()
+    const { top, bottom } =
+      rootRef.current.parentElement.parentElement.getBoundingClientRect()
+    const { bottom: navBottom, top: navTop } =
+      rootRef.current.getBoundingClientRect()
     if (position === 'top' && top <= 0 + FIXED_HEADER_OFFSET) {
       setPosition('fixed')
     } else if (position !== 'top' && top > 0 + FIXED_HEADER_OFFSET) {
@@ -307,7 +353,7 @@ const NavigationTree = ({ items, lang, path, ariaLabel, currentPathname, id = ''
     } else if (position === 'bottom' && navTop >= 0 + FIXED_HEADER_OFFSET) {
       setPosition('fixed')
     }
-  }, [ position, rootRef, navigationHeights ])
+  }, [position, rootRef, navigationHeights])
 
   useEffect(() => {
     if (isRoot && rootRef.current && autoScroll) {
@@ -327,62 +373,101 @@ const NavigationTree = ({ items, lang, path, ariaLabel, currentPathname, id = ''
         window.removeEventListener('touchmove', onScroll)
       }
     }
-  }, [ isRoot, rootRef, position, expanded, autoScroll ])
+  }, [isRoot, rootRef, position, expanded, autoScroll])
 
   return (
-    <Nav id={id} role='navigation' aria-label={ariaLabel} key={path} ref={rootRef} className={isRoot ? `position-${position}` : ''}>
+    <Nav
+      id={id}
+      role="navigation"
+      aria-label={ariaLabel}
+      key={path}
+      ref={rootRef}
+      className={isRoot ? `position-${position}` : ''}
+    >
       {items.map((item) => (
         <li key={item.path}>
-          {item.children.length === 0 && !item.externalHref &&
+          {item.children.length === 0 && !item.externalHref && (
             <Link
               href={`${item.path}`}
-              activeClassName='active'
+              activeClassName="active"
               title={item.title}
               partiallyActive
               tracking={{ category: 'article_navigation', label: item.path }}
             >
               {item.title}
             </Link>
-          }
-          {item.externalHref &&
+          )}
+          {item.externalHref && (
             <ExternalLink
               href={`${item.externalHref}`}
               title={item.title}
-              tracking={{ category: 'article_navigation_external', label: item.externalHref }}
+              tracking={{
+                category: 'article_navigation_external',
+                label: item.externalHref,
+              }}
             >
-              <Box display='flex'>
-                <Box display='flex' flexDirection='column' justifyContent='center'>
+              <Box display="flex">
+                <Box
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="center"
+                >
                   {item.title}
                 </Box>
-                <Box display='flex' flexDirection='column' justifyContent='center' marginLeft={1}>
+                <Box
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="center"
+                  marginLeft={1}
+                >
                   <FaExternalLinkAlt />
                 </Box>
               </Box>
             </ExternalLink>
-          }
-          {item.children.length > 0 && !item.externalHref &&
+          )}
+          {item.children.length > 0 && !item.externalHref && (
             <Fragment>
               <AccordionToggle
                 href={item.path}
                 className={item.hasContent ? '' : 'has-no-content'}
                 onClick={toggleAccordion(item)}
-                activeClassName='active'
+                activeClassName="active"
                 partiallyActive
-                tracking={{ category: 'article_navigation', label: `toggle_accordion_${item.path}` }}
+                tracking={{
+                  category: 'article_navigation',
+                  label: `toggle_accordion_${item.path}`,
+                }}
                 aria-disabled={isActive(item.path) ? 'true' : 'false'}
                 aria-controls={item.path}
                 aria-expanded={expanded[item.path]}
               >
-                <Box display='flex'>
-                  <Box flex={1} justifyContent='center' flexDirection='column' display='flex'>
+                <Box display="flex">
+                  <Box
+                    flex={1}
+                    justifyContent="center"
+                    flexDirection="column"
+                    display="flex"
+                  >
                     {item.title}
                   </Box>
-                  <Box marginLeft={0.8} justifyContent='center' flexDirection='column' display='flex'>
-                    {expanded[item.path] ? <FaChevronDown /> : <FaChevronRight />}
+                  <Box
+                    marginLeft={0.8}
+                    justifyContent="center"
+                    flexDirection="column"
+                    display="flex"
+                  >
+                    {expanded[item.path] ? (
+                      <FaChevronDown />
+                    ) : (
+                      <FaChevronRight />
+                    )}
                   </Box>
                 </Box>
               </AccordionToggle>
-              <Accordion role='region' className={expanded[item.path] ? 'expanded' : ''}>
+              <Accordion
+                role="region"
+                className={expanded[item.path] ? 'expanded' : ''}
+              >
                 <NavigationTree
                   aria-labelledby={item.path}
                   ariaLabel={`${item.title} subnavigation`}
@@ -398,7 +483,7 @@ const NavigationTree = ({ items, lang, path, ariaLabel, currentPathname, id = ''
                 />
               </Accordion>
             </Fragment>
-          }
+          )}
         </li>
       ))}
     </Nav>
@@ -413,28 +498,34 @@ NavigationTree.propTypes = {
   currentPathname: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
   isRoot: PropTypes.bool,
-  position: PropTypes.oneOf([ 'top', 'fixed', 'bottom' ]),
+  position: PropTypes.oneOf(['top', 'fixed', 'bottom']),
   setPosition: PropTypes.func,
   navigationHeights: PropTypes.shape({
     min: PropTypes.number,
-    max: PropTypes.number
+    max: PropTypes.number,
   }),
   setNavigationHeights: PropTypes.func,
   maxWidth: PropTypes.number,
   setMaxWidth: PropTypes.func,
-  autoScroll: PropTypes.bool
+  autoScroll: PropTypes.bool,
 }
 
 const Article = ({ pageContext }) => {
-  const [ position, setPosition ] = useState('top')
-  const [ navigationHeights, setNavigationHeights ] = useState({ min: null, max: null })
-  const [ maxWidth, setMaxWidth ] = useState(null)
-  const [ mobileTopNavigationOpen, setMobileTopNavigationOpen ] = useState(false)
-  const [ mobileBottomNavigationOpen, setMobileBottomNavigationOpen ] = useState(false)
+  const [position, setPosition] = useState('top')
+  const [navigationHeights, setNavigationHeights] = useState({
+    min: null,
+    max: null,
+  })
+  const [maxWidth, setMaxWidth] = useState(null)
+  const [mobileTopNavigationOpen, setMobileTopNavigationOpen] = useState(false)
+  const [mobileBottomNavigationOpen, setMobileBottomNavigationOpen] =
+    useState(false)
 
-  function getReportIssueHref ({ pathname, query, hash }) {
+  function getReportIssueHref({ pathname, query, hash }) {
     const baseHref = `https://github.com/${config.gitHubRepository}/issues/new?assignees=&labels=content&template=content-issue.md&title=`
-    return `${baseHref}${encodeURIComponent(`Invalid content ${pathname}${query || ''}${hash || ''}`)}`
+    return `${baseHref}${encodeURIComponent(
+      `Invalid content ${pathname}${query || ''}${hash || ''}`
+    )}`
   }
 
   const renderDownloaders = (loc) => {
@@ -450,23 +541,26 @@ const Article = ({ pageContext }) => {
    * e.g. <!-- include components/OtherComponent --> -> renders components/MarkdownComponents/OtherComponent if it exists
    * e.g. <!-- embed youtube/123 --> -> Renders embedded youtube video with id 123
    */
-  function renderArticleContent () {
+  function renderArticleContent() {
     let remainingContent = pageContext.content
     const contentParts = []
     // Matches <!-- include components/<MyComponent> --> - where <MyComponent> is Alpha string reference to component
     // Or <!-- embed youtube/id --> - where id is the YouTube video id to embed
     // Or <!-- embed grafana/url --> - where url is the Grafana URL
     // in src/components/MarkdownComponent/index.js
-    const pattern = /<!--\s(include|embed)\s(components|youtube|grafana)\/([^\s]+)\s-->/
+    const pattern =
+      /<!--\s(include|embed)\s(components|youtube|grafana)\/([^\s]+)\s-->/
     let match = remainingContent.match(pattern)
     let matchIndex = match ? match.index : -1
 
     while (remainingContent.length > 0 && matchIndex >= 0) {
       if (matchIndex > 0) {
-        contentParts.push(<Markdown source={remainingContent.substring(0, matchIndex)} />)
+        contentParts.push(
+          <Markdown source={remainingContent.substring(0, matchIndex)} />
+        )
       }
 
-      const [ _, type, category, value ] = match
+      const [_, type, category, value] = match
       if (type === 'include' && category === 'components') {
         const Component = MarkdownComponents[value]
         if (Component) contentParts.push(<Component />)
@@ -476,29 +570,28 @@ const Article = ({ pageContext }) => {
             videoId={value}
             opts={{
               width: '100%',
-              height: '350px'
+              height: '350px',
             }}
           />
         )
       } else if (type === 'embed' && category === 'grafana' && value) {
-        contentParts.push(
-          <Grafana embedLink={value} />
-        )
+        contentParts.push(<Grafana embedLink={value} />)
       }
 
-      remainingContent = remainingContent.substring(matchIndex + match[0].length)
+      remainingContent = remainingContent.substring(
+        matchIndex + match[0].length
+      )
       match = remainingContent.match(pattern)
       matchIndex = match ? match.index : -1
     }
 
-    if (remainingContent) contentParts.push(<Markdown source={remainingContent} />)
+    if (remainingContent)
+      contentParts.push(<Markdown source={remainingContent} />)
 
     return (
       <Fragment>
         {contentParts.map((content, index) => (
-          <Fragment key={index}>
-            {content}
-          </Fragment>
+          <Fragment key={index}>{content}</Fragment>
         ))}
       </Fragment>
     )
@@ -511,17 +604,19 @@ const Article = ({ pageContext }) => {
           template={Blank}
           headData={{
             title: pageContext.pageTitle,
-            meta: [
-              { name: 'description', content: '' }
-            ]
+            meta: [{ name: 'description', content: '' }],
           }}
         >
           <Container>
             <Location>
               {({ location }) => (
                 <PageContent>
-                  {pageContext.navigationContext.children.length > 0 &&
-                    <SideNavigationContainer navigationheights={navigationHeights} maxWidth={maxWidth} className={`position-${position}`}>
+                  {pageContext.navigationContext.children.length > 0 && (
+                    <SideNavigationContainer
+                      navigationheights={navigationHeights}
+                      maxWidth={maxWidth}
+                      className={`position-${position}`}
+                    >
                       <div>
                         <NavigationTree
                           ariaLabel={`${pageContext.navigationContext.title} subnavigation`}
@@ -538,10 +633,18 @@ const Article = ({ pageContext }) => {
                         />
                       </div>
                     </SideNavigationContainer>
-                  }
-                  <MainContent className={pageContext.navigationContext.children.length === 0 ? 'no-nav' : ''}>
-                    {pageContext.navigationContext.children.length > 0 &&
-                      <MobileInlineNavigation className={mobileTopNavigationOpen ? 'open' : ''}>
+                  )}
+                  <MainContent
+                    className={
+                      pageContext.navigationContext.children.length === 0
+                        ? 'no-nav'
+                        : ''
+                    }
+                  >
+                    {pageContext.navigationContext.children.length > 0 && (
+                      <MobileInlineNavigation
+                        className={mobileTopNavigationOpen ? 'open' : ''}
+                      >
                         <div>
                           <NavigationTree
                             lang={pageContext.lang}
@@ -553,9 +656,11 @@ const Article = ({ pageContext }) => {
                           />
                         </div>
                         <a
-                          href='#'
-                          aria-hidden='true'
-                          tracking={{ label: 'toggle_mobile_article_navigation_top' }}
+                          href="#"
+                          aria-hidden="true"
+                          tracking={{
+                            label: 'toggle_mobile_article_navigation_top',
+                          }}
                           onClick={(e) => {
                             e.preventDefault()
                             setMobileTopNavigationOpen(!mobileTopNavigationOpen)
@@ -565,44 +670,74 @@ const Article = ({ pageContext }) => {
                           {!mobileTopNavigationOpen && <FaEllipsisH />}
                         </a>
                       </MobileInlineNavigation>
-                    }
-                    <MarkdownContent>
-                      {renderArticleContent()}
-                    </MarkdownContent>
+                    )}
+                    <MarkdownContent>{renderArticleContent()}</MarkdownContent>
                     <MarkdownContent>
                       {renderDownloaders(location)}
                     </MarkdownContent>
                     <MarkdownContent>
-                      {!pageContext.hasNoChildContent && (pageContext.previous || pageContext.next) &&
-                        <Box display='flex' flexDirection='row' justifyContent='space-between' width='100%'>
-                          {pageContext.previous && pageContext.previous.path !== '/testnets/cardano/' &&
-                            <Link href={pageContext.previous.path} title={pageContext.previous.title}>&larr; {content.previous}</Link>
-                          }
-                          {pageContext.next &&
-                            <Link href={pageContext.next.path} title={pageContext.next.title}>{content.next} &rarr;</Link>
-                          }
-                        </Box>
-                      }
+                      {!pageContext.hasNoChildContent &&
+                        (pageContext.previous || pageContext.next) && (
+                          <Box
+                            display="flex"
+                            flexDirection="row"
+                            justifyContent="space-between"
+                            width="100%"
+                          >
+                            {pageContext.previous &&
+                              pageContext.previous.path !==
+                                '/testnets/cardano/' && (
+                                <Link
+                                  href={pageContext.previous.path}
+                                  title={pageContext.previous.title}
+                                >
+                                  &larr; {content.previous}
+                                </Link>
+                              )}
+                            {pageContext.next && (
+                              <Link
+                                href={pageContext.next.path}
+                                title={pageContext.next.title}
+                              >
+                                {content.next} &rarr;
+                              </Link>
+                            )}
+                          </Box>
+                        )}
                     </MarkdownContent>
                     <Box marginTop={2} marginBottom={2}>
-                      {config.gitHubRepository &&
-                        <Box display='flex'>
+                      {config.gitHubRepository && (
+                        <Box display="flex">
                           <ReportAnIssueLink
                             href={getReportIssueHref(location)}
-                            tracking={{ category: 'article', label: 'report_an_issue' }}
+                            tracking={{
+                              category: 'article',
+                              label: 'report_an_issue',
+                            }}
                           >
-                            <Box display='flex' marginRight={1} flexDirection='column' justifyContent='center'>
+                            <Box
+                              display="flex"
+                              marginRight={1}
+                              flexDirection="column"
+                              justifyContent="center"
+                            >
                               <FaGithub />
                             </Box>
-                            <Box display='flex' flexDirection='column' justifyContent='center'>
+                            <Box
+                              display="flex"
+                              flexDirection="column"
+                              justifyContent="center"
+                            >
                               <p>{content.report_an_issue}</p>
                             </Box>
                           </ReportAnIssueLink>
                         </Box>
-                      }
+                      )}
                     </Box>
-                    {pageContext.navigationContext.children.length > 0 &&
-                      <MobileInlineNavigation className={mobileBottomNavigationOpen ? 'open' : ''}>
+                    {pageContext.navigationContext.children.length > 0 && (
+                      <MobileInlineNavigation
+                        className={mobileBottomNavigationOpen ? 'open' : ''}
+                      >
                         <div>
                           <NavigationTree
                             lang={pageContext.lang}
@@ -614,19 +749,23 @@ const Article = ({ pageContext }) => {
                           />
                         </div>
                         <a
-                          href='#'
-                          aria-hidden='true'
-                          tracking={{ label: 'toggle_mobile_article_navigation_bottom' }}
+                          href="#"
+                          aria-hidden="true"
+                          tracking={{
+                            label: 'toggle_mobile_article_navigation_bottom',
+                          }}
                           onClick={(e) => {
                             e.preventDefault()
-                            setMobileBottomNavigationOpen(!mobileBottomNavigationOpen)
+                            setMobileBottomNavigationOpen(
+                              !mobileBottomNavigationOpen
+                            )
                           }}
                         >
                           {mobileBottomNavigationOpen && <FaChevronUp />}
                           {!mobileBottomNavigationOpen && <FaEllipsisH />}
                         </a>
                       </MobileInlineNavigation>
-                    }
+                    )}
                   </MainContent>
                 </PageContent>
               )}
@@ -652,8 +791,8 @@ Article.propTypes = {
     previous: PropTypes.object,
     next: PropTypes.object,
     lang: PropTypes.string.isRequired,
-    hasNoChildContent: PropTypes.bool
-  }).isRequired
+    hasNoChildContent: PropTypes.bool,
+  }).isRequired,
 }
 
 export default Article

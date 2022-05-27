@@ -5,7 +5,7 @@ content:
   hero_content: |
     # Plutus Pioneer Program
 
-    The second round of this program is now finished. However, we continue welcoming applications from developers for future courses we will be running over the coming months.
+    Applications for the third cohort of the program are now closed. However, we continue welcoming applications from developers for future courses we will be running later this year.
 
   hero_cta_label: Register
   hero_cta_href: '/plutus-pioneer-program/#plutus'
@@ -13,7 +13,7 @@ content:
     What is the Plutus pioneer program?
     -----------------------------------
 
-    It is a program to recruit and train developers in Plutus for the Cardano ecosystem. When you join this program, you will become part of a group with early access to a set of courses that teach you the core principles of how to code in both Haskell and Plutus. It will be highly interactive, with weekly videos, exercises, and Q&A sessions, along with exclusive access to the creators and key experts in the language. You will also be able to join a dedicated community channel, created to help pioneers connect to each other as you learn.
+    It is a program to recruit and train developers in Plutus for the Cardano ecosystem. When you join this program, you will become part of a group with access to a set of courses that teach you the core principles of how to code in both Haskell and Plutus. It will be highly interactive, with weekly videos, exercises, and Q&A sessions, along with exclusive access to the creators and key experts in the language. You will also be able to join a dedicated community channel, created to help pioneers connect to each other as you learn.
 
     What prior experience do I need?
     --------------------------------
@@ -36,20 +36,22 @@ content:
       * Working with Plutus (on and off the chain)
       * Minting policies
       * State machines
-      * The Plutus application framework
-      * Some case studies and practical exercises. 
+      * The Plutus application framework (PAF)
+      * The Plutus application backend (PAB)
+      * Some case studies and practical exercises 
 
     As with all learning experiences, the more you put in the more you will get out!
 
     When can I join?
     -------------------
 
-    Our second course finished at the end of August. Depending on demand, we plan to open up a third cohort soon, so please register your interest to hear more in due course.
+    Our third course has just started and will run through to the end of March. Depending on demand, we plan to open up a fourth cohort later in the summer, so please register your interest today to hear more in due course.
+
 
     How can I register for the Plutus pioneer program?
     --------------------------------------------------
 
-    If you are interested in joining the third round of this program, please complete the registration form below. You will receive a short application form, and we will be in touch when we have fresh course dates to offer.
+    If you are interested in joining a future cohort of this program, please complete the registration form below. You will receive a short application form, and we will be in touch when we have fresh course dates to offer.
 
     Will I be certified? 
     --------------------
