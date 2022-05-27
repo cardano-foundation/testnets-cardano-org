@@ -30,6 +30,6 @@ To maximize the value of this testnet, all you have to do is get involved. Runni
 
 To geat started, make sure you:
 
-<INSTRUSTIONS TO BE ADDED SOON>
+INSTRUSTIONS TO BE ADDED SOON
 
 
