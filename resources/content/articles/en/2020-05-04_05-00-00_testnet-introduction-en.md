@@ -10,26 +10,30 @@ redirects:
 ---
 ## About Vasil testnet
 
-Cardano’s Vasil upgrade is now available on the Cardano public testnet.
+Cardano’s Vasil upgrade is now available on the *Cardano public testnet*.
 
-Vasil will enforce the next major upgrade to the Cardano protocol. It will be enacted in June 2022 using [Cardano’s HFC approach](https://docs.cardano.org/core-concepts/about-hard-forks). It is named after a much loved and respected Cardano community member, Vasil St Dabov.
+Vasil enforces the next major upgrade to the Cardano protocol using [Cardano’s HFC approach](https://docs.cardano.org/core-concepts/about-hard-forks). It is named after a much loved and respected Cardano community member, Vasil St Dabov.
 
-The goal for the Vasil hard fork is to improve on-chain performance. Specifically, it will enhance [the handling of on-chain (Plutus) scripts](https://iohk.io/en/blog/posts/2022/04/13/boosting-cardano-s-throughput-with-script-referencing/), reducing user costs and allowing [greater script throughput,](https://iohk.io/en/blog/posts/2022/03/21/increasing-the-transaction-throughput-of-cardano/) as well as making it easier for developers to produce new scripts. Vasil changes form the first stages of a series of planned improvements that will be rolled out over time.
+The Vasil hard fork brings changes that will improve [the handling of on-chain (Plutus) scripts](https://iohk.io/en/blog/posts/2022/04/13/boosting-cardano-s-throughput-with-script-referencing/), reducing user costs and allowing [greater script throughput](https://iohk.io/en/blog/posts/2022/03/21/increasing-the-transaction-throughput-of-cardano/). Vasil changes form the first stages of a series of planned improvements that will be rolled out over time.
 
 More specifically, the release introduces:
 
--   New Plutus primitives, a tuned Plutus interpreter, and a new Plutus cost model
+-   Diffusion pipelining
+-   Plutus V2 (new primitives, a tuned interpreter, and a new cost model)
+-   New Plutus built-ins
 -   Plutus reference inputs
 -   Plutus inline datums
 -   Plutus reference scripts
--   Diffusion pipelining
+-   Collateral change address
+-   Transaction redeemers changes
+-   Single VRF implementation
 
-### Getting started
+To get started, make sure you upgrade your [node configuration, topology, and genesis files](https://book.world.dev.cardano.org/environments.html). You can find more [getting started tutorials here](https://github.com/input-output-hk/cardano-node/tree/master/doc/getting-started).
 
-To maximize the value of this testnet, all you have to do is get involved. Running a node, delegating stake, or setting up and maintaining a stake pool - all of these activities will test the network and add to the quality of the final Vasil implementation. 
+Also, note that:
 
-To geat started, make sure you:
-
-INSTRUSTIONS TO BE ADDED SOON
+-   With the Vasil hard fork, the D parameter will be removed since the network is fully decentralized.
+-   If you are an SPO, you should create your operational certificate using cold.counter +1. The `OpCert` must be exactly one more than the previously used one.
+-   The `minUTxO` formula is now calculated using original bytes instead of `lovelacePerUTxOWord`.
 
 
