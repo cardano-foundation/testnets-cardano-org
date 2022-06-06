@@ -5,51 +5,75 @@ parent: 2020-05-04_05-00-00_about
 order: 2
 ---
 
+## Diffusion pipelining
+
+Diffusion pipelining is a feature that improves block propagation times and further leads to higher throughput. In essence, it streamlines the process of sharing information about newly created blocks among network participants. The goal of this upgrade is to ensure that blocks can be shared (propagated) in the network within five seconds after their creation. For this, diffusion pipelining propagates blocks before their full validation thus overlapping the time spent on diffusion with the time needed on validation.
+
+Pipelining also ensures that the block header referencing the hash of a previous block is propagated correctly. The body of the block is retained within the metadata included in the next block, which is essential for DDoS attack resistance even without full block confirmation.
+
+Diffusion pipelining provides more space for block size increase and Plutus script improvements, leading to a more scalable setting overall. 
+
 ## Plutus Core changes
 
-Plutus Core is a scripting language used in the Cardano ledger. It consists of various language constructs and also includes built-in types (integers, strings etc.) and built-in functions (integer addition etc.) that provide functionality that would be difficult or expensive to implement in the Plutus Core code. Built-in functions mostly operate on built-in types. Built-in types come with a size metric that is used by costing functions. For example, the size metric for integers returns the bit-size of the integer.
+Plutus Core is a scripting language used in the Cardano ledger. It consists of basic core  language constructs and also includes built-in types (integers, strings etc.) and built-in functions (integer addition etc.) that provide functionality that would be difficult or expensive to implement in the Plutus Core code. Built-in functions mostly operate on built-in types. Built-in types come with a size metric that is used by costing functions. For example, the size metric for integers returns the bit-size of the integer.
 
-The performance of Plutus Core scripts relates to how expensive it is to run a script in the ledger. The cost model is used off-chain to predict fees for running such scripts.
+The performance of Plutus Core scripts relates to how expensive it is to run a script in the ledger. The cost model describes CPU and memory fees for each language primitive and can be used off-chain to predict fees for running such scripts.
 
-Model performance is calculated by `costing _evaluation_` in abstract resource units (exunits) of CPU and memory. Individual steps of evaluation are costed, and built-in functions must also come with a `_costing function_` that provides costing information for them. The costing function for a built-in function is a mathematical function that takes the sizes of the arguments (as computed by their size metrics) and returns an estimate of the budget that will be used to perform that function.
+Model performance is calculated by `costing _evaluation_` in abstract resource units (exunits) of CPU and memory. Individual steps of evaluation are costed, and built-in functions must also come with a `_costing function_` that provides costing information for them. The costing function for a built-in function is a mathematical function that takes the sizes of the arguments (as computed by their size metrics) and returns an estimate of the budget that will be used to perform that function. 
 
 For example, the costing function for addition says that the CPU and memory costs are both proportional to the maximum of the sizes of the input integers (with some appropriate constants). Determining costing functions is done empirically by running the function in question against a large number of inputs and choosing a costing function that fits the data well.
 
 ### Scripts in the Cardano ledger
 
-The Cardano ledger recognizes various types of scripts that are identified by ‘language’. This language tag allows the ledger to distinguish between different script types. When a new behavior or functionality is introduced, so is a new language. Each new version of Plutus will be its own language, and all Plutus Core language versions are supported forever in the ledger. This provides the ability to validate the history of the chain indefinitely.
+The Cardano ledger recognizes various types of scripts that are identified by ‘language’ version. This language tag allows the ledger to distinguish between different script types. When a new behavior or functionality is introduced, so is a new language.  Each new version of Plutus will be its own language, and all Plutus Core language versions are supported forever in the ledger. This provides the ability to validate the history of the chain indefinitely.
 
 Part of the specification of a language in the ledger explains how language scripts run, what arguments they are given, and how those arguments are structured. Languages also have an associated subset of Cardano protocol parameters that control some aspects of the script evaluation. For Plutus, this is the cost model that is associated with each new language version.
 
+### Binary scripts v1 and v2
+
+Version 1 scripts, which are a subset of version 2 scripts, run with the old Alonzo values.
+
+Version 2 scripts run with the new Vasil values, showing a 20% to 30% improvement in processing speed for the same scripts.
+
+### Updated cost model parameters
+
+The updated cost model parameters include the following changes:
+
+1.  Extend the set of built-in functions by adding these new built-ins:
+
+-   `serialiseData`
+-   `verifyEcdsaSecp256k1Signature`
+-   `verifySchnorrSecp256k1Signature`
+    
+2.  Given the two new signature verification built-in functions referenced immediately above, the built-in function `verifySignature` was renamed `verifyEd25519Signature` to make it more clear what its function is.
+
+3.  Recalibrate the cost model for the version of the evaluator in the node to align with the CPU parameter changes.
+
 ### New Plutus Core built-ins
 
-The Vasil release extends the set of built-in functions slightly. The built-in types and type operators remain unchanged from the Alonzo release. The Vasil release continues to support the Alonzo built-in functions and adds three new ones:
-
-1.  `serialiseData`
-2.  `verifyEcdsaSecp256k1Signature`
-3.  `verifySchnorrSecp256k1Signature`
+The built-in types and type operators remain unchanged from the Alonzo release. All the new built-in functions are backward compatible. Adding them does not break any older script validators. The Vasil release continues to support the Alonzo built-in functions and adds the following new functions: 
     
-### `serialiseData` built-in
+**serialiseData**
 
 A new Plutus built-in is added for serializing `BuiltinData` to `BuiltinByteString`. The serialiseData function takes a data object and converts it into a [CBOR](https://cbor.io/) object.
 
-The need for working with on-chain scripts was discovered as part of developing on-chain script validators for the Hydra Head protocol.
-
-In this particular context, those elements are transaction outputs – ‘TxOut’. While Plutus already provides a built-in for hashing data structure, for example, `sha2_256 :: BuiltinByteString -> BuiltinByteString`, it does not provide generic ways of serializing some data types to `BuiltinByteString`.
+Plutus already provides a built-in for hashing data structure, for example, `sha2_256 :: BuiltinByteString -> BuiltinByteString`, it does not provide generic ways of serializing some data types to `BuiltinByteString`.
 
 The overall memory and CPU costs are reduced by having a new built-in to serialize any Plutus ‘BuiltinData’ to ‘BuiltinByteString’ such that validators can leverage more optimized implementations and bytestring builders via built-ins than what is available on-chain.
 
-The `serialiseData` built-in is backward compatible. Adding it does not break any older script validators.
-
-### `verifyEcdsaSecp256k1Signature`
+**verifyEcdsaSecp256k1Signature**
 
 The `verifyEcdsaSecp256k1Signature` function performs elliptic curve digital signature verification over the `secp256k1` curve and conforms to a uniform interface for digital signature verification algorithms.
 
 The ECDSA scheme admits two distinct valid signatures for a given message and private key. We follow the restriction imposed by Bitcoin and only accept the smaller signature: `verifyEcdsaSecp256k1Signature` will return false if the larger one is supplied.
 
-### `verifySchnorrSecp256k1Signature`
+The keys for `verifyEcdsaSecp256k1Signature` exceed the maximum size that can be encoded in a constant bytestring and therefore must be split into 2 bytestrings and concatenated in the validator script.
 
-The `verifySchnorrSecp256k1Signature` function performs verification of Schnorr signatures over the `secp256k1` curve and conforms to a uniform interface for digital signature verification algorithms.
+**verifySchnorrSecp256k1Signature**
+
+The `verifySchnorrSecp256k1Signature` function performs verification of Schnorr signatures over the `secp256k1` curve and conforms to a uniform interface for digital signature verification algorithms. 
+
+For more explanations, how-to guides, and tutorials, see [Plutus Docs.](https://plutus.readthedocs.io/en/latest/index.html)
 
 ## Reference inputs (CIP-31)
 
@@ -84,6 +108,8 @@ Large script sizes pose problems for users because:
     
 CIP-33 introduces the ability to reference a script without including it in each transaction. This hugely reduces the contribution of scripts to the transaction size.
 
+You can find some [Plutus script examples here](https://github.com/input-output-hk/cardano-node/tree/master/doc/reference/plutus).
+
 ## Transaction redeemers
 
 Two important elements in Plutus are datums and redeemers. The datum is a piece of information that can be associated with a UTXO and is used to carry script state information such as its owner or the timing details (which define when the UTXO can be spent). It is frequently used in combination with a redeemer – which is arbitrary information included in a transaction to provide an input to the script.
@@ -97,3 +123,9 @@ With the Vasil hard fork, developers will be able to see redeemers for inputs ra
 Currently, on Cardano mainnet, the collateral amount is set to 150% of the transaction fee, and no change is provided to the collateral UTXO. This means that if a script fails phase-2 validation, the DApp user will lose all the funds that are stored in the UTXO chosen for the collateral.
 
 With the Vasil hard fork, DApp developers will have the possibility to specify a change address for the script collateral. This means that in case the script fails phase-2 validation, only the right amount will be taken, and the remaining funds will be sent to the provided change address.
+
+## Single VRF implementation
+
+Vasil will also see enhancement of Cardano’s Cryptographic Primitives. Specifically, the Ouroboros’ Verifiable Random Function (VRF) will be optimized. A VRF processes cryptographic inputs — slot IDs, nonce, and VRF signing key — and produces random outputs. In Cardano, the VRF determines which SPO mints the next block. Before Vasil, there were two VFR functions executed on every network hop to validate a block.
+
+With the Vasil hard fork, one of these functions will be dropped, resulting in faster block validation and overall network syncing times. Please note that when syncing the chain, the performance improvement will be available only after the Vasil hard fork epoch. Until this point, the performance will remain the same.
