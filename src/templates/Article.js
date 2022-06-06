@@ -229,6 +229,13 @@ const MarkdownContent = styled.article`
     }
   }
 
+  li {
+    margin-bottom: 1rem; 
+    p {
+      display: inline;
+    }
+  }
+
   ${({ theme }) => theme.breakpoints.down('sm')} {
     max-width: none;
   }
