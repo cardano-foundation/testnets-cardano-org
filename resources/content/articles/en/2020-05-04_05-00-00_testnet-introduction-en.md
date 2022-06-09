@@ -36,4 +36,11 @@ Also, note that:
 -   If you are an SPO, you should create your operational certificate using cold.counter +1. The `OpCert` must be exactly one more than the previously used one.
 -   The `minUTxO` formula is now calculated using original bytes instead of `lovelacePerUTxOWord`.
 
+**Feedback**
+
+We welcome feedback on any issues you have encountered:
++ Via [Discord channels](https://discord.com/channels/826816523368005654/826816523964383263) for general questions or discussions
++ Via the [Cardano node issue tracker](https://github.com/input-output-hk/cardano-node/issues) for any bugs or feature requests in the node. Please tag them as Vasil-related.
++ Via the [Plutus issue tracker](https://github.com/input-output-hk/plutus/issues) for any bugs or feature requests with Plutus.
++ Via [IOG technical support desk](https://iohk.zendesk.com/hc/en-us/categories/900000102203-Shelley-Testnet)
 
