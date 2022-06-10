@@ -126,6 +126,7 @@ With the Vasil hard fork, DApp developers will have the possibility to specify a
 
 ## Single VRF implementation
 
-Vasil will also see enhancement of Cardano’s Cryptographic Primitives. Specifically, the Ouroboros’ Verifiable Random Function (VRF) will be optimized. A VRF processes cryptographic inputs — slot IDs, nonce, and VRF signing key — and produces random outputs. In Cardano, the VRF determines which SPO mints the next block. Before Vasil, there were two VFR functions executed on every network hop to validate a block.
+On Cardano, the Verifiable Random Function (VRF) determines which SPO creates the next block. Before Vasil, there were two VFR functions executed on every network hop to validate a block.
 
 With the Vasil hard fork, one of these functions will be dropped, resulting in faster block validation and overall network syncing times. Please note that when syncing the chain, the performance improvement will be available only after the Vasil hard fork epoch. Until this point, the performance will remain the same.
+
