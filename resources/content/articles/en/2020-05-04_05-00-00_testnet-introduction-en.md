@@ -10,7 +10,7 @@ redirects:
 ---
 ## About Vasil testnet
 
-Cardano’s Vasil upgrade is now available on the *Cardano public testnet*.
+Cardano’s Vasil developer testnet is now available for public testing. 
 
 Vasil enforces the next major upgrade to the Cardano protocol using [Cardano’s HFC approach](https://docs.cardano.org/core-concepts/about-hard-forks). It is named after a much loved and respected Cardano community member, Vasil St Dabov.
 
