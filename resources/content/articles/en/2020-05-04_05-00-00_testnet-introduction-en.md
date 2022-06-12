@@ -32,7 +32,7 @@ To get started, make sure you upgrade your [node configuration, topology, and ge
 
 Also, note that:
 
--   With the Vasil hard fork, the D parameter will be removed since the network is fully decentralized.
+-  With the Vasil hard fork, the D parameter will be removed since block production is now fully decentralized, and this will prevent re-federation.
 -   If you are an SPO, you now need to create your operational certificate using cold.counter +1. The `OpCert` must be exactly one more than the previously used one.
 -   The `minUTxO` formula is now calculated using original bytes instead of `lovelacePerUTxOWord`.
 
