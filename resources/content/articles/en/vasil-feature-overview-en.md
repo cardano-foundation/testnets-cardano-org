@@ -29,11 +29,9 @@ The Cardano ledger recognizes various types of scripts that are identified by â€
 
 Part of the specification of a language in the ledger explains how language scripts run, what arguments they are given, and how those arguments are structured. Languages also have an associated subset of Cardano protocol parameters that control some aspects of the script evaluation. For Plutus, this is the cost model that is associated with each new language version.
 
-### Binary scripts v1 and v2
+### Plutus evaluator speed improvements
 
-Version 1 scripts, which are a subset of version 2 scripts, run with the old Alonzo values.
-
-Version 2 scripts run with the new Vasil values, showing a 20% to 30% improvement in processing speed for the same scripts.
+Due to performance improvements in the Plutus evaluator, both PlutusV1 and PlutusV2 scripts have lower cost model parameters than before, resulting in 20-30% improvements in script resource usage. 
 
 ### Updated cost model parameters
 
@@ -112,9 +110,9 @@ You can find some [Plutus script examples here](https://github.com/input-output-
 
 ## Transaction redeemers
 
-Two important elements in Plutus are datums and redeemers. The datum is a piece of information that can be associated with a UTXO and is used to carry script state information such as its owner or the timing details (which define when the UTXO can be spent). It is frequently used in combination with a redeemer â€“ which is arbitrary information included in a transaction to provide an input to the script.
+Two important elements in Plutus are *datums* and *redeemers*. The datum is a piece of information that can be associated with a UTXO and is used to carry script state information. It is frequently used in combination with a redeemer, which is like an instruction or command to the contract.
 
-With the Vasil hard fork, developers will be able to see redeemers for inputs rather than those being in the process of validation. For more details read [how to work with datums and redeemers here](https://docs.cardano.org/plutus/datums-redeemers).
+With the Vasil hard fork, developers will be able to see redeemers for all inputs rather than just the one being passed to the currently executing script. For more details, read [how to work with datums and redeemers here](https://docs.cardano.org/plutus/datums-redeemers).
 
 ## Collateral change address
 
