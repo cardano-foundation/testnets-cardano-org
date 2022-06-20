@@ -10,13 +10,11 @@ redirects:
 ---
 ## About Vasil testnet
 
-Cardano’s Vasil developer testnet is now available for public testing. 
+Vasil enforces the next major upgrade to the Cardano protocol using [Cardano’s hard fork combinator (HFC) approach](https://docs.cardano.org/core-concepts/about-hard-forks). This upgrade is named after a much loved and respected Cardano community member, Vasil St Dabov.
 
-Vasil enforces the next major upgrade to the Cardano protocol using [Cardano’s HFC approach](https://docs.cardano.org/core-concepts/about-hard-forks). It is named after a much loved and respected Cardano community member, Vasil St Dabov.
+Vasil brings changes that will improve [the handling of on-chain (Plutus) scripts](https://iohk.io/en/blog/posts/2022/04/13/boosting-cardano-s-throughput-with-script-referencing/), reducing user costs and allowing [greater script throughput](https://iohk.io/en/blog/posts/2022/03/21/increasing-the-transaction-throughput-of-cardano/). Vasil changes form the first stages of a series of planned improvements that will be rolled out over time.
 
-The Vasil hard fork brings changes that will improve [the handling of on-chain (Plutus) scripts](https://iohk.io/en/blog/posts/2022/04/13/boosting-cardano-s-throughput-with-script-referencing/), reducing user costs and allowing [greater script throughput](https://iohk.io/en/blog/posts/2022/03/21/increasing-the-transaction-throughput-of-cardano/). Vasil changes form the first stages of a series of planned improvements that will be rolled out over time.
-
-More specifically, the release introduces:
+More specifically, this upgrade introduces:
 
 -   Diffusion pipelining
 -   Plutus V2 (new primitives, a tuned interpreter, and a new cost model)
@@ -32,7 +30,7 @@ To get started, make sure you upgrade your [node configuration, topology, and ge
 
 Also, note that:
 
--  With the Vasil hard fork, the D parameter will be removed since block production is now fully decentralized, and this will prevent re-federation.
+-  With the Vasil upgrade, the *D* parameter will be removed since block production is now fully decentralized, and this will prevent re-federation.
 -   If you are an SPO, you now need to create your operational certificate using cold.counter +1. The `OpCert` must be exactly one more than the previously used one.
 -   The `minUTxO` formula is now calculated using original bytes instead of `lovelacePerUTxOWord`.
 
