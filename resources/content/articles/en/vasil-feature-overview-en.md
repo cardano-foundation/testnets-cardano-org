@@ -116,7 +116,7 @@ With the Vasil hard fork, developers will be able to see redeemers for all input
 
 ## Collateral change address
 
-[Script collateral](https://docs.cardano.org/plutus/collateral-mechanism) is the monetary guarantee a user gives to assure that the contract has been carefully designed and thoroughly tested. It is used to guarantee that nodes are compensated for their work in case phase-2 validation fails. The collateral amount is specified at the time of constructing the transaction and is reserved to allow for the on-chain script execution.
+[Script collateral](https://docs.cardano.org/plutus/collateral-mechanism) is the monetary guarantee a user gives to assure that the transaction that uses a contract has been carefully constructed and thoroughly tested before submission to the validators. It is used to guarantee that nodes are compensated for their work in case phase-2 validation fails. The collateral amount is specified at the time of constructing the transaction and is reserved to allow for the on-chain script execution. 
 
 Currently, on Cardano mainnet, the collateral amount is set to 150% of the transaction fee, and no change is provided to the collateral UTXO. This means that if a script fails phase-2 validation, the DApp user will lose all the funds that are stored in the UTXO chosen for the collateral.
 
