@@ -11,8 +11,11 @@ redirects:
 ---
 ## Providing feedback
 
-User feedback is an invaluable and critical aspect of the Shelley testnet. Regardless of your experience level, we want to hear about any bugs or usability issues you encounter, or any suggestions for improvement you may have.
+User feedback is an invaluable and critical aspect of the Cardano testnet. Regardless of your experience level, we want to hear about any bugs or usability issues you encounter, or any suggestions for improvement you may have.
 
-Please raise an issue in the [Cardano node GitHub repository](https://github.com/input-output-hk/cardano-node) to provide feedback, including as much detail as possible to help our team understand what went wrong or what we could do better.
+Please raise an issue in:
+-   [Discord channels](https://discord.com/channels/826816523368005654/826816523964383263) for general questions or discussions
+-   [Cardano node issue tracker](https://github.com/input-output-hk/cardano-node/issues) for any bugs or feature requests in the node. 
+-   [Plutus issue tracker](https://github.com/input-output-hk/plutus/issues) for any bugs or feature requests with Plutus.
 
 We cannot guarantee that feedback provided by other means such as Twitter, Telegram, or the Cardano Forums will be received or actioned, due to the high volume of activity on these channels. 
