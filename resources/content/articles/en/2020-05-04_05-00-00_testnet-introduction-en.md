@@ -32,11 +32,10 @@ To get started, make sure you upgrade your [node configuration, topology, and ge
 
 Also, note that:
 
--  With the Vasil hard fork on mainnet, the *D* parameter will be removed since block production is now fully decentralized, and this will prevent re-federation.
+-  With the Vasil hard fork on mainnet, the *d* parameter will be removed since block production is now fully decentralized, and this will prevent re-federation.
 -   If you are an SPO, you now need to create your operational certificate using cold.counter +1. The `OpCert` must be exactly one more than the previously used one.
 -   The `minUTxO` formula is now calculated using original bytes instead of `lovelacePerUTxOWord`.
 -   When installing the Cardano node, it is now essential to install the `secp256k1` library. See [node installation details here](https://github.com/input-output-hk/cardano-node/blob/master/doc/getting-started/install.md/).
--   Reward calculations no longer filter out the unregistered stake credentials when creating a reward update. 
 
 **Feedback**
 
