@@ -2,7 +2,7 @@
 parent: 2020-05-04_05-00-00_about
 title: Supported platforms
 description: Shelley about
-order: 3
+order: 5
 last_updated: 2020-05-01T09:00:00+01:00
 redirects:
   - from: /en/shelley-haskell/about/supported-platforms/
