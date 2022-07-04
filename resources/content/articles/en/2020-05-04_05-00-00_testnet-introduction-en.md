@@ -45,3 +45,4 @@ We welcome feedback on any issues you have encountered:
 + Via the [Plutus issue tracker](https://github.com/input-output-hk/plutus/issues) for any bugs or feature requests with Plutus.
 + Via [IOG technical support desk](https://iohk.zendesk.com/hc/en-us/categories/900000102203-Shelley-Testnet).
 
+You can also join ['IO DEV announcements' Telegram channel](https://t.me/IOdevannouncements) to receive key development updates.
