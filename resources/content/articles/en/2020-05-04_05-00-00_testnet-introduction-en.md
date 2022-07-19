@@ -28,7 +28,11 @@ More specifically, this upgrade introduces:
 -   Transaction redeemers changes
 -   Single VRF implementation
 
-To get started, make sure you upgrade your [node configuration, topology, and genesis files](https://book.world.dev.cardano.org/environments.html). You can find more [getting started tutorials here](https://github.com/input-output-hk/cardano-node/tree/master/doc/getting-started).
+To get started, make sure to:
+
+* upgrade your [node configuration, topology, and genesis files](https://book.world.dev.cardano.org/environments.html)
+* check [getting started tutorials](https://github.com/input-output-hk/cardano-node/tree/master/doc/getting-started)
+* see [Vasil testnet tutorials](https://github.com/input-output-hk/Vasil-testnet)
 
 Also, note that:
 
