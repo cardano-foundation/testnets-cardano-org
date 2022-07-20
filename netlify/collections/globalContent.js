@@ -96,16 +96,6 @@ export default {
           widget: 'string'
         },
         {
-          name: 'kevm_description',
-          label: 'KEVM description',
-          widget: 'markdown'
-        },
-        {
-          name: 'iele_description',
-          label: 'IELE description',
-          widget: 'markdown'
-        },
-        {
           name: 'faucet_content',
           label: 'Faucet content',
           widget: 'object',
