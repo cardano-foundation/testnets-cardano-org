@@ -33,6 +33,7 @@ To get started, make sure to:
 * upgrade your [node configuration, topology, and genesis files](https://book.world.dev.cardano.org/environments.html)
 * check [getting started tutorials](https://github.com/input-output-hk/cardano-node/tree/master/doc/getting-started)
 * see [Vasil testnet tutorials](https://github.com/input-output-hk/Vasil-testnet)
+* see [Babbage script examples](https://github.com/input-output-hk/cardano-node/tree/master/doc/reference/plutus)
 
 Also, note that:
 
