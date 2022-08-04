@@ -278,9 +278,9 @@ const NavigationTree = ({
   maxWidth,
   setMaxWidth
 }) => {
+  const isTabletPortraitDown = useMediaQuery('(max-width: 899px)')
   const rootRef = useRef(null)
   const [expanded, setExpanded] = useState(getDefaultExpanded())
-  const isTabletPortraitDown = useMediaQuery('(max-width: 899px)')
 
   function isActive (path) {
     if (isTabletPortraitDown) {
