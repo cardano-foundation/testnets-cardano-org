@@ -3,7 +3,7 @@ import React, {
   useRef,
   useEffect,
   useState,
-  useCallback,
+  useCallback
 } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -17,10 +17,8 @@ import YouTube from 'react-youtube'
 import {
   FaChevronRight,
   FaChevronDown,
-  FaEllipsisH,
-  FaChevronUp,
   FaGithub,
-  FaExternalLinkAlt,
+  FaExternalLinkAlt
 } from 'react-icons/fa'
 import Link from '@input-output-hk/front-end-core-components/components/Link'
 import Layout from '../components/Layout'
@@ -32,6 +30,7 @@ import Grafana from '../components/Grafana'
 import Container from '../components/Container'
 import config from '../config'
 import CardanoDownloader from '../components/MarkdownComponents/CardanoDownloader'
+import useMediaQuery from '../helpers/useMediaQuery'
 
 const PageContent = styled.div`
   display: flex;
@@ -242,25 +241,6 @@ const MarkdownContent = styled.article`
 `
 
 const MobileInlineNavigation = styled.div`
-  padding: 1rem 0 0 2rem;
-  border-left: 0.2rem solid ${({ theme }) => theme.palette.primary.main};
-  max-width: 40rem;
-
-  > div {
-    max-height: 10rem;
-    overflow: hidden;
-  }
-
-  &.open > div {
-    max-height: none;
-    overflow: auto;
-  }
-
-  > a {
-    display: inline-block;
-    margin-top: 1rem;
-  }
-
   ${({ theme }) => theme.breakpoints.up('md')} {
     display: none;
   }
@@ -296,19 +276,23 @@ const NavigationTree = ({
   setNavigationHeights,
   autoScroll = true,
   maxWidth,
-  setMaxWidth,
+  setMaxWidth
 }) => {
   const rootRef = useRef(null)
   const [expanded, setExpanded] = useState(getDefaultExpanded())
+  const isTabletPortraitDown = useMediaQuery('(max-width: 899px)')
 
-  function isActive(path) {
-    const resolvedPath = lang ? `/${lang}${path}` : path
-    if (currentPathname.substring(0, resolvedPath.length) === resolvedPath)
-      return true
-    return false
+  function isActive (path) {
+    if (isTabletPortraitDown) {
+      return false
+    } else {
+      const resolvedPath = lang ? `/${lang}${path}` : path
+      if (currentPathname.substring(0, resolvedPath.length) === resolvedPath) { return true }
+      return false
+    }
   }
 
-  function getDefaultExpanded() {
+  function getDefaultExpanded () {
     const expanded = {}
     const itemsWithChildren = items.filter(
       ({ children }) => children.length > 0
@@ -325,8 +309,7 @@ const NavigationTree = ({
     const { min, max } = navigationHeights
     const newMax = window.innerHeight - FIXED_HEADER_OFFSET - 40
     const newMin = Math.min(Math.abs(top - bottom), newMax)
-    if (min !== newMin || max !== newMax)
-      setNavigationHeights({ min: newMax, max: newMax })
+    if (min !== newMin || max !== newMax) { setNavigationHeights({ min: newMax, max: newMax }) }
   }, [navigationHeights, rootRef])
 
   const updateMaxWidth = useCallback(() => {
@@ -342,7 +325,7 @@ const NavigationTree = ({
     if (isActive(item.path)) return
     setExpanded({
       ...expanded,
-      [item.path]: !expanded[item.path],
+      [item.path]: !expanded[item.path]
     })
   }
 
@@ -410,7 +393,7 @@ const NavigationTree = ({
               title={item.title}
               tracking={{
                 category: 'article_navigation_external',
-                label: item.externalHref,
+                label: item.externalHref
               }}
             >
               <Box display="flex">
@@ -433,7 +416,7 @@ const NavigationTree = ({
             </ExternalLink>
           )}
           {item.children.length > 0 && !item.externalHref && (
-            <Fragment>
+            <>
               <AccordionToggle
                 href={item.path}
                 className={item.hasContent ? '' : 'has-no-content'}
@@ -442,7 +425,7 @@ const NavigationTree = ({
                 partiallyActive
                 tracking={{
                   category: 'article_navigation',
-                  label: `toggle_accordion_${item.path}`,
+                  label: `toggle_accordion_${item.path}`
                 }}
                 aria-disabled={isActive(item.path) ? 'true' : 'false'}
                 aria-controls={item.path}
@@ -489,7 +472,7 @@ const NavigationTree = ({
                   setPosition={setPosition}
                 />
               </Accordion>
-            </Fragment>
+            </>
           )}
         </li>
       ))}
@@ -509,26 +492,23 @@ NavigationTree.propTypes = {
   setPosition: PropTypes.func,
   navigationHeights: PropTypes.shape({
     min: PropTypes.number,
-    max: PropTypes.number,
+    max: PropTypes.number
   }),
   setNavigationHeights: PropTypes.func,
   maxWidth: PropTypes.number,
   setMaxWidth: PropTypes.func,
-  autoScroll: PropTypes.bool,
+  autoScroll: PropTypes.bool
 }
 
 const Article = ({ pageContext }) => {
   const [position, setPosition] = useState('top')
   const [navigationHeights, setNavigationHeights] = useState({
     min: null,
-    max: null,
+    max: null
   })
   const [maxWidth, setMaxWidth] = useState(null)
-  const [mobileTopNavigationOpen, setMobileTopNavigationOpen] = useState(false)
-  const [mobileBottomNavigationOpen, setMobileBottomNavigationOpen] =
-    useState(false)
 
-  function getReportIssueHref({ pathname, query, hash }) {
+  function getReportIssueHref ({ pathname, query, hash }) {
     const baseHref = `https://github.com/${config.gitHubRepository}/issues/new?assignees=&labels=content&template=content-issue.md&title=`
     return `${baseHref}${encodeURIComponent(
       `Invalid content ${pathname}${query || ''}${hash || ''}`
@@ -548,7 +528,7 @@ const Article = ({ pageContext }) => {
    * e.g. <!-- include components/OtherComponent --> -> renders components/MarkdownComponents/OtherComponent if it exists
    * e.g. <!-- embed youtube/123 --> -> Renders embedded youtube video with id 123
    */
-  function renderArticleContent() {
+  function renderArticleContent () {
     let remainingContent = pageContext.content
     const contentParts = []
     // Matches <!-- include components/<MyComponent> --> - where <MyComponent> is Alpha string reference to component
@@ -577,7 +557,7 @@ const Article = ({ pageContext }) => {
             videoId={value}
             opts={{
               width: '100%',
-              height: '350px',
+              height: '350px'
             }}
           />
         )
@@ -592,15 +572,14 @@ const Article = ({ pageContext }) => {
       matchIndex = match ? match.index : -1
     }
 
-    if (remainingContent)
-      contentParts.push(<Markdown source={remainingContent} />)
+    if (remainingContent) { contentParts.push(<Markdown source={remainingContent} />) }
 
     return (
-      <Fragment>
+      <>
         {contentParts.map((content, index) => (
           <Fragment key={index}>{content}</Fragment>
         ))}
-      </Fragment>
+      </>
     )
   }
 
@@ -611,7 +590,7 @@ const Article = ({ pageContext }) => {
           template={Blank}
           headData={{
             title: pageContext.pageTitle,
-            meta: [{ name: 'description', content: '' }],
+            meta: [{ name: 'description', content: '' }]
           }}
         >
           <Container>
@@ -649,33 +628,15 @@ const Article = ({ pageContext }) => {
                     }
                   >
                     {pageContext.navigationContext.children.length > 0 && (
-                      <MobileInlineNavigation
-                        className={mobileTopNavigationOpen ? 'open' : ''}
-                      >
-                        <div>
-                          <NavigationTree
-                            lang={pageContext.lang}
-                            ariaLabel={`${pageContext.navigationContext.title} subnavigation`}
-                            items={pageContext.navigationContext.children}
-                            path={`/${pageContext.navigationContext.key}`}
-                            currentPathname={location.pathname}
-                            autoScroll={false}
-                          />
-                        </div>
-                        <a
-                          href="#"
-                          aria-hidden="true"
-                          tracking={{
-                            label: 'toggle_mobile_article_navigation_top',
-                          }}
-                          onClick={(e) => {
-                            e.preventDefault()
-                            setMobileTopNavigationOpen(!mobileTopNavigationOpen)
-                          }}
-                        >
-                          {mobileTopNavigationOpen && <FaChevronUp />}
-                          {!mobileTopNavigationOpen && <FaEllipsisH />}
-                        </a>
+                      <MobileInlineNavigation>
+                        <NavigationTree
+                          lang={pageContext.lang}
+                          ariaLabel={`${pageContext.navigationContext.title} subnavigation`}
+                          items={pageContext.navigationContext.children}
+                          path={`/${pageContext.navigationContext.key}`}
+                          currentPathname={location.pathname}
+                          autoScroll={false}
+                        />
                       </MobileInlineNavigation>
                     )}
                     <MarkdownContent>{renderArticleContent()}</MarkdownContent>
@@ -686,40 +647,40 @@ const Article = ({ pageContext }) => {
                       {!pageContext.hasNoChildContent &&
                         (pageContext.previous || pageContext.next) && (
                           <Box
-                            display="flex"
-                            flexDirection="row"
-                            justifyContent="space-between"
-                            width="100%"
-                          >
-                            {pageContext.previous &&
+                          display="flex"
+                          flexDirection="row"
+                          justifyContent="space-between"
+                          width="100%"
+                        >
+                          {pageContext.previous &&
                               pageContext.previous.path !==
                                 '/testnets/cardano/' && (
-                                <Link
-                                  href={pageContext.previous.path}
-                                  title={pageContext.previous.title}
-                                >
-                                  &larr; {content.previous}
-                                </Link>
-                              )}
-                            {pageContext.next && (
+                            <Link
+                                    href={pageContext.previous.path}
+                                    title={pageContext.previous.title}
+                                  >
+                                    &larr; {content.previous}
+                                  </Link>
+                          )}
+                          {pageContext.next && (
                               <Link
-                                href={pageContext.next.path}
-                                title={pageContext.next.title}
-                              >
-                                {content.next} &rarr;
-                              </Link>
-                            )}
-                          </Box>
-                        )}
+                              href={pageContext.next.path}
+                              title={pageContext.next.title}
+                            >
+                              {content.next} &rarr;
+                            </Link>
+                          )}
+                        </Box>
+                      )}
                     </MarkdownContent>
-                    <Box marginTop={2} marginBottom={2}>
+                    <Box marginTop={2}>
                       {config.gitHubRepository && (
                         <Box display="flex">
                           <ReportAnIssueLink
                             href={getReportIssueHref(location)}
                             tracking={{
                               category: 'article',
-                              label: 'report_an_issue',
+                              label: 'report_an_issue'
                             }}
                           >
                             <Box
@@ -741,38 +702,6 @@ const Article = ({ pageContext }) => {
                         </Box>
                       )}
                     </Box>
-                    {pageContext.navigationContext.children.length > 0 && (
-                      <MobileInlineNavigation
-                        className={mobileBottomNavigationOpen ? 'open' : ''}
-                      >
-                        <div>
-                          <NavigationTree
-                            lang={pageContext.lang}
-                            ariaLabel={`${pageContext.navigationContext.title} subnavigation`}
-                            items={pageContext.navigationContext.children}
-                            path={`/${pageContext.navigationContext.key}`}
-                            currentPathname={location.pathname}
-                            autoScroll={false}
-                          />
-                        </div>
-                        <a
-                          href="#"
-                          aria-hidden="true"
-                          tracking={{
-                            label: 'toggle_mobile_article_navigation_bottom',
-                          }}
-                          onClick={(e) => {
-                            e.preventDefault()
-                            setMobileBottomNavigationOpen(
-                              !mobileBottomNavigationOpen
-                            )
-                          }}
-                        >
-                          {mobileBottomNavigationOpen && <FaChevronUp />}
-                          {!mobileBottomNavigationOpen && <FaEllipsisH />}
-                        </a>
-                      </MobileInlineNavigation>
-                    )}
                   </MainContent>
                 </PageContent>
               )}
@@ -798,8 +727,8 @@ Article.propTypes = {
     previous: PropTypes.object,
     next: PropTypes.object,
     lang: PropTypes.string.isRequired,
-    hasNoChildContent: PropTypes.bool,
-  }).isRequired,
+    hasNoChildContent: PropTypes.bool
+  }).isRequired
 }
 
 export default Article

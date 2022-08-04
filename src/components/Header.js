@@ -253,7 +253,7 @@ const MobileMenu = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  bottom: 43rem;
+  bottom: 0;
   background-color: ${({ theme }) => new TinyColor(theme.palette.background.default).lighten(5).toString()};
   transform: translate(0, 0);
   transition: transform 0.4s ease-in-out;
@@ -285,7 +285,7 @@ const MobileMenuInner = styled.div`
   top: 8rem;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 2rem;
 `
 
 const MobileMenuScrollContainer = styled.div`
