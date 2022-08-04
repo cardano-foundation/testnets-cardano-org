@@ -18,6 +18,11 @@
     "react/jsx-curly-newline": [ "off" ],
     "react/jsx-tag-spacing": [ "error", { "closingSlash": "never", "beforeSelfClosing": "always", "afterOpening": "never", "beforeClosing": "never" } ],
     "react/jsx-curly-brace-presence": [ "error", "never" ],
-    "no-unused-vars": [ "error", { "varsIgnorePattern": "^_" } ]
+    "no-unused-vars": [ "error", { "varsIgnorePattern": "^_" } ],
+    "indent": "off",
+    "react/jsx-indent-props": "off",
+    "react/jsx-closing-bracket-location": "off",
+    "react/jsx-indent": "off",
+    "react/jsx-closing-tag-location": "off"
   }
 }
