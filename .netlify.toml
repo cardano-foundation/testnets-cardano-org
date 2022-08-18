@@ -5,21 +5,10 @@
   from = "/en/development-environments/native-tokens/native-tokens/"
   to = "https://docs.cardano.org/en/latest/native-tokens/getting-started-with-native-tokens.html"
   status = 301
-
+[[redirects]]
   from = "/en/testnets/cardano/tools/2021-09-06__12-00-00_plutus-fee-estimator.md/"
   to = "https://testnets.cardano.org/en/testnets/cardano/tools/plutus-fee-estimator/"
   status = 301
-
-  
-
-[build]
-  functions = "functions"
-[[redirects]]
-  from = "/api/*"
-  to="/.netlify/functions/:splat"
-  status=200
-
-
 [[redirects]]
   from = "/"
   to="https://docs.cardano.org/cardano-testnet/overview"
@@ -180,3 +169,12 @@
   from = "/en/programming-languages/marlowe/resources/links/"
   to="https://docs.cardano.org/marlowe/marlowe-resources"
   status=301
+
+
+[build]
+  functions = "functions"
+[[redirects]]
+  from = "/api/*"
+  to="/.netlify/functions/:splat"
+  status=200
+
