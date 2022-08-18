@@ -167,3 +167,9 @@
   from = "/en/programming-languages/marlowe/resources/links/"
   to="https://docs.cardano.org/marlowe/marlowe-resources"
   status=301
+[[redirects]]
+  from = "/api/*"
+  to="/.netlify/functions/:splat"
+  status=200
+
+
