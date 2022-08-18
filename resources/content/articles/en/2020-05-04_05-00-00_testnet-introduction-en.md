@@ -8,6 +8,11 @@ redirects:
   - from: /en/shelley-haskell/about/testnet-introduction/
     type: "301"
 ---
+
+>Note: A new dedicated pre-production environment has been freshly spun up for the final stages of testing Vasil functionality. This environment offers improved chain density and a better developer experience. 
+
+> We recommend that all developers, SPOs, and exchanges use this environment rather than the main Cardano testnet. To join the pre-production environment for testing, update your [latest configurations here](https://book.world.dev.cardano.org/environments.html#pre-prod).
+
 ## About Vasil testnet
 
 The Cardano testnet has now been upgraded to Vasil functionality and is now available for public functionality testing. 

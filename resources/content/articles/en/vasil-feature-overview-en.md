@@ -37,20 +37,16 @@ Due to performance improvements in the Plutus evaluator, both Plutus v1 and Plut
 
 The updated cost model parameters include the following changes:
 
-1.  Extend the set of built-in functions by adding these new built-ins:
+1.  Extend the set of built-in functions by adding the new built-in 'serialiseData'.
 
--   `serialiseData`
--   `verifyEcdsaSecp256k1Signature`
--   `verifySchnorrSecp256k1Signature`
+2.  The built-in function “verifySignature” was renamed “verifyEd25519Signature” to make it more clear what its function is.
     
-2.  Given the two new signature verification built-in functions referenced immediately above, the built-in function `verifySignature` was renamed `verifyEd25519Signature` to make it more clear what its function is.
-
-3.  Recalibrate the cost model for the version of the evaluator in the node to align with the CPU parameter changes.
-
-### New Plutus Core built-ins
-
-The built-in types and type operators remain unchanged from the Alonzo release. All the new built-in functions are backward compatible. Adding them does not break any older script validators. The Vasil release continues to support the Alonzo built-in functions and adds the following new functions: 
+3.  Recalibrate the cost model for the version of the evaluator in the node to align with the CPU parameters changes.
     
+### New Plutus Core built-in
+
+The built-in types and type operators remain unchanged from the Alonzo release. All the new built-in functions are backward compatible. Adding them does not break any older script validators. The Vasil release continues to support the Alonzo built-in functions and adds the following new function:
+
 **serialiseData**
 
 A new Plutus built-in is added for serializing `BuiltinData` to `BuiltinByteString`. The serialiseData function takes a data object and converts it into a [CBOR](https://cbor.io/) object.
@@ -59,37 +55,30 @@ Plutus already provides a built-in for hashing data structure, for example, `sha
 
 The overall memory and CPU costs are reduced by having a new built-in to serialize any Plutus ‘BuiltinData’ to ‘BuiltinByteString’ such that validators can leverage more optimized implementations and bytestring builders via built-ins than what is available on-chain.
 
-**verifyEcdsaSecp256k1Signature**
-
-The `verifyEcdsaSecp256k1Signature` function performs elliptic curve digital signature verification over the `secp256k1` curve and conforms to a uniform interface for digital signature verification algorithms.
-
-The ECDSA scheme admits two distinct valid signatures for a given message and private key. We follow the restriction imposed by Bitcoin and only accept the smaller signature: `verifyEcdsaSecp256k1Signature` will return false if the larger one is supplied.
-
-The keys for `verifyEcdsaSecp256k1Signature` exceed the maximum size that can be encoded in a constant bytestring and therefore must be split into 2 bytestrings and concatenated in the validator script.
-
-**verifySchnorrSecp256k1Signature**
-
-The `verifySchnorrSecp256k1Signature` function performs verification of Schnorr signatures over the `secp256k1` curve and conforms to a uniform interface for digital signature verification algorithms. 
-
 For more explanations, how-to guides, and tutorials, see [Plutus Docs.](https://plutus.readthedocs.io/en/latest/index.html)
 
-### Plutus Contract Addresses
+### Plutus script addresses
 
 *A Plutus v2 script will not have the same hash value as a Plutus v1 script.*
 
 Since scripts must match their on-chain hashes exactly, it is important that the scripts which an application uses do not accidentally change. For example, changing the source code or updating dependencies or tooling may lead to small changes in the script. As a result, the hash will change. In cases where the hashes must match exactly, even changes which do not alter the functionality of the script can be problematic.
 
-In light of this consideration, some DApp developers might expect that when doing a migration from Plutus v1 scripts to Plutus v2 scripts, the same source code, when recompiled, will generate the same hash value of that script address. However, it is impossible for a compiled v2 script to have the same script hash and address as a compiled v1 script. Given Plutus compiler version changes, changes in the dependencies, and multiple other improvements, it is expected that the hash value of the contract address will change after the source code is recompiled.
+In light of this consideration, some DApp developers might expect that when doing a migration from Plutus v1 scripts to Plutus v2 scripts, the same source code, when recompiled, will generate the same hash value of that script address. However, it is impossible for a compiled v2 script to have the same script hash and address as a compiled v1 script. 
 
-For example, suppose you write your Haskell source code (Plutus Tx), compile it into Plutus Core code (PLC), generate its hash value, then use it in a transaction. If you don’t save your compiled code, and then decide to use the same script in the future, you would have to recompile it. This would result in a different hash value of the contract address even without upgrading from Plutus v1 to Plutus v2 scripts. This is because the hash is computed based on the output of the compiled code.
+Using the exact same script with different language versions will result in different hashes. The exact same script (as in UPLC.Program) can be used as a Plutus v1 script or a Plutus v2 script, and since the language version is part of the hash, the two hashes will be different. 
 
-Using the exact same script with different language versions will result in different hashes. The exact same script (as in UPLC.Program) can be used as a Plutus v1 script or a Plutus v2 script, and since the language version is part of the hash, the two hashes will be different.
+**A Plutus v1 script will not necessarily have the same hash value when recompiled with a later version of the Plutus Compiler**
+
+Suppose you write your Haskell source code (Plutus Tx), compile it into Plutus Core code (PLC), generate its hash value, then use it in a transaction. If you don’t save your compiled code, and then decide to use the same script in the future, you would have to recompile it. This could result in a different hash value of the script address even without upgrading from Plutus v1 to Plutus v2 scripts. This is because the hash is computed based on the output of the compiled code. 
+
+Given Plutus compiler version changes, changes in the dependencies, and multiple other improvements, it is expected that the hash value of the script address will change after the source code is recompiled. 
 
 **When to export and save the output of a compiled script**
 
 Once you expect that you will not modify the on-chain part of your application and you don’t want the hash value of your script address to change, the best way to keep it the same is to save the output of your final compiled Plutus Core code (PLC) to a file.
 
 For details on how to export scripts, please see: [How to export scripts, datums and redeemers](https://plutus.readthedocs.io/en/latest/howtos/exporting-a-script.html) in the Plutus Core user documentation.
+
 
 ## Reference inputs (CIP-31)
 

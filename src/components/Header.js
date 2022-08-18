@@ -344,9 +344,9 @@ export default () => {
   const navigationRef = useRef(null)
   const mobileSearchBarRef = useRef(null)
   const rootRef = useRef(null)
-  const [ mobileMenuOpen, setMobileMenuOpen ] = useState(false)
-  const [ mobileSearchBarOpen, setMobileSearchBarOpen ] = useState(false)
-  const [ navigationPosition, setNavigationPosition ] = useState('static')
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileSearchBarOpen, setMobileSearchBarOpen] = useState(false)
+  const [navigationPosition, setNavigationPosition] = useState('static')
 
   const toggleMobileMenu = (e) => {
     e.preventDefault()
@@ -363,7 +363,7 @@ export default () => {
     if (!mobileSearchBarEl) return
     const { bottom } = mobileSearchBarEl.getBoundingClientRect()
     if (event.clientY > bottom) setMobileSearchBarOpen(false)
-  }, [ mobileSearchBarRef ])
+  }, [mobileSearchBarRef])
 
   const onScroll = useCallback(() => {
     if (!navigationRef.current) return
@@ -374,7 +374,7 @@ export default () => {
     } else if (top <= parentBottom) {
       setNavigationPosition('static')
     }
-  }, [ navigationRef, navigationPosition ])
+  }, [navigationRef, navigationPosition])
 
   /**
    * All of this is for accessibility to ensure when the mobile menu is open that
@@ -401,7 +401,7 @@ export default () => {
         e.preventDefault()
       }
     }
-  }, [ rootRef ])
+  }, [rootRef])
 
   useEffect(() => {
     window.addEventListener('scroll', onScroll)
@@ -414,7 +414,7 @@ export default () => {
       window.removeEventListener('touchmove', onScroll)
       window.removeEventListener('keydown', onKeyDown)
     }
-  }, [ mobileSearchBarOpen, mobileSearchBarRef, navigationRef, navigationPosition, mobileMenuOpen, rootRef ])
+  }, [mobileSearchBarOpen, mobileSearchBarRef, navigationRef, navigationPosition, mobileMenuOpen, rootRef])
 
   function getActiveIndex ({ navigation, path }) {
     let activeIndex = false
@@ -460,14 +460,14 @@ export default () => {
     <GlobalContentQuery
       render={(content, navigation) => (
         <div ref={rootRef}>
-          <Bar position='fixed'>
+          <Bar position="fixed">
             <Container>
-              <Box paddingTop={0.8} paddingBottom={0.8} display='flex'>
-                <Box display='flex'>
+              <Box paddingTop={0.8} paddingBottom={0.8} display="flex">
+                <Box display="flex">
                   <Logo>
-                    <Link href='/' aria-label={content.main_title_aria_label} tracking={{ label: 'header_logo' }}>
+                    <Link href="/" aria-label={content.main_title_aria_label} tracking={{ label: 'header_logo' }}>
                       <Column>
-                        <img alt='Logo' aria-hidden='true' src={LogoImage} />
+                        <img alt="Logo" aria-hidden="true" src={LogoImage} />
                       </Column>
                       <SiteTitle marginLeft={1}>
                         <span>{content.main_title}</span>
@@ -475,7 +475,7 @@ export default () => {
                     </Link>
                   </Logo>
                 </Box>
-                <Box flex={1} display='flex' justifyContent='flex-end'>
+                <Box flex={1} display="flex" justifyContent="flex-end">
                   <SearchFieldContainer marginRight={2}>
                     <SearchField />
                   </SearchFieldContainer>
@@ -486,11 +486,11 @@ export default () => {
                   }
                   <MobileSearchIconContainer>
                     <a
-                      href='#'
+                      href="#"
                       tracking={{ label: 'header_toggle_mobile_search_bar' }}
                       onClick={toggleMobileSearchBar}
                       aria-expanded={mobileSearchBarOpen}
-                      aria-controls='mobile-search-bar'
+                      aria-controls="mobile-search-bar"
                       aria-label={mobileSearchBarOpen ? content.close_search_bar : content.open_search_bar}
                     >
                       <MdSearch />
@@ -498,11 +498,11 @@ export default () => {
                   </MobileSearchIconContainer>
                   <MobileNavContainer marginLeft={1}>
                     <a
-                      href='#'
+                      href="#"
                       tracking={{ label: 'header_toggle_mobile_menu' }}
                       onClick={toggleMobileMenu}
                       aria-expanded={mobileMenuOpen}
-                      aria-controls='mobile-search-menu'
+                      aria-controls="mobile-search-menu"
                       aria-label={mobileMenuOpen ? content.close_main_navigation : content.open_main_navigation}
                     >
                       {mobileMenuOpen && <MdClose />}
@@ -516,16 +516,16 @@ export default () => {
           <TransitionGroup>
             {mobileSearchBarOpen &&
               <CSSTransition
-                key='mobile-search-bar'
+                key="mobile-search-bar"
                 timeout={300}
-                classNames='mobile-search-bar'
+                classNames="mobile-search-bar"
               >
                 <MobileSearchBar
                   ref={mobileSearchBarRef}
-                  aria-labelledby='mobile-search-bar'
-                  ariaLabel='Search bar'
+                  aria-labelledby="mobile-search-bar"
+                  ariaLabel="Search bar"
                 >
-                  <MUIContainer maxWidth='xs'>
+                  <MUIContainer maxWidth="xs">
                     <SearchField onSearch={() => setMobileSearchBarOpen(false)} />
                   </MUIContainer>
                 </MobileSearchBar>
@@ -535,19 +535,19 @@ export default () => {
           <BarOffset />
           <Location>
             {({ location }) => (
-              <Fragment>
+              <>
                 {renderPageTitle(navigation, location.pathname)}
                 <div>
                   <Navigation className={`position-${!renderPageTitle(navigation, location.pathname) ? 'fixed' : navigationPosition}`} ref={navigationRef} aria-label={content.main_navigation_label}>
                     <Container>
                       <Box>
-                        <TabsContainer maxWidth='100%'>
+                        <TabsContainer maxWidth="100%">
                           <Tabs
                             value={getActiveIndex({ navigation, path: location.pathname })}
-                            indicatorColor='primary'
-                            textColor='primary'
-                            variant='scrollable'
-                            scrollButtons='auto'
+                            indicatorColor="primary"
+                            textColor="primary"
+                            variant="scrollable"
+                            scrollButtons="auto"
                           >
                             {navigation.map(({ label, path }) => (
                               <Tab
@@ -571,22 +571,22 @@ export default () => {
                 <TransitionGroup>
                   {mobileMenuOpen &&
                     <CSSTransition
-                      key='mobile-menu'
+                      key="mobile-menu"
                       timeout={400}
-                      classNames='mobile-menu'
+                      classNames="mobile-menu"
                     >
                       <MobileMenu
-                        aria-labelledby='mobile-search-menu'
-                        ariaLabel='Main menu'
-                        role='dialog'
-                        id='mobile-menu'
+                        aria-labelledby="mobile-search-menu"
+                        ariaLabel="Main menu"
+                        role="dialog"
+                        id="mobile-menu"
                       >
                         <MobileMenuInner>
                           <MobileMenuScrollContainer>
                             <MobileLogo>
-                              <Link href='/' aria-label={content.main_title_aria_label} tracking={{ label: 'header_close_mobile_menu' }} onClick={() => setMobileMenuOpen(false)}>
+                              <Link href="/" aria-label={content.main_title_aria_label} tracking={{ label: 'header_close_mobile_menu' }} onClick={() => setMobileMenuOpen(false)}>
                                 <Column>
-                                  <img alt={content.logo_alt} aria-hidden='true' src={LogoImage} />
+                                  <img alt={content.logo_alt} aria-hidden="true" src={LogoImage} />
                                 </Column>
                                 <MobileSiteTitle marginLeft={1}>
                                   <span>{content.main_title}</span>
@@ -600,7 +600,7 @@ export default () => {
                     </CSSTransition>
                   }
                 </TransitionGroup>
-              </Fragment>
+              </>
             )}
           </Location>
         </div>
