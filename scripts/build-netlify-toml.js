@@ -58,7 +58,7 @@ async function buildNetlifyToml () {
   })
 
   config.availableLanguages.forEach(({ key: lang }) => {
-    if (config.localization.createLocalizedPages) content = addRedirect(`/${lang}/`, content, 404, `/${lang}/404/index.html`)
+    if (config.localization.createLocalizedPages && 1 === 2) content = addRedirect(`/${lang}/`, content, 404, `/${lang}/404/index.html`)
   })
 
   fs.writeFileSync(path.join(__dirname, '..', 'netlify.toml'), content, { encoding: 'utf-8' })
