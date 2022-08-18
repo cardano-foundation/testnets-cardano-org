@@ -12,10 +12,6 @@
   to = "https://docs.cardano.org/cardano-testnet/pioneer-programs/plutus-pioneers"
   status = 301
 [[redirects]]
-  from = "/en/testnets/cardano/overview/"
-  to = "https://docs.cardano.org/cardano-testnet/overview"
-  status = 301
-[[redirects]]
   from = "/en/testnets/cardano/about/testnet-introduction/"
   to = "https://docs.cardano.org/cardano-testnet/about/testnet-introduction"
   status = 301
