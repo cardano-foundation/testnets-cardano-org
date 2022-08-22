@@ -4,6 +4,8 @@ const config = require('../node/config')
 const onPreInit = require('../node/gatsby/onPreInit')
 const data = require('../node/gatsby/data')
 
+console.log('config', config)
+
 const redirects = {}
 
 function addRedirect (staticPath, content, status = 200, to = null, useGlob = true) {
@@ -61,6 +63,7 @@ async function buildNetlifyToml () {
     if (config.localization.createLocalizedPages && 1 === 2) content = addRedirect(`/${lang}/`, content, 404, `/${lang}/404/index.html`)
   })
 
+  console.log('final netlify toml', content)
   fs.writeFileSync(path.join(__dirname, '..', 'netlify.toml'), content, { encoding: 'utf-8' })
 }
 
