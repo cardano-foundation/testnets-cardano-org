@@ -5,9 +5,9 @@
   functions = "functions"
 
 [[redirects]]
-  from = "/development-environments/native-tokens/native-tokens/"
+  from = "/development-environments/"
   to = "https://docs.cardano.org/latest/native-tokens/getting-started-with-native-tokens.html"
-  status = 301
+  status = 302
 
 [[redirects]]
   from = "/plutus-pioneer-program/"
