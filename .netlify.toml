@@ -14,191 +14,229 @@
   from = "/en/plutus-pioneer-program/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/about/testnet-introduction/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/about/vasil-feature-overview/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/about/understanding-the-delegation-mechanism/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/about/what-is-a-stake-pool/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/about/supported-platforms/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/about/the-testnet-faucet/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/get-started/what-is-a-cardano-node/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/get-started/creating-a-stake-pool/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/get-started/wallet/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/get-started/installing-and-running-the-cardano-node/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/get-started/installing-and-running-the-cardano-node/running-a-node-as-a-relay/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/get-started/configuring-a-node-using-yaml/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/get-started/pledging-and-rewards/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/get-started/SP_metadata_register/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/get-started/registering-a-stake-pool-on-the-blockchain/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/monitor/monitoring-the-cardano-node/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/transactions/creating-transactions/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/transactions/diagnosing-transactions/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/resources/cli-references/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/resources/links/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/resources/support/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/resources/release-notes/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/resources/providing-feedback/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/resources/community/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/resources/contribute/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/tools/faucet/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/tools/staking-calculator/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/testnets/cardano/tools/plutus-fee-estimator/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/programming-languages/plutus/overview/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/programming-languages/plutus/getting-started/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/programming-languages/plutus/resources/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/programming-languages/marlowe/overview/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/programming-languages/marlowe/about/skills-and-requirements/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/programming-languages/marlowe/getting-started/modelling-financial-products-in-marlowe/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/programming-languages/marlowe/getting-started/sample-marlowe-smart-contracts/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/programming-languages/marlowe/getting-started/using-the-marlowe-playground/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/programming-languages/marlowe/resources/links/"
   to = "/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/api/*"
