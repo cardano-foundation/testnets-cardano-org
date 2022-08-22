@@ -6,7 +6,7 @@
 
 [[redirects]]
   from = "/en/development-environments/native-tokens/native-tokens/"
-  to = "/"
+  to = "https://docs.cardano.org/en/latest/native-tokens/getting-started-with-native-tokens.html"
   status = 302
   force = true
 
