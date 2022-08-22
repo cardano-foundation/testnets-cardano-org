@@ -50,11 +50,10 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "npm run clean && gatsby build && npm run build:netlify-prod && npm run build:netlify-toml && npm run build:cp-redirects",
+    "build": "npm run clean && gatsby build && npm run build:netlify-prod && npm run build:netlify-toml",
     "build:netlify": "./node_modules/.bin/webpack --config webpack.netlify.config.js",
     "build:netlify-prod": "NODE_ENV=production ./node_modules/.bin/webpack --config webpack.netlify.config.js",
     "build:netlify-toml": "node ./scripts/build-netlify-toml.js",
-    "build:cp-redirects": "cp _redirects public/",
     "ci": "npm run lint && npm run build",
     "clean": "gatsby clean",
     "create-pages": "node ./scripts/create-pages.js",
