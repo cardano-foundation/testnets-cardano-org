@@ -39,7 +39,7 @@
     "react-zendesk": "^0.1.9",
     "showdown": "^1.9.1",
     "styled-components": "^5.1.0",
-    "victory": "^34.3.11",
+    "victory": "^36.6.8",
     "whatwg-fetch": "^3.0.0"
   },
   "keywords": [
